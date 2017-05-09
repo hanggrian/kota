@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-    compile deps.supportAnnotations
+    compile deps.supportCompat
 
     androidTestCompile(deps.supportTestRunner) {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -27,8 +27,8 @@ dependencies {
 publish {
     userOrg = bintray.user
     groupId = bintray.group
-    artifactId = bintray.artifact.view
-    publishVersion = bintray.version.view
+    artifactId = bintray.artifact.content
+    publishVersion = bintray.version.content
     desc = bintray.desc
     website = bintray.website
 }

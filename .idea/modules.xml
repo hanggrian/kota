@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/commons.iml" filepath="$PROJECT_DIR$/commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commons-content/commons-content.iml" filepath="$PROJECT_DIR$/commons-content/commons-content.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commons-util/commons-util.iml" filepath="$PROJECT_DIR$/commons-util/commons-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commons-view/commons-view.iml" filepath="$PROJECT_DIR$/commons-view/commons-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/commons-view.iml" filepath="$PROJECT_DIR$/commons-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/commons-view/commons-view-commons-view.iml" filepath="$PROJECT_DIR$/commons-view/commons-view-commons-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />

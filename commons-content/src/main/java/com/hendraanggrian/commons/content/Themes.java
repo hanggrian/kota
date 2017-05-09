@@ -1,4 +1,4 @@
-package com.hendraanggrian.commons.view;
+package com.hendraanggrian.commons.content;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -16,12 +16,12 @@ public final class Themes {
     }
 
     @ColorInt
-    public static int getColorFromAttrRes(@NonNull Context context, @AttrRes int attr, @ColorInt int defaultValue) {
-        return getColorFromAttrRes(context.getTheme(), attr, defaultValue);
+    public static int getColor(@NonNull Context context, @AttrRes int attr, @ColorInt int defaultValue) {
+        return getColor(context.getTheme(), attr, defaultValue);
     }
 
     @ColorInt
-    public static int getColorFromAttrRes(@NonNull Resources.Theme theme, @AttrRes int attr, @ColorInt int defaultValue) {
+    public static int getColor(@NonNull Resources.Theme theme, @AttrRes int attr, @ColorInt int defaultValue) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
         try {
             return a.getColor(0, defaultValue);
@@ -30,11 +30,11 @@ public final class Themes {
         }
     }
 
-    public static float getFloatFromAttrRes(@NonNull Context context, @AttrRes int attr, float defaultValue) {
-        return getFloatFromAttrRes(context.getTheme(), attr, defaultValue);
+    public static float getFloat(@NonNull Context context, @AttrRes int attr, float defaultValue) {
+        return getFloat(context.getTheme(), attr, defaultValue);
     }
 
-    public static float getFloatFromAttrRes(@NonNull Resources.Theme theme, @AttrRes int attr, float defaultValue) {
+    public static float getFloat(@NonNull Resources.Theme theme, @AttrRes int attr, float defaultValue) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
         try {
             return a.getFloat(0, defaultValue);

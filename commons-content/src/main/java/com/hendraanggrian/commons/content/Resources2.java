@@ -1,4 +1,4 @@
-package com.hendraanggrian.commons.view;
+package com.hendraanggrian.commons.content;
 
 import android.content.res.Resources;
 

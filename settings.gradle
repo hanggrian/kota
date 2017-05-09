@@ -1,1 +1,2 @@
-include ':example', ':commons-view'
+include ':commons-util', ':commons-view', ':commons-content'
+include ':example'
