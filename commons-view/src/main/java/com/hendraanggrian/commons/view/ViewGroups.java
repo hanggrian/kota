@@ -2,12 +2,11 @@ package com.hendraanggrian.commons.view;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+
 
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
@@ -20,37 +19,53 @@ public final class ViewGroups {
     private ViewGroups() {
     }
 
-    public static <VG extends ViewGroup, V extends View> V addView(
-            @NonNull VG parent,
-            @NonNull Class<V> childCls,
-            int width,
-            int height) {
-        return addView(parent, childCls, null, width, height);
+    public static boolean containsView(@NonNull ViewGroup parent, @NonNull View child) {
+        for (int i = 0; i < parent.getChildCount(); i++)
+            if (parent.getChildAt(i) == child)
+                return true;
+        return false;
     }
 
-    public static <VG extends ViewGroup, V extends View> V addView(
-            @NonNull VG parent,
-            @NonNull Class<V> childCls,
-            @Nullable Integer index,
-            int width,
-            int height) {
+    public static boolean containsViews(@NonNull ViewGroup parent, @NonNull View... childs) {
+        int count = 0;
+        for (View child : childs)
+            if (ViewGroups.containsView(parent, child))
+                count++;
+        return count == childs.length;
+    }
+
+    public static <VG extends ViewGroup, V extends View> V addView(@NonNull VG parent, @NonNull Class<V> childCls, int width, int height) {
+        return addView(parent, childCls, width, height, -1);
+    }
+
+    public static <VG extends ViewGroup, V extends View> V addView(@NonNull VG parent, @NonNull Class<V> childCls, int width, int height, int index) {
         try {
-            Constructor<V> childConstructor = childCls.getConstructor(Context.class);
-            V child = childConstructor.newInstance(parent.getContext());
+            V child = childCls.getConstructor(Context.class).newInstance(parent.getContext());
             child.setLayoutParams(new VG.LayoutParams(width, height));
-            if (index != null)
-                parent.addView(child, index);
-            else
-                parent.addView(child);
+            parent.addView(child, index);
             return child;
         } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Unable to create an instance of " + childCls.getSimpleName() +
+                    ": does this view has Context-only constructor?");
         } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Unable to create an instance of " + childCls.getSimpleName() +
+                    ": is this view class private?");
         } catch (InstantiationException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Unable to create an instance of " + childCls.getSimpleName() +
+                    ": is this view class abstract?");
         } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Unable to create an instance of " + childCls.getSimpleName() +
+                    ": unknown error.");
         }
+    }
+
+    public static void addViews(@NonNull ViewGroup parent, @NonNull View... childs) {
+        for (View child : childs)
+            parent.addView(child);
+    }
+
+    public static void removeViews(@NonNull ViewGroup parent, @NonNull View... childs) {
+        for (View child : childs)
+            parent.removeView(child);
     }
 }

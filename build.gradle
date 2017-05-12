@@ -48,7 +48,7 @@ ext.bintray = [
         version : [
                 content: '0.2',
                 util   : '0.1',
-                view   : '0.6'
+                view   : '0.7'
         ],
         desc    : 'Sets of utility class for Android.',
         website : 'https://github.com/HendraAnggrian/commons'
