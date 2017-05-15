@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hendraanggrian.commons.view.ViewGroups;
+import com.hendraanggrian.util.view.ViewGroups;
 
 public class MainActivity extends AppCompatActivity {
 

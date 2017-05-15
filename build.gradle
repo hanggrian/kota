@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.android.tools.build:gradle:2.3.2'
         classpath 'com.novoda:bintray-release:0.3.4'
     }
 }
@@ -41,14 +41,16 @@ ext.bintray = [
         user    : 'hendraanggrian',
         group   : 'com.hendraanggrian',
         artifact: [
-                content: 'more-content',
-                util   : 'more-util',
-                view   : 'more-view'
+                all    : 'util',
+                content: 'util-content',
+                util   : 'util-util',
+                view   : 'util-view'
         ],
         version : [
-                content: '0.2',
+                all    : '0.1',
+                content: '0.1',
                 util   : '0.1',
-                view   : '0.7'
+                view   : '0.1'
         ],
         desc    : 'Sets of utility class for Android.',
         website : 'https://github.com/HendraAnggrian/more'

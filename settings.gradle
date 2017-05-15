@@ -1,2 +1,2 @@
-include ':more-util', ':more-view', ':more-content'
+include ':util-util', ':util-view', ':util-content', ':util'
 include ':example'
