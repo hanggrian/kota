@@ -41,9 +41,9 @@ ext.bintray = [
         user    : 'hendraanggrian',
         group   : 'com.hendraanggrian',
         artifact: [
-                content: 'commons-content',
-                util   : 'commons-util',
-                view   : 'commons-view'
+                content: 'more-content',
+                util   : 'more-util',
+                view   : 'more-view'
         ],
         version : [
                 content: '0.2',
@@ -51,7 +51,7 @@ ext.bintray = [
                 view   : '0.7'
         ],
         desc    : 'Sets of utility class for Android.',
-        website : 'https://github.com/HendraAnggrian/commons'
+        website : 'https://github.com/HendraAnggrian/more'
 ]
 
 //$ ./gradlew bintrayUpload -PbintrayUser=hendraanggrian -PbintrayKey= -PdryRun=false

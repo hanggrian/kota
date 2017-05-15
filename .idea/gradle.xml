@@ -8,10 +8,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/commons-content" />
-            <option value="$PROJECT_DIR$/commons-util" />
-            <option value="$PROJECT_DIR$/commons-view" />
             <option value="$PROJECT_DIR$/example" />
+            <option value="$PROJECT_DIR$/more-content" />
+            <option value="$PROJECT_DIR$/more-util" />
+            <option value="$PROJECT_DIR$/more-view" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
