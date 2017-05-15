@@ -41,10 +41,10 @@ ext.bintray = [
         user    : 'hendraanggrian',
         group   : 'com.hendraanggrian',
         artifact: [
-                all    : 'util',
-                content: 'util-content',
-                util   : 'util-util',
-                view   : 'util-view'
+                all    : 'compat',
+                content: 'compat-content',
+                util   : 'compat-util',
+                view   : 'compat-view'
         ],
         version : [
                 all    : '0.1',
@@ -53,7 +53,7 @@ ext.bintray = [
                 view   : '0.1'
         ],
         desc    : 'Sets of utility class for Android.',
-        website : 'https://github.com/HendraAnggrian/more'
+        website : 'https://github.com/HendraAnggrian/compat'
 ]
 
 //$ ./gradlew bintrayUpload -PbintrayUser=hendraanggrian -PbintrayKey= -PdryRun=false
