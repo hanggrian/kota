@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/compat" />
             <option value="$PROJECT_DIR$/compat-content" />
+            <option value="$PROJECT_DIR$/compat-text" />
             <option value="$PROJECT_DIR$/compat-util" />
             <option value="$PROJECT_DIR$/compat-view" />
             <option value="$PROJECT_DIR$/example" />

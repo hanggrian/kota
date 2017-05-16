@@ -43,12 +43,14 @@ ext.bintray = [
         artifact: [
                 all    : 'compat',
                 content: 'compat-content',
+                text   : 'compat-text',
                 util   : 'compat-util',
                 view   : 'compat-view'
         ],
         version : [
                 all    : '0.1',
                 content: '0.1',
+                text   : '0.1',
                 util   : '0.1',
                 view   : '0.1'
         ],
