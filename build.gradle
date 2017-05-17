@@ -48,11 +48,11 @@ ext.bintray = [
                 view   : 'compat-view'
         ],
         version : [
-                all    : '0.2',
+                all    : '0.3',
                 content: '0.1',
-                text   : '0.1',
+                text   : '0.2',
                 util   : '0.1',
-                view   : '0.1'
+                view   : '0.2'
         ],
         desc    : 'Sets of utility class for Android.',
         website : 'https://github.com/HendraAnggrian/compat'

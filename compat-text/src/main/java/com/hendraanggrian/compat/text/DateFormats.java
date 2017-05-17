@@ -17,7 +17,7 @@ import java.util.WeakHashMap;
  */
 public final class DateFormats {
 
-    @Nullable private static Map<String, DateFormat> formats;
+    @Nullable static Map<String, DateFormat> formats;
     @Nullable private static Locale defaultLocale;
 
     private DateFormats() {
