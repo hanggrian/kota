@@ -48,7 +48,7 @@ ext.bintray = [
                 view   : 'compat-view'
         ],
         version : [
-                all    : '0.1',
+                all    : '0.2',
                 content: '0.1',
                 text   : '0.1',
                 util   : '0.1',

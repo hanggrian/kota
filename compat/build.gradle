@@ -12,6 +12,7 @@ android {
 
 dependencies {
     compile project(':compat-content')
+    compile project(':compat-text')
     compile project(':compat-util')
     compile project(':compat-view')
 }

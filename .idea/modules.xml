@@ -11,18 +11,11 @@
       <module fileurl="file://$PROJECT_DIR$/commons-view.iml" filepath="$PROJECT_DIR$/commons-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/commons-view/commons-view-commons-view.iml" filepath="$PROJECT_DIR$/commons-view/commons-view-commons-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/compat.iml" filepath="$PROJECT_DIR$/compat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compat.iml" filepath="$PROJECT_DIR$/compat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compat/compat-compat.iml" filepath="$PROJECT_DIR$/compat/compat-compat.iml" />
       <module fileurl="file://$PROJECT_DIR$/compat/compat-compat.iml" filepath="$PROJECT_DIR$/compat/compat-compat.iml" />
       <module fileurl="file://$PROJECT_DIR$/compat-content/compat-content.iml" filepath="$PROJECT_DIR$/compat-content/compat-content.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compat-content/compat-content.iml" filepath="$PROJECT_DIR$/compat-content/compat-content.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compat-text/compat-text.iml" filepath="$PROJECT_DIR$/compat-text/compat-text.iml" />
       <module fileurl="file://$PROJECT_DIR$/compat-text/compat-text.iml" filepath="$PROJECT_DIR$/compat-text/compat-text.iml" />
       <module fileurl="file://$PROJECT_DIR$/compat-util/compat-util.iml" filepath="$PROJECT_DIR$/compat-util/compat-util.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compat-util/compat-util.iml" filepath="$PROJECT_DIR$/compat-util/compat-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/compat-view/compat-view.iml" filepath="$PROJECT_DIR$/compat-view/compat-view.iml" />
-      <module fileurl="file://$PROJECT_DIR$/compat-view/compat-view.iml" filepath="$PROJECT_DIR$/compat-view/compat-view.iml" />
-      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/more.iml" filepath="$PROJECT_DIR$/more.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-content/more-content.iml" filepath="$PROJECT_DIR$/more-content/more-content.iml" />

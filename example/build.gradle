@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion config.sdk.target
+    buildToolsVersion config.buildTools
     defaultConfig {
         applicationId "com.example.commons"
-        minSdkVersion 16
-        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion config.sdk.min
+        targetSdkVersion config.sdk.target
+        testInstrumentationRunner config.testRunner
     }
     buildTypes {
         release {
@@ -20,8 +20,7 @@ android {
 }
 
 dependencies {
-    compile project(':compat-util')
-    compile project(':compat-view')
+    compile project(':compat')
     compile 'com.android.support:appcompat-v7:25.3.1'
 
     androidTestCompile(deps.supportTestRunner) {
