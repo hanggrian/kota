@@ -1,15 +1,26 @@
-Compat
-======
+support-utils
+=============
 Sets of utility classes for Android, grouped in android packaging format.
-See [wiki] for more.
 
-Subprojects
------------
- * [compat] - contains all subprojects.
- * [compat-content] - Theme, Resources, and Context-related operations.
- * [compat-text] - String formatting and spanning.
- * [compat-util] - logs.
- * [compat-view] - programmatic View creation and modification.
+#### Content
+
+Theme, Resources, and Context-related operations.
+###### [See wiki][wiki-content]
+
+#### Text
+
+String formatting and spanning.
+###### [See wiki][wiki-text]
+
+#### Util
+
+Logs.
+###### [See wiki][wiki-util]
+
+#### View
+
+Programmatic View creation and modification.
+###### [See wiki][wiki-util]
 
 Download
 --------
@@ -19,11 +30,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:compat:0.3'
-    compile 'com.hendraanggrian:compat-content:0.1'
-    compile 'com.hendraanggrian:compat-text:0.2'
-    compile 'com.hendraanggrian:compat-util:0.1'
-    compile 'com.hendraanggrian:compat-view:0.2'
+    compile 'com.hendraanggrian:support-utils:0.1'
 }
 ```
 
@@ -43,8 +50,7 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
     
-[wiki]: https://github.com/HendraAnggrian/compat/wiki
-[compat]: https://github.com/HendraAnggrian/compat/tree/master/compat
-[compat-content]: https://github.com/HendraAnggrian/compat/tree/master/compat-content
-[compat-util]: https://github.com/HendraAnggrian/compat/tree/master/compat-util
-[compat-view]: https://github.com/HendraAnggrian/compat/tree/master/compat-view
+[wiki-content]: https://github.com/HendraAnggrian/support-utils/wiki/Content
+[wiki-text]: https://github.com/HendraAnggrian/support-utils/wiki/Text
+[wiki-util]: https://github.com/HendraAnggrian/support-utils/wiki/Util
+[wiki-view]: https://github.com/HendraAnggrian/support-utils/wiki/View

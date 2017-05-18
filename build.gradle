@@ -31,7 +31,6 @@ ext.deps = [
         // test
         junit              : 'junit:junit:4.12',
         // android
-        supportAnnotations : 'com.android.support:support-annotations:25.3.1',
         supportCompat      : 'com.android.support:support-compat:25.3.1',
         supportTestRunner  : 'com.android.support.test:runner:0.5',
         supportTestEspresso: 'com.android.support.test.espresso:espresso-core:2.2.2'
@@ -40,22 +39,10 @@ ext.deps = [
 ext.bintray = [
         user    : 'hendraanggrian',
         group   : 'com.hendraanggrian',
-        artifact: [
-                all    : 'compat',
-                content: 'compat-content',
-                text   : 'compat-text',
-                util   : 'compat-util',
-                view   : 'compat-view'
-        ],
-        version : [
-                all    : '0.3',
-                content: '0.1',
-                text   : '0.2',
-                util   : '0.1',
-                view   : '0.2'
-        ],
+        artifact: 'support-utils',
+        version : '0.1',
         desc    : 'Sets of utility class for Android.',
-        website : 'https://github.com/HendraAnggrian/compat'
+        website : 'https://github.com/HendraAnggrian/support-utils'
 ]
 
 //$ ./gradlew bintrayUpload -PbintrayUser=hendraanggrian -PbintrayKey= -PdryRun=false

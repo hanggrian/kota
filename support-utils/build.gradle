@@ -1,27 +1,18 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion config.sdk.target
     buildToolsVersion config.buildTools
     defaultConfig {
-        applicationId "com.example.supportutils"
-        versionCode 1
-        versionName "1.0"
         minSdkVersion config.sdk.min
         targetSdkVersion config.sdk.target
         testInstrumentationRunner config.testRunner
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 dependencies {
-    compile project(':support-utils')
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile deps.supportCompat
 
     androidTestCompile(deps.supportTestRunner) {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -31,4 +22,13 @@ dependencies {
     }
 
     testCompile deps.junit
+}
+
+publish {
+    userOrg = bintray.user
+    groupId = bintray.group
+    artifactId = bintray.artifact
+    publishVersion = bintray.version
+    desc = bintray.desc
+    website = bintray.website
 }

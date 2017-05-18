@@ -1,2 +1,2 @@
-include ':compat', ':compat-util', ':compat-view', ':compat-content', ':compat-text'
+include ':support-utils'
 include ':example'

@@ -17,10 +17,13 @@
       <module fileurl="file://$PROJECT_DIR$/compat-util/compat-util.iml" filepath="$PROJECT_DIR$/compat-util/compat-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/compat-view/compat-view.iml" filepath="$PROJECT_DIR$/compat-view/compat-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/more.iml" filepath="$PROJECT_DIR$/more.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-content/more-content.iml" filepath="$PROJECT_DIR$/more-content/more-content.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-util/more-util.iml" filepath="$PROJECT_DIR$/more-util/more-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-view/more-view.iml" filepath="$PROJECT_DIR$/more-view/more-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/support-utils.iml" filepath="$PROJECT_DIR$/support-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/support-utils/support-utils-support-utils.iml" filepath="$PROJECT_DIR$/support-utils/support-utils-support-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/util/util.iml" filepath="$PROJECT_DIR$/util/util.iml" />
       <module fileurl="file://$PROJECT_DIR$/util-content/util-content.iml" filepath="$PROJECT_DIR$/util-content/util-content.iml" />
       <module fileurl="file://$PROJECT_DIR$/util-util/util-util.iml" filepath="$PROJECT_DIR$/util-util/util-util.iml" />
