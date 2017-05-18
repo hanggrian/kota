@@ -1,26 +1,19 @@
 support-utils
 =============
 Sets of utility classes for Android, grouped in android packaging format.
+#### [See wiki][wiki-content]
 
 #### Content
-
 Theme, Resources, and Context-related operations.
-###### [See wiki][wiki-content]
 
 #### Text
-
 String formatting and spanning.
-###### [See wiki][wiki-text]
 
 #### Util
-
 Logs.
-###### [See wiki][wiki-util]
 
 #### View
-
 Programmatic View creation and modification.
-###### [See wiki][wiki-util]
 
 Download
 --------
