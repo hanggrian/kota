@@ -40,7 +40,7 @@ ext.bintray = [
         user    : 'hendraanggrian',
         group   : 'com.hendraanggrian',
         artifact: 'support-utils',
-        version : '0.1',
+        version : '0.2',
         desc    : 'Sets of utility class for Android.',
         website : 'https://github.com/HendraAnggrian/support-utils'
 ]

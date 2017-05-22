@@ -17,7 +17,6 @@
       <module fileurl="file://$PROJECT_DIR$/compat-util/compat-util.iml" filepath="$PROJECT_DIR$/compat-util/compat-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/compat-view/compat-view.iml" filepath="$PROJECT_DIR$/compat-view/compat-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
-      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/more.iml" filepath="$PROJECT_DIR$/more.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-content/more-content.iml" filepath="$PROJECT_DIR$/more-content/more-content.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-util/more-util.iml" filepath="$PROJECT_DIR$/more-util/more-util.iml" />
