@@ -10,14 +10,13 @@
 package com.hendraanggrian.support.utils.content;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
-import java.io.File;
 
 /**
  * Taken from https://github.com/facebook/fresco/blob/master/fbcore/src/main/java/com/facebook/common/util/UriUtil.java.
@@ -26,35 +25,37 @@ import java.io.File;
  */
 public final class Uris {
 
-    public static final String HTTP_SCHEME = "http";
-    public static final String HTTPS_SCHEME = "https";
-    public static final String LOCAL_FILE_SCHEME = "file";
-    public static final String LOCAL_CONTENT_SCHEME = "content";
-    private static final String LOCAL_CONTACT_IMAGE_PREFIX = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo").getPath();
-    public static final String LOCAL_ASSET_SCHEME = "asset";
-    public static final String LOCAL_RESOURCE_SCHEME = "res";
-    public static final String QUALIFIED_RESOURCE_SCHEME = ContentResolver.SCHEME_ANDROID_RESOURCE;
-    public static final String DATA_SCHEME = "data";
+    public static final String SCHEME_HTTP = "http";
+    public static final String SCHEME_HTTPS = "https";
+    public static final String SCHEME_LOCAL_FILE = "file";
+    public static final String SCHEME_LOCAL_CONTENT = "content";
+    public static final String SCHEME_LOCAL_ASSET = "asset";
+    public static final String SCHEME_LOCAL_RESOURCE = "res";
+    public static final String SCHEME_QUALIFIED_RESOURCE = ContentResolver.SCHEME_ANDROID_RESOURCE;
+    public static final String SCHEME_DATA = "data";
 
-    public static boolean isNetworkUri(@Nullable Uri uri) {
-        final String scheme = getSchemeOrNull(uri);
-        return HTTPS_SCHEME.equals(scheme) || HTTP_SCHEME.equals(scheme);
+    private Uris() {
     }
 
-    public static boolean isLocalFileUri(@Nullable Uri uri) {
-        final String scheme = getSchemeOrNull(uri);
-        return LOCAL_FILE_SCHEME.equals(scheme);
+    public static boolean isNetworkUri(@NonNull Uri uri) {
+        String scheme = uri.getScheme();
+        return SCHEME_HTTPS.equals(scheme) || SCHEME_HTTP.equals(scheme);
     }
 
-    public static boolean isLocalContentUri(@Nullable Uri uri) {
-        final String scheme = getSchemeOrNull(uri);
-        return LOCAL_CONTENT_SCHEME.equals(scheme);
+    public static boolean isLocalFileUri(@NonNull Uri uri) {
+        String scheme = uri.getScheme();
+        return SCHEME_LOCAL_FILE.equals(scheme);
+    }
+
+    public static boolean isLocalContentUri(@NonNull Uri uri) {
+        String scheme = uri.getScheme();
+        return SCHEME_LOCAL_CONTENT.equals(scheme);
     }
 
     public static boolean isLocalContactUri(Uri uri) {
         return isLocalContentUri(uri)
                 && ContactsContract.AUTHORITY.equals(uri.getAuthority())
-                && !uri.getPath().startsWith(LOCAL_CONTACT_IMAGE_PREFIX);
+                && !uri.getPath().startsWith(Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo").getPath());
     }
 
     public static boolean isLocalCameraUri(Uri uri) {
@@ -63,75 +64,69 @@ public final class Uris {
                 || uriString.startsWith(MediaStore.Images.Media.INTERNAL_CONTENT_URI.toString());
     }
 
-    public static boolean isLocalAssetUri(@Nullable Uri uri) {
-        final String scheme = getSchemeOrNull(uri);
-        return LOCAL_ASSET_SCHEME.equals(scheme);
+    public static boolean isLocalAssetUri(@NonNull Uri uri) {
+        String scheme = uri.getScheme();
+        return SCHEME_LOCAL_ASSET.equals(scheme);
     }
 
-    public static boolean isLocalResourceUri(@Nullable Uri uri) {
-        final String scheme = getSchemeOrNull(uri);
-        return LOCAL_RESOURCE_SCHEME.equals(scheme);
+    public static boolean isLocalResourceUri(@NonNull Uri uri) {
+        String scheme = uri.getScheme();
+        return SCHEME_LOCAL_RESOURCE.equals(scheme);
     }
 
-    public static boolean isQualifiedResourceUri(@Nullable Uri uri) {
-        final String scheme = getSchemeOrNull(uri);
-        return QUALIFIED_RESOURCE_SCHEME.equals(scheme);
+    public static boolean isQualifiedResourceUri(@NonNull Uri uri) {
+        String scheme = uri.getScheme();
+        return SCHEME_QUALIFIED_RESOURCE.equals(scheme);
     }
 
-    public static boolean isDataUri(@Nullable Uri uri) {
-        return DATA_SCHEME.equals(getSchemeOrNull(uri));
-    }
-
-    @Nullable
-    public static String getSchemeOrNull(@Nullable Uri uri) {
-        return uri == null ? null : uri.getScheme();
-    }
-
-    public static Uri parseUriOrNull(@Nullable String uriAsString) {
-        return uriAsString != null ? Uri.parse(uriAsString) : null;
+    public static boolean isDataUri(@NonNull Uri uri) {
+        return SCHEME_DATA.equals(uri.getScheme());
     }
 
     @Nullable
-    public static String getRealPathFromUri(ContentResolver contentResolver, final Uri srcUri) {
+    public static String getActualPath(@NonNull Context context, Uri uri) {
+        return getActualPath(context.getContentResolver(), uri);
+    }
+
+    @Nullable
+    public static String getActualPath(@NonNull ContentResolver contentResolver, Uri uri) {
         String result = null;
-        if (isLocalContentUri(srcUri)) {
+        if (isLocalContentUri(uri)) {
             Cursor cursor = null;
             try {
-                cursor = contentResolver.query(srcUri, null, null, null, null);
+                cursor = contentResolver.query(uri, null, null, null, null);
                 if (cursor != null && cursor.moveToFirst()) {
                     int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-                    if (idx != -1) {
+                    if (idx != -1)
                         result = cursor.getString(idx);
-                    }
                 }
             } finally {
-                if (cursor != null) {
+                if (cursor != null)
                     cursor.close();
-                }
             }
-        } else if (isLocalFileUri(srcUri)) {
-            result = srcUri.getPath();
+        } else if (isLocalFileUri(uri)) {
+            result = uri.getPath();
         }
         return result;
     }
 
     @NonNull
-    public static Uri fromFile(@NonNull File file) {
-        return Uri.fromFile(file);
-    }
-
-    @NonNull
     public static Uri fromResourceId(int resourceId) {
         return new Uri.Builder()
-                .scheme(LOCAL_RESOURCE_SCHEME)
+                .scheme(SCHEME_LOCAL_RESOURCE)
                 .path(String.valueOf(resourceId))
                 .build();
     }
 
     @NonNull
-    public static Uri fromQualifiedResource(String packageName, int resourceId) {
+    public static Uri fromQualifiedResource(@NonNull Context context, int resourceId) {
+        return fromQualifiedResource(context.getPackageName(), resourceId);
+    }
+
+    @NonNull
+    public static Uri fromQualifiedResource(@NonNull String packageName, int resourceId) {
         return new Uri.Builder()
-                .scheme(QUALIFIED_RESOURCE_SCHEME)
+                .scheme(SCHEME_QUALIFIED_RESOURCE)
                 .authority(packageName)
                 .path(String.valueOf(resourceId))
                 .build();

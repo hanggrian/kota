@@ -9,15 +9,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Map;
-import java.util.WeakHashMap;
 
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
-public final class DateFormats {
+public final class DateFormats extends Formats {
 
-    @Nullable static Map<String, DateFormat> formats;
     @Nullable private static Locale defaultLocale;
 
     private DateFormats() {
@@ -57,13 +54,8 @@ public final class DateFormats {
 
     @NonNull
     public static DateFormat get(@NonNull String key) {
-        if (formats == null)
-            formats = new WeakHashMap<>();
-        DateFormat format = formats.get(key);
-        if (format != null)
-            return format;
-        format = new SimpleDateFormat(key, defaultLocale != null ? defaultLocale : Locale.getDefault());
-        formats.put(key, format);
-        return format;
+        return (DateFormat) get(key, new SimpleDateFormat(key, defaultLocale != null
+                ? defaultLocale
+                : Locale.getDefault()));
     }
 }

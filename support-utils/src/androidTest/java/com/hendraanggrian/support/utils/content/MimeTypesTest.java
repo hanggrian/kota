@@ -16,16 +16,16 @@ public class MimeTypesTest {
 
     @Test
     public void guessExtension() throws Exception {
-        assertEquals(MimeTypes.guessExtension("txt"), "text/plain");
-        assertEquals(MimeTypes.guessExtension("jpg"), "image/jpeg");
-        assertNull(MimeTypes.guessExtension(""));
-        assertNull(MimeTypes.guessExtension(null));
+        assertEquals(MimeTypes.getMimeTypeFromExtension("txt"), "text/plain");
+        assertEquals(MimeTypes.getMimeTypeFromExtension("jpg"), "image/jpeg");
+        assertNull(MimeTypes.getMimeTypeFromExtension(""));
+        assertNull(MimeTypes.getMimeTypeFromExtension(null));
     }
 
     @Test
     public void guessUrl() throws Exception{
-        assertEquals(MimeTypes.guessURL("http://www.somewebsite.com/someimage.jpg"), "image/jpeg");
-        assertNull(MimeTypes.guessURL(""));
-        assertNull(MimeTypes.guessURL(null));
+        assertEquals(MimeTypes.getMimeTypeFromURL("http://www.somewebsite.com/someimage.jpg"), "image/jpeg");
+        assertNull(MimeTypes.getMimeTypeFromURL(""));
+        assertNull(MimeTypes.getMimeTypeFromURL(null));
     }
 }

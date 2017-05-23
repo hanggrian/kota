@@ -8,14 +8,12 @@ import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-import java.util.WeakHashMap;
 
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
-public final class DecimalFormats {
+public final class DecimalFormats extends Formats {
 
-    @Nullable static Map<String, DecimalFormat> formats;
     @Nullable static NavigableMap<Long, String> suffixes;
 
     private DecimalFormats() {
@@ -75,13 +73,6 @@ public final class DecimalFormats {
 
     @NonNull
     public static DecimalFormat get(@NonNull String key) {
-        if (formats == null)
-            formats = new WeakHashMap<>();
-        DecimalFormat format = formats.get(key);
-        if (format != null)
-            return format;
-        format = new DecimalFormat(key);
-        formats.put(key, format);
-        return format;
+        return (DecimalFormat) get(key, new DecimalFormat(key));
     }
 }
