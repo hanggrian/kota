@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
 import java.io.File;
@@ -30,57 +31,79 @@ public final class MimeTypes {
     private MimeTypes() {
     }
 
-    public static boolean isApplication(@NonNull String mimeType) {
+    public static boolean isApplication(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_APPLICATION);
     }
 
-    public static boolean isAudio(@NonNull String mimeType) {
+    public static boolean isAudio(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_AUDIO);
     }
 
-    public static boolean isChemical(@NonNull String mimeType) {
+    public static boolean isChemical(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_CHEMICAL);
     }
 
-    public static boolean isImage(@NonNull String mimeType) {
+    public static boolean isImage(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_IMAGE);
     }
 
-    public static boolean isMessage(@NonNull String mimeType) {
+    public static boolean isMessage(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_MESSAGE);
     }
 
-    public static boolean isModel(@NonNull String mimeType) {
+    public static boolean isModel(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_MODEL);
     }
 
-    public static boolean isText(@NonNull String mimeType) {
+    public static boolean isText(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_TEXT);
     }
 
-    public static boolean isVideo(@NonNull String mimeType) {
+    public static boolean isVideo(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_VIDEO);
     }
 
-    public static boolean isFont(@NonNull String mimeType) {
+    public static boolean isFont(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_FONT);
     }
 
-    public static boolean isXConference(@NonNull String mimeType) {
+    public static boolean isXConference(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_XCONFERENCE);
     }
 
-    public static boolean isXWorld(@NonNull String mimeType) {
+    public static boolean isXWorld(@Nullable String mimeType) {
+        if (TextUtils.isEmpty(mimeType))
+            return false;
         ensureMimeType(mimeType);
         return mimeType.startsWith(TYPE_XWORLD);
     }
@@ -94,7 +117,12 @@ public final class MimeTypes {
     public static String getMimeTypeFromUri(@NonNull Context context, @NonNull Uri uri) {
         return uri.getScheme().equals(ContentResolver.SCHEME_CONTENT)
                 ? context.getContentResolver().getType(uri)
-                : getMimeTypeFromURL(Uri.fromFile(new File(uri.getPath())).toString());
+                : getMimeTypeFromFile(new File(uri.getPath()));
+    }
+
+    @Nullable
+    public static String getMimeTypeFromFile(@NonNull File file) {
+        return getMimeTypeFromURL(file.getAbsolutePath());
     }
 
     @Nullable

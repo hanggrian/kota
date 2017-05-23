@@ -16,6 +16,8 @@ public class MimeTypesTest {
 
     @Test
     public void guessExtension() throws Exception {
+        assertEquals(MimeTypes.getMimeTypeFromURL("/sdcard/home/important.txt"), "text/plain");
+
         assertEquals(MimeTypes.getMimeTypeFromExtension("txt"), "text/plain");
         assertEquals(MimeTypes.getMimeTypeFromExtension("jpg"), "image/jpeg");
         assertNull(MimeTypes.getMimeTypeFromExtension(""));
