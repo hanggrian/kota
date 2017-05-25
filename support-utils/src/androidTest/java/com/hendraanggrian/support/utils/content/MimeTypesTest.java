@@ -1,5 +1,6 @@
 package com.hendraanggrian.support.utils.content;
 
+import android.annotation.SuppressLint;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
@@ -15,6 +16,7 @@ import static org.junit.Assert.assertNull;
 public class MimeTypesTest {
 
     @Test
+    @SuppressLint("SdCardPath")
     public void guessExtension() throws Exception {
         assertEquals(MimeTypes.getMimeTypeFromURL("/sdcard/home/important.txt"), "text/plain");
 
@@ -25,7 +27,7 @@ public class MimeTypesTest {
     }
 
     @Test
-    public void guessUrl() throws Exception{
+    public void guessUrl() throws Exception {
         assertEquals(MimeTypes.getMimeTypeFromURL("http://www.somewebsite.com/someimage.jpg"), "image/jpeg");
         assertNull(MimeTypes.getMimeTypeFromURL(""));
         assertNull(MimeTypes.getMimeTypeFromURL(null));

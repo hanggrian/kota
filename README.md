@@ -51,22 +51,6 @@ graphics
   * `fromColorAttr(Context, int)`
   * `toBitmap(Drawable)`
 
-text
-----
-* DateFormats
-  * `setDefaultLocale(Locale)`
-  * `format(String, Calendar)`
-  * `format(String, Date)`
-  * `format(String, long)`
-  * `parse(String, String)`
-* DecimalFormats
-  * `prettyFormat(int/long)`
-  * `format(String, double)`
-  * `format(String, long)`
-  * `parse(String, String)`
-* Spans
-  * `format(String, Spec...)`
-
 util
 ----
 * Logs
@@ -102,7 +86,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:support-utils:0.4'
+    compile 'com.hendraanggrian:support-utils:0.5'
 }
 ```
 

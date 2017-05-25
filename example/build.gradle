@@ -14,8 +14,8 @@ android {
         testInstrumentationRunner config.testRunner
     }
     buildTypes {
-        release {
-            minifyEnabled false
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -24,6 +24,7 @@ android {
 dependencies {
     compile project(':support-utils')
     compile deps.support.appcompat
+    compile deps.kotlin
 
     androidTestCompile(deps.support.test.runner) {
         exclude group: 'com.android.support', module: 'support-annotations'
