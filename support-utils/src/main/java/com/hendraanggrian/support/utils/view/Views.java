@@ -3,7 +3,9 @@ package com.hendraanggrian.support.utils.view;
 import android.content.Context;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -17,6 +19,13 @@ import static android.view.View.VISIBLE;
 public final class Views {
 
     private Views() {
+    }
+
+    @Nullable
+    public static ViewGroup getParent(@NonNull View view) {
+        return view.getParent() instanceof ViewGroup
+                ? (ViewGroup) view.getParent()
+                : null;
     }
 
     public static <T extends View> T newInstance(@NonNull Class<T> cls, @NonNull Context context) {

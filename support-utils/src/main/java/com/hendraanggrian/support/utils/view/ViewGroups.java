@@ -15,6 +15,17 @@ public final class ViewGroups {
     private ViewGroups() {
     }
 
+    public static void replaceView(@NonNull View currentView, @NonNull View newView) {
+        ViewGroup parent = Views.getParent(currentView);
+        if (parent != null) {
+            int index = parent.indexOfChild(currentView);
+            parent.removeView(currentView);
+            if (containsView(parent, newView))
+                parent.removeView(newView);
+            parent.addView(newView, index);
+        }
+    }
+
     public static boolean containsView(@NonNull ViewGroup parent, @NonNull View child) {
         for (int i = 0; i < parent.getChildCount(); i++)
             if (parent.getChildAt(i) == child)
