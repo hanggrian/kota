@@ -18,6 +18,10 @@ public final class Logs {
         MAX_LENGTH = maxLength;
     }
 
+    public static void v(@NonNull String tag, @NonNull Object msg) {
+        Log.v(tag, msg.toString());
+    }
+
     public static void v(@NonNull String tag, @NonNull String msg, @Nullable Object... args) {
         msg = format(msg, args);
         if (msg.length() <= MAX_LENGTH) {
@@ -36,6 +40,10 @@ public final class Logs {
             Log.v(tag, msg.substring(0, MAX_LENGTH), tr);
             v(tag, msg.substring(MAX_LENGTH));
         }
+    }
+
+    public static void d(@NonNull String tag, @NonNull Object msg) {
+        Log.d(tag, msg.toString());
     }
 
     public static void d(@NonNull String tag, @NonNull String msg, @Nullable Object... args) {
@@ -58,6 +66,10 @@ public final class Logs {
         }
     }
 
+    public static void i(@NonNull String tag, @NonNull Object msg) {
+        Log.i(tag, msg.toString());
+    }
+
     public static void i(@NonNull String tag, @NonNull String msg, @Nullable Object... args) {
         msg = format(msg, args);
         if (msg.length() <= MAX_LENGTH) {
@@ -76,6 +88,10 @@ public final class Logs {
             Log.i(tag, msg.substring(0, MAX_LENGTH), tr);
             i(tag, msg.substring(MAX_LENGTH));
         }
+    }
+
+    public static void w(@NonNull String tag, @NonNull Object msg) {
+        Log.w(tag, msg.toString());
     }
 
     public static void w(@NonNull String tag, @NonNull String msg, @Nullable Object... args) {
@@ -102,6 +118,10 @@ public final class Logs {
         Log.w(tag, tr);
     }
 
+    public static void e(@NonNull String tag, @NonNull Object msg) {
+        Log.e(tag, msg.toString());
+    }
+
     public static void e(String tag, String msg, Object... args) {
         msg = format(msg, args);
         if (msg.length() <= MAX_LENGTH) {
@@ -120,6 +140,10 @@ public final class Logs {
             Log.e(tag, msg.substring(0, MAX_LENGTH), tr);
             e(tag, msg.substring(MAX_LENGTH));
         }
+    }
+
+    public static void wtf(@NonNull String tag, @NonNull Object msg) {
+        Log.wtf(tag, msg.toString());
     }
 
     public static void wtf(@NonNull String tag, @NonNull String msg, @Nullable Object... args) {
