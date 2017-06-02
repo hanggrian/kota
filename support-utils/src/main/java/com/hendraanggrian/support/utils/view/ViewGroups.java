@@ -4,6 +4,9 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
@@ -54,13 +57,21 @@ public final class ViewGroups {
         return child;
     }
 
-    public static void addViews(@NonNull ViewGroup parent, @NonNull View... childs) {
+    public static void addViews(@NonNull ViewGroup parent, @NonNull Collection<View> childs) {
         for (View child : childs)
             parent.addView(child);
     }
 
-    public static void removeViews(@NonNull ViewGroup parent, @NonNull View... childs) {
+    public static void addViews(@NonNull ViewGroup parent, @NonNull View... childs) {
+        addViews(parent, Arrays.asList(childs));
+    }
+
+    public static void removeViews(@NonNull ViewGroup parent, @NonNull Collection<View> childs) {
         for (View child : childs)
             parent.removeView(child);
+    }
+
+    public static void removeViews(@NonNull ViewGroup parent, @NonNull View... childs) {
+        removeViews(parent, Arrays.asList(childs));
     }
 }

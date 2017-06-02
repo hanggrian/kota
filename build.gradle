@@ -25,7 +25,7 @@ allprojects {
             espresso  : '2.2.2',
             junit     : '4.12',
 
-            release   : '0.8'
+            release   : '0.9'
     ]
     repositories {
         jcenter()
