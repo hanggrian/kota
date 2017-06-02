@@ -1,34 +1,35 @@
-apply plugin: plugin.android.lib
-apply plugin: plugin.novoda
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+apply from: 'https://raw.githubusercontent.com/HendraAnggrian/hendraanggrian.github.io/master/bintray.gradle'
 
 android {
-    compileSdkVersion config.sdk.target
-    buildToolsVersion config.buildTools
+    compileSdkVersion versions.sdk.target
+    buildToolsVersion versions.buildTools
     defaultConfig {
-        minSdkVersion config.sdk.min
-        targetSdkVersion config.sdk.target
-        testInstrumentationRunner config.testRunner
+        minSdkVersion versions.sdk.min
+        targetSdkVersion versions.sdk.target
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 }
 
 dependencies {
-    compile deps.support.compat
+    compile "com.android.support:support-compat:$versions.support"
 
-    androidTestCompile(deps.support.test.runner) {
+    androidTestCompile("com.android.support.test:runner:$versions.runner") {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestCompile(deps.support.test.espresso) {
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$versions.espresso") {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
 
-    testCompile deps.junit
+    testCompile "junit:junit:$versions.junit"
 }
 
 publish {
     userOrg = bintray.user
     groupId = bintray.group
-    artifactId = bintray.artifact
-    publishVersion = bintray.version
-    desc = bintray.desc
-    website = bintray.website
+    artifactId = bintray.artifact.support_utils.id
+    publishVersion = versions.release
+    desc = bintray.artifact.support_utils.desc
+    website = bintray.artifact.support_utils.website
 }
