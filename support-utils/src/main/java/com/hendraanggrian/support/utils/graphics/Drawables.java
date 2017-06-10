@@ -40,8 +40,8 @@ public final class Drawables {
 
     @NonNull
     public static Drawable fromColorAttr(@NonNull Context context, @AttrRes int colorAttr) {
-        int color = Themes.getColor(context, colorAttr, -1);
-        if (color != -1)
+        int color = Themes.getColor(context, colorAttr, 0);
+        if (color != 0)
             return fromColor(color);
         throw new IllegalArgumentException("invalid attribute!");
     }

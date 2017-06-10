@@ -5,10 +5,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringDef;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
 import java.io.File;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.regex.Pattern;
 
 /**
@@ -28,95 +31,45 @@ public final class MimeTypes {
     public static final String TYPE_XCONFERENCE = "x-conference";
     public static final String TYPE_XWORLD = "x-world";
 
+    @StringDef({
+            TYPE_APPLICATION,
+            TYPE_AUDIO,
+            TYPE_CHEMICAL,
+            TYPE_IMAGE,
+            TYPE_MESSAGE,
+            TYPE_MODEL,
+            TYPE_TEXT,
+            TYPE_VIDEO,
+            TYPE_FONT,
+            TYPE_XCONFERENCE,
+            TYPE_XWORLD
+    })
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Type {
+    }
+
     private MimeTypes() {
     }
 
-    public static boolean isApplication(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
+    public static boolean isType(@Nullable String mimeType, @NonNull @Type String type) {
+        if (TextUtils.isEmpty(mimeType)) {
             return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_APPLICATION);
-    }
-
-    public static boolean isAudio(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_AUDIO);
-    }
-
-    public static boolean isChemical(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_CHEMICAL);
-    }
-
-    public static boolean isImage(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_IMAGE);
-    }
-
-    public static boolean isMessage(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_MESSAGE);
-    }
-
-    public static boolean isModel(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_MODEL);
-    }
-
-    public static boolean isText(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_TEXT);
-    }
-
-    public static boolean isVideo(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_VIDEO);
-    }
-
-    public static boolean isFont(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_FONT);
-    }
-
-    public static boolean isXConference(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_XCONFERENCE);
-    }
-
-    public static boolean isXWorld(@Nullable String mimeType) {
-        if (TextUtils.isEmpty(mimeType))
-            return false;
-        ensureMimeType(mimeType);
-        return mimeType.startsWith(TYPE_XWORLD);
-    }
-
-    private static void ensureMimeType(@NonNull CharSequence mimeType) {
-        if (!Pattern.compile("[a-z]+\\/[a-z]+").matcher(mimeType).matches())
+        }
+        if (!Pattern.compile("[a-z]+\\/[a-z]+").matcher(mimeType).matches()) {
             throw new IllegalArgumentException(mimeType + " is not in correct mime type format.");
+        }
+        return mimeType.startsWith(type);
     }
 
     @Nullable
     public static String getMimeTypeFromUri(@NonNull Context context, @NonNull Uri uri) {
-        return uri.getScheme().equals(ContentResolver.SCHEME_CONTENT)
-                ? context.getContentResolver().getType(uri)
+        return getMimeTypeFromUri(context.getContentResolver(), uri);
+    }
+
+    @Nullable
+    public static String getMimeTypeFromUri(@NonNull ContentResolver resolver, @NonNull Uri uri) {
+        return Uris.isContentUri(uri)
+                ? resolver.getType(uri)
                 : getMimeTypeFromFile(new File(uri.getPath()));
     }
 

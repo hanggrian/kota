@@ -2,6 +2,7 @@ package com.hendraanggrian.support.utils.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.widget.Toast;
 
@@ -13,7 +14,7 @@ public final class Toasts {
     private Toasts() {
     }
 
-    public static void showShort(@NonNull Context context, @NonNull String text) {
+    public static void showShort(@NonNull Context context, @Nullable CharSequence text) {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
     }
 
@@ -21,7 +22,7 @@ public final class Toasts {
         Toast.makeText(context, resId, Toast.LENGTH_SHORT).show();
     }
 
-    public static void showLong(@NonNull Context context, @NonNull String text) {
+    public static void showLong(@NonNull Context context, @Nullable CharSequence text) {
         Toast.makeText(context, text, Toast.LENGTH_LONG).show();
     }
 

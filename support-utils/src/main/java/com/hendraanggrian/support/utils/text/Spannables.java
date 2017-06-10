@@ -29,7 +29,6 @@ import static android.text.Spanned.SPAN_USER;
  */
 public final class Spannables {
 
-    @Retention(RetentionPolicy.SOURCE)
     @IntDef({
             SPAN_PARAGRAPH,
             SPAN_INCLUSIVE_EXCLUSIVE, // or SPAN_MARK_MARK
@@ -41,6 +40,7 @@ public final class Spannables {
             SPAN_USER,
             SPAN_PRIORITY
     })
+    @Retention(RetentionPolicy.SOURCE)
     public @interface Flags {
     }
 
@@ -50,38 +50,43 @@ public final class Spannables {
     /**
      * Set spans from start to end with certain flag.
      */
-    public static void setSpans(@NonNull Spannable spannable, int start, int end, @Flags int flags, @NonNull Object... spans) {
+    @NonNull
+    public static Object[] setSpans(@NonNull Spannable spannable, int start, int end, @Flags int flags, @NonNull Object... spans) {
         for (Object span : spans) {
             spannable.setSpan(span, start, end, flags);
         }
+        return spans;
     }
 
     /**
      * Set spans from start to end with default flag.
      */
-    public static void setSpans(@NonNull Spannable spannable, int start, int end, @NonNull Object... spans) {
-        setSpans(spannable, start, end, SPAN_EXCLUSIVE_EXCLUSIVE, spans);
+    @NonNull
+    public static Object[] setSpans(@NonNull Spannable spannable, int start, int end, @NonNull Object... spans) {
+        return setSpans(spannable, start, end, SPAN_EXCLUSIVE_EXCLUSIVE, spans);
     }
 
     /**
      * Set spans to the entire text with certain flag.
      */
-    public static void setSpans(@NonNull Spannable spannable, @Flags int flags, @NonNull Object... spans) {
-        setSpans(spannable, 0, spannable.length(), flags, spans);
+    @NonNull
+    public static Object[] setSpans(@NonNull Spannable spannable, @Flags int flags, @NonNull Object... spans) {
+        return setSpans(spannable, 0, spannable.length(), flags, spans);
     }
 
     /**
      * Set spans to the entire text with default flag.
      */
-    public static void setSpans(@NonNull Spannable spannable, @NonNull Object... spans) {
-        setSpans(spannable, 0, spannable.length(), SPAN_EXCLUSIVE_EXCLUSIVE, spans);
+    @NonNull
+    public static Object[] setSpans(@NonNull Spannable spannable, @NonNull Object... spans) {
+        return setSpans(spannable, 0, spannable.length(), SPAN_EXCLUSIVE_EXCLUSIVE, spans);
     }
 
     /**
      * Find substring in this Spannable and set multiple spans to it.
      */
     @NonNull
-    public static Collection<Object> putSpans(@NonNull Spannable spannable, @NonNull CharSequence text, @Flags int flags, @NonNull SpanGetter... getters) {
+    public static Object[] putSpans(@NonNull Spannable spannable, @NonNull CharSequence text, @Flags int flags, @NonNull SpanGetter... getters) {
         String string = spannable.toString();
         String substring = text.toString();
         Collection<Object> spans = new ArrayList<>();
@@ -93,14 +98,14 @@ public final class Spannables {
                 spans.add(span);
             }
         }
-        return spans;
+        return spans.toArray();
     }
 
     /**
      * Find substring in this Spannable and set multiple spans to it with default flag.
      */
     @NonNull
-    public static Collection<Object> putSpans(@NonNull Spannable spannable, @NonNull CharSequence text, @NonNull SpanGetter... getters) {
+    public static Object[] putSpans(@NonNull Spannable spannable, @NonNull CharSequence text, @NonNull SpanGetter... getters) {
         return putSpans(spannable, text, SPAN_EXCLUSIVE_EXCLUSIVE, getters);
     }
 
@@ -108,7 +113,7 @@ public final class Spannables {
      * Find substring with regex pattern in this Spannable and set multiple spans to it.
      */
     @NonNull
-    public static Collection<Object> putSpansAll(@NonNull Spannable spannable, @NonNull Pattern regex, @Flags int flags, @NonNull SpanGetter... getters) {
+    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull Pattern regex, @Flags int flags, @NonNull SpanGetter... getters) {
         Matcher matcher = regex.matcher(spannable);
         Collection<Object> spans = new ArrayList<>();
         while (matcher.find()) {
@@ -120,14 +125,14 @@ public final class Spannables {
                 spans.add(span);
             }
         }
-        return spans;
+        return spans.toArray();
     }
 
     /**
      * Find substring with regex string in this Spannable and set multiple spans to it.
      */
     @NonNull
-    public static Collection<Object> putSpansAll(@NonNull Spannable spannable, @NonNull String regex, @Flags int flags, @NonNull SpanGetter... getters) {
+    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull String regex, @Flags int flags, @NonNull SpanGetter... getters) {
         return putSpansAll(spannable, Pattern.compile(regex), flags, getters);
     }
 
@@ -135,7 +140,7 @@ public final class Spannables {
      * Find substring with regex pattern in this Spannable and set multiple spans to it with default flag.
      */
     @NonNull
-    public static Collection<Object> putSpansAll(@NonNull Spannable spannable, @NonNull Pattern regex, @NonNull SpanGetter... getters) {
+    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull Pattern regex, @NonNull SpanGetter... getters) {
         return putSpansAll(spannable, regex, SPAN_EXCLUSIVE_EXCLUSIVE, getters);
     }
 
@@ -143,7 +148,7 @@ public final class Spannables {
      * Find substring with regex string in this Spannable and set multiple spans to it with default flag.
      */
     @NonNull
-    public static Collection<Object> putSpansAll(@NonNull Spannable spannable, @NonNull String regex, @NonNull SpanGetter... getters) {
+    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull String regex, @NonNull SpanGetter... getters) {
         return putSpansAll(spannable, regex, SPAN_EXCLUSIVE_EXCLUSIVE, getters);
     }
 
@@ -154,6 +159,11 @@ public final class Spannables {
         for (Object span : spans) {
             spannable.removeSpan(span);
         }
+    }
+
+    public interface SpanGetter {
+        @NonNull
+        Object getSpan();
     }
 
     @NonNull
@@ -168,10 +178,5 @@ public final class Spannables {
             }
         }
         return lastIndexes;
-    }
-
-    public interface SpanGetter {
-        @NonNull
-        Object getSpan();
     }
 }
