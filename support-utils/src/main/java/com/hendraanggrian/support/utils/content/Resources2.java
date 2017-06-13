@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.AnyRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Px;
 import android.support.annotation.StringDef;
 
 import java.lang.annotation.Retention;
@@ -61,6 +62,7 @@ public final class Resources2 {
         return res.getIdentifier(resName, resType, packageName);
     }
 
+    @Px
     public static int toPx(int dp) {
         return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }

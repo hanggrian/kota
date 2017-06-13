@@ -86,14 +86,14 @@ public final class Spannables {
      * Find substring in this Spannable and set multiple spans to it.
      */
     @NonNull
-    public static Object[] putSpans(@NonNull Spannable spannable, @NonNull CharSequence text, @Flags int flags, @NonNull SpanGetter... getters) {
+    public static Object[] putSpans(@NonNull Spannable spannable, @NonNull CharSequence text, @Flags int flags, @NonNull SpanSupplier... suppliers) {
         String string = spannable.toString();
         String substring = text.toString();
         Collection<Object> spans = new ArrayList<>();
         for (int start : listOccurrences(string, substring)) {
             int end = start + substring.length();
-            for (SpanGetter getter : getters) {
-                Object span = getter.getSpan();
+            for (SpanSupplier supplier : suppliers) {
+                Object span = supplier.getSpan();
                 spannable.setSpan(span, start, end, flags);
                 spans.add(span);
             }
@@ -105,22 +105,22 @@ public final class Spannables {
      * Find substring in this Spannable and set multiple spans to it with default flag.
      */
     @NonNull
-    public static Object[] putSpans(@NonNull Spannable spannable, @NonNull CharSequence text, @NonNull SpanGetter... getters) {
-        return putSpans(spannable, text, SPAN_EXCLUSIVE_EXCLUSIVE, getters);
+    public static Object[] putSpans(@NonNull Spannable spannable, @NonNull CharSequence text, @NonNull SpanSupplier... suppliers) {
+        return putSpans(spannable, text, SPAN_EXCLUSIVE_EXCLUSIVE, suppliers);
     }
 
     /**
      * Find substring with regex pattern in this Spannable and set multiple spans to it.
      */
     @NonNull
-    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull Pattern regex, @Flags int flags, @NonNull SpanGetter... getters) {
+    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull Pattern regex, @Flags int flags, @NonNull SpanSupplier... suppliers) {
         Matcher matcher = regex.matcher(spannable);
         Collection<Object> spans = new ArrayList<>();
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            for (SpanGetter getter : getters) {
-                Object span = getter.getSpan();
+            for (SpanSupplier supplier : suppliers) {
+                Object span = supplier.getSpan();
                 spannable.setSpan(span, start, end, flags);
                 spans.add(span);
             }
@@ -132,24 +132,24 @@ public final class Spannables {
      * Find substring with regex string in this Spannable and set multiple spans to it.
      */
     @NonNull
-    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull String regex, @Flags int flags, @NonNull SpanGetter... getters) {
-        return putSpansAll(spannable, Pattern.compile(regex), flags, getters);
+    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull String regex, @Flags int flags, @NonNull SpanSupplier... suppliers) {
+        return putSpansAll(spannable, Pattern.compile(regex), flags, suppliers);
     }
 
     /**
      * Find substring with regex pattern in this Spannable and set multiple spans to it with default flag.
      */
     @NonNull
-    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull Pattern regex, @NonNull SpanGetter... getters) {
-        return putSpansAll(spannable, regex, SPAN_EXCLUSIVE_EXCLUSIVE, getters);
+    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull Pattern regex, @NonNull SpanSupplier... suppliers) {
+        return putSpansAll(spannable, regex, SPAN_EXCLUSIVE_EXCLUSIVE, suppliers);
     }
 
     /**
      * Find substring with regex string in this Spannable and set multiple spans to it with default flag.
      */
     @NonNull
-    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull String regex, @NonNull SpanGetter... getters) {
-        return putSpansAll(spannable, regex, SPAN_EXCLUSIVE_EXCLUSIVE, getters);
+    public static Object[] putSpansAll(@NonNull Spannable spannable, @NonNull String regex, @NonNull SpanSupplier... suppliers) {
+        return putSpansAll(spannable, regex, SPAN_EXCLUSIVE_EXCLUSIVE, suppliers);
     }
 
     /**
@@ -161,9 +161,9 @@ public final class Spannables {
         }
     }
 
-    public interface SpanGetter {
-        @NonNull
-        Object getSpan();
+    public interface SpanCloneable extends Cloneable {
+
+        Object clone();
     }
 
     @NonNull

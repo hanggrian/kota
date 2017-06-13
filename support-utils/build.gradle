@@ -13,7 +13,7 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:support-compat:$versions.support"
+    compile "com.android.support:support-annotations:$versions.support"
 
     androidTestCompile("com.android.support.test:runner:$versions.runner") {
         exclude group: 'com.android.support', module: 'support-annotations'

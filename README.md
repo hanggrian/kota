@@ -86,7 +86,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:support-utils:0.11'
+    compile 'com.hendraanggrian:support-utils:0.12'
 }
 ```
 
