@@ -1,82 +1,8 @@
 support-utils
 =============
 Sets of utility classes for Android, grouped in android packaging format.
-#### [See wiki][wiki-content]
 
-content
--------
-* Configurations
-  * `getScreenSize()`
-  * `isScreenSizeAtLeast(Context/Resources/Configuration, int)`
-  * `isScreenLong(Context/Resources/Configuration)`
-  * `isScreenRound(Context/Resources/Configuration)`
-  * `isRtl(Context/Resources/Configuration)`
-  * `hasTouchscreen(Context/Resources/Configuration)`
-  * `hasKeyboard(Context/Resources/Configuration)`
-  * `isKeyboardHidden(Context/Resources/Configuration)`
-  * `isHardKeyboardHidden(Context/Resources/Configuration)`
-  * `hasNavigation(Context/Resources/Configuration)`
-  * `isNavigationHidden(Context/Resources/Configuration)`
-  * `isLandscape(Context/Resources/Configuration)`
-  * `getTypeMode(Context/Resources/Configuration)`
-  * `getNightMode(Context/Resources/Configuration)`
-  * `isNightMode(Context/Resources/Configuration)`
-* MimeTypes
-  * `guessUri(Context, Uri)`
-  * `guessUrl(String)`
-  * `guessExtension(String)`
-* Resources2
-  * `toPx(int/long/double/float/Number)`
-  * `toDp(int/long/double/float/Number)`
-* Themes
-  * `getText(Context/Theme, int)`
-  * `getString(Context/Theme, int)`
-  * `getBoolean(Context/Theme, int)`
-  * `getInt(Context/Theme, int)`
-  * `getFloat(Context/Theme, int)`
-  * `getColor(Context/Theme, int)`
-  * `getColorStateList(Context/Theme, int)`
-  * `getDimension(Context/Theme, int)`
-  * `getDimensionPixelOffset(Context/Theme, int)`
-  * `getDimensionPixelSize(Context/Theme, int)`
-  * `getDrawable(Context/Theme, int)`
-  * `getTextArray(Context/Theme, int)`
-
-graphics
--------
-* Drawables
-  * `fromBitmap(Resources, Bitmap)`
-  * `fromColor(int)`
-  * `fromColorRes(Context, int)`
-  * `fromColorAttr(Context, int)`
-  * `toBitmap(Drawable)`
-
-util
-----
-* Logs
-  * `setMaxLength(int)`
-  * `v(String, String, Object...)`
-  * `d(String, String, Object...)`
-  * `i(String, String, Object...)`
-  * `w(String, String, Object...)`
-  * `wtf(String, String, Object...)`
-  
-View
-----
-* InputMethods
-  * `showSoftInput(Activity)`
-  * `showSoftInput(View)`
-  * `hideSoftInput(Activity)`
-  * `hideSoftInput(View)`
-* ViewGroups
-  * `containsView(ViewGroup, View)`
-  * `containsViews(ViewGroup, View...)`
-  * `addView(ViewGroup, Class<View>, int, int)`
-  * `addViews(ViewGroup, View...)`
-  * `removeViews(ViewGroup, View...)`
-* Views
-  * `newInstance(Class<View>, Context)`
-  * `setVisibility(View, int/boolean)`
+#### Work on progress
 
 Download
 --------
@@ -86,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:support-utils:0.12'
+    compile 'com.hendraanggrian:support-utils:0.13'
 }
 ```
 
