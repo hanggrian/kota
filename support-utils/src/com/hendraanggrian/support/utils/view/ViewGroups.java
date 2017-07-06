@@ -5,8 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
+
+import static com.hendraanggrian.support.utils.Preconditions.checkNotNull;
 
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
@@ -17,7 +18,14 @@ public final class ViewGroups {
     }
 
     @NonNull
+    public static Collection<View> findViewsWithTag(@NonNull ViewGroup parent, @NonNull Object tag) {
+        return findViewsWithTag(parent, tag, false);
+    }
+
+    @NonNull
     public static Collection<View> findViewsWithTag(@NonNull ViewGroup parent, @NonNull Object tag, boolean recursive) {
+        checkNotNull(parent);
+        checkNotNull(tag);
         Collection<View> views = new ArrayList<>();
         for (int i = 0; i < parent.getChildCount(); i++) {
             View view = parent.getChildAt(i);
@@ -25,8 +33,9 @@ public final class ViewGroups {
                 views.addAll(findViewsWithTag((ViewGroup) view, tag, true));
             } else {
                 Object childTag = view.getTag();
-                if (childTag != null && childTag.equals(tag))
+                if (childTag != null && childTag.equals(tag)) {
                     views.add(view);
+                }
             }
         }
         return views;
@@ -34,34 +43,31 @@ public final class ViewGroups {
 
     @NonNull
     public static Collection<View> getChilds(@NonNull ViewGroup parent) {
+        checkNotNull(parent);
         Collection<View> childs = new ArrayList<>();
-        for (int i = 0; i < parent.getChildCount(); i++)
+        for (int i = 0; i < parent.getChildCount(); i++) {
             childs.add(parent.getChildAt(i));
+        }
         return childs;
     }
 
-    public static boolean containsView(@NonNull ViewGroup parent, @NonNull View child) {
-        for (int i = 0; i < parent.getChildCount(); i++)
-            if (parent.getChildAt(i) == child)
+    public static boolean hasView(@NonNull ViewGroup parent, @NonNull View child) {
+        return hasView(parent, child, false);
+    }
+
+    public static boolean hasView(@NonNull ViewGroup parent, @NonNull View child, boolean recursive) {
+        checkNotNull(parent);
+        checkNotNull(child);
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View view = parent.getChildAt(i);
+            if (recursive && view instanceof ViewGroup) {
+                if (hasView((ViewGroup) view, child, true)) {
+                    return true;
+                }
+            } else if (parent.getChildAt(i) == child) {
                 return true;
+            }
+        }
         return false;
-    }
-
-    public static void addViews(@NonNull ViewGroup parent, @NonNull Collection<View> childs) {
-        for (View child : childs)
-            parent.addView(child);
-    }
-
-    public static void addViews(@NonNull ViewGroup parent, @NonNull View... childs) {
-        addViews(parent, Arrays.asList(childs));
-    }
-
-    public static void removeViews(@NonNull ViewGroup parent, @NonNull Collection<View> childs) {
-        for (View child : childs)
-            parent.removeView(child);
-    }
-
-    public static void removeViews(@NonNull ViewGroup parent, @NonNull View... childs) {
-        removeViews(parent, Arrays.asList(childs));
     }
 }

@@ -1,9 +1,12 @@
-package com.hendraanggrian.support.utils.content;
+package com.hendraanggrian.support.utils.test;
 
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.hendraanggrian.support.utils.content.Uris;
+
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -20,13 +23,13 @@ public class UrisTest {
     @Test
     public void networkUri() throws Exception {
         Uri uri = Uri.parse("https://www.somewebsite.com/mytext.txt");
-        assertEquals(Uris.isNetworkUri(uri), true);
+        Assert.assertEquals(Uris.isNetwork(uri), true);
     }
 
     @Test
     @SuppressLint("SdCardPath")
     public void localUri() throws Exception {
         Uri uri = Uri.fromFile(new File("/sdcard/android"));
-        assertEquals(Uris.isFileUri(uri), true);
+        assertEquals(Uris.isFile(uri), true);
     }
 }

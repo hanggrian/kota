@@ -7,6 +7,8 @@ import android.support.annotation.StringRes;
 import android.view.View;
 import android.widget.Toast;
 
+import static com.hendraanggrian.support.utils.Preconditions.checkNotNull;
+
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
@@ -17,31 +19,37 @@ public final class Toasts {
 
     @NonNull
     public static Toast showShort(@NonNull Context context, @Nullable CharSequence text) {
+        checkNotNull(context);
         return showText(context, text, Toast.LENGTH_SHORT);
     }
 
     @NonNull
     public static Toast showShort(@NonNull Context context, @StringRes int resId) {
+        checkNotNull(context);
         return showTextRes(context, resId, Toast.LENGTH_SHORT);
     }
 
     @NonNull
     public static Toast showShort(@NonNull Context context, @NonNull View view) {
+        checkNotNull(context);
         return showCustomView(context, view, Toast.LENGTH_SHORT);
     }
 
     @NonNull
     public static Toast showLong(@NonNull Context context, @Nullable CharSequence text) {
+        checkNotNull(context);
         return showText(context, text, Toast.LENGTH_LONG);
     }
 
     @NonNull
     public static Toast showLong(@NonNull Context context, @StringRes int resId) {
+        checkNotNull(context);
         return showTextRes(context, resId, Toast.LENGTH_LONG);
     }
 
     @NonNull
     public static Toast showLong(@NonNull Context context, @NonNull View view) {
+        checkNotNull(context);
         return showCustomView(context, view, Toast.LENGTH_LONG);
     }
 

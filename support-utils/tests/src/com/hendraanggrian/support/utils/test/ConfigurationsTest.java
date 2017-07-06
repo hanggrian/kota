@@ -1,7 +1,10 @@
-package com.hendraanggrian.support.utils.content;
+package com.hendraanggrian.support.utils.test;
 
 import android.support.test.runner.AndroidJUnit4;
 
+import com.hendraanggrian.support.utils.content.Configurations;
+
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -16,6 +19,6 @@ public class ConfigurationsTest {
 
     @Test
     public void hasTouchscreen() throws Exception {
-        assertEquals(Configurations.hasTouchscreen(getTargetContext()), true);
+        Assert.assertEquals(Configurations.hasTouchscreen(getTargetContext()), true);
     }
 }

@@ -1,6 +1,8 @@
-package com.hendraanggrian.support.utils.content;
+package com.hendraanggrian.support.utils.test;
 
 import android.support.test.runner.AndroidJUnit4;
+
+import com.hendraanggrian.support.utils.content.Resources2;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,12 +19,12 @@ public class Resources2Test {
 
     @Test
     public void getIdentifier() throws Exception {
-        assertEquals(Resources2.getIdentifier(
+        assertEquals(Resources2.getId(
                 getTargetContext(),
                 "",
                 Resources2.TYPE_ANIM
         ), 0);
-        assertNotEquals(Resources2.getIdentifier(
+        assertNotEquals(Resources2.getId(
                 getTargetContext().getResources(),
                 "app_name",
                 Resources2.TYPE_STRING,

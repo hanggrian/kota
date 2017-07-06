@@ -10,6 +10,8 @@ import android.support.annotation.StringDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import static com.hendraanggrian.support.utils.Preconditions.checkNotNull;
+
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
@@ -53,12 +55,17 @@ public final class Resources2 {
     }
 
     @AnyRes
-    public static int getIdentifier(@NonNull Context context, @NonNull String resName, @Type @NonNull String resType) {
-        return getIdentifier(context.getResources(), resName, resType, context.getPackageName());
+    public static int getId(@NonNull Context context, @NonNull String resName, @Type @NonNull String resType) {
+        checkNotNull(context);
+        return getId(context.getResources(), resName, resType, context.getPackageName());
     }
 
     @AnyRes
-    public static int getIdentifier(@NonNull Resources res, @NonNull String resName, @Type @NonNull String resType, @NonNull String packageName) {
+    public static int getId(@NonNull Resources res, @NonNull String resName, @Type @NonNull String resType, @NonNull String packageName) {
+        checkNotNull(res);
+        checkNotNull(resName);
+        checkNotNull(resType);
+        checkNotNull(packageName);
         return res.getIdentifier(resName, resType, packageName);
     }
 
