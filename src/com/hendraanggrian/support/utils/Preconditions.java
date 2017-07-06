@@ -105,7 +105,7 @@ import android.support.annotation.RestrictTo;
  * @author Kevin Bourrillion
  * @since 2.0
  */
-@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 public final class Preconditions {
     private Preconditions() {
     }

@@ -47,7 +47,7 @@ public final class Themes {
     @Nullable
     private static CharSequence getTextInternal(@NonNull Resources.Theme theme, @AttrRes int attr, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -84,7 +84,7 @@ public final class Themes {
     @Nullable
     private static String getStringInternal(@NonNull Resources.Theme theme, @AttrRes int attr, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -116,7 +116,7 @@ public final class Themes {
 
     private static boolean getBooleanInternal(@NonNull Resources.Theme theme, @AttrRes int attr, boolean defValue, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -148,7 +148,7 @@ public final class Themes {
 
     private static int getIntInternal(@NonNull Resources.Theme theme, @AttrRes int attr, int defValue, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -180,7 +180,7 @@ public final class Themes {
 
     private static float getFloatInternal(@NonNull Resources.Theme theme, @AttrRes int attr, float defValue, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -217,7 +217,7 @@ public final class Themes {
     @ColorInt
     private static int getColorInternal(@NonNull Resources.Theme theme, @AttrRes int attr, @ColorInt int defValue, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -254,7 +254,7 @@ public final class Themes {
     @Nullable
     private static ColorStateList getColorStateListInternal(@NonNull Resources.Theme theme, @AttrRes int attr, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -286,7 +286,7 @@ public final class Themes {
 
     private static float getDimensionInternal(@NonNull Resources.Theme theme, @AttrRes int attr, float defValue, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -318,7 +318,7 @@ public final class Themes {
 
     private static int getDimensionPixelOffsetInternal(@NonNull Resources.Theme theme, @AttrRes int attr, int defValue, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -350,7 +350,7 @@ public final class Themes {
 
     private static int getDimensionPixelSizeInternal(@NonNull Resources.Theme theme, @AttrRes int attr, int defValue, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -387,7 +387,7 @@ public final class Themes {
     @Nullable
     private static Drawable getDrawableInternal(@NonNull Resources.Theme theme, @AttrRes int attr, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
@@ -424,7 +424,7 @@ public final class Themes {
     @Nullable
     private static CharSequence[] getTextArrayInternal(@NonNull Resources.Theme theme, @AttrRes int attr, boolean strict) {
         TypedArray a = theme.obtainStyledAttributes(new int[]{attr});
-        if (strict && !a.hasValue(attr)) {
+        if (strict && !a.hasValue(0)) {
             throw new NullPointerException();
         }
         try {
