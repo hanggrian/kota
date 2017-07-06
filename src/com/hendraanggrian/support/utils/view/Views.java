@@ -34,6 +34,7 @@ public final class Views {
     }
 
     @NonNull
+    @SuppressWarnings("TryWithIdenticalCatches")
     public static <T extends View> T newInstance(@NonNull Class<T> viewCls, @NonNull Context context, @Nullable OnCreatedListener<T> listener) {
         checkNotNull(viewCls);
         checkNotNull(context);
@@ -43,14 +44,14 @@ public final class Views {
                 listener.onCreated(view);
             }
             return view;
-        } catch (InstantiationException e) {
-            throw new RuntimeException();
         } catch (IllegalAccessException e) {
-            throw new RuntimeException();
+            throw new RuntimeException("Unable to invoke " + viewCls.getSimpleName(), e);
+        } catch (InstantiationException e) {
+            throw new RuntimeException("Unable to invoke " + viewCls.getSimpleName(), e);
         } catch (InvocationTargetException e) {
-            throw new RuntimeException();
+            throw new RuntimeException("Unable to invoke " + viewCls.getSimpleName(), e);
         } catch (NoSuchMethodException e) {
-            throw new RuntimeException();
+            throw new RuntimeException("Unable to invoke " + viewCls.getSimpleName(), e);
         }
     }
 

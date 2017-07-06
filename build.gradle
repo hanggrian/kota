@@ -8,38 +8,81 @@ buildscript {
     }
 }
 
-allprojects {
-    ext.versions = [
-            // android
-            sdk       : [
-                    'min'   : 9,
-                    'target': 25
-            ],
-            buildTools: '25.0.3',
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+apply from: 'https://raw.githubusercontent.com/HendraAnggrian/hendraanggrian.github.io/master/bintray.gradle'
 
-            // main
-            support   : '25.4.0',
+ext.versions = [
+        // android
+        sdk       : [
+                'min'   : 9,
+                'target': 25
+        ],
+        buildTools: '25.0.3',
 
-            // test
-            runner    : '0.5',
-            rules     : '0.5',
-            espresso  : '2.2.2',
-            junit     : '4.12',
+        // main
+        support   : '25.4.0',
 
-            release   : '0.14'
-    ]
-    repositories {
-        maven { url "https://maven.google.com" }
-        jcenter()
+        // test
+        runner    : '0.5',
+        rules     : '0.5',
+        espresso  : '2.2.2',
+        junit     : '4.12',
+
+        release   : '0.14'
+]
+
+android {
+    compileSdkVersion versions.sdk.target
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        minSdkVersion versions.sdk.min
+        targetSdkVersion versions.sdk.target
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
-    tasks.withType(Javadoc) {
-        options.addStringOption('Xdoclint:none', '-quiet')
-        options.addStringOption('encoding', 'UTF-8')
+    sourceSets {
+        main.manifest.srcFile 'AndroidManifest.xml'
+        main.java.srcDirs 'src'
+        androidTest.setRoot('tests')
+        androidTest.manifest.srcFile 'tests/AndroidManifest.xml'
+        androidTest.java.srcDir 'tests/src'
+        androidTest.res.srcDir 'tests/res'
+        androidTest.resources.srcDir 'tests/src'
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+repositories {
+    maven { url "https://maven.google.com" }
+    jcenter()
+}
+
+dependencies {
+    compile "com.android.support:support-annotations:$versions.support"
+    androidTestCompile "com.android.support:design:$versions.support"
+    androidTestCompile("com.android.support.test:rules:$versions.rules") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile("com.android.support.test:runner:$versions.runner") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$versions.espresso") {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    testCompile "junit:junit:$versions.junit"
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+}
+
+publish {
+    userOrg = bintray.user
+    groupId = bintray.group
+    artifactId = bintray.artifact.support_utils.id
+    publishVersion = versions.release
+    desc = bintray.artifact.support_utils.desc
+    website = bintray.artifact.support_utils.website
 }
 
 //$ ./gradlew bintrayUpload -PbintrayUser=hendraanggrian -PbintrayKey= -PdryRun=false
