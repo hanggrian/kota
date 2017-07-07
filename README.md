@@ -2,7 +2,7 @@ support-utils
 =============
 Sets of utility classes for Android, grouped in android packaging format.
 
-#### Work on progress
+#### Work in progress
 
 Download
 --------
@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:support-utils:0.15'
+    compile 'com.hendraanggrian:support-utils:0.16'
 }
 ```
 
