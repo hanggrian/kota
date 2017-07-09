@@ -1,8 +1,8 @@
 support-utils
 =============
-Sets of utility classes for Android, grouped in android packaging format.
+Sets of Kotlin [extension functions] for Android.
 
-#### Work in progress
+#### README coming soon
 
 Download
 --------
@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:support-utils:0.16'
+    compile 'com.hendraanggrian:support-utils:0.17'
 }
 ```
 
@@ -31,8 +31,5 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-    
-[wiki-content]: https://github.com/HendraAnggrian/support-utils/wiki/Content
-[wiki-text]: https://github.com/HendraAnggrian/support-utils/wiki/Text
-[wiki-util]: https://github.com/HendraAnggrian/support-utils/wiki/Util
-[wiki-view]: https://github.com/HendraAnggrian/support-utils/wiki/View
+
+[extension functions]: https://kotlinlang.org/docs/reference/extensions.html

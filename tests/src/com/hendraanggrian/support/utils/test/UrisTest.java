@@ -23,13 +23,13 @@ public class UrisTest {
     @Test
     public void networkUri() throws Exception {
         Uri uri = Uri.parse("https://www.somewebsite.com/mytext.txt");
-        Assert.assertEquals(Uris.isNetwork(uri), true);
+        Assert.assertEquals(Uris.INSTANCE.isNetwork(uri), true);
     }
 
     @Test
     @SuppressLint("SdCardPath")
     public void localUri() throws Exception {
         Uri uri = Uri.fromFile(new File("/sdcard/android"));
-        assertEquals(Uris.isFile(uri), true);
+        assertEquals(Uris.INSTANCE.isFile(uri), true);
     }
 }
