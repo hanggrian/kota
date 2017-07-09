@@ -17,7 +17,7 @@ buildscript {
             espresso  : '2.2.2',
             junit     : '4.12',
 
-            release   : '0.17'
+            release   : '0.18'
     ]
     repositories {
         jcenter()
@@ -60,7 +60,7 @@ repositories {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
     compile "com.android.support:support-compat:$versions.support"
     androidTestCompile "com.android.support:design:$versions.support"
     androidTestCompile("com.android.support.test:rules:$versions.rules") {
