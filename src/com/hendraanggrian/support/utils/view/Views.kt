@@ -1,13 +1,13 @@
+/**
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
+
 package com.hendraanggrian.support.utils.view
 
 import android.support.annotation.IdRes
 import android.support.annotation.IntDef
 import android.view.View
 import android.view.View.*
-
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 
 @IntDef(VISIBLE.toLong(),
         INVISIBLE.toLong(),

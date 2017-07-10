@@ -16,10 +16,6 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.provider.MediaStore
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 const val SCHEME_HTTP = "http"
 const val SCHEME_HTTPS = "https"
 const val SCHEME_FILE = ContentResolver.SCHEME_FILE
@@ -50,7 +46,6 @@ fun Uri.isQualifiedResource(): Boolean = scheme == SCHEME_QUALIFIED_RESOURCE
 fun Uri.isData(): Boolean = scheme == SCHEME_DATA
 
 fun Uri.getActualPath(context: Context): String? = getActualPath(context.contentResolver)
-
 fun Uri.getActualPath(resolver: ContentResolver): String? {
     var result: String? = null
     if (isContent()) {

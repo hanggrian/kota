@@ -1,16 +1,17 @@
-package com.hendraanggrian.support.utils.view
-
-import android.view.View
-import android.view.ViewGroup
-import java.util.*
-
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 
+package com.hendraanggrian.support.utils.view
+
+import android.view.View
+import android.view.ViewGroup
+
+@JvmOverloads
 fun ViewGroup.findViewsWithTag(tag: Any, recursive: Boolean = false): Collection<View> {
     val views = ArrayList<View>()
-    (0..childCount - 1).map { getChildAt(it) }
+    (0..childCount - 1)
+            .map { getChildAt(it) }
             .forEach {
                 if (recursive && it is ViewGroup) {
                     views.addAll(findViewsWithTag(tag, true))
@@ -26,9 +27,8 @@ fun ViewGroup.findViewsWithTag(tag: Any, recursive: Boolean = false): Collection
 
 fun ViewGroup.getChilds(): Collection<View> = (0..childCount - 1).map { getChildAt(it) }
 
+@JvmOverloads
 fun ViewGroup.containsView(child: View, recursive: Boolean = false): Boolean {
-    checkNotNull(parent)
-    checkNotNull(child)
     for (i in 0..childCount - 1) {
         val view = getChildAt(i)
         if (recursive && view is ViewGroup) {

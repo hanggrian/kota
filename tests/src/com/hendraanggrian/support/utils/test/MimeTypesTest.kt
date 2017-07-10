@@ -19,8 +19,8 @@ class MimeTypesTest {
     @SuppressLint("SdCardPath")
     @Throws(Exception::class)
     fun guessExtension() {
-        assertEquals("/sdcard/home/important.txt".pathToMime(), "text/plain")
-        assertEquals("txt".extensionToMime(), "text/plain")
+        assertEquals("/sdcard/home/important.txt".pathToMime(), "textDep/plain")
+        assertEquals("txt".extensionToMime(), "textDep/plain")
         assertEquals("jpg".extensionToMime(), "image/jpeg")
         assertNull("".extensionToMime())
     }

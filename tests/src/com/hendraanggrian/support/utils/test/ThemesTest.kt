@@ -2,7 +2,7 @@ package com.hendraanggrian.support.utils.test
 
 import android.support.test.InstrumentationRegistry.getTargetContext
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.support.utils.content.Themes
+import com.hendraanggrian.support.utils.content.colorAttr
 import org.junit.Assert.assertNotEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -15,6 +15,6 @@ class ThemesTest {
 
     @Test
     fun test() {
-        assertNotEquals(Themes.getColorOrDefault(getTargetContext(), android.R.attr.colorAccent, 0).toLong(), 0)
+        assertNotEquals(R.attr.colorAccent.colorAttr(getTargetContext()), 0)
     }
 }

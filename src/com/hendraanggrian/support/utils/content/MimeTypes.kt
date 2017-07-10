@@ -1,3 +1,7 @@
+/**
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
+
 package com.hendraanggrian.support.utils.content
 
 import android.content.ContentResolver
@@ -5,10 +9,6 @@ import android.content.Context
 import android.net.Uri
 import android.webkit.MimeTypeMap
 import java.util.regex.Pattern
-
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 
 fun String.isMimeType(type: String): Boolean {
     if (isEmpty()) {
