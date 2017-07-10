@@ -14,15 +14,17 @@ import android.support.annotation.ColorInt
 import android.support.annotation.Px
 import android.support.v4.content.ContextCompat
 import android.util.TypedValue
+import com.hendraanggrian.support.utils.annotation.Dp
 import java.io.InputStream
 
 @Px
 fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
 
+@Dp
 fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()
 
-@AnyRes fun String.toResourceId(context: Context, resType: String): Int = toResourceId(context.resources, resType, context.packageName)
-@AnyRes fun String.toResourceId(res: Resources, resType: String, packageName: String): Int = res.getIdentifier(this, resType, packageName)
+@AnyRes fun String.toId(context: Context, resType: String): Int = toId(context.resources, resType, context.packageName)
+@AnyRes fun String.toId(res: Resources, resType: String, packageName: String): Int = res.getIdentifier(this, resType, packageName)
 
 // string
 
@@ -70,14 +72,14 @@ fun Int.intArray(res: Resources): IntArray = res.getIntArray(this)
 fun Int.typedArray(ctx: Context): TypedArray = typedArray(ctx.resources)
 @SuppressLint("Recycle") fun Int.typedArray(res: Resources): TypedArray = res.obtainTypedArray(this)
 
-fun Int.dimension(ctx: Context): Float = dimension(ctx.resources)
-fun Int.dimension(res: Resources): Float = res.getDimension(this)
+fun Int.dimen(ctx: Context): Float = dimen(ctx.resources)
+fun Int.dimen(res: Resources): Float = res.getDimension(this)
 
-fun Int.dimensionPixelOffset(ctx: Context): Int = dimensionPixelOffset(ctx.resources)
-fun Int.dimensionPixelOffset(res: Resources): Int = res.getDimensionPixelOffset(this)
+fun Int.dimenPixelOffset(ctx: Context): Int = dimenPixelOffset(ctx.resources)
+fun Int.dimenPixelOffset(res: Resources): Int = res.getDimensionPixelOffset(this)
 
-fun Int.dimensionPixelSize(ctx: Context): Int = dimensionPixelSize(ctx.resources)
-fun Int.dimensionPixelSize(res: Resources): Int = res.getDimensionPixelSize(this)
+fun Int.dimenPixelSize(ctx: Context): Int = dimenPixelSize(ctx.resources)
+fun Int.dimenPixelSize(res: Resources): Int = res.getDimensionPixelSize(this)
 
 fun Int.drawable(ctx: Context): Drawable = ContextCompat.getDrawable(ctx, this)
 

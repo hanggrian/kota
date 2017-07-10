@@ -103,8 +103,8 @@ import android.support.annotation.Px
     }
 }
 
-@JvmOverloads fun Int.dimensionAttr(context: Context, strict: Boolean = false, def: Float = 0f): Float = dimensionAttr(context.theme, strict, def)
-@JvmOverloads fun Int.dimensionAttr(theme: Resources.Theme, strict: Boolean = false, defValue: Float = 0f): Float {
+@JvmOverloads fun Int.dimenAttr(context: Context, strict: Boolean = false, def: Float = 0f): Float = dimenAttr(context.theme, strict, def)
+@JvmOverloads fun Int.dimenAttr(theme: Resources.Theme, strict: Boolean = false, defValue: Float = 0f): Float {
     val a = theme.obtainStyledAttributes(intArrayOf(this))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -116,8 +116,8 @@ import android.support.annotation.Px
     }
 }
 
-@Px @JvmOverloads fun Int.dimensionPixelOffsetAttr(context: Context, strict: Boolean = false, def: Int): Int = dimensionPixelOffsetAttr(context.theme, strict, def)
-@Px @JvmOverloads fun Int.dimensionPixelOffsetAttr(theme: Resources.Theme, strict: Boolean = false, def: Int): Int {
+@Px @JvmOverloads fun Int.dimenPixelOffsetAttr(context: Context, strict: Boolean = false, def: Int): Int = dimenPixelOffsetAttr(context.theme, strict, def)
+@Px @JvmOverloads fun Int.dimenPixelOffsetAttr(theme: Resources.Theme, strict: Boolean = false, def: Int): Int {
     val a = theme.obtainStyledAttributes(intArrayOf(this))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -129,8 +129,8 @@ import android.support.annotation.Px
     }
 }
 
-@Px @JvmOverloads fun Int.dimensionPixelSizeAttr(context: Context, strict: Boolean = false, def: Int): Int = dimensionPixelSizeAttr(context.theme, strict, def)
-@Px @JvmOverloads fun Int.dimensionPixelSizeAttr(theme: Resources.Theme, strict: Boolean = false, def: Int): Int {
+@Px @JvmOverloads fun Int.dimenPixelSizeAttr(context: Context, strict: Boolean = false, def: Int): Int = dimenPixelSizeAttr(context.theme, strict, def)
+@Px @JvmOverloads fun Int.dimenPixelSizeAttr(theme: Resources.Theme, strict: Boolean = false, def: Int): Int {
     val a = theme.obtainStyledAttributes(intArrayOf(this))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()

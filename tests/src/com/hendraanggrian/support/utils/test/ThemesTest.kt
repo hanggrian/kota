@@ -15,6 +15,6 @@ class ThemesTest {
 
     @Test
     fun test() {
-        assertNotEquals(R.attr.colorAccent.colorAttr(getTargetContext()), 0)
+        assertNotEquals(R.attr.colorAccent.colorAttr(getTargetContext(), true), 0)
     }
 }

@@ -16,20 +16,23 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.provider.MediaStore
 
-const val SCHEME_HTTP = "http"
-const val SCHEME_HTTPS = "https"
-const val SCHEME_FILE = ContentResolver.SCHEME_FILE
-const val SCHEME_CONTENT = ContentResolver.SCHEME_CONTENT
-const val SCHEME_ASSET = "asset"
-const val SCHEME_RESOURCE = "res"
-const val SCHEME_QUALIFIED_RESOURCE = ContentResolver.SCHEME_ANDROID_RESOURCE
-const val SCHEME_DATA = "data"
+object Uris {
 
-fun Uri.isNetwork(): Boolean = scheme.let { it == SCHEME_HTTPS || it == SCHEME_HTTP }
+    const val SCHEME_HTTP = "http"
+    const val SCHEME_HTTPS = "https"
+    const val SCHEME_FILE = ContentResolver.SCHEME_FILE
+    const val SCHEME_CONTENT = ContentResolver.SCHEME_CONTENT
+    const val SCHEME_ASSET = "asset"
+    const val SCHEME_RESOURCE = "res"
+    const val SCHEME_QUALIFIED_RESOURCE = ContentResolver.SCHEME_ANDROID_RESOURCE
+    const val SCHEME_DATA = "data"
+}
 
-fun Uri.isFile(): Boolean = scheme == SCHEME_FILE
+fun Uri.isNetwork(): Boolean = scheme.let { it == Uris.SCHEME_HTTPS || it == Uris.SCHEME_HTTP }
 
-fun Uri.isContent(): Boolean = scheme == SCHEME_CONTENT
+fun Uri.isFile(): Boolean = scheme == Uris.SCHEME_FILE
+
+fun Uri.isContent(): Boolean = scheme == Uris.SCHEME_CONTENT
 
 fun Uri.isContact(): Boolean = isContent()
         && ContactsContract.AUTHORITY == authority
@@ -37,13 +40,13 @@ fun Uri.isContact(): Boolean = isContent()
 
 fun Uri.isCamera(): Boolean = toString().let { it.startsWith(MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString()) || it.startsWith(MediaStore.Images.Media.INTERNAL_CONTENT_URI.toString()) }
 
-fun Uri.isAsset(): Boolean = scheme == SCHEME_ASSET
+fun Uri.isAsset(): Boolean = scheme == Uris.SCHEME_ASSET
 
-fun Uri.isResource(): Boolean = scheme == SCHEME_RESOURCE
+fun Uri.isResource(): Boolean = scheme == Uris.SCHEME_RESOURCE
 
-fun Uri.isQualifiedResource(): Boolean = scheme == SCHEME_QUALIFIED_RESOURCE
+fun Uri.isQualifiedResource(): Boolean = scheme == Uris.SCHEME_QUALIFIED_RESOURCE
 
-fun Uri.isData(): Boolean = scheme == SCHEME_DATA
+fun Uri.isData(): Boolean = scheme == Uris.SCHEME_DATA
 
 fun Uri.getActualPath(context: Context): String? = getActualPath(context.contentResolver)
 fun Uri.getActualPath(resolver: ContentResolver): String? {
@@ -71,7 +74,7 @@ fun Uri.getActualPath(resolver: ContentResolver): String? {
  * Build Uri from resource id.
  */
 fun Int.toUri(): Uri = Uri.Builder()
-        .scheme(SCHEME_RESOURCE)
+        .scheme(Uris.SCHEME_RESOURCE)
         .path(toString())
         .build()
 
@@ -81,7 +84,7 @@ fun Int.toUri(): Uri = Uri.Builder()
 fun Int.toUri(context: Context): Uri = toUri(context.packageName)
 
 fun Int.toUri(packageName: String): Uri = Uri.Builder()
-        .scheme(SCHEME_QUALIFIED_RESOURCE)
+        .scheme(Uris.SCHEME_QUALIFIED_RESOURCE)
         .authority(packageName)
         .path(toString())
         .build()

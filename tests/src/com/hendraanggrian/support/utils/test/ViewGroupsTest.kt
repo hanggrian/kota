@@ -124,7 +124,7 @@ class ViewGroupsTest {
             }
 
             override fun perform(uiController: UiController, view: View) {
-                val progressBar = rule.activity.progressBar
+                val progressBar = rule.activity.progressBar!!
                 object : CountDownTimer(DELAY_COUNTDOWN, 100) {
                     override fun onTick(millisUntilFinished: Long) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

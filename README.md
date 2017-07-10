@@ -1,6 +1,7 @@
 support-utils
 =============
-Sets of Kotlin [extension functions] for Android.
+Sets of utility classes for Android.
+Contains [Kotlin extension functions] not covered by [anko-commons].
 
 #### README coming soon
 
@@ -12,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:support-utils:0.19'
+    compile 'com.hendraanggrian:support-utils:0.20'
 }
 ```
 
@@ -33,3 +34,4 @@ License
     limitations under the License.
 
 [extension functions]: https://kotlinlang.org/docs/reference/extensions.html
+[anko-commons]: https://github.com/Kotlin/anko

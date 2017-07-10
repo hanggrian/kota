@@ -2,8 +2,7 @@ package com.hendraanggrian.support.utils.test
 
 import android.annotation.SuppressLint
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.support.utils.content.extensionToMime
-import com.hendraanggrian.support.utils.content.pathToMime
+import com.hendraanggrian.support.utils.content.toMime
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
@@ -19,15 +18,15 @@ class MimeTypesTest {
     @SuppressLint("SdCardPath")
     @Throws(Exception::class)
     fun guessExtension() {
-        assertEquals("/sdcard/home/important.txt".pathToMime(), "textDep/plain")
-        assertEquals("txt".extensionToMime(), "textDep/plain")
-        assertEquals("jpg".extensionToMime(), "image/jpeg")
-        assertNull("".extensionToMime())
+        assertEquals("/sdcard/home/important.txt".toMime(), "text/plain")
+        assertEquals("txt".toMime(), "text/plain")
+        assertEquals("jpg".toMime(), "image/jpeg")
+        assertNull("".toMime())
     }
 
     @Test
     @Throws(Exception::class)
     fun guessUrl() {
-        assertEquals("http://www.somewebsite.com/someimage.jpg".pathToMime(), "image/jpeg")
+        assertEquals("http://www.somewebsite.com/someimage.jpg".toMime(), "image/jpeg")
     }
 }
