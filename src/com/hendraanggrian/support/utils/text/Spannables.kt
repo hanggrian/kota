@@ -13,7 +13,7 @@ import java.util.regex.Pattern
  * Set spans from start to end with certain flag.
  */
 @JvmOverloads
-fun Spannable.setSpans(@SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE, start: Int = 0, end: Int = length, vararg spans: Any) {
+fun Spannable.setSpans(vararg spans: Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE, start: Int = 0, end: Int = length) {
     spans.forEach {
         setSpan(it, start, end, flags)
     }
@@ -33,7 +33,7 @@ fun <T : Spannable> T.removeSpans(vararg spans: Any): T {
  * Find substring in this Spannable and set multiple spans to it.
  */
 @JvmOverloads
-fun <T : Spannable> T.putSpans(substring: String, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE, vararg spans: () -> Any): T {
+fun <T : Spannable> T.putSpans(substring: String, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE): T {
     for (start in toString().listOccurrences(substring)) {
         val end = start + substring.length
         spans.forEach {
@@ -47,10 +47,20 @@ fun <T : Spannable> T.putSpans(substring: String, @SpanFlags flags: Int = Spanne
  * Find substring with regex pattern in this Spannable and set multiple spans to it.
  */
 @JvmOverloads
-fun <T : Spannable> T.putSpansAll(regex: String, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE, vararg spans: () -> Any): T = putSpansAll(Pattern.compile(regex), flags, *spans)
+fun <T : Spannable> T.putSpansAll(regex: String, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE): T {
+    val matcher = Pattern.compile(regex).matcher(this)
+    while (matcher.find()) {
+        val start = matcher.start()
+        val end = matcher.end()
+        spans.forEach {
+            setSpan(it.invoke(), start, end, flags)
+        }
+    }
+    return this
+}
 
 @JvmOverloads
-fun <T : Spannable> T.putSpansAll(regex: Pattern, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE, vararg spans: () -> Any): T {
+fun <T : Spannable> T.putSpansAll(regex: Pattern, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE): T {
     val matcher = regex.matcher(this)
     while (matcher.find()) {
         val start = matcher.start()
