@@ -13,6 +13,6 @@ fun Context.isGranted(@PermissionString vararg permissions: String): Boolean = p
     ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED
 }
 
-fun Array<Int>.isGranted(): Boolean = none {
+fun IntArray.isGranted(): Boolean = none {
     it != PackageManager.PERMISSION_GRANTED
 }
