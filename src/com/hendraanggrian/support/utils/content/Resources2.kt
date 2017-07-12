@@ -42,7 +42,7 @@ fun Int.quantityText(res: Resources, quantity: Int): CharSequence = res.getQuant
 fun Int.textArray(ctx: Context): Array<CharSequence> = textArray(ctx.resources)
 fun Int.textArray(res: Resources): Array<CharSequence> = res.getTextArray(this)
 
-@JvmOverloads fun Int.string(ctx: Context, vararg formatArgs: Any = emptyArray()): String = string(ctx.resources)
+@JvmOverloads fun Int.string(ctx: Context, vararg formatArgs: Any = emptyArray()): String = string(ctx.resources, formatArgs)
 @JvmOverloads fun Int.string(res: Resources, vararg formatArgs: Any = emptyArray()): String {
     return if (formatArgs.isEmpty())
         res.getString(this, formatArgs)
