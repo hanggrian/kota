@@ -1,7 +1,3 @@
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 package com.hendraanggrian.support.utils.content
 
 import android.annotation.SuppressLint
@@ -9,13 +5,18 @@ import android.content.Context
 import android.content.res.*
 import android.graphics.Movie
 import android.graphics.drawable.Drawable
-import android.support.annotation.AnyRes
-import android.support.annotation.ColorInt
-import android.support.annotation.Px
+import android.support.annotation.*
 import android.support.v4.content.ContextCompat
 import android.util.TypedValue
 import com.hendraanggrian.support.utils.annotation.Dp
 import java.io.InputStream
+
+/**
+ * [Context] has some direct access to resources, but not all.
+ * Extension functions below are meant to bring full [Resources]' getters to [Context].
+ *
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
 
 @Px
 fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
@@ -26,91 +27,51 @@ fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toIn
 @AnyRes fun String.toId(context: Context, resType: String): Int = toId(context.resources, resType, context.packageName)
 @AnyRes fun String.toId(res: Resources, resType: String, packageName: String): Int = res.getIdentifier(this, resType, packageName)
 
-// string
+@JvmOverloads
+fun Context.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = if (def != null) resources.getText(id, def) else getText(id)
 
-@JvmOverloads fun Int.text(ctx: Context, def: CharSequence? = null): CharSequence = text(ctx.resources, def)
-@JvmOverloads fun Int.text(res: Resources, def: CharSequence? = null): CharSequence {
-    return if (def != null)
-        res.getText(this, def)
-    else
-        res.getText(this)
-}
+fun Context.getQuantityText(@StringRes id: Int, quantity: Int): CharSequence = resources.getQuantityText(id, quantity)
 
-fun Int.quantityText(ctx: Context, quantity: Int): CharSequence = quantityText(ctx.resources, quantity)
-fun Int.quantityText(res: Resources, quantity: Int): CharSequence = res.getQuantityText(this, quantity)
+fun Context.getTextArray(@ArrayRes id: Int): Array<CharSequence> = resources.getTextArray(id)
 
-fun Int.textArray(ctx: Context): Array<CharSequence> = textArray(ctx.resources)
-fun Int.textArray(res: Resources): Array<CharSequence> = res.getTextArray(this)
+@JvmOverloads
+fun Context.getQuantityString(@StringRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = if (formatArgs.isEmpty()) resources.getQuantityString(id, quantity, formatArgs) else resources.getQuantityString(id, quantity)
 
-@JvmOverloads fun Int.string(ctx: Context, vararg formatArgs: Any = emptyArray()): String = string(ctx.resources, formatArgs)
-@JvmOverloads fun Int.string(res: Resources, vararg formatArgs: Any = emptyArray()): String {
-    return if (formatArgs.isEmpty())
-        res.getString(this, formatArgs)
-    else
-        res.getString(this)
-}
+fun Context.getStringArray(@ArrayRes id: Int): Array<String> = resources.getStringArray(id)
 
-@JvmOverloads fun Int.quantityString(ctx: Context, quantity: Int, vararg formatArgs: Any = emptyArray()): String = quantityString(ctx.resources, quantity, formatArgs)
-@JvmOverloads fun Int.quantityString(res: Resources, quantity: Int, vararg formatArgs: Any = emptyArray()): String {
-    return if (formatArgs.isEmpty())
-        res.getQuantityString(this, quantity, formatArgs)
-    else
-        res.getQuantityString(this, quantity)
-}
+fun Context.getInteger(@IntegerRes id: Int): Int = resources.getInteger(id)
 
-fun Int.stringArray(ctx: Context): Array<String> = stringArray(ctx.resources)
-fun Int.stringArray(res: Resources): Array<String> = res.getStringArray(this)
+fun Context.getIntArray(@ArrayRes id: Int): IntArray = resources.getIntArray(id)
 
-// int
+@SuppressLint("Recycle")
+fun Context.obtainTypedArray(@ArrayRes id: Int): TypedArray = resources.obtainTypedArray(id)
 
-fun Int.int(ctx: Context): Int = int(ctx.resources)
-fun Int.int(res: Resources): Int = res.getInteger(this)
+fun Context.getDimension(@DimenRes id: Int): Float = resources.getDimension(id)
 
-fun Int.intArray(ctx: Context): IntArray = intArray(ctx.resources)
-fun Int.intArray(res: Resources): IntArray = res.getIntArray(this)
+fun Context.getDimensionPixelOffset(@DimenRes id: Int): Int = resources.getDimensionPixelOffset(id)
 
-fun Int.typedArray(ctx: Context): TypedArray = typedArray(ctx.resources)
-@SuppressLint("Recycle") fun Int.typedArray(res: Resources): TypedArray = res.obtainTypedArray(this)
+fun Context.getDimensionPixelSize(@DimenRes id: Int): Int = resources.getDimensionPixelSize(id)
 
-fun Int.dimen(ctx: Context): Float = dimen(ctx.resources)
-fun Int.dimen(res: Resources): Float = res.getDimension(this)
+fun Context.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(this, id)
 
-fun Int.dimenPixelOffset(ctx: Context): Int = dimenPixelOffset(ctx.resources)
-fun Int.dimenPixelOffset(res: Resources): Int = res.getDimensionPixelOffset(this)
+fun Context.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
 
-fun Int.dimenPixelSize(ctx: Context): Int = dimenPixelSize(ctx.resources)
-fun Int.dimenPixelSize(res: Resources): Int = res.getDimensionPixelSize(this)
+@ColorInt
+fun Context.getColor2(@ColorRes id: Int): Int = ContextCompat.getColor(this, id)
 
-fun Int.drawable(ctx: Context): Drawable = ContextCompat.getDrawable(ctx, this)
+fun Context.getColorStateList2(@ColorRes id: Int): ColorStateList = ContextCompat.getColorStateList(this, id)
 
-fun Int.movie(ctx: Context): Movie = movie(ctx.resources)
-fun Int.movie(res: Resources): Movie = res.getMovie(this)
+fun Context.getBoolean(@BoolRes id: Int): Boolean = resources.getBoolean(id)
 
-@ColorInt fun Int.color(ctx: Context): Int = ContextCompat.getColor(ctx, this)
-fun Int.colorStateList(ctx: Context): ColorStateList = ContextCompat.getColorStateList(ctx, this)
+fun Context.getLayout(@LayoutRes id: Int): XmlResourceParser = resources.getLayout(id)
 
-fun Int.boolean(ctx: Context): Boolean = boolean(ctx.resources)
-fun Int.boolean(res: Resources): Boolean = res.getBoolean(this)
+fun Context.getAnimation(@AnimRes id: Int): XmlResourceParser = resources.getAnimation(id)
 
-fun Int.layout(ctx: Context): XmlResourceParser = layout(ctx.resources)
-fun Int.layout(res: Resources): XmlResourceParser = res.getLayout(this)
+fun Context.getXml(@XmlRes id: Int): XmlResourceParser = resources.getXml(id)
 
-fun Int.animation(ctx: Context): XmlResourceParser = animation(ctx.resources)
-fun Int.animation(res: Resources): XmlResourceParser = res.getAnimation(this)
+@JvmOverloads
+fun Context.openRaw(@RawRes id: Int, value: TypedValue? = null): InputStream = if (value == null) resources.openRawResource(id, value) else resources.openRawResource(id)
 
-fun Int.xml(ctx: Context): XmlResourceParser = xml(ctx.resources)
-fun Int.xml(res: Resources): XmlResourceParser = res.getXml(this)
+fun Context.openRawFd(@RawRes id: Int): AssetFileDescriptor = resources.openRawResourceFd(id)
 
-@JvmOverloads fun Int.raw(ctx: Context, value: TypedValue? = null): InputStream = raw(ctx.resources, value)
-@JvmOverloads fun Int.raw(res: Resources, value: TypedValue? = null): InputStream {
-    return if (value == null)
-        res.openRawResource(this, value)
-    else
-        res.openRawResource(this)
-}
-
-fun Int.rawFd(ctx: Context): AssetFileDescriptor = rawFd(ctx.resources)
-fun Int.rawFd(res: Resources): AssetFileDescriptor = res.openRawResourceFd(this)
-
-fun Int.fraction(ctx: Context, base: Int, pbase: Int): Float = fraction(ctx.resources, base, pbase)
-fun Int.fraction(res: Resources, base: Int, pbase: Int): Float = res.getFraction(this, base, pbase)
+fun Context.getFraction(@FractionRes id: Int, base: Int, pbase: Int): Float = resources.getFraction(id, base, pbase)

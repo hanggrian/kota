@@ -1,13 +1,13 @@
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 package com.hendraanggrian.support.utils.text
 
 import android.text.Spannable
 import android.text.Spanned
 import com.hendraanggrian.support.utils.annotation.SpanFlags
 import java.util.regex.Pattern
+
+/**
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
 
 /**
  * Set spans from start to end with certain flag.

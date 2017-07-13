@@ -1,11 +1,11 @@
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 package com.hendraanggrian.support.utils.view
 
 import android.view.View
 import android.view.ViewGroup
+
+/**
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
 
 @JvmOverloads
 fun ViewGroup.findViewsWithTag(tag: Any, recursive: Boolean = false): Collection<View> {

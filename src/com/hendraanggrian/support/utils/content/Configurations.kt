@@ -1,7 +1,3 @@
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 package com.hendraanggrian.support.utils.content
 
 import android.annotation.TargetApi
@@ -13,6 +9,10 @@ import android.support.annotation.RequiresApi
 import com.hendraanggrian.support.utils.annotation.ScreenLayoutSize
 import com.hendraanggrian.support.utils.annotation.UiModeNight
 import com.hendraanggrian.support.utils.annotation.UiModeType
+
+/**
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
 
 @ScreenLayoutSize fun Context.getScreenSize(): Int = resources.getScreenSize()
 @ScreenLayoutSize fun Resources.getScreenSize(): Int = configuration.getScreenSize()

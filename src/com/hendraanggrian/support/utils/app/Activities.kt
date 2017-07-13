@@ -1,11 +1,11 @@
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 package com.hendraanggrian.support.utils.app
 
 import android.app.Activity
 import android.content.Intent
+
+/**
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
 
 @JvmOverloads
 fun Activity.finishWithResult(resultCode: Int, data: Intent? = null) {

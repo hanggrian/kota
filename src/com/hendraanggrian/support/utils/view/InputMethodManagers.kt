@@ -1,7 +1,3 @@
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 package com.hendraanggrian.support.utils.view
 
 import android.app.Activity
@@ -10,6 +6,10 @@ import android.os.ResultReceiver
 import android.view.inputmethod.InputMethodManager
 import com.hendraanggrian.support.utils.annotation.InputHideFlags
 import com.hendraanggrian.support.utils.annotation.InputShowFlags
+
+/**
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
 
 @JvmOverloads
 fun Activity.showInput(@InputShowFlags flags: Int = InputMethodManager.SHOW_IMPLICIT, receiver: ResultReceiver? = null): Boolean {
