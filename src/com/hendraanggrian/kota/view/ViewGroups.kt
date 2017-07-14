@@ -27,6 +27,10 @@ fun ViewGroup.findViewsWithTag(tag: Any, recursive: Boolean = false): Collection
 
 fun ViewGroup.getChilds(): Collection<View> = (0..childCount - 1).map { getChildAt(it) }
 
+fun ViewGroup.addViews(vararg views: View) = views.forEach { addView(it) }
+
+fun ViewGroup.removeViews(vararg views: View) = views.forEach { removeView(it) }
+
 @JvmOverloads
 fun ViewGroup.containsView(child: View, recursive: Boolean = false): Boolean {
     for (i in 0..childCount - 1) {
