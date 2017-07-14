@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:support-commons:0.1'
+    compile 'com.hendraanggrian:support-commons-utils:0.1.0'
 }
 ```
 
@@ -33,5 +33,5 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
-[extension functions]: https://kotlinlang.org/docs/reference/extensions.html
+[Kotlin extension functions]: https://kotlinlang.org/docs/reference/extensions.html
 [anko-commons]: https://github.com/Kotlin/anko

@@ -21,6 +21,7 @@
       <module fileurl="file://$PROJECT_DIR$/more-util/more-util.iml" filepath="$PROJECT_DIR$/more-util/more-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-view/more-view.iml" filepath="$PROJECT_DIR$/more-view/more-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/support-commons.iml" filepath="$PROJECT_DIR$/support-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/support-commons-utils.iml" filepath="$PROJECT_DIR$/support-commons-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/support-utils.iml" filepath="$PROJECT_DIR$/support-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/util/util.iml" filepath="$PROJECT_DIR$/util/util.iml" />
       <module fileurl="file://$PROJECT_DIR$/util-content/util-content.iml" filepath="$PROJECT_DIR$/util-content/util-content.iml" />

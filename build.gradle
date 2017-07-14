@@ -17,7 +17,7 @@ buildscript {
             espresso  : '2.2.2',
             junit     : '4.12',
 
-            release   : '0.1'
+            release   : '0.1.0'
     ]
     repositories {
         jcenter()
@@ -82,10 +82,10 @@ tasks.withType(Javadoc) {
 publish {
     userOrg = bintray.user
     groupId = bintray.group
-    artifactId = bintray.artifact.support_commons.id
+    artifactId = bintray.artifact.support_commons_utils.id
     publishVersion = versions.release
-    desc = bintray.artifact.support_commons.desc
-    website = bintray.artifact.support_commons.website
+    desc = bintray.artifact.support_commons_utils.desc
+    website = bintray.artifact.support_commons_utils.website
 }
 
 //$ ./gradlew bintrayUpload -PbintrayUser=hendraanggrian -PbintrayKey= -PdryRun=false
