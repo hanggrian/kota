@@ -15,7 +15,7 @@ import static android.support.test.InstrumentationRegistry.getTargetContext;
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 @RunWith(AndroidJUnit4.class)
-public class ConfigurationsTestJava {
+public class ConfigurationsTestJ {
 
     @Test
     public void test() throws Exception {

@@ -17,7 +17,7 @@ import kotlin.jvm.functions.Function0;
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 @RunWith(AndroidJUnit4.class)
-public class SpannablesTestJava {
+public class SpannablesTestJ {
 
     @Test
     public void test() throws Exception {

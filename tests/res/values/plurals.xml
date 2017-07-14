@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="test_plural">
+        <item quantity="one">cat</item>
+        <item quantity="other">cats</item>
+    </plurals>
+    <plurals name="test_plural2">
+        <item quantity="one">%d cat</item>
+        <item quantity="other">%d cats</item>
+    </plurals>
+</resources>

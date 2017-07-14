@@ -30,12 +30,12 @@ fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toIn
 @JvmOverloads
 fun Context.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = if (def != null) resources.getText(id, def) else getText(id)
 
-fun Context.getQuantityText(@StringRes id: Int, quantity: Int): CharSequence = resources.getQuantityText(id, quantity)
+fun Context.getQuantityText(@PluralsRes id: Int, quantity: Int): CharSequence = resources.getQuantityText(id, quantity)
 
 fun Context.getTextArray(@ArrayRes id: Int): Array<CharSequence> = resources.getTextArray(id)
 
 @JvmOverloads
-fun Context.getQuantityString(@StringRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = if (formatArgs.isEmpty()) resources.getQuantityString(id, quantity, formatArgs) else resources.getQuantityString(id, quantity)
+fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = if (formatArgs.isEmpty()) resources.getQuantityString(id, quantity, formatArgs) else resources.getQuantityString(id, quantity)
 
 fun Context.getStringArray(@ArrayRes id: Int): Array<String> = resources.getStringArray(id)
 
