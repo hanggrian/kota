@@ -1,5 +1,5 @@
-support-utils
-=============
+kota
+====
 Sets of utility classes for Android.
 Contains [Kotlin extension functions] not covered by [anko-commons].
 
@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:support-commons-utils:0.1.0'
+    compile 'com.hendraanggrian:kota:0.1.0'
 }
 ```
 
