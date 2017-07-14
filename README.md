@@ -1,9 +1,13 @@
 kota
 ====
-Sets of utility classes for Android.
-Contains [Kotlin extension functions] not covered by [anko-commons].
+Lightweight library full of [Kotlin extension functions] for Android.
+Covering areas not covered by [anko-commons].
 
-#### README coming soon
+Consists of several packages:
+* **app**: Activity and Service related operations. [see wiki][app]
+* **content**: Resources, Uri, and others. [see wiki][content]
+* **text**: easier styling of Spannable. [see wiki][text]
+* **view**: View, ViewGroup, and InputMethodManager. [see wiki][view]
 
 Download
 --------
@@ -35,3 +39,7 @@ License
 
 [Kotlin extension functions]: https://kotlinlang.org/docs/reference/extensions.html
 [anko-commons]: https://github.com/Kotlin/anko
+[app]: https://github.com/HendraAnggrian/kota/wiki/PackageApp
+[content]: https://github.com/HendraAnggrian/kota/wiki/PackageContent
+[text]: https://github.com/HendraAnggrian/kota/wiki/PackageText
+[view]: https://github.com/HendraAnggrian/kota/wiki/PackageView

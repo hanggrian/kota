@@ -12,6 +12,9 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.RetentionPolicy.CLASS;
 
+/**
+ * @author Hendra Anggrian (hendraanggrian@gmail.com)
+ */
 @Documented
 @Retention(CLASS)
 @Target({METHOD, PARAMETER, FIELD, LOCAL_VARIABLE})
