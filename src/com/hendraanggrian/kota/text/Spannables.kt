@@ -22,32 +22,30 @@ fun Spannable.setSpans(vararg spans: Any, @SpanFlags flags: Int = Spanned.SPAN_E
 /**
  * Remove multiple spans in this Spannable.
  */
-fun <T : Spannable> T.removeSpans(vararg spans: Any): T {
+fun Spannable.removeSpans(vararg spans: Any) {
     spans.forEach {
         removeSpan(it)
     }
-    return this
 }
 
 /**
  * Find substring in this Spannable and set multiple spans to it.
  */
 @JvmOverloads
-fun <T : Spannable> T.putSpans(substring: String, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE): T {
+fun Spannable.putSpans(substring: String, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) {
     for (start in toString().listOccurrences(substring)) {
         val end = start + substring.length
         spans.forEach {
             setSpan(it.invoke(), start, end, flags)
         }
     }
-    return this
 }
 
 /**
  * Find substring with regex pattern in this Spannable and set multiple spans to it.
  */
 @JvmOverloads
-fun <T : Spannable> T.putSpansAll(regex: String, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE): T {
+fun Spannable.putSpansAll(regex: String, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) {
     val matcher = Pattern.compile(regex).matcher(this)
     while (matcher.find()) {
         val start = matcher.start()
@@ -56,11 +54,10 @@ fun <T : Spannable> T.putSpansAll(regex: String, vararg spans: () -> Any, @SpanF
             setSpan(it.invoke(), start, end, flags)
         }
     }
-    return this
 }
 
 @JvmOverloads
-fun <T : Spannable> T.putSpansAll(regex: Pattern, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE): T {
+fun Spannable.putSpansAll(regex: Pattern, vararg spans: () -> Any, @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) {
     val matcher = regex.matcher(this)
     while (matcher.find()) {
         val start = matcher.start()
@@ -69,7 +66,6 @@ fun <T : Spannable> T.putSpansAll(regex: Pattern, vararg spans: () -> Any, @Span
             setSpan(it.invoke(), start, end, flags)
         }
     }
-    return this
 }
 
 internal fun String.listOccurrences(substring: String): MutableList<Int> {
