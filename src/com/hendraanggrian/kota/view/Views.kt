@@ -13,7 +13,7 @@ import com.hendraanggrian.kota.annotation.Visibility
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 
-fun View.setBackground(drawable: Drawable) = if (Build.VERSION.SDK_INT >= 16) {
+fun View.setBackgroundBy(drawable: Drawable) = if (Build.VERSION.SDK_INT >= 16) {
     background = drawable
 } else {
     @Suppress("deprecation")
