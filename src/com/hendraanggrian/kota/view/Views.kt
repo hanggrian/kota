@@ -1,6 +1,8 @@
 package com.hendraanggrian.kota.view
 
 import android.app.Activity
+import android.graphics.drawable.Drawable
+import android.os.Build
 import android.support.annotation.IdRes
 import android.view.View
 import android.view.View.GONE
@@ -10,6 +12,13 @@ import com.hendraanggrian.kota.annotation.Visibility
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
+
+fun View.setBackground(drawable: Drawable) = if (Build.VERSION.SDK_INT >= 16) {
+    background = drawable
+} else {
+    @Suppress("deprecation")
+    setBackgroundDrawable(drawable)
+}
 
 fun View.setVisibleBy(visible: Boolean): Boolean = setVisibilityBy(if (visible) VISIBLE else GONE)
 fun View.setVisibilityBy(@Visibility visibility: Int): Boolean {
