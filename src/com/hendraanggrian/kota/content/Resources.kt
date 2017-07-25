@@ -35,7 +35,7 @@ fun Context.getQuantityText(@PluralsRes id: Int, quantity: Int): CharSequence = 
 fun Context.getTextArray(@ArrayRes id: Int): Array<CharSequence> = resources.getTextArray(id)
 
 @JvmOverloads
-fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = if (formatArgs.isEmpty()) resources.getQuantityString(id, quantity, formatArgs) else resources.getQuantityString(id, quantity)
+fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = if (formatArgs.isNotEmpty()) resources.getQuantityString(id, quantity, formatArgs) else resources.getQuantityString(id, quantity)
 
 fun Context.getStringArray(@ArrayRes id: Int): Array<String> = resources.getStringArray(id)
 
