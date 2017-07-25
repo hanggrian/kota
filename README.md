@@ -13,11 +13,12 @@ Download
 --------
 ```gradle
 repositories {
+    maven { url 'https://maven.google.com' }
     jcenter()
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kota:0.1.6'
+    compile 'com.hendraanggrian:kota:0.2.0'
 }
 ```
 

@@ -1,5 +1,6 @@
 package com.hendraanggrian.kota.test;
 
+import android.annotation.SuppressLint;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.hendraanggrian.kota.content.ResourcesKt;
@@ -15,6 +16,7 @@ import static org.junit.Assert.assertEquals;
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 @RunWith(AndroidJUnit4.class)
+@SuppressLint("PrivateResource")
 public class ResourcesTestJ {
 
     @Test
