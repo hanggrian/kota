@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.content
+package com.hendraanggrian.kota.content.res
 
 import android.annotation.TargetApi
 import android.content.Context

@@ -1,8 +1,9 @@
-package com.hendraanggrian.kota.test
+package com.hendraanggrian.kota.test.content.res
 
 import android.support.test.InstrumentationRegistry.getTargetContext
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.content.*
+import com.hendraanggrian.kota.content.res.*
+import com.hendraanggrian.kota.test.R
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
 import org.junit.Test

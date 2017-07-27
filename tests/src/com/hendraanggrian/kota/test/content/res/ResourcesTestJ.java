@@ -1,9 +1,9 @@
-package com.hendraanggrian.kota.test;
+package com.hendraanggrian.kota.test.content.res;
 
 import android.annotation.SuppressLint;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.hendraanggrian.kota.content.ResourcesKt;
+import com.hendraanggrian.kota.content.res.ResourcesKt;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,8 +29,8 @@ public class ResourcesTestJ {
     @Test
     public void getQuantityText() throws Exception {
         assertEquals(
-                getTargetContext().getResources().getQuantityText(R.plurals.test_plural, 2),
-                ResourcesKt.getQuantityText(getTargetContext(), R.plurals.test_plural, 2));
+                getTargetContext().getResources().getQuantityText(com.hendraanggrian.kota.test.R.plurals.test_plural, 2),
+                ResourcesKt.getQuantityText(getTargetContext(), com.hendraanggrian.kota.test.R.plurals.test_plural, 2));
     }
 
     @Test
@@ -43,8 +43,8 @@ public class ResourcesTestJ {
     @Test
     public void getQuantityString() throws Exception {
         assertEquals(
-                getTargetContext().getResources().getQuantityString(R.plurals.test_plural2, 1, 2),
-                ResourcesKt.getQuantityString(getTargetContext(), R.plurals.test_plural2, 1, 2));
+                getTargetContext().getResources().getQuantityString(com.hendraanggrian.kota.test.R.plurals.test_plural2, 1, 2),
+                ResourcesKt.getQuantityString(getTargetContext(), com.hendraanggrian.kota.test.R.plurals.test_plural2, 1, 2));
     }
 
     @Test
@@ -64,8 +64,8 @@ public class ResourcesTestJ {
     @Test
     public void getIntArray() throws Exception {
         assertArrayEquals(
-                getTargetContext().getResources().getIntArray(R.array.test_integer_array),
-                ResourcesKt.getIntArray(getTargetContext(), R.array.test_integer_array));
+                getTargetContext().getResources().getIntArray(com.hendraanggrian.kota.test.R.array.test_integer_array),
+                ResourcesKt.getIntArray(getTargetContext(), com.hendraanggrian.kota.test.R.array.test_integer_array));
     }
 
     @Test
@@ -113,15 +113,15 @@ public class ResourcesTestJ {
     @Test
     public void getBoolean() throws Exception {
         assertEquals(
-                getTargetContext().getResources().getBoolean(R.bool.abc_action_bar_embed_tabs),
-                ResourcesKt.getBoolean(getTargetContext(), R.bool.abc_action_bar_embed_tabs));
+                getTargetContext().getResources().getBoolean(com.hendraanggrian.kota.test.R.bool.abc_action_bar_embed_tabs),
+                ResourcesKt.getBoolean(getTargetContext(), com.hendraanggrian.kota.test.R.bool.abc_action_bar_embed_tabs));
     }
 
     @Test
     public void getLayout() throws Exception {
         assertEquals(
-                getTargetContext().getResources().getLayout(R.layout.activity_viewgroups),
-                ResourcesKt.getLayout(getTargetContext(), R.layout.activity_viewgroups));
+                getTargetContext().getResources().getLayout(com.hendraanggrian.kota.test.R.layout.activity_viewgroups),
+                ResourcesKt.getLayout(getTargetContext(), com.hendraanggrian.kota.test.R.layout.activity_viewgroups));
     }
 
     @Test
@@ -134,7 +134,7 @@ public class ResourcesTestJ {
     @Test
     public void getXml() throws Exception {
         assertEquals(
-                getTargetContext().getResources().getXml(R.xml.test_xml),
-                ResourcesKt.getXml(getTargetContext(), R.xml.test_xml));
+                getTargetContext().getResources().getXml(com.hendraanggrian.kota.test.R.xml.test_xml),
+                ResourcesKt.getXml(getTargetContext(), com.hendraanggrian.kota.test.R.xml.test_xml));
     }
 }

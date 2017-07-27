@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.test
+package com.hendraanggrian.kota.test.view
 
 import android.os.Build
 import android.os.CountDownTimer
@@ -12,6 +12,7 @@ import android.support.test.runner.AndroidJUnit4
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import com.hendraanggrian.kota.test.R
 import com.hendraanggrian.kota.view.containsView
 import com.hendraanggrian.kota.view.findViewsWithTag
 import org.hamcrest.Matcher

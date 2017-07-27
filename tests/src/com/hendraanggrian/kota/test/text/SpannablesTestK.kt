@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.test
+package com.hendraanggrian.kota.test.text
 
 import android.graphics.Color
 import android.support.test.runner.AndroidJUnit4

@@ -1,10 +1,10 @@
-package com.hendraanggrian.kota.test
+package com.hendraanggrian.kota.test.content.res
 
 import android.content.res.Configuration
 import android.os.Build
 import android.support.test.InstrumentationRegistry.getTargetContext
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.content.*
+import com.hendraanggrian.kota.content.res.*
 import org.junit.Test
 import org.junit.runner.RunWith
 

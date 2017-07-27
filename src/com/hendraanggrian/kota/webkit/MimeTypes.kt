@@ -1,10 +1,11 @@
-package com.hendraanggrian.kota.content
+package com.hendraanggrian.kota.webkit
 
 import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import android.text.TextUtils
 import android.webkit.MimeTypeMap
+import com.hendraanggrian.kota.net.isContent
 import java.util.regex.Pattern
 
 /**

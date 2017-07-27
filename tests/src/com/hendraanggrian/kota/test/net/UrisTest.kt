@@ -1,10 +1,10 @@
-package com.hendraanggrian.kota.test
+package com.hendraanggrian.kota.test.net
 
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.content.isFile
-import com.hendraanggrian.kota.content.isNetwork
+import com.hendraanggrian.kota.net.isFile
+import com.hendraanggrian.kota.net.isNetwork
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Test

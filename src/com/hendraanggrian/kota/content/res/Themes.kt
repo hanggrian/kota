@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.content
+package com.hendraanggrian.kota.content.res
 
 import android.content.res.ColorStateList
 import android.content.res.Resources

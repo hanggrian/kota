@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.content
+package com.hendraanggrian.kota.content.res
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -1,8 +1,9 @@
-package com.hendraanggrian.kota.test
+package com.hendraanggrian.kota.test.content.res
 
 import android.support.test.InstrumentationRegistry.getTargetContext
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.content.getColor
+import com.hendraanggrian.kota.content.res.getColor
+import com.hendraanggrian.kota.test.R
 import org.junit.Assert.assertNotEquals
 import org.junit.Test
 import org.junit.runner.RunWith
