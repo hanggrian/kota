@@ -16,6 +16,9 @@ fun Context.isPermissionsGranted(@PermissionString vararg permissions: String): 
     }
 }
 
-fun IntArray.isPermissionsGranted(): Boolean = none {
-    it != PackageManager.PERMISSION_GRANTED
+fun IntArray.isPermissionsGranted(): Boolean {
+    check(isNotEmpty(), { "Need input!" })
+    return none {
+        it != PackageManager.PERMISSION_GRANTED
+    }
 }
