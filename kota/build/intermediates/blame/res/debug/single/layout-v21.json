@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/hendraanggrian/Documents/GitHub/kota/kota/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/hendraanggrian/.android/build-cache/446bd314e5587318216aa142cec6c2eb9e50ef46/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/hendraanggrian/Documents/GitHub/kota/kota/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/hendraanggrian/.android/build-cache/446bd314e5587318216aa142cec6c2eb9e50ef46/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/hendraanggrian/Documents/GitHub/kota/kota/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/hendraanggrian/.android/build-cache/446bd314e5587318216aa142cec6c2eb9e50ef46/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/hendraanggrian/Documents/GitHub/kota/kota/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/hendraanggrian/.android/build-cache/446bd314e5587318216aa142cec6c2eb9e50ef46/output/res/layout-v21/notification_action.xml"
+    }
+]

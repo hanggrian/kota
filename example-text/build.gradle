@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.sdk.target
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        applicationId 'com.example.text'
+        versionCode 1
+        versionName '1.0'
+        minSdkVersion versions.sdk.min
+        targetSdkVersion versions.sdk.target
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+    }
+    sourceSets {
+        main.manifest.srcFile 'AndroidManifest.xml'
+        main.java.srcDirs 'src'
+        main.assets.srcDir 'assets'
+        main.res.srcDir 'res'
+        main.resources.srcDir 'src'
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin.stdlib"
+    compile "org.jetbrains.anko:anko-commons:$versions.kotlin.anko"
+
+    compile project(':kota')
+    compile "com.android.support:appcompat-v7:$versions.support"
+    compile "com.android.support:recyclerview-v7:$versions.support"
+    compile "com.android.support:design:$versions.support"
+}

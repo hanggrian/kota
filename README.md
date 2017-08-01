@@ -1,12 +1,12 @@
 kota
 ====
-Lightweight library full of [Kotlin extension functions] for Android.
-Covering areas not covered by [anko-commons].
+Kota aims to be an extension of [support-compat], a lightweight library full of static functions for common practices in Android.
+Inspired by [anko-commons], these static methods are based on [Kotlin extension functions].
 
 Consists of several packages:
 * **app**: Activity and Service related operations. [see wiki][app]
 * **content**: Resources, Uri, and others. [see wiki][content]
-* **text**: easier styling of Spannable. [see wiki][text]
+* **text**: perform complex text spanning, often done in single line. [see wiki][text]
 * **view**: View, ViewGroup, and InputMethodManager. [see wiki][view]
 
 Download
@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kota:0.2.2'
+    compile 'com.hendraanggrian:kota:0.3.0'
 }
 ```
 

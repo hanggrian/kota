@@ -8,7 +8,10 @@ buildscript {
             buildTools: '26.0.0',
 
             // main
-            kotlin    : '1.1.3-2',
+            kotlin    : [
+                    stdlib: '1.1.3-2',
+                    anko  : '0.10.1'
+            ],
             support   : '26.0.0',
 
             // test
@@ -17,75 +20,30 @@ buildscript {
             espresso  : '2.2.2',
             junit     : '4.12',
 
-            release   : '0.2.2'
+            release   : '0.3.0'
     ]
     repositories {
         jcenter()
-        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin.stdlib"
         classpath 'com.novoda:bintray-release:0.5.0'
     }
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'com.novoda.bintray-release'
-apply from: 'https://raw.githubusercontent.com/HendraAnggrian/hendraanggrian.github.io/master/bintray.gradle'
-
-android {
-    compileSdkVersion versions.sdk.target
-    buildToolsVersion versions.buildTools
-    defaultConfig {
-        minSdkVersion versions.sdk.min
-        targetSdkVersion versions.sdk.target
-        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+allprojects {
+    repositories {
+        maven { url 'https://maven.google.com' }
+        jcenter()
     }
-    sourceSets {
-        main.manifest.srcFile 'AndroidManifest.xml'
-        main.java.srcDirs 'src'
-        androidTest.setRoot('tests')
-        androidTest.manifest.srcFile 'tests/AndroidManifest.xml'
-        androidTest.java.srcDir 'tests/src'
-        androidTest.res.srcDir 'tests/res'
-        androidTest.resources.srcDir 'tests/src'
+    tasks.withType(Javadoc) {
+        excludes = ['**/*.kt']
     }
 }
 
-repositories {
-    maven { url 'https://maven.google.com' }
-    jcenter()
-}
-
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    compile "com.android.support:support-compat:$versions.support"
-    androidTestCompile "com.android.support:design:$versions.support"
-    androidTestCompile("com.android.support.test:rules:$versions.rules") {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    androidTestCompile("com.android.support.test:runner:$versions.runner") {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    androidTestCompile("com.android.support.test.espresso:espresso-core:$versions.espresso") {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    testCompile "junit:junit:$versions.junit"
-}
-
-tasks.withType(Javadoc) {
-    excludes = ['**/*.kt']
-}
-
-publish {
-    userOrg = bintray.user
-    groupId = bintray.group
-    artifactId = bintray.artifact.kota.id
-    publishVersion = versions.release
-    desc = bintray.artifact.kota.desc
-    website = bintray.artifact.kota.website
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
 
 //$ ./gradlew bintrayUpload -PbintrayUser=hendraanggrian -PbintrayKey= -PdryRun=false
