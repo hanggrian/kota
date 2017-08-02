@@ -5,6 +5,6 @@ package com.hendraanggrian.kota.text
 
 import android.text.Spanned
 
-inline fun Spanned.getAllSpans() = getAllSpans(Any::class.java)
-
-inline fun <T> Spanned.getAllSpans(type: Class<T>): Array<T> = getSpans(0, length, type)
+@JvmOverloads
+@Suppress("UNCHECKED_CAST")
+inline fun <T> Spanned.getAllSpans(type: Class<T> = Any::class.java as Class<T>): Array<T> = getSpans(0, length, type)
