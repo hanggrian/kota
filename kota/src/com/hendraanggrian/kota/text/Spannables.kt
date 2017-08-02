@@ -6,10 +6,6 @@ import com.hendraanggrian.kota.annotation.SpanFlags
 import java.util.regex.Pattern
 
 /**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
-/**
  * Set spans from start to end with certain flag.
  */
 @JvmOverloads

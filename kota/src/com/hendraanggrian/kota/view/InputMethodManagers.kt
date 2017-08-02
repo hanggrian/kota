@@ -7,10 +7,6 @@ import android.view.inputmethod.InputMethodManager
 import com.hendraanggrian.kota.annotation.InputHideFlags
 import com.hendraanggrian.kota.annotation.InputShowFlags
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 @JvmOverloads
 fun Activity.showInput(@InputShowFlags flags: Int = InputMethodManager.SHOW_IMPLICIT, receiver: ResultReceiver? = null): Boolean {
     val focus = currentFocus

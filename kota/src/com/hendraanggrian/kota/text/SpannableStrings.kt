@@ -4,10 +4,6 @@ import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 fun CharSequence.toSpannableString(): SpannableString = SpannableString.valueOf(this)
 
 fun String.formatSpannableString(vararg args: Pair<Any, Array<out Any>>): SpannableString {

@@ -17,7 +17,6 @@ import android.provider.ContactsContract
 import android.provider.MediaStore
 
 object Uris {
-
     const val SCHEME_HTTP = "http"
     const val SCHEME_HTTPS = "https"
     const val SCHEME_FILE = ContentResolver.SCHEME_FILE

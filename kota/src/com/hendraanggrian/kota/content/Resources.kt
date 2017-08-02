@@ -11,18 +11,8 @@ import android.util.TypedValue
 import com.hendraanggrian.kota.annotation.Dp
 import java.io.InputStream
 
-/**
- * [Context] has some direct access to resources, but not all.
- * Extension functions below are meant to bring full [Resources]' getters to [Context].
- *
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
-@Px
-fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
-
-@Dp
-fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()
+@Px fun Int.toPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
+@Dp fun Int.toDp(): Int = (this / Resources.getSystem().displayMetrics.density).toInt()
 
 @AnyRes fun String.toId(context: Context, resType: String): Int = toId(context.resources, resType, context.packageName)
 @AnyRes fun String.toId(res: Resources, resType: String, packageName: String): Int = res.getIdentifier(this, resType, packageName)

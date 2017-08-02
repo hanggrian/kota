@@ -4,10 +4,6 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 import com.hendraanggrian.kota.annotation.SpanFlags
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 fun CharSequence.toSpannableStringBuilder(): SpannableStringBuilder = SpannableStringBuilder.valueOf(this)
 
 fun SpannableStringBuilder.append(text: CharSequence, vararg spans: Any): SpannableStringBuilder = append(text, *spans, flags = SPAN_EXCLUSIVE_EXCLUSIVE)

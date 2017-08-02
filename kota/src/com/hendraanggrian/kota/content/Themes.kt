@@ -2,20 +2,11 @@ package com.hendraanggrian.kota.content
 
 import android.content.res.ColorStateList
 import android.content.res.Resources
-import android.content.res.TypedArray
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.support.annotation.AttrRes
 import android.support.annotation.ColorInt
 import android.support.annotation.Px
-
-/**
- * Obtain single attribute and immediately recycle the [TypedArray].
- * Every extension functions have boolean as optional second param.
- * When set to true, the third param (default value, if any) can be ignored and will return non-null value.
- *
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 
 @JvmOverloads
 fun Resources.Theme.getText(@AttrRes id: Int, strict: Boolean = false): CharSequence? {

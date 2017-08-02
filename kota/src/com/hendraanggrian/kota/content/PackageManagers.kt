@@ -5,10 +5,6 @@ import android.content.pm.PackageManager
 import android.support.v4.content.ContextCompat
 import com.hendraanggrian.kota.annotation.PermissionString
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 fun Context.isPermissionsGranted(@PermissionString vararg permissions: String): Boolean {
     check(permissions.isNotEmpty(), { "Need input!" })
     return permissions.none {

@@ -7,10 +7,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.hendraanggrian.kota.annotation.Visibility
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
-
 @Suppress("deprecation")
 fun View.setBackgroundBy(drawable: Drawable) = if (Build.VERSION.SDK_INT >= 16) {
     background = drawable
