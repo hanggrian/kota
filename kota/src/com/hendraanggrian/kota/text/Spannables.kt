@@ -24,9 +24,10 @@ inline fun Spannable.setSpans(
  */
 inline fun Spannable.removeSpans(vararg spans: Any) = spans.forEach { removeSpan(it) }
 
-inline fun <T> Spannable.removeAllSpans(type: Class<T>) = removeSpans(getAllSpans(type))
+@Suppress("UNCHECKED_CAST")
+inline fun <T> Spannable.removeAllSpans(type: Class<T>) = removeSpans(*getAllSpans(type) as Array<Any>)
 
-inline fun Spannable.removeAllSpans() = removeSpans(getAllSpans())
+inline fun Spannable.removeAllSpans() = removeSpans(*getAllSpans())
 
 /**
  * Find substring in this Spannable and set multiple spans to it.
