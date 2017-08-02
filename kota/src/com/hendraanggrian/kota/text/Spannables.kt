@@ -26,7 +26,7 @@ inline fun Spannable.removeSpans(vararg spans: Any) = spans.forEach { removeSpan
 
 @JvmOverloads
 @Suppress("UNCHECKED_CAST")
-inline fun Spannable.removeAllSpans(type: Class<*> = Any::class.java) = removeSpans(*getAllSpans(type))
+inline fun <T> Spannable.removeAllSpans(type: Class<T> = Any::class.java as Class<T>) = getAllSpans(type).forEach { removeSpan(it) }
 
 /**
  * Find substring in this Spannable and set multiple spans to it.
