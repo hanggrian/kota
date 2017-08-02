@@ -1,5 +1,8 @@
+@file:JvmName("SpannedStrings")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package com.hendraanggrian.kota.text
 
 import android.text.SpannedString
 
-fun CharSequence.toSpannedString(): SpannedString = SpannedString.valueOf(this)
+inline fun CharSequence.toSpannedString() = SpannedString.valueOf(this)!!

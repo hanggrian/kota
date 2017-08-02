@@ -1,3 +1,6 @@
+@file:JvmName("Configurations")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package com.hendraanggrian.kota.content
 
 import android.annotation.TargetApi
@@ -10,62 +13,62 @@ import com.hendraanggrian.kota.annotation.ScreenLayoutSize
 import com.hendraanggrian.kota.annotation.UiModeNight
 import com.hendraanggrian.kota.annotation.UiModeType
 
-@ScreenLayoutSize fun Configuration.getScreenSize(): Int = screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK
-@ScreenLayoutSize fun Resources.getScreenSize(): Int = configuration.getScreenSize()
-@ScreenLayoutSize fun Context.getScreenSize(): Int = resources.getScreenSize()
+@ScreenLayoutSize inline fun Configuration.getScreenSize() = screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK
+@ScreenLayoutSize inline fun Resources.getScreenSize() = configuration.getScreenSize()
+@ScreenLayoutSize inline fun Context.getScreenSize() = resources.getScreenSize()
 
-fun Configuration.isScreenSizeAtLeast(@ScreenLayoutSize size: Int): Boolean = getScreenSize().let { it != SCREENLAYOUT_SIZE_UNDEFINED && it >= size }
-fun Resources.isScreenSizeAtLeast(@ScreenLayoutSize size: Int): Boolean = configuration.isScreenSizeAtLeast(size)
-fun Context.isScreenSizeAtLeast(@ScreenLayoutSize size: Int): Boolean = resources.isScreenSizeAtLeast(size)
+inline fun Configuration.isScreenSizeAtLeast(@ScreenLayoutSize size: Int) = getScreenSize().let { it != SCREENLAYOUT_SIZE_UNDEFINED && it >= size }
+inline fun Resources.isScreenSizeAtLeast(@ScreenLayoutSize size: Int) = configuration.isScreenSizeAtLeast(size)
+inline fun Context.isScreenSizeAtLeast(@ScreenLayoutSize size: Int) = resources.isScreenSizeAtLeast(size)
 
-fun Configuration.isScreenLong(): Boolean = screenLayout and Configuration.SCREENLAYOUT_LONG_MASK == Configuration.SCREENLAYOUT_LONG_YES
-fun Resources.isScreenLong(): Boolean = configuration.isScreenLong()
-fun Context.isScreenLong(): Boolean = resources.isScreenLong()
+inline fun Configuration.isScreenLong() = screenLayout and Configuration.SCREENLAYOUT_LONG_MASK == Configuration.SCREENLAYOUT_LONG_YES
+inline fun Resources.isScreenLong() = configuration.isScreenLong()
+inline fun Context.isScreenLong() = resources.isScreenLong()
 
-@RequiresApi(17) @TargetApi(17) fun Configuration.isRtl(): Boolean = layoutDirection and Configuration.SCREENLAYOUT_LAYOUTDIR_MASK == Configuration.SCREENLAYOUT_LAYOUTDIR_RTL
-@RequiresApi(17) @TargetApi(17) fun Resources.isRtl(): Boolean = configuration.isRtl()
-@RequiresApi(17) @TargetApi(17) fun Context.isRtl(): Boolean = resources.isRtl()
+@RequiresApi(17) @TargetApi(17) inline fun Configuration.isRtl() = layoutDirection and Configuration.SCREENLAYOUT_LAYOUTDIR_MASK == Configuration.SCREENLAYOUT_LAYOUTDIR_RTL
+@RequiresApi(17) @TargetApi(17) inline fun Resources.isRtl() = configuration.isRtl()
+@RequiresApi(17) @TargetApi(17) inline fun Context.isRtl() = resources.isRtl()
 
-fun Configuration.hasTouchscreen(): Boolean = touchscreen == Configuration.TOUCHSCREEN_FINGER
-fun Resources.hasTouchscreen(): Boolean = configuration.hasTouchscreen()
-fun Context.hasTouchscreen(): Boolean = resources.hasTouchscreen()
+inline fun Configuration.hasTouchscreen() = touchscreen == Configuration.TOUCHSCREEN_FINGER
+inline fun Resources.hasTouchscreen() = configuration.hasTouchscreen()
+inline fun Context.hasTouchscreen() = resources.hasTouchscreen()
 
-fun Configuration.hasKeyboard(): Boolean = keyboard == Configuration.KEYBOARD_QWERTY
-fun Resources.hasKeyboard(): Boolean = configuration.hasKeyboard()
-fun Context.hasKeyboard(): Boolean = resources.hasKeyboard()
+inline fun Configuration.hasKeyboard() = keyboard == Configuration.KEYBOARD_QWERTY
+inline fun Resources.hasKeyboard() = configuration.hasKeyboard()
+inline fun Context.hasKeyboard() = resources.hasKeyboard()
 
-fun Configuration.isKeyboardHidden(): Boolean = keyboardHidden == Configuration.KEYBOARDHIDDEN_YES
-fun Resources.isKeyboardHidden(): Boolean = configuration.isKeyboardHidden()
-fun Context.isKeyboardHidden(): Boolean = resources.isKeyboardHidden()
+inline fun Configuration.isKeyboardHidden() = keyboardHidden == Configuration.KEYBOARDHIDDEN_YES
+inline fun Resources.isKeyboardHidden() = configuration.isKeyboardHidden()
+inline fun Context.isKeyboardHidden() = resources.isKeyboardHidden()
 
-fun Configuration.isHardKeyboardHidden(): Boolean = hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES
-fun Resources.isHardKeyboardHidden(): Boolean = configuration.isHardKeyboardHidden()
-fun Context.isHardKeyboardHidden(): Boolean = resources.isHardKeyboardHidden()
+inline fun Configuration.isHardKeyboardHidden() = hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES
+inline fun Resources.isHardKeyboardHidden() = configuration.isHardKeyboardHidden()
+inline fun Context.isHardKeyboardHidden() = resources.isHardKeyboardHidden()
 
-fun Configuration.hasNavigation(): Boolean = navigation != Configuration.NAVIGATION_UNDEFINED && navigation != Configuration.NAVIGATION_NONAV
-fun Resources.hasNavigation(): Boolean = configuration.hasNavigation()
-fun Context.hasNavigation(): Boolean = resources.hasNavigation()
+inline fun Configuration.hasNavigation() = navigation != Configuration.NAVIGATION_UNDEFINED && navigation != Configuration.NAVIGATION_NONAV
+inline fun Resources.hasNavigation() = configuration.hasNavigation()
+inline fun Context.hasNavigation() = resources.hasNavigation()
 
-fun Configuration.isNavigationHidden(): Boolean = navigationHidden == Configuration.NAVIGATIONHIDDEN_YES
-fun Resources.isNavigationHidden(): Boolean = configuration.isNavigationHidden()
-fun Context.isNavigationHidden(): Boolean = resources.isNavigationHidden()
+inline fun Configuration.isNavigationHidden() = navigationHidden == Configuration.NAVIGATIONHIDDEN_YES
+inline fun Resources.isNavigationHidden() = configuration.isNavigationHidden()
+inline fun Context.isNavigationHidden() = resources.isNavigationHidden()
 
-fun Configuration.isLandscape(): Boolean = orientation == Configuration.ORIENTATION_LANDSCAPE
-fun Resources.isLandscape(): Boolean = configuration.isLandscape()
-fun Context.isLandscape(): Boolean = resources.isLandscape()
+inline fun Configuration.isLandscape() = orientation == Configuration.ORIENTATION_LANDSCAPE
+inline fun Resources.isLandscape() = configuration.isLandscape()
+inline fun Context.isLandscape() = resources.isLandscape()
 
-@UiModeType fun Configuration.getTypeMode(): Int = uiMode and Configuration.UI_MODE_TYPE_MASK
-@UiModeType fun Resources.getTypeMode(): Int = configuration.getTypeMode()
-@UiModeType fun Context.getTypeMode(): Int = resources.getTypeMode()
+@UiModeType inline fun Configuration.getTypeMode() = uiMode and Configuration.UI_MODE_TYPE_MASK
+@UiModeType inline fun Resources.getTypeMode() = configuration.getTypeMode()
+@UiModeType inline fun Context.getTypeMode() = resources.getTypeMode()
 
-fun Configuration.isTypeModeNormal(): Boolean = getTypeMode() == Configuration.UI_MODE_TYPE_NORMAL
-fun Resources.isTypeModeNormal(): Boolean = configuration.isTypeModeNormal()
-fun Context.isTypeModeNormal(): Boolean = resources.isTypeModeNormal()
+inline fun Configuration.isTypeModeNormal() = getTypeMode() == Configuration.UI_MODE_TYPE_NORMAL
+inline fun Resources.isTypeModeNormal() = configuration.isTypeModeNormal()
+inline fun Context.isTypeModeNormal() = resources.isTypeModeNormal()
 
-@UiModeNight fun Configuration.getNightMode(): Int = uiMode and Configuration.UI_MODE_NIGHT_MASK
-@UiModeNight fun Resources.getNightMode(): Int = configuration.getNightMode()
-@UiModeNight fun Context.getNightMode(): Int = resources.getNightMode()
+@UiModeNight inline fun Configuration.getNightMode() = uiMode and Configuration.UI_MODE_NIGHT_MASK
+@UiModeNight inline fun Resources.getNightMode() = configuration.getNightMode()
+@UiModeNight inline fun Context.getNightMode() = resources.getNightMode()
 
-fun Configuration.isNightMode(): Boolean = getNightMode() == Configuration.UI_MODE_NIGHT_YES
-fun Resources.isNightMode(): Boolean = configuration.isNightMode()
-fun Context.isNightMode(): Boolean = resources.isNightMode()
+inline fun Configuration.isNightMode() = getNightMode() == Configuration.UI_MODE_NIGHT_YES
+inline fun Resources.isNightMode() = configuration.isNightMode()
+inline fun Context.isNightMode() = resources.isNightMode()

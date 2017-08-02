@@ -1,3 +1,6 @@
+@file:JvmName("ViewGroups")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package com.hendraanggrian.kota.view
 
 import android.view.View
@@ -21,11 +24,11 @@ fun ViewGroup.findViewsWithTag(tag: Any, recursive: Boolean = false): Collection
     return views
 }
 
-fun ViewGroup.getChilds(): Collection<View> = (0..childCount - 1).map { getChildAt(it) }
+inline fun ViewGroup.getChilds(): Collection<View> = (0..childCount - 1).map { getChildAt(it) }
 
-fun ViewGroup.addViews(vararg views: View) = views.forEach { addView(it) }
+inline fun ViewGroup.addViews(vararg views: View) = views.forEach { addView(it) }
 
-fun ViewGroup.removeViews(vararg views: View) = views.forEach { removeView(it) }
+inline fun ViewGroup.removeViews(vararg views: View) = views.forEach { removeView(it) }
 
 @JvmOverloads
 fun ViewGroup.containsView(child: View, recursive: Boolean = false): Boolean {

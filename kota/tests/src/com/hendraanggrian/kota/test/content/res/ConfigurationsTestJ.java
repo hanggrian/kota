@@ -4,7 +4,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.hendraanggrian.kota.content.ConfigurationsKt;
+import com.hendraanggrian.kota.content.Configurations;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,22 +20,22 @@ public class ConfigurationsTestJ {
     @Test
     public void test() throws Exception {
         Configuration config = getTargetContext().getResources().getConfiguration();
-        ConfigurationsKt.getScreenSize(config);
-        ConfigurationsKt.isScreenSizeAtLeast(config, Configuration.SCREENLAYOUT_SIZE_LARGE);
-        ConfigurationsKt.isScreenLong(config);
+        Configurations.getScreenSize(config);
+        Configurations.isScreenSizeAtLeast(config, Configuration.SCREENLAYOUT_SIZE_LARGE);
+        Configurations.isScreenLong(config);
         if (Build.VERSION.SDK_INT >= 17) {
-            ConfigurationsKt.isRtl(config);
+            Configurations.isRtl(config);
         }
-        ConfigurationsKt.hasTouchscreen(config);
-        ConfigurationsKt.hasKeyboard(config);
-        ConfigurationsKt.isKeyboardHidden(config);
-        ConfigurationsKt.isHardKeyboardHidden(config);
-        ConfigurationsKt.hasNavigation(config);
-        ConfigurationsKt.isNavigationHidden(config);
-        ConfigurationsKt.isLandscape(config);
-        ConfigurationsKt.getTypeMode(config);
-        ConfigurationsKt.isTypeModeNormal(config);
-        ConfigurationsKt.getNightMode(config);
-        ConfigurationsKt.isNightMode(config);
+        Configurations.hasTouchscreen(config);
+        Configurations.hasKeyboard(config);
+        Configurations.isKeyboardHidden(config);
+        Configurations.isHardKeyboardHidden(config);
+        Configurations.hasNavigation(config);
+        Configurations.isNavigationHidden(config);
+        Configurations.isLandscape(config);
+        Configurations.getTypeMode(config);
+        Configurations.isTypeModeNormal(config);
+        Configurations.getNightMode(config);
+        Configurations.isNightMode(config);
     }
 }

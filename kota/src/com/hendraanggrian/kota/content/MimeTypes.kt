@@ -1,12 +1,16 @@
+@file:JvmName("MimeTypes")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package com.hendraanggrian.kota.content
 
 import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import android.webkit.MimeTypeMap
+import java.io.File
 import java.util.regex.Pattern
 
-fun String.isMimeType(type: String): Boolean {
+inline fun String.isMimeType(type: String): Boolean {
     if (isNullOrEmpty() || type.isNullOrEmpty()) {
         return false
     }
@@ -16,8 +20,9 @@ fun String.isMimeType(type: String): Boolean {
     return startsWith(type)
 }
 
-fun Uri.toMime(context: Context): String = toMime(context.contentResolver)
-fun Uri.toMime(resolver: ContentResolver): String = if (isContent()) resolver.getType(this) else toMime(resolver)
-fun String.toMime(): String = MimeTypeMap.getFileExtensionFromUrl(this)
+inline fun Uri.toMime(resolver: ContentResolver) = (if (isContent()) resolver.getType(this) else File(path).absolutePath.toMime())!!
+inline fun Uri.toMime(context: Context) = toMime(context.contentResolver)
 
-fun String.toExtension(): String? = MimeTypeMap.getSingleton().getExtensionFromMimeType(this)
+inline fun String.toMime() = MimeTypeMap.getFileExtensionFromUrl(this)!!
+
+inline fun String.toExtension() = MimeTypeMap.getSingleton().getExtensionFromMimeType(this)!!

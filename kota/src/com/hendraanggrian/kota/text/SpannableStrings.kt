@@ -1,12 +1,15 @@
+@file:JvmName("SpannableStrings")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package com.hendraanggrian.kota.text
 
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 
-fun CharSequence.toSpannableString(): SpannableString = SpannableString.valueOf(this)
+inline fun CharSequence.toSpannableString() = SpannableString.valueOf(this)!!
 
-fun String.formatSpannableString(vararg args: Pair<Any, Array<out Any>>): SpannableString {
+inline fun String.formatSpannableString(vararg args: Pair<Any, Array<out Any>>): SpannableString {
     val list = listOccurrences("%")
     for (start in listOccurrences("%%")) {
         list.remove(Integer.valueOf(start))

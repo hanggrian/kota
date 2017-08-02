@@ -1,3 +1,6 @@
+@file:JvmName("Themes")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package com.hendraanggrian.kota.content
 
 import android.content.res.ColorStateList
@@ -9,7 +12,7 @@ import android.support.annotation.ColorInt
 import android.support.annotation.Px
 
 @JvmOverloads
-fun Resources.Theme.getText(@AttrRes id: Int, strict: Boolean = false): CharSequence? {
+inline fun Resources.Theme.getText(@AttrRes id: Int, strict: Boolean = false): CharSequence? {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -22,7 +25,7 @@ fun Resources.Theme.getText(@AttrRes id: Int, strict: Boolean = false): CharSequ
 }
 
 @JvmOverloads
-fun Resources.Theme.getString(@AttrRes id: Int, strict: Boolean = false): String? {
+inline fun Resources.Theme.getString(@AttrRes id: Int, strict: Boolean = false): String? {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -35,7 +38,7 @@ fun Resources.Theme.getString(@AttrRes id: Int, strict: Boolean = false): String
 }
 
 @JvmOverloads
-fun Resources.Theme.getBoolean(@AttrRes id: Int, strict: Boolean = false, def: Boolean = false): Boolean {
+inline fun Resources.Theme.getBoolean(@AttrRes id: Int, strict: Boolean = false, def: Boolean = false): Boolean {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -48,7 +51,7 @@ fun Resources.Theme.getBoolean(@AttrRes id: Int, strict: Boolean = false, def: B
 }
 
 @JvmOverloads
-fun Resources.Theme.getInt(@AttrRes id: Int, strict: Boolean = false, def: Int = 0): Int {
+inline fun Resources.Theme.getInt(@AttrRes id: Int, strict: Boolean = false, def: Int = 0): Int {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -61,7 +64,7 @@ fun Resources.Theme.getInt(@AttrRes id: Int, strict: Boolean = false, def: Int =
 }
 
 @JvmOverloads
-fun Resources.Theme.getFloat(@AttrRes id: Int, strict: Boolean = false, def: Float = 0f): Float {
+inline fun Resources.Theme.getFloat(@AttrRes id: Int, strict: Boolean = false, def: Float = 0f): Float {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -75,7 +78,7 @@ fun Resources.Theme.getFloat(@AttrRes id: Int, strict: Boolean = false, def: Flo
 
 @ColorInt
 @JvmOverloads
-fun Resources.Theme.getColor(@AttrRes id: Int, strict: Boolean = false, @ColorInt def: Int = Color.TRANSPARENT): Int {
+inline fun Resources.Theme.getColor(@AttrRes id: Int, strict: Boolean = false, @ColorInt def: Int = Color.TRANSPARENT): Int {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -88,7 +91,7 @@ fun Resources.Theme.getColor(@AttrRes id: Int, strict: Boolean = false, @ColorIn
 }
 
 @JvmOverloads
-fun Resources.Theme.getColorStateList(@AttrRes id: Int, strict: Boolean = false): ColorStateList? {
+inline fun Resources.Theme.getColorStateList(@AttrRes id: Int, strict: Boolean = false): ColorStateList? {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -101,7 +104,7 @@ fun Resources.Theme.getColorStateList(@AttrRes id: Int, strict: Boolean = false)
 }
 
 @JvmOverloads
-fun Resources.Theme.getDimension(@AttrRes id: Int, strict: Boolean = false, defValue: Float = 0f): Float {
+inline fun Resources.Theme.getDimension(@AttrRes id: Int, strict: Boolean = false, defValue: Float = 0f): Float {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -115,7 +118,7 @@ fun Resources.Theme.getDimension(@AttrRes id: Int, strict: Boolean = false, defV
 
 @Px
 @JvmOverloads
-fun Resources.Theme.getDimensionPixelOffset(@AttrRes id: Int, strict: Boolean = false, def: Int): Int {
+inline fun Resources.Theme.getDimensionPixelOffset(@AttrRes id: Int, strict: Boolean = false, def: Int): Int {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -129,7 +132,7 @@ fun Resources.Theme.getDimensionPixelOffset(@AttrRes id: Int, strict: Boolean = 
 
 @Px
 @JvmOverloads
-fun Resources.Theme.getDimensionPixelSize(@AttrRes id: Int, strict: Boolean = false, def: Int): Int {
+inline fun Resources.Theme.getDimensionPixelSize(@AttrRes id: Int, strict: Boolean = false, def: Int): Int {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -142,7 +145,7 @@ fun Resources.Theme.getDimensionPixelSize(@AttrRes id: Int, strict: Boolean = fa
 }
 
 @JvmOverloads
-fun Resources.Theme.getDrawable(@AttrRes id: Int, strict: Boolean = false): Drawable? {
+inline fun Resources.Theme.getDrawable(@AttrRes id: Int, strict: Boolean = false): Drawable? {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
@@ -155,7 +158,7 @@ fun Resources.Theme.getDrawable(@AttrRes id: Int, strict: Boolean = false): Draw
 }
 
 @JvmOverloads
-fun Resources.Theme.getTextArray(@AttrRes id: Int, strict: Boolean = false): Array<CharSequence>? {
+inline fun Resources.Theme.getTextArray(@AttrRes id: Int, strict: Boolean = false): Array<CharSequence>? {
     val a = obtainStyledAttributes(intArrayOf(id))
     if (strict && !a.hasValue(0)) {
         throw NullPointerException()
