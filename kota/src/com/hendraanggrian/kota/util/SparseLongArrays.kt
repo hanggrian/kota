@@ -9,8 +9,8 @@ import android.util.SparseLongArray
 
 @RequiresApi(18)
 @TargetApi(18)
-inline fun SparseLongArray.hasKey(key: Int) = indexOfKey(key) > -1
+inline fun SparseLongArray.containsKey(key: Int) = indexOfKey(key) > -1
 
 @RequiresApi(18)
 @TargetApi(18)
-inline fun SparseLongArray.hasValue(value: Long) = indexOfValue(value) > -1
+inline fun SparseLongArray.containsValue(value: Long) = indexOfValue(value) > -1

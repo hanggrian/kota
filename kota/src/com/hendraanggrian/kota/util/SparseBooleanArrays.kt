@@ -5,6 +5,6 @@ package com.hendraanggrian.kota.util
 
 import android.util.SparseBooleanArray
 
-inline fun SparseBooleanArray.hasKey(key: Int) = indexOfKey(key) > -1
+inline fun SparseBooleanArray.containsKey(key: Int) = indexOfKey(key) > -1
 
-inline fun SparseBooleanArray.hasValue(value: Boolean) = indexOfValue(value) > -1
+inline fun SparseBooleanArray.containsValue(value: Boolean) = indexOfValue(value) > -1
