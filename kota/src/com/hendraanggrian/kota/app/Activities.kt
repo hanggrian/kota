@@ -7,7 +7,7 @@ import android.app.Activity
 import android.content.Intent
 
 @JvmOverloads
-inline fun Activity.finishWithResult(resultCode: Int, data: Intent? = null) {
+inline fun Activity.finishWithResult(resultCode: Int, data: Intent? = null): Unit {
     setResult(resultCode, data)
     finish()
 }

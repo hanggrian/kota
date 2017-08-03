@@ -14,7 +14,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.hendraanggrian.kota.test.R
 import com.hendraanggrian.kota.view.containsView
-import com.hendraanggrian.kota.view.findViewsWithTag
+import com.hendraanggrian.kota.view.findAllViewsWithTag
 import org.hamcrest.Matcher
 import org.junit.Assert.assertEquals
 import org.junit.FixMethodOrder
@@ -67,7 +67,7 @@ class ViewGroupsTest {
             }
 
             override fun perform(uiController: UiController, view: View) {
-                assertEquals((view as ViewGroup).findViewsWithTag(tag, true).size, 2)
+                assertEquals((view as ViewGroup).findAllViewsWithTag(tag, true).size, 2)
             }
         })
     }

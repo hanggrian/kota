@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 
 @JvmOverloads
-fun ViewGroup.findViewsWithTag(tag: Any, recursive: Boolean = false): Collection<View> {
+fun ViewGroup.findAllViewsWithTag(tag: Any, recursive: Boolean = false): Collection<View> {
     val views = ArrayList<View>()
     (0..childCount - 1)
             .map { getChildAt(it) }
             .forEach {
                 if (recursive && it is ViewGroup) {
-                    views.addAll(findViewsWithTag(tag, true))
+                    views.addAll(findAllViewsWithTag(tag, true))
                 } else {
                     val childTag = it.tag
                     if (childTag != null && childTag == tag) {
@@ -24,11 +24,13 @@ fun ViewGroup.findViewsWithTag(tag: Any, recursive: Boolean = false): Collection
     return views
 }
 
-inline fun ViewGroup.getChilds(): Collection<View> = (0..childCount - 1).map { getChildAt(it) }
+inline fun ViewGroup.getAllChilds(): Collection<View> = (0..childCount - 1).map { getChildAt(it) }
 
-inline fun ViewGroup.addViews(vararg views: View) = views.forEach { addView(it) }
+inline fun ViewGroup.addAllViews(views: Collection<View>): Unit = views.forEach { addView(it) }
+inline fun ViewGroup.addAllViews(vararg views: View): Unit = views.forEach { addView(it) }
 
-inline fun ViewGroup.removeViews(vararg views: View) = views.forEach { removeView(it) }
+inline fun ViewGroup.removeAllViews(views: Collection<View>): Unit = views.forEach { removeView(it) }
+inline fun ViewGroup.removeAllViews(vararg views: View): Unit = views.forEach { removeView(it) }
 
 @JvmOverloads
 fun ViewGroup.containsView(child: View, recursive: Boolean = false): Boolean {
