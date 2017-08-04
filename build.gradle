@@ -46,4 +46,7 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-//$ ./gradlew bintrayUpload -PbintrayUser=hendraanggrian -PbintrayKey= -PdryRun=false
+/** QUICK LINT CHECK BEFORE UPLOAD
+ ./gradlew kota:clean kota:build
+ ./gradlew kota:bintrayUpload -PdryRun=false -PbintrayUser=hendraanggrian -PbintrayKey=
+ */

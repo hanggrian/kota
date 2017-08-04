@@ -1,3 +1,6 @@
+@file:JvmName("LayoutInflaters")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package com.hendraanggrian.kota.view
 
 import android.content.Context
@@ -7,7 +10,7 @@ import android.view.ViewGroup
 import org.xmlpull.v1.XmlPullParser
 
 @JvmOverloads
-fun Context.inflateBy(@LayoutRes resource: Int, root: ViewGroup?, attachToRoot: Boolean = false) = LayoutInflater.from(this).inflate(resource, root, attachToRoot)!!
+inline fun Context.inflateLayout(@LayoutRes resource: Int, root: ViewGroup?, attachToRoot: Boolean = root != null) = LayoutInflater.from(this).inflate(resource, root, attachToRoot)!!
 
 @JvmOverloads
-fun Context.inflateBy(parser: XmlPullParser, root: ViewGroup?, attachToRoot: Boolean = false) = LayoutInflater.from(this).inflate(parser, root, attachToRoot)!!
+inline fun Context.inflateLayout(parser: XmlPullParser, root: ViewGroup?, attachToRoot: Boolean =  root != null) = LayoutInflater.from(this).inflate(parser, root, attachToRoot)!!
