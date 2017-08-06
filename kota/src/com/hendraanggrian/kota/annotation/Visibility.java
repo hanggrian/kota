@@ -9,10 +9,11 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
+@Retention(RetentionPolicy.SOURCE)
 @IntDef({
         View.VISIBLE,
         View.INVISIBLE,
-        View.GONE})
-@Retention(RetentionPolicy.SOURCE)
+        View.GONE
+})
 public @interface Visibility {
 }

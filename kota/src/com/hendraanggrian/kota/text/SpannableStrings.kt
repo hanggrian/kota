@@ -3,11 +3,12 @@
 
 package com.hendraanggrian.kota.text
 
+import android.support.v4.util.Pair
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 
-inline fun CharSequence.toSpannableString() = SpannableString.valueOf(this)!!
+inline fun CharSequence.toSpannableString(): SpannableString = SpannableString.valueOf(this)
 
 inline fun String.formatSpannableString(vararg args: Pair<Any, Array<out Any>>): SpannableString {
     val list = listOccurrences("%")

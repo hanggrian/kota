@@ -9,10 +9,11 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
+@Retention(RetentionPolicy.SOURCE)
 @IntDef({
         Configuration.UI_MODE_NIGHT_UNDEFINED,
         Configuration.UI_MODE_NIGHT_NO,
-        Configuration.UI_MODE_NIGHT_YES})
-@Retention(RetentionPolicy.SOURCE)
+        Configuration.UI_MODE_NIGHT_YES
+})
 public @interface UiModeNight {
 }

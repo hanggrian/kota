@@ -6,21 +6,39 @@ package com.hendraanggrian.kota.view
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import com.hendraanggrian.kota.annotation.Visibility
 
+/**
+ * Sets View background without deprecation notice.
+ */
 @Suppress("deprecation")
-inline fun View.setBackgroundBy(drawable: Drawable) = if (Build.VERSION.SDK_INT >= 16) {
-    background = drawable
-} else {
-    setBackgroundDrawable(drawable)
+inline fun View.setBackgroundBy(drawable: Drawable): Unit {
+    if (Build.VERSION.SDK_INT >= 16) {
+        background = drawable
+    } else {
+        setBackgroundDrawable(drawable)
+    }
 }
 
-inline fun View.setVisibleBy(visible: Boolean) = setVisibilityBy(if (visible) VISIBLE else GONE)
-inline fun View.setVisibilityBy(@Visibility visibility: Int): Boolean {
+/**
+ * Sets visibility boolean to View and perform block if View is visible.
+ */
+@JvmOverloads inline fun <V : View> V.setVisibleBy(
+        visible: Boolean,
+        noinline doIfVisible: (V.() -> Unit)? = null
+): Unit = setVisibilityBy(if (visible) View.VISIBLE else View.GONE, doIfVisible)
+
+/**
+ * Sets visibility int to View and perform block if View is visible.
+ */
+@JvmOverloads inline fun <V : View> V.setVisibilityBy(
+        @Visibility visibility: Int,
+        noinline doIfVisible: (V.() -> Unit)? = null
+): Unit {
     if (this.visibility != visibility) {
         this.visibility = visibility
     }
-    return this.visibility == VISIBLE
+    if (doIfVisible != null && this.visibility == View.VISIBLE) {
+        doIfVisible()
+    }
 }

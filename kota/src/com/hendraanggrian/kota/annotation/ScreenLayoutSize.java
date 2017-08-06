@@ -9,12 +9,13 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
+@Retention(RetentionPolicy.SOURCE)
 @IntDef({
         Configuration.SCREENLAYOUT_SIZE_UNDEFINED,
         Configuration.SCREENLAYOUT_SIZE_SMALL,
         Configuration.SCREENLAYOUT_SIZE_NORMAL,
         Configuration.SCREENLAYOUT_SIZE_LARGE,
-        Configuration.SCREENLAYOUT_SIZE_XLARGE})
-@Retention(RetentionPolicy.SOURCE)
+        Configuration.SCREENLAYOUT_SIZE_XLARGE
+})
 public @interface ScreenLayoutSize {
 }

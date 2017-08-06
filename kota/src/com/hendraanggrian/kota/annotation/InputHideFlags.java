@@ -9,9 +9,10 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
+@Retention(RetentionPolicy.SOURCE)
 @IntDef({
         InputMethodManager.HIDE_NOT_ALWAYS,
-        InputMethodManager.HIDE_IMPLICIT_ONLY})
-@Retention(RetentionPolicy.SOURCE)
+        InputMethodManager.HIDE_IMPLICIT_ONLY
+})
 public @interface InputHideFlags {
 }

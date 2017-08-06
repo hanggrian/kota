@@ -9,8 +9,13 @@ import android.support.annotation.StyleRes
 import android.widget.TextView
 
 @Suppress("deprecation")
-inline fun TextView.setTextAppearanceBy(context: Context, @StyleRes resId: Int) = if (Build.VERSION.SDK_INT >= 23) {
-    setTextAppearance(resId)
-} else {
-    setTextAppearance(context, resId)
+inline fun TextView.setTextAppearanceBy(
+        context: Context,
+        @StyleRes resId: Int
+): Unit {
+    if (Build.VERSION.SDK_INT >= 23) {
+        setTextAppearance(resId)
+    } else {
+        setTextAppearance(context, resId)
+    }
 }

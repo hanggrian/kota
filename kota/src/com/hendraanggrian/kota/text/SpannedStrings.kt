@@ -5,4 +5,4 @@ package com.hendraanggrian.kota.text
 
 import android.text.SpannedString
 
-inline fun CharSequence.toSpannedString() = SpannedString.valueOf(this)!!
+inline fun CharSequence.toSpannedString(): SpannedString = SpannedString.valueOf(this)

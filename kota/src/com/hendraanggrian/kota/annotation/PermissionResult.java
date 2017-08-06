@@ -9,9 +9,10 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
+@Retention(RetentionPolicy.SOURCE)
 @IntDef({
         PackageManager.PERMISSION_GRANTED,
-        PackageManager.PERMISSION_DENIED})
-@Retention(RetentionPolicy.SOURCE)
+        PackageManager.PERMISSION_DENIED
+})
 public @interface PermissionResult {
 }

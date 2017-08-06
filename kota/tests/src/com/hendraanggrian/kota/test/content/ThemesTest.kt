@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.test.content.res
+package com.hendraanggrian.kota.test.content
 
 import android.support.test.InstrumentationRegistry.getTargetContext
 import android.support.test.runner.AndroidJUnit4

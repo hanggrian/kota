@@ -13,6 +13,7 @@ import java.lang.annotation.RetentionPolicy;
  */
 @RequiresApi(20)
 @TargetApi(20)
+@Retention(RetentionPolicy.SOURCE)
 @IntDef({
         Configuration.UI_MODE_TYPE_UNDEFINED,
         Configuration.UI_MODE_TYPE_NORMAL,
@@ -20,7 +21,7 @@ import java.lang.annotation.RetentionPolicy;
         Configuration.UI_MODE_TYPE_CAR,
         Configuration.UI_MODE_TYPE_TELEVISION,
         Configuration.UI_MODE_TYPE_APPLIANCE,
-        Configuration.UI_MODE_TYPE_WATCH})
-@Retention(RetentionPolicy.SOURCE)
+        Configuration.UI_MODE_TYPE_WATCH
+})
 public @interface UiModeType {
 }

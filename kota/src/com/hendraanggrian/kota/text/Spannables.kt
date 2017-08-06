@@ -11,31 +11,39 @@ import java.util.regex.Pattern
 /**
  * Set spans from start to end with certain flag.
  */
-@JvmOverloads
-inline fun Spannable.setSpans(
+@JvmOverloads inline fun Spannable.setSpans(
         vararg spans: Any,
         @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
         start: Int = 0,
-        end: Int = length) =
-        spans.forEach { setSpan(it, start, end, flags) }
+        end: Int = length
+): Unit {
+    spans.forEach { setSpan(it, start, end, flags) }
+}
 
 /**
  * Remove multiple spans in this Spannable.
  */
-inline fun Spannable.removeSpans(vararg spans: Any) = spans.forEach { removeSpan(it) }
+inline fun Spannable.removeSpans(
+        vararg spans: Any
+): Unit {
+    spans.forEach { removeSpan(it) }
+}
 
-@JvmOverloads
 @Suppress("UNCHECKED_CAST")
-inline fun <T> Spannable.removeAllSpans(type: Class<T> = Any::class.java as Class<T>) = getAllSpans(type).forEach { removeSpan(it) }
+@JvmOverloads inline fun <T> Spannable.removeAllSpans(
+        type: Class<T> = Any::class.java as Class<T>
+): Unit {
+    getAllSpans(type).forEach { removeSpan(it) }
+}
 
 /**
  * Find substring in this Spannable and set multiple spans to it.
  */
-@JvmOverloads
-inline fun Spannable.putSpans(
+@JvmOverloads inline fun Spannable.putSpans(
         substring: String,
         vararg spans: () -> Any,
-        @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) {
+        @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+): Unit {
     for (start in toString().listOccurrences(substring)) {
         val end = start + substring.length
         spans.forEach {
@@ -47,11 +55,11 @@ inline fun Spannable.putSpans(
 /**
  * Find substring with regex pattern in this Spannable and set multiple spans to it.
  */
-@JvmOverloads
-inline fun Spannable.putSpansAll(
+@JvmOverloads inline fun Spannable.putSpansAll(
         regex: String,
         vararg spans: () -> Any,
-        @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) {
+        @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+): Unit {
     val matcher = Pattern.compile(regex).matcher(this)
     while (matcher.find()) {
         val start = matcher.start()
@@ -62,11 +70,11 @@ inline fun Spannable.putSpansAll(
     }
 }
 
-@JvmOverloads
-inline fun Spannable.putSpansAll(
+@JvmOverloads inline fun Spannable.putSpansAll(
         regex: Pattern,
         vararg spans: () -> Any,
-        @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) {
+        @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+): Unit {
     val matcher = regex.matcher(this)
     while (matcher.find()) {
         val start = matcher.start()

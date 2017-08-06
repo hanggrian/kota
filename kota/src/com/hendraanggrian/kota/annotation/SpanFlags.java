@@ -9,6 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
+@Retention(RetentionPolicy.SOURCE)
 @IntDef({
         Spanned.SPAN_PARAGRAPH,
         Spanned.SPAN_INCLUSIVE_EXCLUSIVE,
@@ -18,7 +19,7 @@ import java.lang.annotation.RetentionPolicy;
         Spanned.SPAN_COMPOSING,
         Spanned.SPAN_INTERMEDIATE,
         Spanned.SPAN_USER,
-        Spanned.SPAN_PRIORITY})
-@Retention(RetentionPolicy.SOURCE)
+        Spanned.SPAN_PRIORITY
+})
 public @interface SpanFlags {
 }

@@ -14,6 +14,7 @@ import java.lang.annotation.RetentionPolicy;
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 @SuppressLint("InlinedApi")
+@Retention(RetentionPolicy.SOURCE)
 @StringDef({
         Manifest.permission.ACCESS_CHECKIN_PROPERTIES,
         Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -172,6 +173,5 @@ import java.lang.annotation.RetentionPolicy;
         Manifest.permission.WRITE_SYNC_SETTINGS,
         Manifest.permission.WRITE_VOICEMAIL
 })
-@Retention(RetentionPolicy.SOURCE)
 public @interface PermissionString {
 }
