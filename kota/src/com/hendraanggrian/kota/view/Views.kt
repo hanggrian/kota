@@ -3,22 +3,8 @@
 
 package com.hendraanggrian.kota.view
 
-import android.graphics.drawable.Drawable
-import android.os.Build
 import android.view.View
 import com.hendraanggrian.kota.annotation.Visibility
-
-/**
- * Sets View background without deprecation notice.
- */
-@Suppress("deprecation")
-inline fun View.setBackgroundBy(drawable: Drawable): Unit {
-    if (Build.VERSION.SDK_INT >= 16) {
-        background = drawable
-    } else {
-        setBackgroundDrawable(drawable)
-    }
-}
 
 /**
  * Sets visibility boolean to View and perform block if View is visible.

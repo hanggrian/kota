@@ -6,23 +6,6 @@ package com.hendraanggrian.kota.view
 import android.view.View
 import android.view.ViewGroup
 
-@JvmOverloads fun ViewGroup.findAllViewsWithTag(tag: Any, recursive: Boolean = false): List<View> {
-    val views = ArrayList<View>()
-    (0..childCount - 1)
-            .map { getChildAt(it) }
-            .forEach {
-                if (recursive && it is ViewGroup) {
-                    views.addAll(findAllViewsWithTag(tag, true))
-                } else {
-                    val childTag = it.tag
-                    if (childTag != null && childTag == tag) {
-                        views.add(it)
-                    }
-                }
-            }
-    return views
-}
-
 inline fun ViewGroup.getAllChilds(): List<View> = (0..childCount - 1).map { getChildAt(it) }
 
 inline fun ViewGroup.addAllViews(views: Collection<View>): Unit = views.forEach { addView(it) }

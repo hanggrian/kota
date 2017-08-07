@@ -17,8 +17,6 @@ inline fun CharSequence.toSpannableStringBuilder(): SpannableStringBuilder = Spa
     append(text)
     val end = length
     val start = end - text.length
-    spans.forEach {
-        setSpan(it, start, end, flags)
-    }
+    spans.forEach { setSpan(it, start, end, flags) }
     return this
 }

@@ -16,8 +16,8 @@ import java.util.regex.Pattern
         @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
         start: Int = 0,
         end: Int = length
-): Unit {
-    spans.forEach { setSpan(it, start, end, flags) }
+): Unit = spans.forEach {
+    setSpan(it, start, end, flags)
 }
 
 /**
@@ -25,15 +25,15 @@ import java.util.regex.Pattern
  */
 inline fun Spannable.removeSpans(
         vararg spans: Any
-): Unit {
-    spans.forEach { removeSpan(it) }
+): Unit = spans.forEach {
+    removeSpan(it)
 }
 
 @Suppress("UNCHECKED_CAST")
 @JvmOverloads inline fun <T> Spannable.removeAllSpans(
         type: Class<T> = Any::class.java as Class<T>
-): Unit {
-    getAllSpans(type).forEach { removeSpan(it) }
+): Unit = getAllSpans(type).forEach {
+    removeSpan(it)
 }
 
 /**
@@ -43,12 +43,11 @@ inline fun Spannable.removeSpans(
         substring: String,
         vararg spans: () -> Any,
         @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-): Unit {
-    for (start in toString().listOccurrences(substring)) {
-        val end = start + substring.length
-        spans.forEach {
-            setSpan(it.invoke(), start, end, flags)
-        }
+): Unit = toString().listOccurrences(substring).forEach {
+    val start = it
+    val end = it + substring.length
+    spans.forEach {
+        setSpan(it.invoke(), start, end, flags)
     }
 }
 

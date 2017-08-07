@@ -3,6 +3,7 @@ package com.example.spannabletext
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
+import android.support.v4.util.Pair
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 .apply {
                     setSpans(ForegroundColorSpan(getColor2(R.color.gray)))
                 }
+        R.string.app_name
 
         val total = 818
         textViewViewing.text = "Viewing %s of %s font families".formatSpannableString(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),

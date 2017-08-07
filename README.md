@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kota:0.5.2'
+    compile 'com.hendraanggrian:kota:0.6.0'
 }
 ```
 

@@ -6,9 +6,9 @@ package com.hendraanggrian.kota.app
 import android.app.Activity
 import android.content.Intent
 
-@JvmOverloads inline fun Activity.finishWithResult(
+inline fun Activity.finishWithResult(
         resultCode: Int,
-        data: Intent? = null
+        data: Intent?
 ): Unit {
     setResult(resultCode, data)
     finish()
