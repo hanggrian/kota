@@ -14,7 +14,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.hendraanggrian.kota.test.R
 import com.hendraanggrian.kota.view.containsView
-import com.hendraanggrian.kota.view.findAllViewsWithTag
 import org.hamcrest.Matcher
 import org.junit.Assert.assertEquals
 import org.junit.FixMethodOrder
@@ -32,45 +31,6 @@ class ViewGroupsTest {
 
     @Rule
     var rule = ActivityTestRule(ViewGroupsActivity::class.java)
-
-    @Test
-    fun test1_findMultipleTags() {
-        val tag = "TAG"
-        onView(withId(R.id.container)).perform(
-                object : ViewAction {
-                    override fun getConstraints(): Matcher<View> {
-                        return isAssignableFrom(ViewGroup::class.java)
-                    }
-
-                    override fun getDescription(): String {
-                        return "Adding..."
-                    }
-
-                    override fun perform(uiController: UiController, view: View) {
-                        view as ViewGroup
-                        View(getTargetContext()).let {
-                            it.tag = tag
-                            view.addView(it)
-                        }
-                        View(getTargetContext()).let {
-                            it.tag = tag
-                            view.addView(it)
-                        }
-                    }
-                }, object : ViewAction {
-            override fun getConstraints(): Matcher<View> {
-                return isAssignableFrom(ViewGroup::class.java)
-            }
-
-            override fun getDescription(): String {
-                return "Finding..."
-            }
-
-            override fun perform(uiController: UiController, view: View) {
-                assertEquals((view as ViewGroup).findAllViewsWithTag(tag, true).size, 2)
-            }
-        })
-    }
 
     @Test
     fun test2_hasView() {
