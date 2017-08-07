@@ -16,8 +16,8 @@ import android.util.TypedValue
 import com.hendraanggrian.kota.annotation.Dp
 import java.io.InputStream
 
-@Px inline fun Int.toPx() = (this * Resources.getSystem().displayMetrics.density).toInt()
-@Dp inline fun Int.toDp() = (this / Resources.getSystem().displayMetrics.density).toInt()
+@Px inline fun @receiver:Dp Int.toPx() = (this * Resources.getSystem().displayMetrics.density).toInt()
+@Dp inline fun @receiver:Px Int.toDp() = (this / Resources.getSystem().displayMetrics.density).toInt()
 
 @AnyRes inline fun String.toId(context: Context, resType: String) = toId(context.resources, resType, context.packageName)
 @AnyRes inline fun String.toId(res: Resources, resType: String, packageName: String) = res.getIdentifier(this, resType, packageName)
