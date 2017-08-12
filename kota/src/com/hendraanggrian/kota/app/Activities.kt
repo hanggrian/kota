@@ -8,8 +8,8 @@ import android.content.Intent
 
 inline fun Activity.finishWithResult(
         resultCode: Int,
-        data: Intent?
+        data: () -> Intent?
 ): Unit {
-    setResult(resultCode, data)
+    setResult(resultCode, data())
     finish()
 }

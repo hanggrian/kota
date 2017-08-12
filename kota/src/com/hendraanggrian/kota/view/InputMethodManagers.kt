@@ -10,8 +10,11 @@ import android.os.ResultReceiver
 import android.view.inputmethod.InputMethodManager
 import com.hendraanggrian.kota.annotation.InputHideFlags
 import com.hendraanggrian.kota.annotation.InputShowFlags
+import com.hendraanggrian.kota.content.getSystemService2
 
-inline fun Activity.getInputMethodManager(): InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+inline fun Context.getInputMethodManager(): InputMethodManager = getSystemService2(Context.INPUT_METHOD_SERVICE)
+inline fun Fragment.getInputMethodManager(): InputMethodManager = getSystemService2(Context.INPUT_METHOD_SERVICE)
+inline fun android.support.v4.app.Fragment.getInputMethodManager(): InputMethodManager = getSystemService2(Context.INPUT_METHOD_SERVICE)
 
 @JvmOverloads inline fun Activity.showInput(
         @InputShowFlags flags: Int = InputMethodManager.SHOW_IMPLICIT,

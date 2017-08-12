@@ -17,8 +17,8 @@ class ViewGroupsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_viewgroups)
-        setSupportActionBar(findViewById(R.id.toolbar))
-        progressBar = findViewById(R.id.progressBar)
-        container = findViewById(R.id.container)
+        setSupportActionBar(findViewById(R.id.toolbar)) // as Toolbar)
+        progressBar = findViewById(R.id.progressBar) // as ProgressBar
+        container = findViewById(R.id.container) // as ViewGroup
     }
 }

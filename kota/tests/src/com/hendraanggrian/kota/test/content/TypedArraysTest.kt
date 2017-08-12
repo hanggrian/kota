@@ -1,7 +1,7 @@
 package com.hendraanggrian.kota.test.content
 
 import android.support.test.InstrumentationRegistry
-import com.hendraanggrian.kota.content.obtainStyledAttributesBy
+import com.hendraanggrian.kota.content.openTypedArray
 
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
@@ -9,7 +9,7 @@ import com.hendraanggrian.kota.content.obtainStyledAttributesBy
 class TypedArraysTest {
 
     fun test() {
-        InstrumentationRegistry.getTargetContext().theme.obtainStyledAttributesBy(null, intArrayOf(0)) {
+        InstrumentationRegistry.getTargetContext().theme.openTypedArray(null, intArrayOf(0)) {
 
         }
     }

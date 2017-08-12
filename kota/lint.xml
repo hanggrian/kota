@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lint>
+    <!-- runIfMinSdk() and getIfMinSdk() is guaranteed to call each block on appropiate level -->
+    <issue id="NewApi" severity="ignore"/>
+    <issue id="InlinedApi" severity="ignore"/>
+</lint>

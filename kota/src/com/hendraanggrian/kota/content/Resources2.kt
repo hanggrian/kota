@@ -9,11 +9,11 @@ import android.content.Context
 import android.content.res.*
 import android.graphics.Movie
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.support.annotation.*
 import android.support.v4.content.ContextCompat
 import android.util.TypedValue
 import com.hendraanggrian.kota.annotation.Dp
+import com.hendraanggrian.kota.app.getContext2
 import java.io.InputStream
 
 @Px inline fun @receiver:Dp Int.toPx() = (this * Resources.getSystem().displayMetrics.density).toInt()
@@ -67,7 +67,7 @@ inline fun Fragment.getDimensionPixelSize(@DimenRes id: Int): Int = resources.ge
 inline fun android.support.v4.app.Fragment.getDimensionPixelSize(@DimenRes id: Int): Int = resources.getDimensionPixelSize(id)
 
 inline fun Context.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(this, id)
-inline fun Fragment.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(if (Build.VERSION.SDK_INT >= 23) context else activity, id)
+inline fun Fragment.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(getContext2(), id)
 inline fun android.support.v4.app.Fragment.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(context, id)
 
 inline fun Context.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
@@ -75,11 +75,11 @@ inline fun Fragment.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
 inline fun android.support.v4.app.Fragment.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
 
 @ColorInt inline fun Context.getColor2(@ColorRes id: Int): Int = ContextCompat.getColor(this, id)
-@ColorInt inline fun Fragment.getColor2(@ColorRes id: Int): Int = ContextCompat.getColor(if (Build.VERSION.SDK_INT >= 23) context else activity, id)
+@ColorInt inline fun Fragment.getColor2(@ColorRes id: Int): Int = ContextCompat.getColor(getContext2(), id)
 @ColorInt inline fun android.support.v4.app.Fragment.getColor2(@ColorRes id: Int): Int = ContextCompat.getColor(context, id)
 
 inline fun Context.getColorStateList2(@ColorRes id: Int): ColorStateList = ContextCompat.getColorStateList(this, id)
-inline fun Fragment.getColorStateList2(@ColorRes id: Int): ColorStateList = ContextCompat.getColorStateList(if (Build.VERSION.SDK_INT >= 23) context else activity, id)
+inline fun Fragment.getColorStateList2(@ColorRes id: Int): ColorStateList = ContextCompat.getColorStateList(getContext2(), id)
 inline fun android.support.v4.app.Fragment.getColorStateList2(@ColorRes id: Int): ColorStateList = ContextCompat.getColorStateList(context, id)
 
 inline fun Context.getBoolean(@BoolRes id: Int): Boolean = resources.getBoolean(id)

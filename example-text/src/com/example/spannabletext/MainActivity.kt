@@ -100,8 +100,8 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount(): Int = fonts.size
 
         internal class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var toolbar = itemView.findViewById<Toolbar>(R.id.toolbar)!!
-            var textView = itemView.findViewById<TextView>(R.id.textView)!!
+            var toolbar: Toolbar = itemView.findViewById(R.id.toolbar) // as Toolbar
+            var textView: TextView = itemView.findViewById(R.id.textView) // as TextView
         }
     }
 

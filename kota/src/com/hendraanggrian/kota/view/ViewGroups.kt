@@ -6,13 +6,7 @@ package com.hendraanggrian.kota.view
 import android.view.View
 import android.view.ViewGroup
 
-inline fun ViewGroup.getAllChilds(): List<View> = (0..childCount - 1).map { getChildAt(it) }
-
-inline fun ViewGroup.addAllViews(views: Collection<View>): Unit = views.forEach { addView(it) }
-inline fun ViewGroup.addAllViews(vararg views: View): Unit = views.forEach { addView(it) }
-
-inline fun ViewGroup.removeAllViews(views: Collection<View>): Unit = views.forEach { removeView(it) }
-inline fun ViewGroup.removeAllViews(vararg views: View): Unit = views.forEach { removeView(it) }
+inline fun ViewGroup.getChilds(): List<View> = (0..childCount - 1).map { getChildAt(it) }
 
 @JvmOverloads fun ViewGroup.containsView(child: View, recursive: Boolean = false): Boolean {
     for (i in 0..childCount - 1) {

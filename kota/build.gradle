@@ -26,6 +26,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin.stdlib"
     compile "com.android.support:support-compat:$versions.support"
     compile "com.android.support:support-fragment:$versions.support"
+    androidTestCompile "org.jetbrains.anko:anko-commons:$versions.kotlin.anko"
     androidTestCompile "com.android.support:design:$versions.support"
     androidTestCompile("com.android.support.test:rules:$versions.rules") {
         exclude group: 'com.android.support', module: 'support-annotations'

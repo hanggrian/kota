@@ -3,15 +3,16 @@
 
 package com.hendraanggrian.kota.content
 
+import android.annotation.SuppressLint
 import android.app.Fragment
 import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Configuration.SCREENLAYOUT_SIZE_UNDEFINED
 import android.content.res.Resources
-import android.os.Build
 import com.hendraanggrian.kota.annotation.ScreenLayoutSize
 import com.hendraanggrian.kota.annotation.UiModeNight
 import com.hendraanggrian.kota.annotation.UiModeType
+import com.hendraanggrian.kota.os.getIfMinSdk
 
 @ScreenLayoutSize inline fun Configuration.getScreenSize(): Int = screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK
 @ScreenLayoutSize inline fun Resources.getScreenSize(): Int = configuration.getScreenSize()
@@ -31,7 +32,7 @@ inline fun Context.isScreenLong(): Boolean = resources.isScreenLong()
 inline fun Fragment.isScreenLong(): Boolean = resources.isScreenLong()
 inline fun android.support.v4.app.Fragment.isScreenLong(): Boolean = resources.isScreenLong()
 
-inline fun Configuration.isRtl(): Boolean = if (Build.VERSION.SDK_INT < 17) false else layoutDirection and Configuration.SCREENLAYOUT_LAYOUTDIR_MASK == Configuration.SCREENLAYOUT_LAYOUTDIR_RTL
+inline fun Configuration.isRtl(): Boolean = getIfMinSdk(17, { layoutDirection and Configuration.SCREENLAYOUT_LAYOUTDIR_MASK == Configuration.SCREENLAYOUT_LAYOUTDIR_RTL }, { false })
 inline fun Resources.isRtl(): Boolean = configuration.isRtl()
 inline fun Context.isRtl(): Boolean = resources.isRtl()
 inline fun Fragment.isRtl(): Boolean = resources.isRtl()
