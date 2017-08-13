@@ -18,9 +18,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.hendraanggrian.kota.content.getColor2
-import com.hendraanggrian.kota.content.toPx
-import com.hendraanggrian.kota.text.*
+import com.hendraanggrian.common.content.getColor2
+import com.hendraanggrian.common.content.toPx
+import com.hendraanggrian.common.text.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -44,26 +44,26 @@ class MainActivity : AppCompatActivity() {
         R.string.app_name
 
         val total = 818
-        textViewViewing.text = "Viewing %s of %s font families".formatSpannableString(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),
+        textViewViewing.text = "Viewing %s of %s font families".formatSpannable(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),
                 Pair(total, emptyArray<Any>()))
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = Adapter(this)
 
-        textViewCopyright.text = "© 2017 Google Inc.".toSpannableString()
+        textViewCopyright.text = "© 2017 Google Inc.".toSpannable()
                 .apply {
                     setSpans(AbsoluteSizeSpan(12.toPx()))
                     putSpans("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
                 }
 
-        textViewCopyright.text = "© 2017 Google Inc.".toSpannableString()
+        textViewCopyright.text = "© 2017 Google Inc.".toSpannable()
                 .apply {
                     setSpans(AbsoluteSizeSpan(12.toPx()))
                     putSpans("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
                 }
 
         val url = "https://fonts.google.com"
-        textViewUrl.text = ("as seen on " + url).toSpannableString()
+        textViewUrl.text = ("as seen on " + url).toSpannable()
                 .apply {
                     setSpans(AbsoluteSizeSpan(12.toPx()))
                     putSpansAll("[a-z]+:\\/\\/[^ \\n]*", spans = { URLSpan(url) })
@@ -71,26 +71,28 @@ class MainActivity : AppCompatActivity() {
         textViewUrl.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    internal class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+    internal class Adapter(
+            private val context: Context
+    ) : RecyclerView.Adapter<Adapter.ViewHolder>() {
         private val fonts = Font.values()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(context).inflate(R.layout.item, parent, false))
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val font = fonts[position]
-            holder.toolbar.title = font.title.toSpannableString()
+            holder.toolbar.title = font.title.toSpannable()
                     .apply {
                         setSpans(ForegroundColorSpan(context.getColor2(R.color.darkGray)),
                                 StyleSpan(Typeface.BOLD),
                                 AbsoluteSizeSpan(14.toPx()))
                     }
-            holder.toolbar.subtitle = "${font.author} ${font.stylesCount} styles)".toSpannableString()
+            holder.toolbar.subtitle = "${font.author} ${font.stylesCount} styles)".toSpannable()
                     .apply {
                         setSpans(AbsoluteSizeSpan(12.toPx()))
                     }
             holder.toolbar.menu.clear()
             holder.toolbar.inflateMenu(R.menu.item)
-            holder.textView.text = font.example.toSpannableString()
+            holder.textView.text = font.example.toSpannable()
                     .apply {
                         setSpans(FontSpan(context.assets, font.filename),
                                 AbsoluteSizeSpan(24.toPx()))
@@ -105,11 +107,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private enum class Font constructor(val title: String,
-                                        val author: String,
-                                        val stylesCount: Int,
-                                        val filename: String,
-                                        val example: String) {
+    private enum class Font constructor(
+            val title: String,
+            val author: String,
+            val stylesCount: Int,
+            val filename: String,
+            val example: String
+    ) {
         ROBOTO("Roboto", "Christian Robertson", 12,
                 "fonts/Roboto-Regular.ttf",
                 "All their equipment and instruments are alive."),

@@ -1,5 +1,5 @@
 <manifest
-    package="com.hendraanggrian.kota.test"
+    package="com.hendraanggrian.common.test"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
