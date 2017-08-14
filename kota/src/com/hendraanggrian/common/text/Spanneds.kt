@@ -11,7 +11,4 @@ inline fun CharSequence.toSpanned(): Spanned = SpannedString.valueOf(this)
 /**
  * Get all spans instance of [type] from text start to text end.
  */
-@Suppress("UNCHECKED_CAST")
-@JvmOverloads inline fun <T> Spanned.getSpans(
-        type: Class<T> = Any::class.java as Class<T>
-): Array<T> = getSpans(0, length, type)
+inline fun <T> Spanned.getSpans(type: Class<T>): Array<T> = getSpans(0, length, type)

@@ -58,15 +58,9 @@ inline fun CharSequence.toSpannable(): Spannable = SpannableString.valueOf(this)
     }
 }
 
-/**
- * Remove multiple spans in this Spannable.
- */
 inline fun Spannable.removeSpans(vararg spans: Any): Unit = spans.forEach { removeSpan(it) }
 
-@Suppress("UNCHECKED_CAST")
-@JvmOverloads inline fun <T> Spannable.removeSpans(type: Class<T> = Any::class.java as Class<T>): Unit = removeSpans(getSpans(type))
-
-inline fun Spannable.clearSpans(): Unit = removeSpans(Any::class.java)
+inline fun <T> Spannable.removeSpans(type: Class<T>): Unit = getSpans(type).forEach { removeSpan(it) }
 
 inline fun String.listOccurrences(substring: String): MutableList<Int> {
     val lastIndexes = ArrayList<Int>()
