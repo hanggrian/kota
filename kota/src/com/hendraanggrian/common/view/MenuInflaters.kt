@@ -1,5 +1,5 @@
 @file:JvmName("MenuInflaters")
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package com.hendraanggrian.common.view
 

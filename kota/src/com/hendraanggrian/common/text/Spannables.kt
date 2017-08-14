@@ -1,5 +1,5 @@
 @file:JvmName("Spannables")
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package com.hendraanggrian.common.text
 
@@ -11,7 +11,7 @@ import android.text.Spanned
 import com.hendraanggrian.common.annotation.SpanFlags
 import java.util.regex.Pattern
 
-inline fun CharSequence.toSpannable(): SpannableString = SpannableString.valueOf(this)
+inline fun CharSequence.toSpannable(): Spannable = SpannableString.valueOf(this)
 
 /**
  * Set spans from start to end with certain flag.
@@ -21,9 +21,7 @@ inline fun CharSequence.toSpannable(): SpannableString = SpannableString.valueOf
         @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
         start: Int = 0,
         end: Int = length
-): Unit = spans.forEach {
-    setSpan(it, start, end, flags)
-}
+): Unit = spans.forEach { setSpan(it, start, end, flags) }
 
 /**
  * Find substring in this Spannable and set multiple spans to it.
@@ -35,9 +33,7 @@ inline fun CharSequence.toSpannable(): SpannableString = SpannableString.valueOf
 ): Unit = toString().listOccurrences(substring).forEach {
     val start = it
     val end = it + substring.length
-    spans.forEach {
-        setSpan(it.invoke(), start, end, flags)
-    }
+    spans.forEach { setSpan(it.invoke(), start, end, flags) }
 }
 
 /**
@@ -58,29 +54,19 @@ inline fun CharSequence.toSpannable(): SpannableString = SpannableString.valueOf
     while (matcher.find()) {
         val start = matcher.start()
         val end = matcher.end()
-        spans.forEach {
-            setSpan(it.invoke(), start, end, flags)
-        }
+        spans.forEach { setSpan(it.invoke(), start, end, flags) }
     }
 }
 
 /**
  * Remove multiple spans in this Spannable.
  */
-inline fun Spannable.removeSpans(
-        vararg spans: Any
-): Unit = spans.forEach {
-    removeSpan(it)
-}
+inline fun Spannable.removeSpans(vararg spans: Any): Unit = spans.forEach { removeSpan(it) }
 
 @Suppress("UNCHECKED_CAST")
-@JvmOverloads inline fun <T> Spannable.removeSpans(
-        type: Class<T> = Any::class.java as Class<T>
-): Unit = getSpans(type).forEach {
-    removeSpan(it)
-}
+@JvmOverloads inline fun <T> Spannable.removeSpans(type: Class<T> = Any::class.java as Class<T>): Unit = removeSpans(getSpans(type))
 
-inline fun Spannable.clearSpans(): Unit = getSpans<Any>().forEach { removeSpan(it) }
+inline fun Spannable.clearSpans(): Unit = removeSpans(Any::class.java)
 
 inline fun String.listOccurrences(substring: String): MutableList<Int> {
     val lastIndexes = ArrayList<Int>()
@@ -120,5 +106,5 @@ inline fun String.formatSpannable(vararg args: Pair<Any, Array<out Any>>): Spann
         }
     }
     builder.append(remaining)
-    return builder.toSpannable()
+    return builder.toSpannable() as SpannableString
 }
