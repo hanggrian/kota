@@ -14,13 +14,13 @@ import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.text.style.URLSpan
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.hendraanggrian.common.content.getColor2
-import com.hendraanggrian.common.content.toPx
-import com.hendraanggrian.common.text.*
+import com.hendraanggrian.kota.layoutInflater
+import com.hendraanggrian.kota.res.dp
+import com.hendraanggrian.kota.res.getColor2
+import com.hendraanggrian.kota.text.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -41,33 +41,29 @@ class MainActivity : AppCompatActivity() {
                 .apply {
                     setSpans(ForegroundColorSpan(getColor2(R.color.gray)))
                 }
-        R.string.app_name
 
         val total = 818
         textViewViewing.text = "Viewing %s of %s font families".formatSpannable(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),
-                Pair(total, emptyArray<Any>()))
+                Pair(total, emptyArray()))
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = Adapter(this)
 
-        textViewCopyright.text = "© 2017 Google Inc.".toSpannable()
-                .apply {
-                    setSpans(AbsoluteSizeSpan(12.toPx()))
-                    putSpans("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
-                }
+        textViewCopyright.text = spannableOf("© 2017 Google Inc.").apply {
+            setSpans(AbsoluteSizeSpan(dp(12)))
+            putSpans("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
+        }
 
-        textViewCopyright.text = "© 2017 Google Inc.".toSpannable()
-                .apply {
-                    setSpans(AbsoluteSizeSpan(12.toPx()))
-                    putSpans("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
-                }
+        textViewCopyright.text = spannableOf("© 2017 Google Inc.").apply {
+            setSpans(AbsoluteSizeSpan(dp(12)))
+            putSpans("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
+        }
 
         val url = "https://fonts.google.com"
-        textViewUrl.text = ("as seen on " + url).toSpannable()
-                .apply {
-                    setSpans(AbsoluteSizeSpan(12.toPx()))
-                    putSpansAll("[a-z]+:\\/\\/[^ \\n]*", spans = { URLSpan(url) })
-                }
+        textViewUrl.text = spannableOf("as seen on " + url).apply {
+            setSpans(AbsoluteSizeSpan(dp(12)))
+            putSpansAll("[a-z]+:\\/\\/[^ \\n]*", spans = { URLSpan(url) })
+        }
         textViewUrl.movementMethod = LinkMovementMethod.getInstance()
     }
 
@@ -76,30 +72,27 @@ class MainActivity : AppCompatActivity() {
     ) : RecyclerView.Adapter<Adapter.ViewHolder>() {
         private val fonts = Font.values()
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(context).inflate(R.layout.item, parent, false))
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(context.layoutInflater.inflate(R.layout.item, parent, false))
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val font = fonts[position]
-            holder.toolbar.title = font.title.toSpannable()
-                    .apply {
-                        setSpans(ForegroundColorSpan(context.getColor2(R.color.darkGray)),
-                                StyleSpan(Typeface.BOLD),
-                                AbsoluteSizeSpan(14.toPx()))
-                    }
-            holder.toolbar.subtitle = "${font.author} ${font.stylesCount} styles)".toSpannable()
-                    .apply {
-                        setSpans(AbsoluteSizeSpan(12.toPx()))
-                    }
+            holder.toolbar.title = spannableOf(font.title).apply {
+                setSpans(ForegroundColorSpan(context.getColor2(R.color.darkGray)),
+                        StyleSpan(Typeface.BOLD),
+                        AbsoluteSizeSpan(dp(14)))
+            }
+            holder.toolbar.subtitle = spannableOf("${font.author} ${font.stylesCount} styles)").apply {
+                setSpans(AbsoluteSizeSpan(dp(12)))
+            }
             holder.toolbar.menu.clear()
             holder.toolbar.inflateMenu(R.menu.item)
-            holder.textView.text = font.example.toSpannable()
-                    .apply {
-                        setSpans(FontSpan(context.assets, font.filename),
-                                AbsoluteSizeSpan(24.toPx()))
-                    }
+            holder.textView.text = spannableOf(font.example).apply {
+                setSpans(FontSpan(context.assets, font.filename),
+                        AbsoluteSizeSpan(dp(24)))
+            }
         }
 
-        override fun getItemCount(): Int = fonts.size
+        override fun getItemCount() = fonts.size
 
         internal class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var toolbar: Toolbar = itemView.findViewById(R.id.toolbar) // as Toolbar

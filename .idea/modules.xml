@@ -18,6 +18,9 @@
       <module fileurl="file://$PROJECT_DIR$/compat-view/compat-view.iml" filepath="$PROJECT_DIR$/compat-view/compat-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/example-text/example-text.iml" filepath="$PROJECT_DIR$/example-text/example-text.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota.iml" filepath="$PROJECT_DIR$/kota.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kota-core/kota-core.iml" filepath="$PROJECT_DIR$/kota-core/kota-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kota-design/kota-design.iml" filepath="$PROJECT_DIR$/kota-design/kota-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kota-fragment/kota-fragment.iml" filepath="$PROJECT_DIR$/kota-fragment/kota-fragment.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota/kota-kota.iml" filepath="$PROJECT_DIR$/kota/kota-kota.iml" />
       <module fileurl="file://$PROJECT_DIR$/more.iml" filepath="$PROJECT_DIR$/more.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-content/more-content.iml" filepath="$PROJECT_DIR$/more-content/more-content.iml" />

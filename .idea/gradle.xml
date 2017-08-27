@@ -10,6 +10,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/example-text" />
             <option value="$PROJECT_DIR$/kota" />
+            <option value="$PROJECT_DIR$/kota-core" />
+            <option value="$PROJECT_DIR$/kota-design" />
+            <option value="$PROJECT_DIR$/kota-fragment" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -13,19 +13,20 @@ android {
     }
     sourceSets {
         main.manifest.srcFile 'AndroidManifest.xml'
+        main.java.srcDirs 'src'
     }
 }
 
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
     compile project(':kota-core')
-    compile project(':kota-fragment')
-    compile project(':kota-design')
+    compile "com.android.support:design:$versions.support"
 }
 
 publish {
     userOrg = bintray.user
     groupId = bintray.group
-    artifactId = bintray.artifact.kota.id
+    artifactId = bintray.artifact.kota.id + '-design'
     publishVersion = versions.release
     desc = bintray.artifact.kota.desc
     website = bintray.artifact.kota.website
