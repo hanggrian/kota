@@ -66,9 +66,7 @@ class MainActivity : AppCompatActivity() {
         textViewUrl.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    internal class Adapter(
-            private val context: Context
-    ) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+    internal class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.ViewHolder>() {
         private val fonts = Font.values()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(context.layoutInflater.inflate(R.layout.item, parent, false))

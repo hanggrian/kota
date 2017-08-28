@@ -17,8 +17,8 @@ android {
 }
 
 dependencies {
-    compile project(':kota-support')
-    compile project(':kota-design')
+    api project(':kota-support')
+    api project(':kota-design')
 }
 
 publish {

@@ -70,6 +70,7 @@ inline fun Context.getDimensionPixelSize(@DimenRes id: Int): Int = resources.get
 
 inline fun Fragment.getDrawable2(@DrawableRes id: Int): Drawable = activity.getDrawable2(id)
 @Suppress("DEPRECATION")
+@SuppressLint("NewApi")
 inline fun Context.getDrawable2(@DrawableRes id: Int): Drawable = when {
     isAtLeast(21) -> getDrawable(id)
     isAtLeast(16) -> resources.getDrawable(id)
@@ -92,10 +93,12 @@ inline fun Context.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
 @ColorInt inline fun Fragment.getColor2(@ColorRes id: Int): Int = activity.getColor2(id)
 @ColorInt
 @Suppress("DEPRECATION")
+@SuppressLint("NewApi")
 inline fun Context.getColor2(@ColorRes id: Int): Int = getIfAtLeast(23, { getColor(id) }, { resources.getColor(id) })
 
 inline fun Fragment.getColorStateList2(@ColorRes id: Int): ColorStateList = activity.getColorStateList2(id)
 @Suppress("DEPRECATION")
+@SuppressLint("NewApi")
 inline fun Context.getColorStateList2(@ColorRes id: Int): ColorStateList = getIfAtLeast(23, { getColorStateList(id) }, { resources.getColorStateList(id) })
 
 inline fun Fragment.getBoolean(@BoolRes id: Int): Boolean = activity.getBoolean(id)

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<lint>
-    <!-- This project-scope lint check should serve as temporary fix until @SuppressLint works correctly in Kotlin.
-         When developing, be sure to comment out lines below to avoid further lint violation. -->
-    <issue id="NewApi" severity="ignore"/>
-    <issue id="InlinedApi" severity="ignore"/>
-</lint>

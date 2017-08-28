@@ -33,9 +33,9 @@ android {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    compile project(':kota')
-    compile "com.android.support:appcompat-v7:$versions.support"
-    compile "com.android.support:recyclerview-v7:$versions.support"
-    compile "com.android.support:design:$versions.support"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    implementation project(':kota')
+    implementation "com.android.support:appcompat-v7:$versions.support"
+    implementation "com.android.support:recyclerview-v7:$versions.support"
+    implementation "com.android.support:design:$versions.support"
 }

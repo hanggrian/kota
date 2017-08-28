@@ -3,6 +3,7 @@
 
 package com.hendraanggrian.kota.res
 
+import android.annotation.SuppressLint
 import android.app.Fragment
 import android.content.Context
 import android.content.res.Configuration
@@ -22,7 +23,7 @@ inline val Fragment.isScreenLong: Boolean get() = activity.isScreenLong
 inline val Context.isScreenLong: Boolean get() = configuration.screenLayout and Configuration.SCREENLAYOUT_LONG_MASK == Configuration.SCREENLAYOUT_LONG_YES
 
 inline val Fragment.isRtl: Boolean get() = activity.isRtl
-inline val Context.isRtl: Boolean get() = getIfAtLeast(17, { configuration.layoutDirection and Configuration.SCREENLAYOUT_LAYOUTDIR_MASK == Configuration.SCREENLAYOUT_LAYOUTDIR_RTL }, { false })
+inline val Context.isRtl: Boolean @SuppressLint("NewApi") get() = getIfAtLeast(17, { configuration.layoutDirection and Configuration.SCREENLAYOUT_LAYOUTDIR_MASK == Configuration.SCREENLAYOUT_LAYOUTDIR_RTL }, { false })
 
 inline val Fragment.hasTouchscreen: Boolean get() = activity.hasTouchscreen
 inline val Context.hasTouchscreen: Boolean get() = configuration.touchscreen == Configuration.TOUCHSCREEN_FINGER

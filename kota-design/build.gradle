@@ -18,9 +18,9 @@ android {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    compile project(':kota-core')
-    compile "com.android.support:design:$versions.support"
+    api "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    api project(':kota-core')
+    api "com.android.support:design:$versions.support"
 }
 
 publish {
