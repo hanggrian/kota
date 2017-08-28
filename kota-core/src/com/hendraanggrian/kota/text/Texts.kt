@@ -12,3 +12,5 @@ inline val CharSequence?.isNotNullOrEmpty: Boolean get() = !TextUtils.isEmpty(th
 inline val CharSequence.isGraphic: Boolean get() = TextUtils.isGraphic(this)
 
 inline val CharSequence.isDigitsOnly: Boolean get() = TextUtils.isDigitsOnly(this)
+
+inline val String.htmlEncode get() :String = TextUtils.htmlEncode(this)

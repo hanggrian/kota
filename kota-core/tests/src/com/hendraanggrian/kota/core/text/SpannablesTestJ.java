@@ -6,7 +6,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 
-import com.hendraanggrian.kota.text.SpannableUtils;
+import com.hendraanggrian.kota.text.Spans;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,9 +22,9 @@ public class SpannablesTestJ {
     @Test
     public void test() throws Exception {
         Spannable spannable = new SpannableString("");
-        SpannableUtils.setSpans(spannable, new ForegroundColorSpan(Color.RED));
-        SpannableUtils.removeSpans(spannable);
-        SpannableUtils.putSpans(spannable, "", new Function0<Object>() {
+        Spans.setSpans(spannable, new ForegroundColorSpan(Color.RED));
+        Spans.removeSpans(spannable);
+        Spans.putSpans(spannable, "", new Function0<Object>() {
             @Override
             public Object invoke() {
                 return new ForegroundColorSpan(Color.RED);

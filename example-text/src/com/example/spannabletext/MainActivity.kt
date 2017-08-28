@@ -3,7 +3,6 @@ package com.example.spannabletext
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v4.util.Pair
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView

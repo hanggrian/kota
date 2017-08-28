@@ -10,10 +10,14 @@ import android.content.res.*
 import android.graphics.Movie
 import android.graphics.drawable.Drawable
 import android.support.annotation.*
-import android.support.v4.content.ContextCompat
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import com.hendraanggrian.kota.getIfAtLeast
+import com.hendraanggrian.kota.isAtLeast
 import java.io.InputStream
+
+@PublishedApi internal val sLock = Any()
+@PublishedApi internal var sTempValue: TypedValue? = null
 
 inline val Fragment.configuration: Configuration get() = resources.configuration
 inline val Context.configuration: Configuration get() = resources.configuration
@@ -65,16 +69,34 @@ inline fun Fragment.getDimensionPixelSize(@DimenRes id: Int): Int = activity.get
 inline fun Context.getDimensionPixelSize(@DimenRes id: Int): Int = resources.getDimensionPixelSize(id)
 
 inline fun Fragment.getDrawable2(@DrawableRes id: Int): Drawable = activity.getDrawable2(id)
-inline fun Context.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(this, id)
+@Suppress("DEPRECATION")
+inline fun Context.getDrawable2(@DrawableRes id: Int): Drawable = when {
+    isAtLeast(21) -> getDrawable(id)
+    isAtLeast(16) -> resources.getDrawable(id)
+    else -> {
+        var resolvedId: Int? = null
+        synchronized(sLock) {
+            if (sTempValue == null) {
+                sTempValue = TypedValue()
+            }
+            resources.getValue(id, sTempValue, true)
+            resolvedId = sTempValue!!.resourceId
+        }
+        resources.getDrawable(resolvedId!!)
+    }
+}
 
 inline fun Fragment.getMovie(@RawRes id: Int): Movie = activity.getMovie(id)
 inline fun Context.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
 
 @ColorInt inline fun Fragment.getColor2(@ColorRes id: Int): Int = activity.getColor2(id)
-@ColorInt inline fun Context.getColor2(@ColorRes id: Int): Int = ContextCompat.getColor(this, id)
+@ColorInt
+@Suppress("DEPRECATION")
+inline fun Context.getColor2(@ColorRes id: Int): Int = getIfAtLeast(23, { getColor(id) }, { resources.getColor(id) })
 
 inline fun Fragment.getColorStateList2(@ColorRes id: Int): ColorStateList = activity.getColorStateList2(id)
-inline fun Context.getColorStateList2(@ColorRes id: Int): ColorStateList = ContextCompat.getColorStateList(this, id)
+@Suppress("DEPRECATION")
+inline fun Context.getColorStateList2(@ColorRes id: Int): ColorStateList = getIfAtLeast(23, { getColorStateList(id) }, { resources.getColorStateList(id) })
 
 inline fun Fragment.getBoolean(@BoolRes id: Int): Boolean = activity.getBoolean(id)
 inline fun Context.getBoolean(@BoolRes id: Int): Boolean = resources.getBoolean(id)

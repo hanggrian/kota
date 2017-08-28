@@ -20,13 +20,13 @@ android {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
     compile project(':kota-core')
-    compile "com.android.support:support-fragment:$versions.support"
+    compile "com.android.support:support-v4:$versions.support"
 }
 
 publish {
     userOrg = bintray.user
     groupId = bintray.group
-    artifactId = bintray.artifact.kota.id + '-fragment'
+    artifactId = bintray.artifact.kota.id + '-support'
     publishVersion = versions.release
     desc = bintray.artifact.kota.desc
     website = bintray.artifact.kota.website

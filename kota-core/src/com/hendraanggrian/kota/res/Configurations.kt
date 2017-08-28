@@ -3,7 +3,6 @@
 
 package com.hendraanggrian.kota.res
 
-import android.annotation.SuppressLint
 import android.app.Fragment
 import android.content.Context
 import android.content.res.Configuration
@@ -11,7 +10,7 @@ import android.content.res.Configuration.SCREENLAYOUT_SIZE_UNDEFINED
 import com.hendraanggrian.kota.annotation.ScreenLayoutSize
 import com.hendraanggrian.kota.annotation.UiNightMode
 import com.hendraanggrian.kota.annotation.UiTypeMode
-import com.hendraanggrian.kota.getIfMinSdk
+import com.hendraanggrian.kota.getIfAtLeast
 
 @ScreenLayoutSize inline val Fragment.screenSize: Int get() = activity.screenSize
 @ScreenLayoutSize inline val Context.screenSize: Int get() = configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK
@@ -23,7 +22,7 @@ inline val Fragment.isScreenLong: Boolean get() = activity.isScreenLong
 inline val Context.isScreenLong: Boolean get() = configuration.screenLayout and Configuration.SCREENLAYOUT_LONG_MASK == Configuration.SCREENLAYOUT_LONG_YES
 
 inline val Fragment.isRtl: Boolean get() = activity.isRtl
-inline val Context.isRtl: Boolean @SuppressLint("NewApi") get() = getIfMinSdk(17, { configuration.layoutDirection and Configuration.SCREENLAYOUT_LAYOUTDIR_MASK == Configuration.SCREENLAYOUT_LAYOUTDIR_RTL }, { false })
+inline val Context.isRtl: Boolean get() = getIfAtLeast(17, { configuration.layoutDirection and Configuration.SCREENLAYOUT_LAYOUTDIR_MASK == Configuration.SCREENLAYOUT_LAYOUTDIR_RTL }, { false })
 
 inline val Fragment.hasTouchscreen: Boolean get() = activity.hasTouchscreen
 inline val Context.hasTouchscreen: Boolean get() = configuration.touchscreen == Configuration.TOUCHSCREEN_FINGER

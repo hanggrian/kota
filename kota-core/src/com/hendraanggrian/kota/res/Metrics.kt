@@ -1,4 +1,4 @@
-@file:JvmName("DisplayMetrics")
+@file:JvmName("Metrics")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.res

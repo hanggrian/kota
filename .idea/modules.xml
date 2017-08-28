@@ -20,8 +20,8 @@
       <module fileurl="file://$PROJECT_DIR$/kota.iml" filepath="$PROJECT_DIR$/kota.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota-core/kota-core.iml" filepath="$PROJECT_DIR$/kota-core/kota-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota-design/kota-design.iml" filepath="$PROJECT_DIR$/kota-design/kota-design.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kota-fragment/kota-fragment.iml" filepath="$PROJECT_DIR$/kota-fragment/kota-fragment.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota/kota-kota.iml" filepath="$PROJECT_DIR$/kota/kota-kota.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kota-support/kota-support.iml" filepath="$PROJECT_DIR$/kota-support/kota-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/more.iml" filepath="$PROJECT_DIR$/more.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-content/more-content.iml" filepath="$PROJECT_DIR$/more-content/more-content.iml" />
       <module fileurl="file://$PROJECT_DIR$/more-util/more-util.iml" filepath="$PROJECT_DIR$/more-util/more-util.iml" />

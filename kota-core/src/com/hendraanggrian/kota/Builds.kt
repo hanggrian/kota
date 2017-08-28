@@ -5,46 +5,25 @@ package com.hendraanggrian.kota
 
 import android.os.Build
 
-inline fun runIfMinSdk(
-        minSdk: Int,
-        crossinline block: () -> Unit,
-        crossinline fallback: () -> Unit
-) {
-    if (Build.VERSION.SDK_INT >= minSdk) {
-        block()
-    } else {
-        fallback()
+inline fun isAtLeast(version: Int): Boolean = Build.VERSION.SDK_INT >= version
+
+inline fun runIfAtLeast(version: Int, block: () -> Unit, fallback: () -> Unit) = when {
+    isAtLeast(version) -> block()
+    else -> fallback()
+}
+
+inline fun runIfAtLeast(version: Int, block: () -> Unit) {
+    when {
+        isAtLeast(version) -> block()
     }
 }
 
-inline fun runIfMinSdk(
-        minSdk: Int,
-        crossinline block: () -> Unit
-) {
-    if (Build.VERSION.SDK_INT >= minSdk) {
-        block()
-    }
+inline fun <T, R> T.getIfAtLeast(version: Int, block: T.() -> R): R? = when {
+    isAtLeast(version) -> block()
+    else -> null
 }
 
-inline fun <T, R> T.getIfMinSdk(
-        minSdk: Int,
-        crossinline block: T.() -> R
-): R? {
-    return if (Build.VERSION.SDK_INT >= minSdk) {
-        block()
-    } else {
-        null
-    }
-}
-
-inline fun <T, R> T.getIfMinSdk(
-        minSdk: Int,
-        crossinline block: T.() -> R,
-        crossinline fallback: T.() -> R
-): R {
-    return if (Build.VERSION.SDK_INT >= minSdk) {
-        block()
-    } else {
-        fallback(this)
-    }
+inline fun <T, R> T.getIfAtLeast(version: Int, block: T.() -> R, fallback: T.() -> R): R = when {
+    isAtLeast(version) -> block()
+    else -> fallback(this)
 }

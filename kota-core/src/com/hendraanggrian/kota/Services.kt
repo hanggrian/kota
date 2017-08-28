@@ -1,5 +1,5 @@
-@file:JvmName("SystemServices")
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+@file:JvmName("Services")
+@file:Suppress("NOTHING_TO_INLINE", "DEPRECATION", "UNUSED")
 
 package com.hendraanggrian.kota
 
@@ -202,3 +202,11 @@ inline val Context.wifiP2pManager: WifiP2pManager get() = getSystemService(Conte
 
 inline val Fragment.windowManager: WindowManager get() = activity.windowManager
 inline val Context.windowManager: WindowManager get() = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+inline fun Fragment.isServiceRunning(serviceClass: Class<*>): Boolean = activity.isServiceRunning(serviceClass)
+inline fun Context.isServiceRunning(serviceClass: Class<*>): Boolean = activityManager.getRunningServices(Integer.MAX_VALUE).any { serviceClass.name == it.service.className }
+
+inline fun Fragment.isAllServicesRunning(vararg serviceClasses: Class<*>): Boolean = activity.isAllServicesRunning(*serviceClasses)
+inline fun Context.isAllServicesRunning(vararg serviceClasses: Class<*>): Boolean = activityManager.getRunningServices(Integer.MAX_VALUE)
+        .map { it.service.className }
+        .containsAll(serviceClasses.map { it.name })

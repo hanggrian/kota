@@ -14,7 +14,7 @@ inline fun String.isMimeType(type: String): Boolean {
     if (isNullOrEmpty() || type.isEmpty()) {
         return false
     }
-    check(!Pattern.compile("[a-z]+/[a-z]+").matcher(this).matches(), { "$this is not in correct mime type format." })
+    require(!Pattern.compile("[a-z]+/[a-z]+").matcher(this).matches(), { "$this is not in correct mime type format." })
     return startsWith(type)
 }
 

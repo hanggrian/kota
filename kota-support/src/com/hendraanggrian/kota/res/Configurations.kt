@@ -1,4 +1,4 @@
-@file:JvmName("ConfigurationsFragment")
+@file:JvmName("SupportConfigurations")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.res
@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment
 import com.hendraanggrian.kota.annotation.ScreenLayoutSize
 import com.hendraanggrian.kota.annotation.UiNightMode
 import com.hendraanggrian.kota.annotation.UiTypeMode
-import com.hendraanggrian.kota.res.*
 
 @ScreenLayoutSize inline val Fragment.screenSize: Int get() = context.screenSize
 

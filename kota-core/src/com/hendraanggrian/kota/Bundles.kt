@@ -1,8 +1,9 @@
 @file:JvmName("Bundles")
-@file:Suppress("NOTHING_TO_INLINE", "UNCHECKED_CAST", "unused")
+@file:Suppress("NOTHING_TO_INLINE", "UNCHECKED_CAST", "UNUSED")
 
 package com.hendraanggrian.kota
 
+import android.app.Fragment
 import android.os.Bundle
 import android.os.Parcelable
 import java.io.Serializable
@@ -26,17 +27,16 @@ inline fun bundleOf(key: String, value: DoubleArray): Bundle = Bundle().apply { 
 inline fun bundleOf(key: String, value: FloatArray): Bundle = Bundle().apply { putFloatArray(key, value) }
 inline fun bundleOf(key: String, value: IntArray): Bundle = Bundle().apply { putIntArray(key, value) }
 inline fun bundleOf(key: String, value: LongArray): Bundle = Bundle().apply { putLongArray(key, value) }
+inline fun bundleOf(key: String, value: ShortArray): Bundle = Bundle().apply { putShortArray(key, value) }
+inline fun bundleOf(key: String, value: Bundle): Bundle = Bundle().apply { putBundle(key, value) }
 inline fun bundleOf(key: String, value: Array<*>): Bundle = Bundle().apply {
-    @Suppress("UNCHECKED_CAST") when {
+    when {
         value.isArrayOf<Parcelable>() -> putParcelableArray(key, value as Array<out Parcelable>)
         value.isArrayOf<CharSequence>() -> putCharSequenceArray(key, value as Array<out CharSequence>)
         value.isArrayOf<String>() -> putStringArray(key, value as Array<out String>)
         else -> throw IllegalStateException("Unsupported bundle component (${value.javaClass})")
     }
 }
-
-inline fun bundleOf(key: String, value: ShortArray): Bundle = Bundle().apply { putShortArray(key, value) }
-inline fun bundleOf(key: String, value: Bundle): Bundle = Bundle().apply { putBundle(key, value) }
 
 inline fun bundleOf(vararg pairs: Pair<String, Any?>): Bundle = Bundle().apply {
     pairs.forEach { (key, value) ->
@@ -61,13 +61,11 @@ inline fun bundleOf(vararg pairs: Pair<String, Any?>): Bundle = Bundle().apply {
             is FloatArray -> putFloatArray(key, value)
             is IntArray -> putIntArray(key, value)
             is LongArray -> putLongArray(key, value)
-            is Array<*> -> {
-                when {
-                    value.isArrayOf<Parcelable>() -> putParcelableArray(key, value as Array<out Parcelable>)
-                    value.isArrayOf<CharSequence>() -> putCharSequenceArray(key, value as Array<out CharSequence>)
-                    value.isArrayOf<String>() -> putStringArray(key, value as Array<out String>)
-                    else -> throw IllegalStateException("Unsupported bundle component (${value.javaClass})")
-                }
+            is Array<*> -> when {
+                value.isArrayOf<Parcelable>() -> putParcelableArray(key, value as Array<out Parcelable>)
+                value.isArrayOf<CharSequence>() -> putCharSequenceArray(key, value as Array<out CharSequence>)
+                value.isArrayOf<String>() -> putStringArray(key, value as Array<out String>)
+                else -> throw IllegalStateException("Unsupported bundle component (${value.javaClass})")
             }
             is ShortArray -> putShortArray(key, value)
             is Bundle -> putBundle(key, value)
@@ -75,3 +73,5 @@ inline fun bundleOf(vararg pairs: Pair<String, Any?>): Bundle = Bundle().apply {
         }
     }
 }
+
+inline fun Fragment.setExtras(extras: Bundle): Fragment = apply { arguments = extras }

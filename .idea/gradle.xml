@@ -12,7 +12,7 @@
             <option value="$PROJECT_DIR$/kota" />
             <option value="$PROJECT_DIR$/kota-core" />
             <option value="$PROJECT_DIR$/kota-design" />
-            <option value="$PROJECT_DIR$/kota-fragment" />
+            <option value="$PROJECT_DIR$/kota-support" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

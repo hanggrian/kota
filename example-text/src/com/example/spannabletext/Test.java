@@ -2,7 +2,7 @@ package com.example.spannabletext;
 
 import android.content.Context;
 
-import com.hendraanggrian.kota.SystemServices;
+import com.hendraanggrian.kota.Services;
 
 /**
  * Created by hendraanggrian on 8/26/17.
@@ -11,6 +11,6 @@ import com.hendraanggrian.kota.SystemServices;
 public class Test {
 
     public static void main(Context context) {
-        SystemServices.getLayoutInflater(context);
+        Services.getLayoutInflater(context);
     }
 }

@@ -17,8 +17,7 @@ android {
 }
 
 dependencies {
-    compile project(':kota-core')
-    compile project(':kota-fragment')
+    compile project(':kota-support')
     compile project(':kota-design')
 }
 

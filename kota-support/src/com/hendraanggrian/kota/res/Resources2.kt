@@ -1,4 +1,4 @@
-@file:JvmName("Resources2Fragment")
+@file:JvmName("SupportResources2")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.res
@@ -11,7 +11,6 @@ import android.support.annotation.*
 import android.support.v4.app.Fragment
 import android.util.DisplayMetrics
 import android.util.TypedValue
-import com.hendraanggrian.kota.res.*
 import java.io.InputStream
 
 inline val Fragment.configuration: Configuration get() = resources.configuration

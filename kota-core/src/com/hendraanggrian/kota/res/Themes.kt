@@ -13,8 +13,8 @@ import android.support.annotation.*
 import android.util.AttributeSet
 import com.hendraanggrian.kota.annotation.Dp
 
-@JvmOverloads inline fun Context.openTypedArray(set: AttributeSet? = null, attrs: IntArray, defStyleAttr: Int = 0, defStyleRes: Int = 0, noinline getter: TypedArray.() -> Unit) = theme.openTypedArray(set, attrs, defStyleAttr, defStyleRes, getter)
-@JvmOverloads inline fun Fragment.openTypedArray(set: AttributeSet? = null, attrs: IntArray, defStyleAttr: Int = 0, defStyleRes: Int = 0, noinline getter: TypedArray.() -> Unit) = activity.openTypedArray(set, attrs, defStyleAttr, defStyleRes, getter)
+@JvmOverloads inline fun Context.openTypedArray(set: AttributeSet? = null, attrs: IntArray, defStyleAttr: Int = 0, defStyleRes: Int = 0, getter: TypedArray.() -> Unit) = theme.openTypedArray(set, attrs, defStyleAttr, defStyleRes, getter)
+@JvmOverloads inline fun Fragment.openTypedArray(set: AttributeSet? = null, attrs: IntArray, defStyleAttr: Int = 0, defStyleRes: Int = 0, getter: TypedArray.() -> Unit) = activity.openTypedArray(set, attrs, defStyleAttr, defStyleRes, getter)
 @JvmOverloads inline fun Resources.Theme.openTypedArray(
         set: AttributeSet? = null,
         /*@StyleableRes*/ attrs: IntArray,

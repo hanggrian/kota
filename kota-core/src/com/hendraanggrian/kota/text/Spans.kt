@@ -1,55 +1,46 @@
-@file:JvmName("SpannableUtils")
+@file:JvmName("Spans")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.text
 
-import android.support.v4.util.Pair
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.SpannableStringBuilder
-import android.text.Spanned
+import android.text.*
 import com.hendraanggrian.kota.annotation.SpanFlags
 import java.util.regex.Pattern
 
+inline fun spannedOf(s: CharSequence): Spanned = SpannedString.valueOf(s)
 inline fun spannableOf(s: CharSequence): Spannable = SpannableString.valueOf(s)
+inline fun spannableBuilderOf(s: CharSequence): SpannableStringBuilder = SpannableStringBuilder.valueOf(s)
 
-/**
- * Set spans from start to end with certain flag.
- */
+inline fun <T> Spanned.getSpans(type: Class<T>): Array<T> = getSpans(0, length, type)
+
 @JvmOverloads inline fun Spannable.setSpans(
         vararg spans: Any,
         @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
         start: Int = 0,
         end: Int = length
-): Unit = spans.forEach { setSpan(it, start, end, flags) }
+) = spans.forEach { setSpan(it, start, end, flags) }
 
-/**
- * Find substring in this Spannable and set multiple spans to it.
- */
 @JvmOverloads inline fun Spannable.putSpans(
         substring: String,
         vararg spans: () -> Any,
         @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-): Unit = toString().listOccurrences(substring).forEach {
+) = toString().listOccurrences(substring).forEach {
     val start = it
     val end = it + substring.length
     spans.forEach { setSpan(it.invoke(), start, end, flags) }
 }
 
-/**
- * Find substring with regex pattern in this Spannable and set multiple spans to it.
- */
 @JvmOverloads inline fun Spannable.putSpansAll(
         regex: String,
         vararg spans: () -> Any,
         @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-): Unit = putSpansAll(Pattern.compile(regex), *spans, flags = flags)
+) = putSpansAll(Pattern.compile(regex), *spans, flags = flags)
 
 @JvmOverloads inline fun Spannable.putSpansAll(
         regex: Pattern,
         vararg spans: () -> Any,
         @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-): Unit {
+) {
     val matcher = regex.matcher(this)
     while (matcher.find()) {
         val start = matcher.start()
@@ -58,9 +49,9 @@ inline fun spannableOf(s: CharSequence): Spannable = SpannableString.valueOf(s)
     }
 }
 
-inline fun Spannable.removeSpans(vararg spans: Any): Unit = spans.forEach { removeSpan(it) }
+inline fun Spannable.removeSpans(vararg spans: Any) = spans.forEach { removeSpan(it) }
 
-inline fun <T> Spannable.removeSpans(type: Class<T>): Unit = getSpans(type).forEach { removeSpan(it) }
+inline fun <T> Spannable.removeSpans(type: Class<T>) = getSpans(type).forEach { removeSpan(it) }
 
 inline fun String.listOccurrences(substring: String): MutableList<Int> {
     val lastIndexes = ArrayList<Int>()
@@ -101,4 +92,16 @@ inline fun String.formatSpannable(vararg args: Pair<Any, Array<out Any>>): Spann
     }
     builder.append(remaining)
     return spannableOf(builder) as SpannableString
+}
+
+@JvmOverloads inline fun SpannableStringBuilder.append(
+        text: CharSequence,
+        vararg spans: Any,
+        @SpanFlags flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+): SpannableStringBuilder {
+    append(text)
+    val end = length
+    val start = end - text.length
+    spans.forEach { setSpan(it, start, end, flags) }
+    return this
 }
