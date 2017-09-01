@@ -1,7 +1,7 @@
 @file:JvmName("ColorsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota
+package com.hendraanggrian.kota.graphics
 
 import android.annotation.TargetApi
 import android.content.res.ColorStateList

@@ -3,11 +3,20 @@
 
 package com.hendraanggrian.kota
 
+import android.app.Fragment
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 
 inline val Context.preferences: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(this)
+
+inline val Fragment.preferences: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(activity)
+
+@JvmOverloads
+inline fun Context.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = getSharedPreferences(name, mode)
+
+@JvmOverloads
+inline fun Fragment.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = activity.getSharedPreferences(name, mode)
 
 inline fun SharedPreferences.getString(key: String): String {
     require(contains(key))
