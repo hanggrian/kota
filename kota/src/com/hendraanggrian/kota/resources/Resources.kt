@@ -1,4 +1,4 @@
-@file:JvmName("Resources2")
+@file:JvmName("ResourcesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.resources

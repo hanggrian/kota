@@ -1,4 +1,4 @@
-@file:JvmName("Colors")
+@file:JvmName("ColorsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota

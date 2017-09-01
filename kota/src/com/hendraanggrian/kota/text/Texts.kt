@@ -1,4 +1,4 @@
-@file:JvmName("Texts")
+@file:JvmName("TextsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.text

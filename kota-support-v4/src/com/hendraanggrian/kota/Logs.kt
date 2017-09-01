@@ -1,4 +1,4 @@
-@file:JvmName("SupportLogs")
+@file:JvmName("SupportLogsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota

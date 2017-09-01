@@ -1,4 +1,4 @@
-@file:JvmName("SupportIntents")
+@file:JvmName("SupportIntentsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota

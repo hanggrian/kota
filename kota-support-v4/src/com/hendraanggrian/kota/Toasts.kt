@@ -1,4 +1,4 @@
-@file:JvmName("SupportToasts")
+@file:JvmName("SupportToastsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota

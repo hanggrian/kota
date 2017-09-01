@@ -1,4 +1,5 @@
-@file:JvmName("LongSparseArrays")
+@file:JvmMultifileClass
+@file:JvmName("SparseArraysKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.collections
@@ -6,6 +7,7 @@ package com.hendraanggrian.kota.collections
 import android.annotation.TargetApi
 import android.support.annotation.RequiresApi
 import android.util.LongSparseArray
+import java.util.*
 
 /** Returns a sparse array with matching position of array input. */
 @TargetApi(16)
@@ -40,12 +42,20 @@ inline fun <E> LongSparseArray<E>.containsAllValues(values: Collection<E>): Bool
 
 @TargetApi(16)
 @RequiresApi(16)
-inline fun <E> LongSparseArray<E>.forEach(action: (E?) -> Unit) {
-    for (i in 0 until size()) action(get(i.toLong()))
+inline fun <E> LongSparseArray<E>.forEach(action: (E) -> Unit) {
+    val size = size()
+    for (i in 0 until size) {
+        if (size != size()) throw ConcurrentModificationException()
+        action(valueAt(i))
+    }
 }
 
 @TargetApi(16)
 @RequiresApi(16)
-inline fun <E> LongSparseArray<E>.forEachIndexed(action: (Long, E?) -> Unit) {
-    for (i in 0 until size()) i.toLong().let { action(it, get(it)) }
+inline fun <E> LongSparseArray<E>.forEachIndexed(action: (Long, E) -> Unit) {
+    val size = size()
+    for (i in 0 until size) {
+        if (size != size()) throw ConcurrentModificationException()
+        action(keyAt(i), valueAt(i))
+    }
 }

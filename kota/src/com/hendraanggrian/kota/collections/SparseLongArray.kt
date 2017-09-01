@@ -1,4 +1,5 @@
-@file:JvmName("SparseLongArrays")
+@file:JvmMultifileClass
+@file:JvmName("SparseArraysKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.collections
@@ -6,6 +7,7 @@ package com.hendraanggrian.kota.collections
 import android.annotation.TargetApi
 import android.support.annotation.RequiresApi
 import android.util.SparseLongArray
+import java.util.*
 
 /** Returns a sparse array with matching position of array input. */
 @TargetApi(18)
@@ -41,11 +43,19 @@ inline fun SparseLongArray.containsValue(values: Collection<Long>): Boolean = va
 @TargetApi(18)
 @RequiresApi(18)
 inline fun SparseLongArray.forEach(action: (Long) -> Unit) {
-    for (i in 0 until size()) action(get(i))
+    val size = size()
+    for (i in 0 until size) {
+        if (size != size()) throw ConcurrentModificationException()
+        action(valueAt(i))
+    }
 }
 
 @TargetApi(18)
 @RequiresApi(18)
 inline fun SparseLongArray.forEachIndexed(action: (Int, Long) -> Unit) {
-    for (i in 0 until size()) action(i, get(i))
+    val size = size()
+    for (i in 0 until size) {
+        if (size != size()) throw ConcurrentModificationException()
+        action(keyAt(i), valueAt(i))
+    }
 }

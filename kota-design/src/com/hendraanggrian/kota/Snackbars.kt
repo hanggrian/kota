@@ -1,4 +1,4 @@
-@file:JvmName("Snackbars")
+@file:JvmName("SnackbarsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota

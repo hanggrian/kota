@@ -29,13 +29,9 @@ class FontSpan(family: String, private val typeface: Typeface) : TypefaceSpan(fa
 
     constructor(typeface: Typeface) : this("", typeface)
 
-    override fun updateDrawState(textPaint: TextPaint) {
-        applyCustomTypeface(textPaint)
-    }
+    override fun updateDrawState(textPaint: TextPaint) = applyCustomTypeface(textPaint)
 
-    override fun updateMeasureState(paint: TextPaint) {
-        applyCustomTypeface(paint)
-    }
+    override fun updateMeasureState(paint: TextPaint) = applyCustomTypeface(paint)
 
     private fun applyCustomTypeface(paint: Paint) {
         val oldStyle: Int

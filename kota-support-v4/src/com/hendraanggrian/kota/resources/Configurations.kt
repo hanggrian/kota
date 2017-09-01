@@ -1,5 +1,4 @@
-@file:JvmMultifileClass
-@file:JvmName("Configurations")
+@file:JvmName("SupportConfigurationsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.resources

@@ -1,9 +1,11 @@
-@file:JvmName("SupportSparseArrays")
+@file:JvmMultifileClass
+@file:JvmName("SupportSparseArraysKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.collections
 
 import android.support.v4.util.SparseArrayCompat
+import java.util.*
 
 /** Returns a sparse array with matching position of array input. */
 inline fun <E> supportSparseArrayOf(vararg elements: E): SparseArrayCompat<E> = SparseArrayCompat<E>().apply {
@@ -24,10 +26,18 @@ inline fun <E> SparseArrayCompat<E>.containsValue(value: E): Boolean = indexOfVa
 
 inline fun <E> SparseArrayCompat<E>.containsAllValue(values: Collection<E>): Boolean = values.all { containsValue(it) }
 
-inline fun <E> SparseArrayCompat<E>.forEach(action: (E?) -> Unit) {
-    for (i in 0 until size()) action(get(i))
+inline fun <E> SparseArrayCompat<E>.forEach(action: (E) -> Unit) {
+    val size = size()
+    for (i in 0 until size) {
+        if (size != size()) throw ConcurrentModificationException()
+        action(valueAt(i))
+    }
 }
 
 inline fun <E> SparseArrayCompat<E>.forEachIndexed(action: (Int, E) -> Unit) {
-    for (i in 0 until size()) action(i, get(i))
+    val size = size()
+    for (i in 0 until size) {
+        if (size != size()) throw ConcurrentModificationException()
+        action(keyAt(i), valueAt(i))
+    }
 }

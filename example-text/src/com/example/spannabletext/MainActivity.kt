@@ -13,7 +13,6 @@ import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.text.style.URLSpan
-import android.util.Patterns
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -46,12 +45,6 @@ class MainActivity : AppCompatActivity() {
         val total = 818
         //textViewViewing.text = "Viewing %s of %s font families".formatSpannable(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),
         //        Pair(total, emptyArray()))
-
-        listOf("", "")
-                .map { s -> s.toInt() }
-
-        val a = "asdasd"
-        Patterns.EMAIL_ADDRESS.toRegex().matches(a)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = Adapter(this)

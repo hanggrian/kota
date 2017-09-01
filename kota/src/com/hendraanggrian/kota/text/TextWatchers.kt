@@ -1,4 +1,4 @@
-@file:JvmName("TextWatchers")
+@file:JvmName("TextWatchersKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota.text

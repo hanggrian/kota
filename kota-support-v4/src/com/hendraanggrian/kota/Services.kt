@@ -1,4 +1,4 @@
-@file:JvmName("SupportServices")
+@file:JvmName("SupportServicesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package com.hendraanggrian.kota
@@ -147,7 +147,3 @@ inline val Fragment.wifiManager: WifiManager get() = context.wifiManager
 inline val Fragment.wifiP2pManager: WifiP2pManager get() = context.wifiP2pManager
 
 inline val Fragment.windowManager: WindowManager get() = context.windowManager
-
-inline fun Fragment.isServiceRunning(serviceClass: Class<*>): Boolean = context.isServiceRunning(serviceClass)
-
-inline fun Fragment.isAllServicesRunning(vararg serviceClasses: Class<*>): Boolean = context.isAllServicesRunning(*serviceClasses)
