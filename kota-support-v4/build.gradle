@@ -22,13 +22,13 @@ android {
 dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
     api project(':kota')
-    compileOnly "com.android.support:design:$versions.support"
+    compileOnly "com.android.support:support-v4:$versions.support"
 }
 
 publish {
     userOrg = bintray.user
     groupId = bintray.group
-    artifactId = bintray.artifact.kota.id + '-design'
+    artifactId = bintray.artifact.kota.id + '-v4'
     publishVersion = versions.release
     desc = bintray.artifact.kota.desc
     website = bintray.artifact.kota.website

@@ -1,0 +1,33 @@
+@file:JvmName("SparseIntArrays")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
+package com.hendraanggrian.kota.collections
+
+import android.util.SparseIntArray
+
+/** Returns a sparse array with matching position of array input. */
+inline fun sparseIntArrayOf(vararg elements: Int): SparseIntArray = SparseIntArray().apply {
+    var i = 0
+    for (element in elements) append(i++, element)
+}
+
+/** Returns a sparse array with defined position and element from Kotlin pair. */
+inline fun sparseIntArrayOf(vararg pairs: Pair<Int, Int>): SparseIntArray = SparseIntArray().apply {
+    for ((key, value) in pairs) append(key, value)
+}
+
+inline fun SparseIntArray.containsKey(key: Int): Boolean = indexOfKey(key) > -1
+
+inline fun SparseIntArray.containsAllKeys(keys: Collection<Int>): Boolean = keys.all { containsKey(it) }
+
+inline fun SparseIntArray.containsValue(value: Int): Boolean = indexOfValue(value) > -1
+
+inline fun SparseIntArray.containsAllValues(values: Collection<Int>): Boolean = values.all { containsValue(it) }
+
+inline fun SparseIntArray.forEach(action: (Int) -> Unit) {
+    for (i in 0 until size()) action(get(i))
+}
+
+inline fun SparseIntArray.forEachIndexed(action: (Int, Int) -> Unit) {
+    for (i in 0 until size()) action(i, get(i))
+}

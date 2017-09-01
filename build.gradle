@@ -8,7 +8,7 @@ buildscript {
             buildTools: '26.0.1',
 
             // main
-            kotlin    : '1.1.4-2',
+            kotlin    : '1.1.4-3',
             support   : '26.0.1',
 
             // test
@@ -42,15 +42,14 @@ task clean(type: Delete) {
 }
 
 /** QUICK LINT CHECK BEFORE UPLOAD
- ./gradlew kota-core:clean kota-core:build
- ./gradlew kota-core:bintrayUpload -PdryRun=false -PbintrayUser=hendraanggrian -PbintrayKey=
 
- ./gradlew kota-support:clean kota-support:build
- ./gradlew kota-support:bintrayUpload -PdryRun=false -PbintrayUser=hendraanggrian -PbintrayKey=
+ ./gradlew kota:clean kota:build
+ ./gradlew kota:bintrayUpload -PdryRun=false -PbintrayUser=hendraanggrian -PbintrayKey=
+
+ ./gradlew kota-support-v4:clean kota-support-v4:build
+ ./gradlew kota-support-v4:bintrayUpload -PdryRun=false -PbintrayUser=hendraanggrian -PbintrayKey=
 
  ./gradlew kota-design:clean kota-design:build
  ./gradlew kota-design:bintrayUpload -PdryRun=false -PbintrayUser=hendraanggrian -PbintrayKey=
 
- ./gradlew kota:clean kota:build
- ./gradlew kota:bintrayUpload -PdryRun=false -PbintrayUser=hendraanggrian -PbintrayKey=
  */

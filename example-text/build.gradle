@@ -14,11 +14,13 @@ android {
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     sourceSets {
-        main.manifest.srcFile 'AndroidManifest.xml'
-        main.java.srcDirs 'src'
-        main.assets.srcDir 'assets'
-        main.res.srcDir 'res'
-        main.resources.srcDir 'src'
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs 'src'
+            assets.srcDir 'assets'
+            res.srcDir 'res'
+            resources.srcDir 'src'
+        }
     }
     buildTypes {
         debug {
@@ -34,7 +36,8 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    implementation project(':kota')
+    implementation project(':kota-support-v4')
+    implementation project(':kota-design')
     implementation "com.android.support:appcompat-v7:$versions.support"
     implementation "com.android.support:recyclerview-v7:$versions.support"
     implementation "com.android.support:design:$versions.support"

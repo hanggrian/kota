@@ -13,13 +13,17 @@ import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.text.style.URLSpan
+import android.util.Patterns
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.hendraanggrian.kota.layoutInflater
-import com.hendraanggrian.kota.res.dp
-import com.hendraanggrian.kota.res.getColor2
-import com.hendraanggrian.kota.text.*
+import com.hendraanggrian.kota.resources.dp
+import com.hendraanggrian.kota.resources.getColor2
+import com.hendraanggrian.kota.text.append
+import com.hendraanggrian.kota.text.putSpans
+import com.hendraanggrian.kota.text.setSpans
+import com.hendraanggrian.kota.text.spannableOf
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -35,33 +39,32 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportActionBar!!.title = SpannableStringBuilder()
-                .append("Google ", FontSpan(assets, "fonts/ProductSans-Regular.ttf"), StyleSpan(Typeface.BOLD))
+                .append("Google ", arrayOf(FontSpan(assets, "fonts/ProductSans-Regular.ttf"), StyleSpan(Typeface.BOLD)))
                 .append("Fonts", FontSpan(assets, "fonts/ProductSans-Regular.ttf"))
-                .apply {
-                    setSpans(ForegroundColorSpan(getColor2(R.color.gray)))
-                }
+                .apply { setSpans(ForegroundColorSpan(getColor2(R.color.gray))) }
 
         val total = 818
-        textViewViewing.text = "Viewing %s of %s font families".formatSpannable(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),
-                Pair(total, emptyArray()))
+        //textViewViewing.text = "Viewing %s of %s font families".formatSpannable(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),
+        //        Pair(total, emptyArray()))
+
+        listOf("", "")
+                .map { s -> s.toInt() }
+
+        val a = "asdasd"
+        Patterns.EMAIL_ADDRESS.toRegex().matches(a)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = Adapter(this)
 
         textViewCopyright.text = spannableOf("© 2017 Google Inc.").apply {
-            setSpans(AbsoluteSizeSpan(dp(12)))
-            putSpans("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
-        }
-
-        textViewCopyright.text = spannableOf("© 2017 Google Inc.").apply {
-            setSpans(AbsoluteSizeSpan(dp(12)))
-            putSpans("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
+            setSpans(AbsoluteSizeSpan(12.dp))
+            putSpans(Regex("Google"), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
         }
 
         val url = "https://fonts.google.com"
         textViewUrl.text = spannableOf("as seen on " + url).apply {
-            setSpans(AbsoluteSizeSpan(dp(12)))
-            putSpansAll("[a-z]+:\\/\\/[^ \\n]*", spans = { URLSpan(url) })
+            setSpans(AbsoluteSizeSpan(12.dp))
+            putSpans(Regex("[a-z]+:\\/\\/[^ \\n]*"), { URLSpan(url) })
         }
         textViewUrl.movementMethod = LinkMovementMethod.getInstance()
     }
@@ -74,18 +77,15 @@ class MainActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val font = fonts[position]
             holder.toolbar.title = spannableOf(font.title).apply {
-                setSpans(ForegroundColorSpan(context.getColor2(R.color.darkGray)),
-                        StyleSpan(Typeface.BOLD),
-                        AbsoluteSizeSpan(dp(14)))
+                setSpans(ForegroundColorSpan(context.getColor2(R.color.darkGray)), StyleSpan(Typeface.BOLD), AbsoluteSizeSpan(14.dp))
             }
             holder.toolbar.subtitle = spannableOf("${font.author} ${font.stylesCount} styles)").apply {
-                setSpans(AbsoluteSizeSpan(dp(12)))
+                setSpans(AbsoluteSizeSpan(12.dp))
             }
             holder.toolbar.menu.clear()
             holder.toolbar.inflateMenu(R.menu.item)
             holder.textView.text = spannableOf(font.example).apply {
-                setSpans(FontSpan(context.assets, font.filename),
-                        AbsoluteSizeSpan(dp(24)))
+                setSpans(FontSpan(context.assets, font.filename), AbsoluteSizeSpan(24.dp))
             }
         }
 

@@ -1,2 +1,5 @@
-include ':kota', ':kota-core', ':kota-support', ':kota-design'
+include ':kota'
+include ':kota-support-v4'
+include ':kota-design'
+
 include ':example-text'
