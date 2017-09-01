@@ -12,9 +12,10 @@ import org.junit.runner.RunWith
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 @RunWith(AndroidJUnit4::class)
-class BuildUtilsTest {
+class BuildsTest {
 
-    @JvmField var rule = ActivityTestRule(AppCompatActivity::class.java)
+    @JvmField
+    var rule = ActivityTestRule(AppCompatActivity::class.java)
 
     @Test
     @Throws(Exception::class)

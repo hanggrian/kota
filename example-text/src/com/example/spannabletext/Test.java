@@ -2,9 +2,13 @@ package com.example.spannabletext;
 
 import android.app.Activity;
 
-import com.hendraanggrian.kota.Logs;
-import com.hendraanggrian.kota.Services;
+import com.hendraanggrian.kota.LogsKt;
+import com.hendraanggrian.kota.ServicesKt;
 import com.hendraanggrian.kota.ToastsKt;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
@@ -12,9 +16,12 @@ import com.hendraanggrian.kota.ToastsKt;
 public class Test {
 
     public static void main(Activity activity) {
-        Services.getLayoutInflater(activity);
+        ServicesKt.getLayoutInflater(activity);
 
-        Logs.debug(activity, "asdasd");
+        LogsKt.debug(activity, "asdasd");
         ToastsKt.toast(activity, "");
+
+        Collection a = new ArrayList<String>();
+        Collection b = Arrays.<String>asList();
     }
 }

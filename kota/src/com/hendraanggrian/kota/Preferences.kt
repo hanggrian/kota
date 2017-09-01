@@ -10,13 +10,13 @@ import android.preference.PreferenceManager
 
 inline val Context.preferences: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(this)
 
-inline val Fragment.preferences: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(activity)
+inline val Fragment.preferences: SharedPreferences get() = activity.preferences
 
 @JvmOverloads
 inline fun Context.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = getSharedPreferences(name, mode)
 
 @JvmOverloads
-inline fun Fragment.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = activity.getSharedPreferences(name, mode)
+inline fun Fragment.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = activity.getPreferences(name, mode)
 
 inline fun SharedPreferences.getString(key: String): String {
     require(contains(key))
@@ -36,6 +36,11 @@ inline fun SharedPreferences.getInt(key: String): Int {
 inline fun SharedPreferences.getLong(key: String): Long {
     require(contains(key))
     return getLong(key, 0L)
+}
+
+inline fun SharedPreferences.getFloat(key: String): Float {
+    require(contains(key))
+    return getFloat(key, 0F)
 }
 
 inline fun SharedPreferences.getBoolean(key: String): Boolean {
