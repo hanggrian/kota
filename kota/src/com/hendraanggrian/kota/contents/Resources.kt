@@ -1,7 +1,8 @@
+@file:JvmMultifileClass
 @file:JvmName("ResourcesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota.resources
+package com.hendraanggrian.kota.contents
 
 import android.annotation.SuppressLint
 import android.app.Fragment

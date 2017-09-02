@@ -4,7 +4,7 @@ import android.content.res.Configuration
 import android.os.Build
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.resources.*
+import com.hendraanggrian.kota.contents.*
 import org.junit.Test
 import org.junit.runner.RunWith
 

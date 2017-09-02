@@ -1,7 +1,7 @@
 @file:JvmName("MenusKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota.view
+package com.hendraanggrian.kota.views
 
 import android.view.Menu
 import android.view.MenuItem

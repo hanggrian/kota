@@ -2,7 +2,7 @@
 @file:JvmName("SpansKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota.text
+package com.hendraanggrian.kota.texts
 
 import android.text.Spanned
 import android.text.SpannedString

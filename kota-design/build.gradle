@@ -21,8 +21,8 @@ android {
 
 dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    api project(':kota')
     compileOnly "com.android.support:design:$versions.support"
+    api project(':kota')
 }
 
 publish {

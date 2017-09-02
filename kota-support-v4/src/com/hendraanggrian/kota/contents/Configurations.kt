@@ -1,7 +1,8 @@
-@file:JvmName("SupportConfigurationsKt")
+@file:JvmMultifileClass
+@file:JvmName("SupportResourcesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota.resources
+package com.hendraanggrian.kota.contents
 
 import android.support.v4.app.Fragment
 

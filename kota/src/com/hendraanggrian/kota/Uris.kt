@@ -10,14 +10,14 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.provider.MediaStore
 
-const val SCHEME_HTTP = "http"
-const val SCHEME_HTTPS = "https"
-const val SCHEME_FILE = ContentResolver.SCHEME_FILE
-const val SCHEME_CONTENT = ContentResolver.SCHEME_CONTENT
-const val SCHEME_ASSET = "asset"
-const val SCHEME_RESOURCE = "res"
-const val SCHEME_QUALIFIED_RESOURCE = ContentResolver.SCHEME_ANDROID_RESOURCE
-const val SCHEME_DATA = "data"
+const val SCHEME_HTTP: String = "http"
+const val SCHEME_HTTPS: String = "https"
+const val SCHEME_FILE: String = "file"
+const val SCHEME_CONTENT: String = "content"
+const val SCHEME_ASSET: String = "asset"
+const val SCHEME_RESOURCE: String = "res"
+const val SCHEME_QUALIFIED_RESOURCE: String = "android.resource"
+const val SCHEME_DATA: String = "data"
 
 inline val Uri.isNetwork: Boolean get() = scheme.let { it == SCHEME_HTTPS || it == SCHEME_HTTP }
 

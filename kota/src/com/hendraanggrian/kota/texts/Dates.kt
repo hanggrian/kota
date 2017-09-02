@@ -1,7 +1,7 @@
 @file:JvmName("DatesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota.text
+package com.hendraanggrian.kota.texts
 
 import android.text.format.DateUtils
 import java.util.*

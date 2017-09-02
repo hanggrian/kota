@@ -1,8 +1,6 @@
 package com.hendraanggrian.kota.core
 
-import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.hendraanggrian.kota.runIfAtLeast
 import org.junit.Test
@@ -13,9 +11,6 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class BuildsTest {
-
-    @JvmField
-    var rule = ActivityTestRule(AppCompatActivity::class.java)
 
     @Test
     @Throws(Exception::class)

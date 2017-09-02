@@ -1,7 +1,7 @@
 @file:JvmName("MimeTypesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota.text
+package com.hendraanggrian.kota.texts
 
 import android.content.ContentResolver
 import android.content.Context

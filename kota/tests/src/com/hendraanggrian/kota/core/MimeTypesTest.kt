@@ -1,10 +1,8 @@
 package com.hendraanggrian.kota.core
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.text.toMime
-import com.hendraanggrian.kota.toast
+import com.hendraanggrian.kota.texts.mimeType
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
@@ -20,17 +18,15 @@ class MimeTypesTest {
     @SuppressLint("SdCardPath")
     @Throws(Exception::class)
     fun guessExtension() {
-        assertEquals("/sdcard/home/important.txt".toMime(), "text/plain")
-        assertEquals("txt".toMime(), "text/plain")
-        assertEquals("jpg".toMime(), "image/jpeg")
-        assertNull("".toMime())
+        assertEquals("/sdcard/home/important.txt".mimeType, "text/plain")
+        assertEquals("txt".mimeType, "text/plain")
+        assertEquals("jpg".mimeType, "image/jpeg")
+        assertNull("".mimeType)
     }
 
     @Test
     @Throws(Exception::class)
     fun guessUrl() {
-        assertEquals("http://www.somewebsite.com/someimage.jpg".toMime(), "image/jpeg")
-        val context: Context? = null
-        context!!.toast("")
+        assertEquals("http://www.somewebsite.com/someimage.jpg".mimeType, "image/jpeg")
     }
 }

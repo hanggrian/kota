@@ -1,7 +1,7 @@
 @file:JvmName("SupportIntentsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota
+package com.hendraanggrian.kota.contents
 
 import android.content.Intent
 import android.os.Bundle

@@ -17,12 +17,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.hendraanggrian.kota.layoutInflater
-import com.hendraanggrian.kota.resources.dp
-import com.hendraanggrian.kota.resources.getColor2
-import com.hendraanggrian.kota.text.append
-import com.hendraanggrian.kota.text.putSpans
-import com.hendraanggrian.kota.text.setSpans
-import com.hendraanggrian.kota.text.spannableOf
+import com.hendraanggrian.kota.contents.dp
+import com.hendraanggrian.kota.contents.getColor2
+import com.hendraanggrian.kota.texts.append
+import com.hendraanggrian.kota.texts.putSpans
+import com.hendraanggrian.kota.texts.setSpans
+import com.hendraanggrian.kota.texts.spannableOf
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**

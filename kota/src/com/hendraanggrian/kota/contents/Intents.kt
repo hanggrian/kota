@@ -1,7 +1,7 @@
 @file:JvmName("IntentsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota
+package com.hendraanggrian.kota.contents
 
 import android.annotation.TargetApi
 import android.app.Activity
