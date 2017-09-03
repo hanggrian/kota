@@ -1,13 +1,15 @@
 @file:JvmName("PermissionsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota
+package com.hendraanggrian.kota.contents
 
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Fragment
 import android.content.Context
 import android.content.pm.PackageManager
+import com.hendraanggrian.kota.VERSION_M
+import com.hendraanggrian.kota.getIfAtLeast
 
 @SuppressLint("NewApi")
 inline fun Context.isSelfPermissionsGranted(vararg permissions: String): Boolean {

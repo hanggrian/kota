@@ -7,6 +7,9 @@ package com.hendraanggrian.kota.collections
 import android.support.v4.util.LongSparseArray
 import java.util.*
 
+/** Returns an empty sparse array. */
+inline fun <E> supportLongSparseArrayOf(): LongSparseArray<E> = LongSparseArray()
+
 /** Returns a sparse array with matching position of array input. */
 inline fun <E> supportLongSparseArrayOf(vararg elements: E): LongSparseArray<E> = LongSparseArray<E>().apply {
     var i = 0L

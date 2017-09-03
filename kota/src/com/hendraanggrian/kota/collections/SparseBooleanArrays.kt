@@ -7,6 +7,9 @@ package com.hendraanggrian.kota.collections
 import android.util.SparseBooleanArray
 import java.util.*
 
+/** Returns an empty sparse array. */
+inline fun sparseBooleanArrayOf(): SparseBooleanArray = SparseBooleanArray()
+
 /** Returns a sparse array with matching position of array input. */
 inline fun sparseBooleanArrayOf(vararg elements: Boolean): SparseBooleanArray = SparseBooleanArray().apply {
     var i = 0

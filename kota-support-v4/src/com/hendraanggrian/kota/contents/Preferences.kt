@@ -1,11 +1,12 @@
 @file:JvmName("SupportPreferencesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota
+package com.hendraanggrian.kota.contents
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.support.v4.app.Fragment
+import com.hendraanggrian.kota.contents.preferences
 
 /** Retrieve a default preferences of this Context */
 inline val Fragment.preferences: SharedPreferences get() = context.preferences

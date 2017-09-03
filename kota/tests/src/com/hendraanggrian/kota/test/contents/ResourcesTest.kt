@@ -1,10 +1,11 @@
-package com.hendraanggrian.kota.core
+package com.hendraanggrian.kota.test.contents
 
 import android.content.res.Configuration
 import android.os.Build
-import android.support.test.InstrumentationRegistry
+import android.support.test.InstrumentationRegistry.getTargetContext
 import android.support.test.runner.AndroidJUnit4
 import com.hendraanggrian.kota.contents.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -12,12 +13,13 @@ import org.junit.runner.RunWith
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 @RunWith(AndroidJUnit4::class)
-class ConfigurationsTest {
+class ResourcesTest {
+
+    private val context = getTargetContext()
 
     @Test
     @Throws(Exception::class)
-    fun test() {
-        val context = InstrumentationRegistry.getTargetContext()
+    fun configurations() {
         context.screenSize
         context.isScreenSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE)
         context.isScreenLong
@@ -35,5 +37,20 @@ class ConfigurationsTest {
         context.isTypeNormal
         context.nightMode
         context.isNightMode
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun displayMetrics() {
+        14.dp
+        14.sp
+        dpOf(14)
+        spOf(14)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun resources() {
+        assertEquals(context.getText(android.R.string.ok), "OK")
     }
 }

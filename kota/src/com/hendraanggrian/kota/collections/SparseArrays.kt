@@ -7,6 +7,9 @@ package com.hendraanggrian.kota.collections
 import android.util.SparseArray
 import java.util.*
 
+/** Returns an empty sparse array. */
+inline fun <E> sparseArrayOf(): SparseArray<E> = SparseArray()
+
 /** Returns a sparse array with matching position of array input. */
 inline fun <E> sparseArrayOf(vararg elements: E): SparseArray<E> = SparseArray<E>().apply {
     var i = 0

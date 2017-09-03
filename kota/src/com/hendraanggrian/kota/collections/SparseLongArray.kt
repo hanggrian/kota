@@ -9,6 +9,11 @@ import android.support.annotation.RequiresApi
 import android.util.SparseLongArray
 import java.util.*
 
+/** Returns an empty sparse array. */
+@TargetApi(18)
+@RequiresApi(18)
+inline fun sparseLongArrayOf(): SparseLongArray = SparseLongArray()
+
 /** Returns a sparse array with matching position of array input. */
 @TargetApi(18)
 @RequiresApi(18)

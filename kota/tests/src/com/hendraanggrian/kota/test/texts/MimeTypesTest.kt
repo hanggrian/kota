@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.core
+package com.hendraanggrian.kota.test.texts
 
 import android.annotation.SuppressLint
 import android.support.test.runner.AndroidJUnit4

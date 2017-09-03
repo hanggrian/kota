@@ -1,7 +1,8 @@
-package com.hendraanggrian.kota.core
+package com.hendraanggrian.kota.test
 
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.bundleOf
+import android.util.Log
+import com.hendraanggrian.kota.runIfAtLeast
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -9,12 +10,13 @@ import org.junit.runner.RunWith
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 @RunWith(AndroidJUnit4::class)
-class BundlesTest {
+class BuildsTest {
 
     @Test
     @Throws(Exception::class)
     fun doIfVersion() {
-        val bundle1 = bundleOf("Some key", 1)
-        val bundle2 = bundleOf(Pair("Some key", 1), Pair("Another key", 2))
+        runIfAtLeast(21) {
+            Log.d("runIfAtLeast()", true.toString())
+        }
     }
 }

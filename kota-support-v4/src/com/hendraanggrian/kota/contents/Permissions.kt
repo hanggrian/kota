@@ -1,7 +1,7 @@
 @file:JvmName("SupportPermissionsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package com.hendraanggrian.kota
+package com.hendraanggrian.kota.contents
 
 import android.content.Context
 import android.content.pm.PackageManager

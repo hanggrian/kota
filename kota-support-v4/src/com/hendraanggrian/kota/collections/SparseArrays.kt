@@ -7,6 +7,9 @@ package com.hendraanggrian.kota.collections
 import android.support.v4.util.SparseArrayCompat
 import java.util.*
 
+/** Returns an empty sparse array. */
+inline fun <E> supportSparseArrayOf(): SparseArrayCompat<E> = SparseArrayCompat()
+
 /** Returns a sparse array with matching position of array input. */
 inline fun <E> supportSparseArrayOf(vararg elements: E): SparseArrayCompat<E> = SparseArrayCompat<E>().apply {
     var i = 0

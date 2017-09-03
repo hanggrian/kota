@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.core
+package com.hendraanggrian.kota.test
 
 import android.annotation.SuppressLint
 import android.net.Uri
