@@ -3,7 +3,7 @@ package com.hendraanggrian.kota.test.texts
 import android.graphics.Color
 import android.support.test.runner.AndroidJUnit4
 import android.text.style.ForegroundColorSpan
-import com.hendraanggrian.kota.texts.*
+import kota.texts.*
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

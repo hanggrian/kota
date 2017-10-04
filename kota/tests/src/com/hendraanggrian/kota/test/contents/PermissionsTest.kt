@@ -3,8 +3,8 @@ package com.hendraanggrian.kota.test.contents
 import android.Manifest
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.contents.isSelfPermissionsGranted
 import junit.framework.Assert.assertEquals
+import kota.contents.isSelfPermissionsGranted
 import org.junit.Test
 import org.junit.runner.RunWith
 

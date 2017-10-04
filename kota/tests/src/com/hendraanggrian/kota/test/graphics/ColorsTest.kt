@@ -1,7 +1,7 @@
 package com.hendraanggrian.kota.test.graphics
 
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.graphics.colorIntOf
+import kota.graphics.colorIntOf
 import org.junit.Test
 import org.junit.runner.RunWith
 

@@ -1,7 +1,7 @@
 package com.hendraanggrian.kota.test
 
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.bundleOf
+import kota.bundleOf
 import org.junit.Test
 import org.junit.runner.RunWith
 

@@ -3,8 +3,8 @@ package com.hendraanggrian.kota.test
 import android.annotation.SuppressLint
 import android.net.Uri
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.isFile
-import com.hendraanggrian.kota.isNetwork
+import kota.isFile
+import kota.isNetwork
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Test

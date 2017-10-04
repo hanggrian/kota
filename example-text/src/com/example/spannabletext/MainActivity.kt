@@ -16,13 +16,13 @@ import android.text.style.URLSpan
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.hendraanggrian.kota.layoutInflater
-import com.hendraanggrian.kota.contents.dp
-import com.hendraanggrian.kota.contents.getColor2
-import com.hendraanggrian.kota.texts.append
-import com.hendraanggrian.kota.texts.putSpans
-import com.hendraanggrian.kota.texts.setSpans
-import com.hendraanggrian.kota.texts.spannableOf
+import kota.contents.dp
+import kota.contents.getColor2
+import kota.layoutInflater
+import kota.texts.append
+import kota.texts.putSpans
+import kota.texts.setSpans
+import kota.texts.spannableOf
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**

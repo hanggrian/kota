@@ -2,7 +2,7 @@ package com.hendraanggrian.kota.test
 
 import android.support.test.runner.AndroidJUnit4
 import android.util.Log
-import com.hendraanggrian.kota.runIfAtLeast
+import kota.runIfAtLeast
 import org.junit.Test
 import org.junit.runner.RunWith
 

@@ -1,8 +1,8 @@
 package com.hendraanggrian.kota.test.collections
 
 import android.support.test.runner.AndroidJUnit4
-import com.hendraanggrian.kota.collections.*
 import junit.framework.Assert.assertEquals
+import kota.collections.*
 import org.junit.Test
 import org.junit.runner.RunWith
 
