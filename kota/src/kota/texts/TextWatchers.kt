@@ -8,7 +8,7 @@ import android.text.TextWatcher
 
 /** Returns a text change listener from supplied  */
 @JvmOverloads
-inline fun textWatcherOf(
+inline fun textWatcher(
         noinline beforeTextChanged: ((CharSequence, Int, Int, Int) -> Unit)? = null,
         noinline onTextChanged: ((CharSequence, Int, Int, Int) -> Unit)? = null,
         noinline afterTextChanged: ((Editable) -> Unit)? = null

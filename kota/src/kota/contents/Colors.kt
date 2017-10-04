@@ -1,7 +1,7 @@
 @file:JvmName("ColorsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.graphics
+package kota.contents
 
 import android.annotation.TargetApi
 import android.content.res.ColorStateList
@@ -40,11 +40,7 @@ inline fun colorOf(r: Float, g: Float, b: Float, a: Float = 0xFF.toFloat(), colo
 inline fun colorStateListOf(@ColorInt color: Int): ColorStateList = ColorStateList.valueOf(color)
 
 inline val @receiver:ColorInt Int.red: Int get() = Color.red(this)
-
 inline val @receiver:ColorInt Int.green: Int get() = Color.green(this)
-
 inline val @receiver:ColorInt Int.blue: Int get() = Color.blue(this)
-
 inline val @receiver:ColorInt Int.alpha: Int get() = Color.alpha(this)
-
 inline val @receiver:ColorInt Int.luminance: Float @TargetApi(24) @RequiresApi(24) get() = Color.luminance(this)

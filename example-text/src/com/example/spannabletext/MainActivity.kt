@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Example activity that mimics https://fonts.google.com.
-
+ *
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 class MainActivity : AppCompatActivity() {

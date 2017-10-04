@@ -5,11 +5,13 @@
 package kota.contents
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.res.*
 import android.graphics.Movie
 import android.graphics.drawable.Drawable
 import android.support.annotation.*
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import java.io.InputStream
@@ -43,6 +45,8 @@ inline fun Fragment.getDimensionPixelOffset(@DimenRes id: Int): Int = context.ge
 
 inline fun Fragment.getDimensionPixelSize(@DimenRes id: Int): Int = context.getDimensionPixelSize(id)
 
+inline fun Context.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(this, id)
+inline fun android.app.Fragment.getDrawable2(@DrawableRes id: Int): Drawable = activity.getDrawable2(id)
 inline fun Fragment.getDrawable2(@DrawableRes id: Int): Drawable = context.getDrawable2(id)
 
 inline fun Fragment.getMovie(@RawRes id: Int): Movie = context.getMovie(id)

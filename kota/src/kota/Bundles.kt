@@ -7,132 +7,27 @@ import android.os.Bundle
 import android.os.Parcelable
 import java.io.Serializable
 
-inline fun bundleOf(key: String, value: Boolean): Bundle {
-    val bundle = Bundle()
-    bundle.putBoolean(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Byte): Bundle {
-    val bundle = Bundle()
-    bundle.putByte(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Char): Bundle {
-    val bundle = Bundle()
-    bundle.putChar(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Short): Bundle {
-    val bundle = Bundle()
-    bundle.putShort(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Int): Bundle {
-    val bundle = Bundle()
-    bundle.putInt(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Long): Bundle {
-    val bundle = Bundle()
-    bundle.putLong(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Float): Bundle {
-    val bundle = Bundle()
-    bundle.putFloat(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Double): Bundle {
-    val bundle = Bundle()
-    bundle.putDouble(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: String): Bundle {
-    val bundle = Bundle()
-    bundle.putString(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: CharSequence): Bundle {
-    val bundle = Bundle()
-    bundle.putCharSequence(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Parcelable): Bundle {
-    val bundle = Bundle()
-    bundle.putParcelable(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Serializable): Bundle {
-    val bundle = Bundle()
-    bundle.putSerializable(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: BooleanArray): Bundle {
-    val bundle = Bundle()
-    bundle.putBooleanArray(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: ByteArray): Bundle {
-    val bundle = Bundle()
-    bundle.putByteArray(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: CharArray): Bundle {
-    val bundle = Bundle()
-    bundle.putCharArray(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: DoubleArray): Bundle {
-    val bundle = Bundle()
-    bundle.putDoubleArray(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: FloatArray): Bundle {
-    val bundle = Bundle()
-    bundle.putFloatArray(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: IntArray): Bundle {
-    val bundle = Bundle()
-    bundle.putIntArray(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: LongArray): Bundle {
-    val bundle = Bundle()
-    bundle.putLongArray(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: ShortArray): Bundle {
-    val bundle = Bundle()
-    bundle.putShortArray(key, value)
-    return bundle
-}
-
-inline fun bundleOf(key: String, value: Bundle): Bundle {
-    val bundle = Bundle()
-    bundle.putBundle(key, value)
-    return bundle
-}
-
+inline fun bundleOf(key: String, value: Boolean): Bundle = Bundle().apply { putBoolean(key, value) }
+inline fun bundleOf(key: String, value: Byte): Bundle = Bundle().apply { putByte(key, value) }
+inline fun bundleOf(key: String, value: Char): Bundle = Bundle().apply { putChar(key, value) }
+inline fun bundleOf(key: String, value: Short): Bundle = Bundle().apply { putShort(key, value) }
+inline fun bundleOf(key: String, value: Int): Bundle = Bundle().apply { putInt(key, value) }
+inline fun bundleOf(key: String, value: Long): Bundle = Bundle().apply { putLong(key, value) }
+inline fun bundleOf(key: String, value: Float): Bundle = Bundle().apply { putFloat(key, value) }
+inline fun bundleOf(key: String, value: Double): Bundle = Bundle().apply { putDouble(key, value) }
+inline fun bundleOf(key: String, value: String): Bundle = Bundle().apply { putString(key, value) }
+inline fun bundleOf(key: String, value: CharSequence): Bundle = Bundle().apply { putCharSequence(key, value) }
+inline fun bundleOf(key: String, value: Parcelable): Bundle = Bundle().apply { putParcelable(key, value) }
+inline fun bundleOf(key: String, value: Serializable): Bundle = Bundle().apply { putSerializable(key, value) }
+inline fun bundleOf(key: String, value: BooleanArray): Bundle = Bundle().apply { putBooleanArray(key, value) }
+inline fun bundleOf(key: String, value: ByteArray): Bundle = Bundle().apply { putByteArray(key, value) }
+inline fun bundleOf(key: String, value: CharArray): Bundle = Bundle().apply { putCharArray(key, value) }
+inline fun bundleOf(key: String, value: DoubleArray): Bundle = Bundle().apply { putDoubleArray(key, value) }
+inline fun bundleOf(key: String, value: FloatArray): Bundle = Bundle().apply { putFloatArray(key, value) }
+inline fun bundleOf(key: String, value: IntArray): Bundle = Bundle().apply { putIntArray(key, value) }
+inline fun bundleOf(key: String, value: LongArray): Bundle = Bundle().apply { putLongArray(key, value) }
+inline fun bundleOf(key: String, value: ShortArray): Bundle = Bundle().apply { putShortArray(key, value) }
+inline fun bundleOf(key: String, value: Bundle): Bundle = Bundle().apply { putBundle(key, value) }
 inline fun bundleOf(key: String, value: Array<*>): Bundle {
     val bundle = Bundle()
     @Suppress("UNCHECKED_CAST") when {

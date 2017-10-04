@@ -8,10 +8,9 @@ import android.app.Fragment
 import android.util.Log
 
 @JvmOverloads
-inline fun verbose(tag: String, msg: String, tr: Throwable? = null): Int = when {
-    tr != null -> Log.v(tag, msg, tr)
-    else -> Log.v(tag, msg)
-}
+inline fun verbose(tag: String, msg: String, tr: Throwable? = null): Int =
+        if (tr != null) Log.v(tag, msg, tr)
+        else Log.v(tag, msg)
 
 @JvmOverloads
 inline fun Activity.verbose(msg: String, tr: Throwable? = null): Int = verbose(javaClass.simpleName, msg, tr)
@@ -20,10 +19,9 @@ inline fun Activity.verbose(msg: String, tr: Throwable? = null): Int = verbose(j
 inline fun Fragment.verbose(msg: String, tr: Throwable? = null): Int = verbose(javaClass.simpleName, msg, tr)
 
 @JvmOverloads
-inline fun debug(tag: String, msg: String, tr: Throwable? = null): Int = when {
-    tr != null -> Log.d(tag, msg, tr)
-    else -> Log.d(tag, msg)
-}
+inline fun debug(tag: String, msg: String, tr: Throwable? = null): Int =
+        if (tr != null) Log.d(tag, msg, tr)
+        else Log.d(tag, msg)
 
 @JvmOverloads
 inline fun Activity.debug(msg: String, tr: Throwable? = null): Int = debug(javaClass.simpleName, msg, tr)
@@ -32,10 +30,9 @@ inline fun Activity.debug(msg: String, tr: Throwable? = null): Int = debug(javaC
 inline fun Fragment.debug(msg: String, tr: Throwable? = null): Int = debug(javaClass.simpleName, msg, tr)
 
 @JvmOverloads
-inline fun info(tag: String, msg: String, tr: Throwable? = null): Int = when {
-    tr != null -> Log.i(tag, msg, tr)
-    else -> Log.i(tag, msg)
-}
+inline fun info(tag: String, msg: String, tr: Throwable? = null): Int =
+        if (tr != null) Log.i(tag, msg, tr)
+        else Log.i(tag, msg)
 
 @JvmOverloads
 inline fun Activity.info(msg: String, tr: Throwable? = null): Int = info(javaClass.simpleName, msg, tr)
@@ -44,10 +41,9 @@ inline fun Activity.info(msg: String, tr: Throwable? = null): Int = info(javaCla
 inline fun Fragment.info(msg: String, tr: Throwable? = null): Int = info(javaClass.simpleName, msg, tr)
 
 @JvmOverloads
-inline fun warn(tag: String, msg: String, tr: Throwable? = null): Int = when {
-    tr != null -> Log.w(tag, msg, tr)
-    else -> Log.w(tag, msg)
-}
+inline fun warn(tag: String, msg: String, tr: Throwable? = null): Int =
+        if (tr != null) Log.w(tag, msg, tr)
+        else Log.w(tag, msg)
 
 @JvmOverloads
 inline fun Activity.warn(msg: String, tr: Throwable? = null): Int = warn(javaClass.simpleName, msg, tr)
@@ -62,10 +58,9 @@ inline fun Activity.warn(tr: Throwable): Int = warn(javaClass.simpleName, tr)
 inline fun Fragment.warn(tr: Throwable): Int = warn(javaClass.simpleName, tr)
 
 @JvmOverloads
-inline fun error(tag: String, msg: String, tr: Throwable? = null): Int = when {
-    tr != null -> Log.e(tag, msg, tr)
-    else -> Log.e(tag, msg)
-}
+inline fun error(tag: String, msg: String, tr: Throwable? = null): Int =
+        if (tr != null) Log.e(tag, msg, tr)
+        else Log.e(tag, msg)
 
 @JvmOverloads
 inline fun Activity.error(msg: String, tr: Throwable? = null): Int = error(javaClass.simpleName, msg, tr)
@@ -74,10 +69,9 @@ inline fun Activity.error(msg: String, tr: Throwable? = null): Int = error(javaC
 inline fun Fragment.error(msg: String, tr: Throwable? = null): Int = error(javaClass.simpleName, msg, tr)
 
 @JvmOverloads
-inline fun wtf(tag: String, msg: String, tr: Throwable? = null): Int = when {
-    tr != null -> Log.wtf(tag, msg, tr)
-    else -> Log.wtf(tag, msg)
-}
+inline fun wtf(tag: String, msg: String, tr: Throwable? = null): Int =
+        if (tr != null) Log.wtf(tag, msg, tr)
+        else Log.wtf(tag, msg)
 
 @JvmOverloads
 inline fun Activity.wtf(msg: String, tr: Throwable? = null): Int = wtf(javaClass.simpleName, msg, tr)

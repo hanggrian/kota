@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.test
+package kota
 
 import android.support.test.runner.AndroidJUnit4
 import kota.bundleOf

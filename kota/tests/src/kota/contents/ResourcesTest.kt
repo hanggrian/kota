@@ -1,4 +1,4 @@
-package com.hendraanggrian.kota.test.contents
+package kota.contents
 
 import android.content.res.Configuration
 import android.os.Build
