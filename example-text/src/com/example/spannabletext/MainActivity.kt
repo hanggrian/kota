@@ -18,11 +18,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import kota.contents.dp
 import kota.contents.getColor2
+import kota.dialogs.*
 import kota.layoutInflater
 import kota.texts.append
 import kota.texts.putSpans
 import kota.texts.setSpans
-import kota.texts.spannableOf
+import kota.texts.toSpannable
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -49,17 +50,24 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = Adapter(this)
 
-        textViewCopyright.text = spannableOf("© 2017 Google Inc.").apply {
+        textViewCopyright.text = "© 2017 Google Inc.".toSpannable().apply {
             setSpans(AbsoluteSizeSpan(12.dp))
             putSpans(Regex("Google"), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
         }
 
         val url = "https://fonts.google.com"
-        textViewUrl.text = spannableOf("as seen on " + url).apply {
+        textViewUrl.text = ("as seen on " + url).toSpannable().apply {
             setSpans(AbsoluteSizeSpan(12.dp))
-            putSpans(Regex("[a-z]+:\\/\\/[^ \\n]*"), { URLSpan(url) })
+            putSpans("[a-z]+:\\/\\/[^ \\n]*".toRegex(), { URLSpan(url) })
         }
         textViewUrl.movementMethod = LinkMovementMethod.getInstance()
+
+        /*supportItemsAlert("Title", arrayOf("One", "Two", "Three"), { dialog, which ->
+            toast(which.toString())
+        })*/
+        alert("Hello", "world", CancelButton, OkButton {
+            toast("Damn")
+        })
     }
 
     internal class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.ViewHolder>() {
@@ -69,17 +77,11 @@ class MainActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val font = fonts[position]
-            holder.toolbar.title = spannableOf(font.title).apply {
-                setSpans(ForegroundColorSpan(context.getColor2(R.color.darkGray)), StyleSpan(Typeface.BOLD), AbsoluteSizeSpan(14.dp))
-            }
-            holder.toolbar.subtitle = spannableOf("${font.author} ${font.stylesCount} styles)").apply {
-                setSpans(AbsoluteSizeSpan(12.dp))
-            }
+            holder.toolbar.title = font.title.toSpannable().apply { setSpans(ForegroundColorSpan(context.getColor2(R.color.darkGray)), StyleSpan(Typeface.BOLD), AbsoluteSizeSpan(14.dp)) }
+            holder.toolbar.subtitle = ("${font.author} ${font.stylesCount} styles)").toSpannable().apply { setSpans(AbsoluteSizeSpan(12.dp)) }
             holder.toolbar.menu.clear()
             holder.toolbar.inflateMenu(R.menu.item)
-            holder.textView.text = spannableOf(font.example).apply {
-                setSpans(FontSpan(context.assets, font.filename), AbsoluteSizeSpan(24.dp))
-            }
+            holder.textView.text = font.example.toSpannable().apply { setSpans(FontSpan(context.assets, font.filename), AbsoluteSizeSpan(24.dp)) }
         }
 
         override fun getItemCount() = fonts.size

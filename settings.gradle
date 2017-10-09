@@ -1,5 +1,6 @@
 include ':kota'
-include ':kota-support-v4'
+include ':kota-appcompat-v7'
 include ':kota-design'
+include ':kota-support-v4'
 
 include ':example-text'

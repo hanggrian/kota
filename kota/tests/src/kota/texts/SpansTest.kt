@@ -3,7 +3,6 @@ package kota.texts
 import android.graphics.Color
 import android.support.test.runner.AndroidJUnit4
 import android.text.style.ForegroundColorSpan
-import kota.texts.*
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -17,12 +16,12 @@ class SpansTest {
     @Test
     @Throws(Exception::class)
     fun test() {
-        val spannable1 = spannableOf("Hello world")
+        val spannable1 = "Hello world".toSpannable()
         spannable1.setSpans(0, 5, ForegroundColorSpan(Color.RED))
         spannable1.setSpans(6, spannable1.length, ForegroundColorSpan(Color.BLUE))
         Assert.assertEquals(spannable1.spans.size, 2)
 
-        val spannable2 = spannableOf("Hello world")
+        val spannable2 = "Hello world".toSpannable()
         spannable2.putSpans(Regex("Hello"), { ForegroundColorSpan(Color.RED) })
         spannable2.putSpans(Regex("world"), { ForegroundColorSpan(Color.BLUE) })
         Assert.assertEquals(spannable2.spans.size, 2)
