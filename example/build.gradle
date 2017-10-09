@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.sdk.target
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        applicationId 'com.example.kota'
+        versionCode 1
+        versionName '1.0'
+        minSdkVersion versions.sdk.min
+        targetSdkVersion versions.sdk.target
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs 'src'
+            assets.srcDir 'assets'
+            res.srcDir 'res'
+            resources.srcDir 'src'
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$versions.kotlin"
+    implementation project(':kota-design')
+
+    implementation "com.android.support:design:$versions.support"
+    implementation "com.android.support:preference-v14:$versions.support"
+}

@@ -4,7 +4,6 @@
 package kota
 
 import android.accounts.AccountManager
-import android.annotation.TargetApi
 import android.app.*
 import android.app.admin.DevicePolicyManager
 import android.app.job.JobScheduler
@@ -59,20 +58,20 @@ inline val Fragment.activityManager: ActivityManager get() = activity.activityMa
 inline val Context.alarmManager: AlarmManager get() = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 inline val Fragment.alarmManager: AlarmManager get() = activity.alarmManager
 
-inline val Context.appOpsManager: AppOpsManager @TargetApi(19) @RequiresApi(19) get() = getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
-inline val Fragment.appOpsManager: AppOpsManager @TargetApi(19) @RequiresApi(19) get() = activity.appOpsManager
+inline val Context.appOpsManager: AppOpsManager @RequiresApi(19) get() = getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
+inline val Fragment.appOpsManager: AppOpsManager @RequiresApi(19) get() = activity.appOpsManager
 
-inline val Context.appWidgetManager: AppWidgetManager @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.APPWIDGET_SERVICE) as AppWidgetManager
-inline val Fragment.appWidgetManager: AppWidgetManager @TargetApi(21) @RequiresApi(21) get() = activity.appWidgetManager
+inline val Context.appWidgetManager: AppWidgetManager @RequiresApi(21) get() = getSystemService(Context.APPWIDGET_SERVICE) as AppWidgetManager
+inline val Fragment.appWidgetManager: AppWidgetManager @RequiresApi(21) get() = activity.appWidgetManager
 
 inline val Context.audioManager: AudioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
 inline val Fragment.audioManager: AudioManager get() = activity.audioManager
 
-inline val Context.batteryManager: BatteryManager @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.BATTERY_SERVICE) as BatteryManager
-inline val Fragment.batteryManager: BatteryManager @TargetApi(21) @RequiresApi(21) get() = activity.batteryManager
+inline val Context.batteryManager: BatteryManager @RequiresApi(21) get() = getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+inline val Fragment.batteryManager: BatteryManager @RequiresApi(21) get() = activity.batteryManager
 
-inline val Context.bluetoothManager: BluetoothManager @TargetApi(18) @RequiresApi(18) get() = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
-inline val Fragment.bluetoothManager: BluetoothManager @TargetApi(18) @RequiresApi(18) get() = activity.bluetoothManager
+inline val Context.bluetoothManager: BluetoothManager @RequiresApi(18) get() = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+inline val Fragment.bluetoothManager: BluetoothManager @RequiresApi(18) get() = activity.bluetoothManager
 
 inline val Context.clipboardManager: ClipboardManager get() = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 inline val Fragment.clipboardManager: ClipboardManager get() = activity.clipboardManager
@@ -80,14 +79,14 @@ inline val Fragment.clipboardManager: ClipboardManager get() = activity.clipboar
 inline val Context.connectivityManager: ConnectivityManager get() = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 inline val Fragment.connectivityManager: ConnectivityManager get() = activity.connectivityManager
 
-inline val Context.consumerIrManager: ConsumerIrManager @TargetApi(19) @RequiresApi(19) get() = getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
-inline val Fragment.consumerIrManager: ConsumerIrManager @TargetApi(19) @RequiresApi(19) get() = activity.consumerIrManager
+inline val Context.consumerIrManager: ConsumerIrManager @RequiresApi(19) get() = getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
+inline val Fragment.consumerIrManager: ConsumerIrManager @RequiresApi(19) get() = activity.consumerIrManager
 
 inline val Context.devicePolicyManager: DevicePolicyManager get() = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
 inline val Fragment.devicePolicyManager: DevicePolicyManager get() = activity.devicePolicyManager
 
-inline val Context.displayManager: DisplayManager @TargetApi(17) @RequiresApi(17) get() = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
-inline val Fragment.displayManager: DisplayManager @TargetApi(17) @RequiresApi(17) get() = activity.displayManager
+inline val Context.displayManager: DisplayManager @RequiresApi(17) get() = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
+inline val Fragment.displayManager: DisplayManager @RequiresApi(17) get() = activity.displayManager
 
 inline val Context.downloadManager: DownloadManager get() = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
 inline val Fragment.downloadManager: DownloadManager get() = activity.downloadManager
@@ -95,43 +94,43 @@ inline val Fragment.downloadManager: DownloadManager get() = activity.downloadMa
 inline val Context.dropBoxManager: DropBoxManager get() = getSystemService(Context.DROPBOX_SERVICE) as DropBoxManager
 inline val Fragment.dropBoxManager: DropBoxManager get() = activity.dropBoxManager
 
-inline val Context.fingerprintManager: FingerprintManager @TargetApi(23) @RequiresApi(23) get() = getSystemService(Context.FINGERPRINT_SERVICE) as FingerprintManager
-inline val Fragment.fingerprintManager: FingerprintManager @TargetApi(23) @RequiresApi(23) get() = activity.fingerprintManager
+inline val Context.fingerprintManager: FingerprintManager @RequiresApi(23) get() = getSystemService(Context.FINGERPRINT_SERVICE) as FingerprintManager
+inline val Fragment.fingerprintManager: FingerprintManager @RequiresApi(23) get() = activity.fingerprintManager
 
 inline val Context.inputMethodManager: InputMethodManager get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 inline val Fragment.inputMethodManager: InputMethodManager get() = activity.inputMethodManager
 
-inline val Context.inputManager: InputManager @TargetApi(16) @RequiresApi(16) get() = getSystemService(Context.INPUT_SERVICE) as InputManager
-inline val Fragment.inputManager: InputManager @TargetApi(16) @RequiresApi(16) get() = activity.inputManager
+inline val Context.inputManager: InputManager @RequiresApi(16) get() = getSystemService(Context.INPUT_SERVICE) as InputManager
+inline val Fragment.inputManager: InputManager @RequiresApi(16) get() = activity.inputManager
 
-inline val Context.jobScheduler: JobScheduler @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
-inline val Fragment.jobScheduler: JobScheduler @TargetApi(21) @RequiresApi(21) get() = activity.jobScheduler
+inline val Context.jobScheduler: JobScheduler @RequiresApi(21) get() = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+inline val Fragment.jobScheduler: JobScheduler @RequiresApi(21) get() = activity.jobScheduler
 
 inline val Context.keyguardManager: KeyguardManager get() = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
 inline val Fragment.keyguardManager: KeyguardManager get() = activity.keyguardManager
 
-inline val Context.launcherApps: LauncherApps @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
-inline val Fragment.launcherApps: LauncherApps @TargetApi(21) @RequiresApi(21) get() = activity.launcherApps
+inline val Context.launcherApps: LauncherApps @RequiresApi(21) get() = getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
+inline val Fragment.launcherApps: LauncherApps @RequiresApi(21) get() = activity.launcherApps
 
 inline val Context.layoutInflater: LayoutInflater get() = LayoutInflater.from(this)
 
 inline val Context.locationManager: LocationManager get() = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 inline val Fragment.locationManager: LocationManager get() = activity.locationManager
 
-inline val Context.mediaProjectionManager: MediaProjectionManager @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-inline val Fragment.mediaProjectionManager: MediaProjectionManager @TargetApi(21) @RequiresApi(21) get() = activity.mediaProjectionManager
+inline val Context.mediaProjectionManager: MediaProjectionManager @RequiresApi(21) get() = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+inline val Fragment.mediaProjectionManager: MediaProjectionManager @RequiresApi(21) get() = activity.mediaProjectionManager
 
-inline val Context.mediaRouter: MediaRouter @TargetApi(16) @RequiresApi(16) get() = getSystemService(Context.MEDIA_ROUTER_SERVICE) as MediaRouter
-inline val Fragment.mediaRouter: MediaRouter @TargetApi(16) @RequiresApi(16) get() = activity.mediaRouter
+inline val Context.mediaRouter: MediaRouter @RequiresApi(16) get() = getSystemService(Context.MEDIA_ROUTER_SERVICE) as MediaRouter
+inline val Fragment.mediaRouter: MediaRouter @RequiresApi(16) get() = activity.mediaRouter
 
-inline val Context.mediaSessionManager: MediaSessionManager @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.MEDIA_SESSION_SERVICE) as MediaSessionManager
-inline val Fragment.mediaSessionManager: MediaSessionManager @TargetApi(21) @RequiresApi(21) get() = activity.mediaSessionManager
+inline val Context.mediaSessionManager: MediaSessionManager @RequiresApi(21) get() = getSystemService(Context.MEDIA_SESSION_SERVICE) as MediaSessionManager
+inline val Fragment.mediaSessionManager: MediaSessionManager @RequiresApi(21) get() = activity.mediaSessionManager
 
-inline val Context.midiManager: MidiManager @TargetApi(23) @RequiresApi(23) get() = getSystemService(Context.MIDI_SERVICE) as MidiManager
-inline val Fragment.midiManager: MidiManager @TargetApi(23) @RequiresApi(23) get() = activity.midiManager
+inline val Context.midiManager: MidiManager @RequiresApi(23) get() = getSystemService(Context.MIDI_SERVICE) as MidiManager
+inline val Fragment.midiManager: MidiManager @RequiresApi(23) get() = activity.midiManager
 
-inline val Context.networkStatsManager: NetworkStatsManager @TargetApi(23) @RequiresApi(23) get() = getSystemService(Context.NETWORK_STATS_SERVICE) as NetworkStatsManager
-inline val Fragment.networkStatsManager: NetworkStatsManager @TargetApi(23) @RequiresApi(23) get() = activity.networkStatsManager
+inline val Context.networkStatsManager: NetworkStatsManager @RequiresApi(23) get() = getSystemService(Context.NETWORK_STATS_SERVICE) as NetworkStatsManager
+inline val Fragment.networkStatsManager: NetworkStatsManager @RequiresApi(23) get() = activity.networkStatsManager
 
 inline val Context.nfcManager: NfcManager get() = getSystemService(Context.NFC_SERVICE) as NfcManager
 inline val Fragment.nfcManager: NfcManager get() = activity.nfcManager
@@ -139,17 +138,17 @@ inline val Fragment.nfcManager: NfcManager get() = activity.nfcManager
 inline val Context.notificationManager: NotificationManager get() = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 inline val Fragment.notificationManager: NotificationManager get() = activity.notificationManager
 
-inline val Context.nsdManager: NsdManager @TargetApi(16) @RequiresApi(16) get() = getSystemService(Context.NSD_SERVICE) as NsdManager
-inline val Fragment.nsdManager: NsdManager @TargetApi(16) @RequiresApi(16) get() = activity.nsdManager
+inline val Context.nsdManager: NsdManager @RequiresApi(16) get() = getSystemService(Context.NSD_SERVICE) as NsdManager
+inline val Fragment.nsdManager: NsdManager @RequiresApi(16) get() = activity.nsdManager
 
 inline val Context.powerManager: PowerManager get() = getSystemService(Context.POWER_SERVICE) as PowerManager
 inline val Fragment.powerManager: PowerManager get() = activity.powerManager
 
-inline val Context.printManager: PrintManager @TargetApi(19) @RequiresApi(19) get() = getSystemService(Context.PRINT_SERVICE) as PrintManager
-inline val Fragment.printManager: PrintManager @TargetApi(19) @RequiresApi(19) get() = activity.printManager
+inline val Context.printManager: PrintManager @RequiresApi(19) get() = getSystemService(Context.PRINT_SERVICE) as PrintManager
+inline val Fragment.printManager: PrintManager @RequiresApi(19) get() = activity.printManager
 
-inline val Context.restrictionsManager: RestrictionsManager @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.RESTRICTIONS_SERVICE) as RestrictionsManager
-inline val Fragment.restrictionsManager: RestrictionsManager @TargetApi(21) @RequiresApi(21) get() = activity.restrictionsManager
+inline val Context.restrictionsManager: RestrictionsManager @RequiresApi(21) get() = getSystemService(Context.RESTRICTIONS_SERVICE) as RestrictionsManager
+inline val Fragment.restrictionsManager: RestrictionsManager @RequiresApi(21) get() = activity.restrictionsManager
 
 inline val Context.searchManager: SearchManager get() = getSystemService(Context.SEARCH_SERVICE) as SearchManager
 inline val Fragment.searchManager: SearchManager get() = activity.searchManager
@@ -160,11 +159,11 @@ inline val Fragment.sensorManager: SensorManager get() = activity.sensorManager
 inline val Context.storageManager: StorageManager get() = getSystemService(Context.STORAGE_SERVICE) as StorageManager
 inline val Fragment.storageManager: StorageManager get() = activity.storageManager
 
-inline val Context.subscriptionManager: SubscriptionManager @TargetApi(22) @RequiresApi(22) get() = getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as SubscriptionManager
-inline val Fragment.subscriptionManager: SubscriptionManager @TargetApi(22) @RequiresApi(22) get() = activity.subscriptionManager
+inline val Context.subscriptionManager: SubscriptionManager @RequiresApi(22) get() = getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as SubscriptionManager
+inline val Fragment.subscriptionManager: SubscriptionManager @RequiresApi(22) get() = activity.subscriptionManager
 
-inline val Context.telecomManager: TelecomManager @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.TELECOM_SERVICE) as TelecomManager
-inline val Fragment.telecomManager: TelecomManager @TargetApi(21) @RequiresApi(21) get() = activity.telecomManager
+inline val Context.telecomManager: TelecomManager @RequiresApi(21) get() = getSystemService(Context.TELECOM_SERVICE) as TelecomManager
+inline val Fragment.telecomManager: TelecomManager @RequiresApi(21) get() = activity.telecomManager
 
 inline val Context.telephonyManager: TelephonyManager get() = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 inline val Fragment.telephonyManager: TelephonyManager get() = activity.telephonyManager
@@ -172,20 +171,20 @@ inline val Fragment.telephonyManager: TelephonyManager get() = activity.telephon
 inline val Context.textServicesManager: TextServicesManager get() = getSystemService(Context.TEXT_SERVICES_MANAGER_SERVICE) as TextServicesManager
 inline val Fragment.textServicesManager: TextServicesManager get() = activity.textServicesManager
 
-inline val Context.tvInputManager: TvInputManager @TargetApi(21) @RequiresApi(21) get() = getSystemService(Context.TV_INPUT_SERVICE) as TvInputManager
-inline val Fragment.tvInputManager: TvInputManager @TargetApi(21) @RequiresApi(21) get() = activity.tvInputManager
+inline val Context.tvInputManager: TvInputManager @RequiresApi(21) get() = getSystemService(Context.TV_INPUT_SERVICE) as TvInputManager
+inline val Fragment.tvInputManager: TvInputManager @RequiresApi(21) get() = activity.tvInputManager
 
 inline val Context.uiModeManager: UiModeManager get() = getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
 inline val Fragment.uiModeManager: UiModeManager get() = activity.uiModeManager
 
-inline val Context.usageStatsManager: UsageStatsManager @TargetApi(22) @RequiresApi(22) get() = getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
-inline val Fragment.usageStatsManager: UsageStatsManager @TargetApi(22) @RequiresApi(22) get() = activity.usageStatsManager
+inline val Context.usageStatsManager: UsageStatsManager @RequiresApi(22) get() = getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
+inline val Fragment.usageStatsManager: UsageStatsManager @RequiresApi(22) get() = activity.usageStatsManager
 
 inline val Context.usbManager: UsbManager get() = getSystemService(Context.USB_SERVICE) as UsbManager
 inline val Fragment.usbManager: UsbManager get() = activity.usbManager
 
-inline val Context.userManager: UserManager @TargetApi(17) @RequiresApi(17) get() = getSystemService(Context.USER_SERVICE) as UserManager
-inline val Fragment.userManager: UserManager @TargetApi(17) @RequiresApi(17) get() = activity.userManager
+inline val Context.userManager: UserManager @RequiresApi(17) get() = getSystemService(Context.USER_SERVICE) as UserManager
+inline val Fragment.userManager: UserManager @RequiresApi(17) get() = activity.userManager
 
 inline val Context.vibrator: Vibrator get() = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 inline val Fragment.vibrator: Vibrator get() = activity.vibrator

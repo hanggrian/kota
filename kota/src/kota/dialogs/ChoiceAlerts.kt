@@ -6,6 +6,7 @@ package kota.dialogs
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.app.Fragment
 import android.content.Context
 import android.content.DialogInterface
 import android.support.annotation.ArrayRes
@@ -13,7 +14,7 @@ import android.support.annotation.StringRes
 import android.widget.ListAdapter
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Context.choiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
         checked: Int,
@@ -32,16 +33,35 @@ inline fun Context.singleChoiceAlert(
 }
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        title: CharSequence,
+        items: Array<out CharSequence>,
+        checked: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, checked, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog = singleChoiceAlert(title, items, -1, action, *buttons, init = init)
+): AlertDialog = choiceAlert(title, items, -1, action, *buttons, init = init)
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        title: CharSequence,
+        items: Array<out CharSequence>,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
         checked: Int,
@@ -60,16 +80,35 @@ inline fun Context.singleChoiceAlert(
 }
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        @StringRes title: Int,
+        items: Array<out CharSequence>,
+        checked: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, checked, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog = singleChoiceAlert(title, items, -1, action, *buttons, init = init)
+): AlertDialog = choiceAlert(title, items, -1, action, *buttons, init = init)
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        @StringRes title: Int,
+        items: Array<out CharSequence>,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
         checked: Int,
@@ -88,16 +127,35 @@ inline fun Context.singleChoiceAlert(
 }
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        title: CharSequence,
+        @ArrayRes items: Int,
+        checked: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, checked, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog = singleChoiceAlert(title, items, -1, action, *buttons, init = init)
+): AlertDialog = choiceAlert(title, items, -1, action, *buttons, init = init)
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        title: CharSequence,
+        @ArrayRes items: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
         checked: Int,
@@ -116,16 +174,35 @@ inline fun Context.singleChoiceAlert(
 }
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        @StringRes title: Int,
+        @ArrayRes items: Int,
+        checked: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, checked, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog = singleChoiceAlert(title, items, -1, action, *buttons, init = init)
+): AlertDialog = choiceAlert(title, items, -1, action, *buttons, init = init)
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        @StringRes title: Int,
+        @ArrayRes items: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         title: CharSequence,
         items: ListAdapter,
         checked: Int,
@@ -144,16 +221,35 @@ inline fun Context.singleChoiceAlert(
 }
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        title: CharSequence,
+        items: ListAdapter,
+        checked: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, checked, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         title: CharSequence,
         items: ListAdapter,
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog = singleChoiceAlert(title, items, -1, action, *buttons, init = init)
+): AlertDialog = choiceAlert(title, items, -1, action, *buttons, init = init)
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        title: CharSequence,
+        items: ListAdapter,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         @StringRes title: Int,
         items: ListAdapter,
         checked: Int,
@@ -172,10 +268,29 @@ inline fun Context.singleChoiceAlert(
 }
 
 @JvmOverloads
-inline fun Context.singleChoiceAlert(
+inline fun Fragment.choiceAlert(
+        @StringRes title: Int,
+        items: ListAdapter,
+        checked: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, checked, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Context.choiceAlert(
         @StringRes title: Int,
         items: ListAdapter,
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog = singleChoiceAlert(title, items, -1, action, *buttons, init = init)
+): AlertDialog = choiceAlert(title, items, -1, action, *buttons, init = init)
+
+@JvmOverloads
+inline fun Fragment.choiceAlert(
+        @StringRes title: Int,
+        items: ListAdapter,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.choiceAlert(title, items, action, *buttons, init = init)

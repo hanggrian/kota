@@ -6,8 +6,10 @@ package kota.dialogs
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.app.Fragment
 import android.content.Context
 import android.support.annotation.LayoutRes
+import android.support.annotation.RequiresApi
 import android.support.annotation.StringRes
 import android.view.View
 
@@ -29,6 +31,14 @@ inline fun Context.customAlert(
 }
 
 @JvmOverloads
+inline fun Fragment.customAlert(
+        title: CharSequence,
+        view: View,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.customAlert(title, view, *buttons, init = init)
+
+@JvmOverloads
 inline fun Context.customAlert(
         @StringRes title: Int,
         view: View,
@@ -46,6 +56,15 @@ inline fun Context.customAlert(
 }
 
 @JvmOverloads
+inline fun Fragment.customAlert(
+        @StringRes title: Int,
+        view: View,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.customAlert(title, view, *buttons, init = init)
+
+@RequiresApi(21)
+@JvmOverloads
 inline fun Context.customAlert(
         title: CharSequence,
         @LayoutRes view: Int,
@@ -62,6 +81,16 @@ inline fun Context.customAlert(
     return dialog
 }
 
+@RequiresApi(21)
+@JvmOverloads
+inline fun Fragment.customAlert(
+        title: CharSequence,
+        @LayoutRes view: Int,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.customAlert(title, view, *buttons, init = init)
+
+@RequiresApi(21)
 @JvmOverloads
 inline fun Context.customAlert(
         @StringRes title: Int,
@@ -78,3 +107,12 @@ inline fun Context.customAlert(
     dialog.show()
     return dialog
 }
+
+@RequiresApi(21)
+@JvmOverloads
+inline fun Fragment.customAlert(
+        @StringRes title: Int,
+        @LayoutRes view: Int,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.customAlert(title, view, *buttons, init = init)

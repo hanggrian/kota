@@ -22,7 +22,7 @@ android {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
     provided "com.android.support:design:$versions.support"
-    compile project(':kota')
+    compile project(':kota-appcompat-v7')
 }
 
 publish {

@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.support.annotation.ArrayRes
 import android.support.annotation.StringRes
+import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatDialog
 
@@ -30,6 +31,15 @@ inline fun Context.supportItemsAlert(
 }
 
 @JvmOverloads
+inline fun Fragment.supportItemsAlert(
+        title: CharSequence,
+        items: Array<out CharSequence>,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (AppCompatDialog.() -> Unit)? = null
+): AlertDialog = context.supportItemsAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
 inline fun Context.supportItemsAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
@@ -46,6 +56,15 @@ inline fun Context.supportItemsAlert(
     dialog.show()
     return dialog
 }
+
+@JvmOverloads
+inline fun Fragment.supportItemsAlert(
+        @StringRes title: Int,
+        items: Array<out CharSequence>,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (AppCompatDialog.() -> Unit)? = null
+): AlertDialog = context.supportItemsAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportItemsAlert(
@@ -66,6 +85,15 @@ inline fun Context.supportItemsAlert(
 }
 
 @JvmOverloads
+inline fun Fragment.supportItemsAlert(
+        title: CharSequence,
+        @ArrayRes items: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (AppCompatDialog.() -> Unit)? = null
+): AlertDialog = context.supportItemsAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
 inline fun Context.supportItemsAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
@@ -82,3 +110,12 @@ inline fun Context.supportItemsAlert(
     dialog.show()
     return dialog
 }
+
+@JvmOverloads
+inline fun Fragment.supportItemsAlert(
+        @StringRes title: Int,
+        @ArrayRes items: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (AppCompatDialog.() -> Unit)? = null
+): AlertDialog = context.supportItemsAlert(title, items, action, *buttons, init = init)

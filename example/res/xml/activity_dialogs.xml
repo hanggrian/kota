@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.preference.Preference
+        android:key="toast"
+        android:summary="toast()"
+        android:title="Toast" />
+    <android.support.v7.preference.Preference
+        android:key="snackbar"
+        android:summary="snackbar()"
+        android:title="Snackbar" />
+    <android.support.v7.preference.Preference
+        android:key="alert"
+        android:summary="alert() or supportAlert()"
+        android:title="Alert" />
+    <android.support.v7.preference.Preference
+        android:key="itemsAlert"
+        android:summary="itemsAlert() or supportItemsAlert()"
+        android:title="Items alert" />
+    <android.support.v7.preference.Preference
+        android:key="choiceAlert"
+        android:summary="choiceAlert() or supportChoiceAlert()"
+        android:title="Choice alert" />
+    <android.support.v7.preference.Preference
+        android:key="multiChoiceAlert"
+        android:summary="multiChoiceAlert() or supportMultiChoiceAlert()"
+        android:title="Multi choice alert" />
+    <android.support.v7.preference.Preference
+        android:key="customAlert"
+        android:summary="customAlert() or supportCustomAlert()"
+        android:title="Custom alert" />
+</android.support.v7.preference.PreferenceScreen>

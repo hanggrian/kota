@@ -16,7 +16,7 @@
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\compat-text\compat-text.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\compat-text\compat-text.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\compat-util\compat-util.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\compat-util\compat-util.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\compat-view\compat-view.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\compat-view\compat-view.iml" />
-      <module fileurl="file://$PROJECT_DIR$/example-text/example-text.iml" filepath="$PROJECT_DIR$/example-text/example-text.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota.iml" filepath="$PROJECT_DIR$/kota.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota-appcompat-v7/kota-appcompat-v7.iml" filepath="$PROJECT_DIR$/kota-appcompat-v7/kota-appcompat-v7.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota-design/kota-design.iml" filepath="$PROJECT_DIR$/kota-design/kota-design.iml" />

@@ -6,6 +6,7 @@ package kota.dialogs
 
 import android.content.Context
 import android.support.annotation.StringRes
+import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatDialog
 
@@ -27,6 +28,14 @@ inline fun Context.supportAlert(
 }
 
 @JvmOverloads
+inline fun Fragment.supportAlert(
+        title: CharSequence,
+        message: CharSequence,
+        vararg buttons: DialogButton,
+        noinline init: (AppCompatDialog.() -> Unit)? = null
+): AlertDialog = context.supportAlert(title, message, *buttons, init = init)
+
+@JvmOverloads
 inline fun Context.supportAlert(
         @StringRes title: Int,
         message: CharSequence,
@@ -44,6 +53,14 @@ inline fun Context.supportAlert(
 }
 
 @JvmOverloads
+inline fun Fragment.supportAlert(
+        @StringRes title: Int,
+        message: CharSequence,
+        vararg buttons: DialogButton,
+        noinline init: (AppCompatDialog.() -> Unit)? = null
+): AlertDialog = context.supportAlert(title, message, *buttons, init = init)
+
+@JvmOverloads
 inline fun Context.supportAlert(
         title: CharSequence,
         @StringRes message: Int,
@@ -59,3 +76,11 @@ inline fun Context.supportAlert(
     dialog.show()
     return dialog
 }
+
+@JvmOverloads
+inline fun Fragment.supportAlert(
+        title: CharSequence,
+        @StringRes message: Int,
+        vararg buttons: DialogButton,
+        noinline init: (AppCompatDialog.() -> Unit)? = null
+): AlertDialog = context.supportAlert(title, message, *buttons, init = init)

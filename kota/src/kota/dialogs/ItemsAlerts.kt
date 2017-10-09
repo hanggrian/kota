@@ -6,6 +6,7 @@ package kota.dialogs
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.app.Fragment
 import android.content.Context
 import android.content.DialogInterface
 import android.support.annotation.ArrayRes
@@ -30,6 +31,15 @@ inline fun Context.itemsAlert(
 }
 
 @JvmOverloads
+inline fun Fragment.itemsAlert(
+        title: CharSequence,
+        items: Array<out CharSequence>,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.itemsAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
 inline fun Context.itemsAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
@@ -46,6 +56,15 @@ inline fun Context.itemsAlert(
     dialog.show()
     return dialog
 }
+
+@JvmOverloads
+inline fun Fragment.itemsAlert(
+        @StringRes title: Int,
+        items: Array<out CharSequence>,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.itemsAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.itemsAlert(
@@ -66,6 +85,15 @@ inline fun Context.itemsAlert(
 }
 
 @JvmOverloads
+inline fun Fragment.itemsAlert(
+        title: CharSequence,
+        @ArrayRes items: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.itemsAlert(title, items, action, *buttons, init = init)
+
+@JvmOverloads
 inline fun Context.itemsAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
@@ -82,3 +110,12 @@ inline fun Context.itemsAlert(
     dialog.show()
     return dialog
 }
+
+@JvmOverloads
+inline fun Fragment.itemsAlert(
+        @StringRes title: Int,
+        @ArrayRes items: Int,
+        noinline action: (DialogInterface, Int) -> Unit,
+        vararg buttons: DialogButton,
+        noinline init: (Dialog.() -> Unit)? = null
+): AlertDialog = activity.itemsAlert(title, items, action, *buttons, init = init)

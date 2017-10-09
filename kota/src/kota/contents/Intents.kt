@@ -3,7 +3,6 @@
 
 package kota.contents
 
-import android.annotation.TargetApi
 import android.app.Activity
 import android.app.Fragment
 import android.content.Context
@@ -30,21 +29,18 @@ inline fun Fragment.startActivityResolved(intent: Intent, fallback: () -> Unit) 
         else fallback()
 
 /** Starts an activity that can handle this [intent] with options, otherwise [fallback] will be executed. */
-@TargetApi(16)
 @RequiresApi(16)
 inline fun Context.startActivityResolved(intent: Intent, options: Bundle, fallback: () -> Unit) =
         if (intent.isResolvable(this)) startActivity(intent, options)
         else fallback()
 
 /** Starts an activity that can handle this [intent] with options, otherwise [fallback] will be executed. */
-@TargetApi(16)
 @RequiresApi(16)
 inline fun Activity.startActivityResolved(intent: Intent, options: Bundle, fallback: () -> Unit) =
         if (intent.isResolvable(this)) startActivity(intent, options)
         else fallback()
 
 /** Starts an activity that can handle this [intent] with options, otherwise [fallback] will be executed. */
-@TargetApi(16)
 @RequiresApi(16)
 inline fun Fragment.startActivityResolved(intent: Intent, options: Bundle, fallback: () -> Unit) =
         if (intent.isResolvable(activity)) startActivity(intent, options)
@@ -61,14 +57,12 @@ inline fun Activity.startActivitiesResolved(intents: Array<Intent>, fallback: ()
         else fallback()
 
 /** Starts activities that can handle each [intents] with options, otherwise [fallback] will be executed. */
-@TargetApi(16)
 @RequiresApi(16)
 inline fun Context.startActivitiesResolved(intents: Array<Intent>, options: Bundle, fallback: () -> Unit) =
         if (intents.all { it.isResolvable(this) }) startActivities(intents, options)
         else fallback()
 
 /** Starts activities that can handle each [intents] with options, otherwise [fallback] will be executed. */
-@TargetApi(16)
 @RequiresApi(16)
 inline fun Activity.startActivitiesResolved(intents: Array<Intent>, options: Bundle, fallback: () -> Unit) =
         if (intents.all { it.isResolvable(this) }) startActivities(intents, options)
@@ -85,14 +79,12 @@ inline fun Fragment.startActivityForResultResolved(intent: Intent, requestCode: 
         else fallback()
 
 /** Starts an activity for result that can handle this [intent] with options, otherwise [fallback] will be executed. */
-@TargetApi(16)
 @RequiresApi(16)
 inline fun Activity.startActivityForResultResolved(intent: Intent, requestCode: Int, options: Bundle, fallback: () -> Unit) =
         if (intent.isResolvable(this)) startActivityForResult(intent, requestCode, options)
         else fallback()
 
 /** Starts an activity for result that can handle this [intent] with options, otherwise [fallback] will be executed. */
-@TargetApi(16)
 @RequiresApi(16)
 inline fun Fragment.startActivityForResultResolved(intent: Intent, requestCode: Int, options: Bundle, fallback: () -> Unit) =
         if (intent.isResolvable(activity)) startActivityForResult(intent, requestCode, options)
