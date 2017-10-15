@@ -22,11 +22,9 @@ inline fun <E> supportLongSparseArrayOf(vararg pairs: Pair<Long, E?>): LongSpars
 }
 
 inline fun <E> LongSparseArray<E>.containsKey(key: Long): Boolean = indexOfKey(key) > -1
-
 inline fun <E> LongSparseArray<E>.containsAllKeys(keys: Collection<Long>): Boolean = keys.all { containsKey(it) }
 
 inline fun <E> LongSparseArray<E>.containsValue(value: E): Boolean = indexOfValue(value) > -1
-
 inline fun <E> LongSparseArray<E>.containsAllValues(values: Collection<E>): Boolean = values.all { containsValue(it) }
 
 inline fun <E> LongSparseArray<E>.forEach(action: (E) -> Unit) {

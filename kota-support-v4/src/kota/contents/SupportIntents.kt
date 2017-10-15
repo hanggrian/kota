@@ -1,4 +1,3 @@
-@file:JvmName("SupportIntentsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.contents
@@ -6,6 +5,7 @@ package kota.contents
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import kota.contents.isResolvable
 
 /** Starts an activity that can handle this [intent], otherwise [fallback] will be executed. */
 inline fun Fragment.startActivityResolved(intent: Intent, fallback: () -> Unit) =

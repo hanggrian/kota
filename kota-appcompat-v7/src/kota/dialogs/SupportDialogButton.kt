@@ -1,11 +1,10 @@
-@file:JvmName("SupportDialogButtonsKt")
-@file:Suppress("NOTHING_TO_INLINE")
-
 package kota.dialogs
 
 import android.support.v7.app.AlertDialog
 
-@PublishedApi internal inline fun AlertDialog.Builder.setButtons(vararg buttons: DialogButton): AlertDialog.Builder = apply {
+@PublishedApi
+@Suppress("NOTHING_TO_INLINE")
+internal inline fun AlertDialog.Builder.setButtons(vararg buttons: DialogButton): AlertDialog.Builder = apply {
     buttons.forEach {
         when (it) {
             is PositiveButton -> if (it.text is Int) setPositiveButton(it.text as Int, { dialog, _ -> it.action?.invoke(dialog) })

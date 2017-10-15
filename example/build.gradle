@@ -35,6 +35,8 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$versions.kotlin"
+    implementation project(':kota-support-v4')
+    implementation project(':kota-appcompat-v7')
     implementation project(':kota-design')
 
     implementation "com.android.support:design:$versions.support"

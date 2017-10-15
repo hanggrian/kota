@@ -1,4 +1,3 @@
-@file:JvmName("DatesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.texts

@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.support.v7.preference.PreferenceFragmentCompat
 import android.widget.EditText
 import com.example.kota.utils.findAndSetOnClickListener
-import com.example.kota.utils.replaceFragment
+import kota.OpenTransit
 import kota.dialogs.*
+import kota.replace
+import kota.snackbar
+import kota.toast
 import kota.views.contentView
 
 class DialogsActivity : NextActivity() {
@@ -13,7 +16,7 @@ class DialogsActivity : NextActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.title = "Dialog"
-        replaceFragment(R.id.container, Content())
+        supportFragmentManager.replace(R.id.container, Content(), OpenTransit)
     }
 
     class Content : PreferenceFragmentCompat() {

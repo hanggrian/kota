@@ -19,16 +19,16 @@ repositories {
 
 dependencies {
     // base library
-    compile 'com.hendraanggrian:kota:0.9'
+    compile 'com.hendraanggrian:kota:0.10'
     
     // support for v4 Fragment
-    compile 'com.hendraanggrian:kota-support-v4:0.9'
+    compile 'com.hendraanggrian:kota-support-v4:0.10'
     
     // appcompat dialogs
-    compile 'com.hendraanggrian:kota-appcompat-v7:0.9'
+    compile 'com.hendraanggrian:kota-appcompat-v7:0.10'
     
     // Snackbar, etc.
-    compile 'com.hendraanggrian:kota-design:0.9'
+    compile 'com.hendraanggrian:kota-design:0.10'
 }
 ```
 

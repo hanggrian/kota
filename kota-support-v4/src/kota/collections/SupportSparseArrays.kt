@@ -22,11 +22,9 @@ inline fun <E> supportSparseArrayOf(vararg pairs: Pair<Int, E?>): SparseArrayCom
 }
 
 inline fun <E> SparseArrayCompat<E>.containsKey(key: Int): Boolean = indexOfKey(key) > -1
-
 inline fun <E> SparseArrayCompat<E>.containsAllKeys(keys: Collection<Int>): Boolean = keys.all { containsKey(it) }
 
 inline fun <E> SparseArrayCompat<E>.containsValue(value: E): Boolean = indexOfValue(value) > -1
-
 inline fun <E> SparseArrayCompat<E>.containsAllValue(values: Collection<E>): Boolean = values.all { containsValue(it) }
 
 inline fun <E> SparseArrayCompat<E>.forEach(action: (E) -> Unit) {

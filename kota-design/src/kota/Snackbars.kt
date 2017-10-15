@@ -1,7 +1,6 @@
-@file:JvmName("SnackbarsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.dialogs
+package kota
 
 import android.support.annotation.StringRes
 import android.support.design.widget.Snackbar

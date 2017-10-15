@@ -1,5 +1,4 @@
-@file:JvmName("ServicesKt")
-@file:Suppress("NOTHING_TO_INLINE", "DEPRECATION", "UNUSED")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota
 

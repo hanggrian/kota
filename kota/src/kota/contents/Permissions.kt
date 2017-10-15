@@ -1,4 +1,3 @@
-@file:JvmName("PermissionsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.contents

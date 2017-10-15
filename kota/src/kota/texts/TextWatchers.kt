@@ -1,4 +1,3 @@
-@file:JvmName("TextWatchersKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.texts
@@ -8,7 +7,7 @@ import android.text.TextWatcher
 
 /** Returns a text change listener from supplied  */
 @JvmOverloads
-inline fun textWatcher(
+inline fun textWatcherOf(
         noinline beforeTextChanged: ((CharSequence, Int, Int, Int) -> Unit)? = null,
         noinline onTextChanged: ((CharSequence, Int, Int, Int) -> Unit)? = null,
         noinline afterTextChanged: ((Editable) -> Unit)? = null

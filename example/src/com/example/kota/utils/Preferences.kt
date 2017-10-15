@@ -1,4 +1,3 @@
-@file:JvmName("PreferencesKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package com.example.kota.utils

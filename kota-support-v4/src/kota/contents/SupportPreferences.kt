@@ -1,4 +1,3 @@
-@file:JvmName("SupportPreferencesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.contents

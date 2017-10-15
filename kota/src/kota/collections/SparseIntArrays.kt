@@ -22,11 +22,9 @@ inline fun sparseIntArrayOf(vararg pairs: Pair<Int, Int>): SparseIntArray = Spar
 }
 
 inline fun SparseIntArray.containsKey(key: Int): Boolean = indexOfKey(key) > -1
-
 inline fun SparseIntArray.containsAllKeys(keys: Collection<Int>): Boolean = keys.all { containsKey(it) }
 
 inline fun SparseIntArray.containsValue(value: Int): Boolean = indexOfValue(value) > -1
-
 inline fun SparseIntArray.containsAllValues(values: Collection<Int>): Boolean = values.all { containsValue(it) }
 
 inline fun SparseIntArray.forEach(action: (Int) -> Unit) {

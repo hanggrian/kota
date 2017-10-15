@@ -2,7 +2,6 @@ package kota.texts
 
 import android.annotation.SuppressLint
 import android.support.test.runner.AndroidJUnit4
-import kota.texts.mimeType
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test

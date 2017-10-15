@@ -1,4 +1,3 @@
-@file:JvmName("PreferencesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.contents
@@ -7,6 +6,8 @@ import android.app.Fragment
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+
+@PublishedApi internal const val DEFAULT_VALUE: Int = 0
 
 /** Retrieve a default preferences of this Context */
 inline val Context.preferences: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(this)
@@ -49,7 +50,7 @@ inline fun SharedPreferences.getStringSet(key: String): MutableSet<String> {
  */
 inline fun SharedPreferences.getInt(key: String): Int {
     require(contains(key))
-    return getInt(key, 0)
+    return getInt(key, DEFAULT_VALUE)
 }
 
 /**
@@ -59,7 +60,7 @@ inline fun SharedPreferences.getInt(key: String): Int {
  */
 inline fun SharedPreferences.getLong(key: String): Long {
     require(contains(key))
-    return getLong(key, 0L)
+    return getLong(key, DEFAULT_VALUE.toLong())
 }
 
 /**
@@ -69,7 +70,7 @@ inline fun SharedPreferences.getLong(key: String): Long {
  */
 inline fun SharedPreferences.getFloat(key: String): Float {
     require(contains(key))
-    return getFloat(key, 0F)
+    return getFloat(key, DEFAULT_VALUE.toFloat())
 }
 
 /**
@@ -79,5 +80,5 @@ inline fun SharedPreferences.getFloat(key: String): Float {
  */
 inline fun SharedPreferences.getBoolean(key: String): Boolean {
     require(contains(key))
-    return getBoolean(key, false)
+    return getBoolean(key, DEFAULT_VALUE != 0)
 }

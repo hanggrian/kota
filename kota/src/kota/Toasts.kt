@@ -1,7 +1,6 @@
-@file:JvmName("ToastsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.dialogs
+package kota
 
 import android.app.Fragment
 import android.content.Context
