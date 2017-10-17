@@ -1,14 +1,18 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.contents
+package kota
 
 import android.app.Dialog
 import android.app.Fragment
 import android.content.Context
 import android.content.SharedPreferences
+import android.preference.Preference
+import android.preference.PreferenceFragment
 import android.preference.PreferenceManager
 
 @PublishedApi internal const val DEFAULT_VALUE: Int = 0
+
+inline fun <reified T : Preference> PreferenceFragment.find(key: CharSequence): T = findPreference(key) as T
 
 inline val Context.preferences: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(this)
 inline val Fragment.preferences: SharedPreferences get() = activity.preferences
