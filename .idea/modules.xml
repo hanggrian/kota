@@ -7,8 +7,8 @@
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons-content\commons-content.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons-content\commons-content.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons-util\commons-util.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons-util\commons-util.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\more-util\commons-util.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\more-util\commons-util.iml" />
-      <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons-view\commons-view.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons-view\commons-view.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons-view.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons-view.iml" />
+      <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons-view\commons-view.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons-view\commons-view.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons-view\commons-view-commons-view.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons-view\commons-view-commons-view.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\compat.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\compat.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\compat\compat-compat.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\compat\compat-compat.iml" />
@@ -17,11 +17,12 @@
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\compat-util\compat-util.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\compat-util\compat-util.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\compat-view\compat-view.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\compat-view\compat-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
-      <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota.iml" filepath="$PROJECT_DIR$/kota.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota-appcompat-v7/kota-appcompat-v7.iml" filepath="$PROJECT_DIR$/kota-appcompat-v7/kota-appcompat-v7.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota-design/kota-design.iml" filepath="$PROJECT_DIR$/kota-design/kota-design.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota/kota-kota.iml" filepath="$PROJECT_DIR$/kota/kota-kota.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kota-preference-v7/kota-preference-v7.iml" filepath="$PROJECT_DIR$/kota-preference-v7/kota-preference-v7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kota-recyclerview-v7/kota-recyclerview-v7.iml" filepath="$PROJECT_DIR$/kota-recyclerview-v7/kota-recyclerview-v7.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\kota-support-v4\kota-support.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\kota-support-v4\kota-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/kota-support-v4/kota-support-v4.iml" filepath="$PROJECT_DIR$/kota-support-v4/kota-support-v4.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\more.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\more.iml" />

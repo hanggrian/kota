@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/kota" />
             <option value="$PROJECT_DIR$/kota-appcompat-v7" />
             <option value="$PROJECT_DIR$/kota-design" />
+            <option value="$PROJECT_DIR$/kota-preference-v7" />
+            <option value="$PROJECT_DIR$/kota-recyclerview-v7" />
             <option value="$PROJECT_DIR$/kota-support-v4" />
           </set>
         </option>

@@ -1,6 +1,8 @@
 include ':kota'
 include ':kota-support-v4'
 include ':kota-appcompat-v7'
+include ':kota-recyclerview-v7'
+include ':kota-preference-v7'
 include ':kota-design'
 
 include ':example'
