@@ -24,6 +24,7 @@ import kota.texts.append
 import kota.texts.putSpans
 import kota.texts.setSpans
 import kota.texts.toSpannable
+import kota.views.find
 import kotlinx.android.synthetic.main.activity_texts.*
 
 /**
@@ -80,8 +81,8 @@ class TextsActivity : AppCompatActivity() {
         override fun getItemCount() = fonts.size
 
         internal class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var toolbar: Toolbar = itemView.findViewById(R.id.toolbar) // as Toolbar
-            var textView: TextView = itemView.findViewById(R.id.textView) // as TextView
+            var toolbar: Toolbar = itemView.find(R.id.toolbar)
+            var textView: TextView = itemView.find(R.id.textView)
         }
     }
 

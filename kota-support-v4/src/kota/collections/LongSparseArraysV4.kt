@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("SupportSparseArraysKt")
+@file:JvmName("SparseArraysV4Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.collections

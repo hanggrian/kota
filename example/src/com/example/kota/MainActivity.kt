@@ -7,6 +7,7 @@ import android.support.v7.preference.PreferenceFragmentCompat
 import com.example.kota.utils.findAndSetOnClickListener
 import kota.OpenTransit
 import kota.replace
+import kota.replaceNow
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        supportFragmentManager.replace(R.id.container, Content(), OpenTransit)
+        supportFragmentManager.replaceNow(R.id.container, Content(), OpenTransit)
     }
 
     class Content : PreferenceFragmentCompat() {

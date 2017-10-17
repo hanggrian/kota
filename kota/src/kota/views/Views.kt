@@ -5,10 +5,18 @@
 package kota.views
 
 import android.app.Activity
+import android.app.Dialog
+import android.app.Fragment
+import android.support.annotation.IdRes
 import android.view.View
 import android.view.ViewGroup
 
 inline val Activity.contentView: View? get() = findViewById<ViewGroup>(android.R.id.content)?.getChildAt(0)
+
+inline fun <reified T : View> View.find(@IdRes id: Int): T = findViewById(id)!!
+inline fun <reified T : View> Activity.find(@IdRes id: Int): T = findViewById(id)!!
+inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById(id)!!
+inline fun <reified T : View> Dialog.find(@IdRes id: Int): T = findViewById(id)!!
 
 inline fun <V : View> V.setVisibilityThen(
         visibility: Int,

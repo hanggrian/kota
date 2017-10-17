@@ -2,6 +2,7 @@
 
 package kota.contents
 
+import android.app.Dialog
 import android.app.Fragment
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,19 +10,13 @@ import android.preference.PreferenceManager
 
 @PublishedApi internal const val DEFAULT_VALUE: Int = 0
 
-/** Retrieve a default preferences of this Context */
 inline val Context.preferences: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(this)
-
-/** Retrieve a default preferences of Context attached to this Fragment */
 inline val Fragment.preferences: SharedPreferences get() = activity.preferences
+inline val Dialog.preferences: SharedPreferences get() = context.preferences
 
-/** Retrieve a preferences with specified name and mode, basically a simpler version of [Context.getSharedPreferences] */
-@JvmOverloads
-inline fun Context.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = getSharedPreferences(name, mode)
-
-/** Retrieve a preferences with specified name and mode, basically a simpler version of [Context.getSharedPreferences] */
-@JvmOverloads
-inline fun Fragment.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = activity.getPreferences(name, mode)
+@JvmOverloads inline fun Context.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = getSharedPreferences(name, mode)
+@JvmOverloads inline fun Fragment.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = activity.getPreferences(name, mode)
+@JvmOverloads inline fun Dialog.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = context.getPreferences(name, mode)
 
 /**
  * Retrieve a String value from the preferences.

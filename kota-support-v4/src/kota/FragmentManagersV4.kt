@@ -2,10 +2,9 @@
 
 package kota
 
-import android.app.Fragment
-import android.app.FragmentManager
 import android.support.annotation.IdRes
-import android.support.annotation.RequiresApi
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 
 @JvmOverloads
 inline fun FragmentManager.add(
@@ -28,7 +27,6 @@ inline fun FragmentManager.add(
         .add(containerViewId, fragment, tag)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.addNow(
         @IdRes containerViewId: Int,
@@ -39,7 +37,6 @@ inline fun FragmentManager.addNow(
         .add(containerViewId, fragment)
         .commitNow()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.addNow(
         @IdRes containerViewId: Int,
@@ -72,7 +69,6 @@ inline fun FragmentManager.replace(
         .replace(containerViewId, fragment, tag)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.replaceNow(
         @IdRes containerViewId: Int,
@@ -83,7 +79,6 @@ inline fun FragmentManager.replaceNow(
         .replace(containerViewId, fragment)
         .commitNow()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.replaceNow(
         @IdRes containerViewId: Int,
@@ -104,7 +99,6 @@ inline fun FragmentManager.remove(
         .remove(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.removeNow(
         fragment: Fragment,
@@ -123,7 +117,6 @@ inline fun FragmentManager.hide(
         .hide(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.hideNow(
         fragment: Fragment,
@@ -142,7 +135,6 @@ inline fun FragmentManager.show(
         .show(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.showNow(
         fragment: Fragment,
@@ -161,7 +153,6 @@ inline fun FragmentManager.detach(
         .detach(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.detachNow(
         fragment: Fragment,
@@ -180,7 +171,6 @@ inline fun FragmentManager.attach(
         .attach(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
 inline fun FragmentManager.attachNow(
         fragment: Fragment,

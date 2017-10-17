@@ -31,20 +31,20 @@ open class NeutralButton : DialogButton {
     @JvmOverloads constructor(@StringRes text: Int, action: ((DialogInterface) -> Unit)? = null) : super(BUTTON_NEUTRAL, text, action)
 }
 
-open class OkButton @JvmOverloads constructor(action: ((DialogInterface) -> Unit)? = null) : PositiveButton(android.R.string.ok, action) {
-    companion object : OkButton()
+open class OkButton(action: ((DialogInterface) -> Unit)?) : PositiveButton(android.R.string.ok, action) {
+    companion object : OkButton(null)
 }
 
-open class CancelButton @JvmOverloads constructor(action: ((DialogInterface) -> Unit)? = null) : NegativeButton(android.R.string.cancel, action) {
-    companion object : CancelButton()
+open class CancelButton(action: ((DialogInterface) -> Unit)?) : NegativeButton(android.R.string.cancel, action) {
+    companion object : CancelButton(null)
 }
 
-open class YesButton @JvmOverloads constructor(action: ((DialogInterface) -> Unit)? = null) : PositiveButton(android.R.string.yes, action) {
-    companion object : YesButton()
+open class YesButton(action: ((DialogInterface) -> Unit)?) : PositiveButton(android.R.string.yes, action) {
+    companion object : YesButton(null)
 }
 
-open class NoButton @JvmOverloads constructor(action: ((DialogInterface) -> Unit)? = null) : NegativeButton(android.R.string.no, action) {
-    companion object : NoButton()
+open class NoButton(action: ((DialogInterface) -> Unit)?) : NegativeButton(android.R.string.no, action) {
+    companion object : NoButton(null)
 }
 
 @PublishedApi

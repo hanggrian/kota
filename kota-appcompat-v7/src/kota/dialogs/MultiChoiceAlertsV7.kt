@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("SupportAlertsKt")
+@file:JvmName("AlertsV7Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.dialogs

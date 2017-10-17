@@ -1,10 +1,11 @@
 @file:JvmMultifileClass
-@file:JvmName("SupportResourcesKt")
+@file:JvmName("ResourcesV4Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.contents
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.res.*
 import android.graphics.Movie
@@ -48,6 +49,7 @@ inline fun Fragment.getDimensionPixelSize(@DimenRes id: Int): Int = context.getD
 inline fun Context.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(this, id)
 inline fun android.app.Fragment.getDrawable2(@DrawableRes id: Int): Drawable = activity.getDrawable2(id)
 inline fun Fragment.getDrawable2(@DrawableRes id: Int): Drawable = context.getDrawable2(id)
+inline fun Dialog.getDrawable2(@DrawableRes id: Int): Drawable = context.getDrawable2(id)
 
 inline fun Fragment.getMovie(@RawRes id: Int): Movie = context.getMovie(id)
 

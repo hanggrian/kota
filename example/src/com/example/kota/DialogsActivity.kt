@@ -6,7 +6,7 @@ import android.widget.EditText
 import com.example.kota.utils.findAndSetOnClickListener
 import kota.OpenTransit
 import kota.dialogs.*
-import kota.replace
+import kota.replaceNow
 import kota.snackbar
 import kota.toast
 import kota.views.contentView
@@ -16,7 +16,7 @@ class DialogsActivity : NextActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.title = "Dialog"
-        supportFragmentManager.replace(R.id.container, Content(), OpenTransit)
+        supportFragmentManager.replaceNow(R.id.container, Content(), OpenTransit)
     }
 
     class Content : PreferenceFragmentCompat() {
