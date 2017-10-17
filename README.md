@@ -13,22 +13,27 @@ Download
 --------
 ```gradle
 repositories {
-    maven { url 'https://maven.google.com' }
+    google()
     jcenter()
 }
 
 dependencies {
-    // base library
-    compile 'com.hendraanggrian:kota:0.10'
+    compile 'com.hendraanggrian:kota:0.11'
     
-    // support for v4 Fragment
-    compile 'com.hendraanggrian:kota-support-v4:0.10'
+    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.hendraanggrian:kota-support-v4:0.11'
     
-    // appcompat dialogs
-    compile 'com.hendraanggrian:kota-appcompat-v7:0.10'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.hendraanggrian:kota-appcompat-v7:0.11'
     
-    // Snackbar, etc.
-    compile 'com.hendraanggrian:kota-design:0.10'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.hendraanggrian:kota-recyclerview-v7:0.11'
+    
+    compile 'com.android.support:preference-v7:26.1.0'
+    compile 'com.hendraanggrian:kota-preference-v7:0.11'
+    
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.hendraanggrian:kota-design:0.11'
 }
 ```
 
