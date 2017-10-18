@@ -8,7 +8,7 @@ import android.text.Spanned
 import android.text.SpannedString
 
 /** Returns a new [SpannedString] from [source] or the [source] itself if it is already an instance of [SpannedString]. */
-inline fun CharSequence.toSpanned(): Spanned = SpannedString.valueOf(this)
+inline fun spannedOf(source:CharSequence): Spanned = SpannedString.valueOf(source)
 
 /** Get all spans that are instance of [type]. */
 inline fun <T> Spanned.getSpans(type: Class<T>): Array<T> = getSpans(0, length, type)
