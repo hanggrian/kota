@@ -9,11 +9,9 @@ import android.text.SpannableString
 import android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 
 /** Returns a new [SpannableString] from [source] or the [source] itself if it is already an instance of [SpannableString]. */
-inline fun CharSequence.toSpannable(): Spannable = SpannableString.valueOf(this)
+inline fun spannableOf(source: CharSequence, flags: Int, vararg spans: Any): Spannable = SpannableString.valueOf(source).apply { setSpans(flags, *spans) }
 
-inline fun CharSequence.toSpannable(flags: Int, vararg spans: Any): Spannable = toSpannable().apply { setSpans(flags, spans) }
-
-inline fun CharSequence.toSpannable(vararg spans: Any): Spannable = toSpannable().apply { setSpans(spans) }
+inline fun spannableOf(source: CharSequence, vararg spans: Any): Spannable = SpannableString.valueOf(source).apply { setSpans(*spans) }
 
 /** Set [spans] from [start] to [end]. */
 inline fun Spannable.setSpans(flags: Int, start: Int, end: Int, vararg spans: Any) = spans.forEach { setSpan(it, start, end, flags) }
