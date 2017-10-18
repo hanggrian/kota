@@ -20,13 +20,13 @@ inline fun <T> MutableList<T>.remove(element: T, adapter: RecyclerView.Adapter<o
 inline fun <T> MutableList<T>.addAll(elements: Collection<T>, adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>) {
     val start = size + 1
     addAll(elements)
-    adapter.notifyItemRangeInserted(start, size)
+    adapter.notifyItemRangeInserted(start, elements.size)
 }
 
 inline fun <T> MutableList<T>.removeAll(elements: Collection<T>, adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>) {
-    val start = size + 1
-    addAll(elements)
-    adapter.notifyItemRangeRemoved(start, size)
+    val items = elements.map { indexOf(it) }
+    removeAll(elements)
+    items.forEach { adapter.notifyItemRemoved(it) }
 }
 
 inline fun <T> MutableList<T>.set(index: Int, element: T, adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>) {
