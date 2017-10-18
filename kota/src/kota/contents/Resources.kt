@@ -16,9 +16,6 @@ import android.util.TypedValue
 import kota.getIfAtLeast
 import java.io.InputStream
 
-@PublishedApi internal val sLock = Any()
-@PublishedApi internal var sTempValue: TypedValue? = null
-
 inline val Context.configuration: Configuration get() = resources.configuration
 inline val Fragment.configuration: Configuration get() = activity.configuration
 inline val Dialog.configuration: Configuration get() = context.configuration

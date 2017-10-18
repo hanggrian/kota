@@ -8,11 +8,11 @@ import android.text.TextWatcher
 /** Returns a text change listener from supplied  */
 @JvmOverloads
 inline fun textWatcherOf(
-        noinline beforeTextChanged: ((CharSequence, Int, Int, Int) -> Unit)? = null,
         noinline onTextChanged: ((CharSequence, Int, Int, Int) -> Unit)? = null,
+        noinline beforeTextChanged: ((CharSequence, Int, Int, Int) -> Unit)? = null,
         noinline afterTextChanged: ((Editable) -> Unit)? = null
 ): TextWatcher = object : TextWatcher {
-    override fun beforeTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int): Unit = beforeTextChanged?.invoke(p0, p1, p2, p3) ?: Unit
-    override fun onTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int): Unit = onTextChanged?.invoke(p0, p1, p2, p3) ?: Unit
-    override fun afterTextChanged(p0: Editable): Unit = afterTextChanged?.invoke(p0) ?: Unit
+    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) = onTextChanged?.invoke(s, start, before, count) ?: Unit
+    override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) = beforeTextChanged?.invoke(s, start, count, after) ?: Unit
+    override fun afterTextChanged(s: Editable) = afterTextChanged?.invoke(s) ?: Unit
 }

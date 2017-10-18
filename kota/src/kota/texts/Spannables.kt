@@ -6,22 +6,29 @@ package kota.texts
 
 import android.text.Spannable
 import android.text.SpannableString
-import android.text.Spanned
+import android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 
 /** Returns a new [SpannableString] from [source] or the [source] itself if it is already an instance of [SpannableString]. */
 inline fun CharSequence.toSpannable(): Spannable = SpannableString.valueOf(this)
 
+inline fun CharSequence.toSpannable(flags: Int, vararg spans: Any): Spannable = toSpannable().apply { setSpans(flags, spans) }
+
+inline fun CharSequence.toSpannable(vararg spans: Any): Spannable = toSpannable().apply { setSpans(spans) }
+
 /** Set [spans] from [start] to [end]. */
-@JvmOverloads
-inline fun Spannable.setSpans(start: Int, end: Int, vararg spans: Any, flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) = spans.forEach { setSpan(it, start, end, flags) }
+inline fun Spannable.setSpans(flags: Int, start: Int, end: Int, vararg spans: Any) = spans.forEach { setSpan(it, start, end, flags) }
+
+/** Set [spans] from [start] to [end] using default flags. */
+inline fun Spannable.setSpans(start: Int, end: Int, vararg spans: Any) = setSpans(SPAN_EXCLUSIVE_EXCLUSIVE, start, end, *spans)
 
 /** Set [spans] to entire text. */
-@JvmOverloads
-inline fun Spannable.setSpans(vararg spans: Any, flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) = setSpans(0, length, *spans, flags)
+inline fun Spannable.setSpans(flags: Int, vararg spans: Any) = setSpans(0, length, *spans, flags)
+
+/** Set [spans] to entire text using default flags. */
+inline fun Spannable.setSpans(vararg spans: Any) = setSpans(SPAN_EXCLUSIVE_EXCLUSIVE, *spans)
 
 /** Find substrings with [regex] and set [spans] to each of them. */
-@JvmOverloads
-inline fun Spannable.putSpans(regex: Regex, vararg spans: () -> Any, flags: Int = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) {
+inline fun Spannable.putSpans(flags: Int, regex: Regex, vararg spans: () -> Any) {
     val matcher = regex.toPattern().matcher(this)
     while (matcher.find()) {
         spans.forEach {
@@ -29,6 +36,9 @@ inline fun Spannable.putSpans(regex: Regex, vararg spans: () -> Any, flags: Int 
         }
     }
 }
+
+/** Find substrings with [regex] and set [spans] to each of them using default flags. */
+inline fun Spannable.putSpans(regex: Regex, vararg spans: () -> Any) = putSpans(SPAN_EXCLUSIVE_EXCLUSIVE, regex, *spans)
 
 /** Remove [spans] from this text. */
 inline fun Spannable.removeSpans(vararg spans: Any) = spans.forEach { removeSpan(it) }

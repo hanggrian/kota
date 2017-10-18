@@ -20,7 +20,6 @@ inline fun Menu.getItemOrNull(index: Int): MenuItem? = if (index in 0..lastIndex
 
 inline fun Menu.forEach(action: (MenuItem) -> Unit) {
     for (item in items) action(item)
-    listOf("").first()
 }
 
 inline fun Menu.forEachIndexed(action: (Int, MenuItem) -> Unit) {
