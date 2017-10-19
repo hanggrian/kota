@@ -2,7 +2,7 @@
 @file:JvmName("ResourcesV4Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.contents
+package kota.resources
 
 import android.support.v4.app.Fragment
 

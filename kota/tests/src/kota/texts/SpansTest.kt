@@ -16,14 +16,14 @@ class SpansTest {
     @Test
     @Throws(Exception::class)
     fun test() {
-        val spannable1 = spannableOf("Hello world")
-        spannable1.setSpan(0, 5, ForegroundColorSpan(Color.RED))
-        spannable1.setSpan(6, spannable1.length, ForegroundColorSpan(Color.BLUE))
+        val spannable1 = "Hello world".toSpannable()
+        spannable1.spanRange(0, 5, ForegroundColorSpan(Color.RED))
+        spannable1.spanRange(6, spannable1.length, ForegroundColorSpan(Color.BLUE))
         assertEquals(spannable1.spans.size, 2)
 
-        val spannable2 = spannableOf("Hello world")
-        spannable2.putSpans(Regex("Hello"), { ForegroundColorSpan(Color.RED) })
-        spannable2.putSpans(Regex("world"), { ForegroundColorSpan(Color.BLUE) })
+        val spannable2 = "Hello world".toSpannable()
+        spannable2.span(Regex("Hello"), { ForegroundColorSpan(Color.RED) })
+        spannable2.span(Regex("world"), { ForegroundColorSpan(Color.BLUE) })
         assertEquals(spannable2.spans.size, 2)
 
         spannable2.clearSpans()

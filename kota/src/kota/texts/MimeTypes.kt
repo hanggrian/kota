@@ -9,9 +9,11 @@ import android.webkit.MimeTypeMap
 import kota.isContent
 import java.io.File
 
-inline val String.mimeType: String get() = MimeTypeMap.getFileExtensionFromUrl(this)
+inline val String.mimeType: String
+    get() = MimeTypeMap.getFileExtensionFromUrl(this)
 
-inline val String.mimeExtension: String get() = MimeTypeMap.getSingleton().getExtensionFromMimeType(this)
+inline val String.mimeExtension: String
+    get() = MimeTypeMap.getSingleton().getExtensionFromMimeType(this)
 
 inline fun Uri.getMimeType(resolver: ContentResolver): String =
         if (isContent) resolver.getType(this)

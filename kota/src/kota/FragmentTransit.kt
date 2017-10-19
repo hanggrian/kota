@@ -4,15 +4,22 @@ import android.app.FragmentTransaction
 import android.support.annotation.AnimatorRes
 import android.support.annotation.StyleRes
 
-const val TYPE_CUSTOM: Int = 0
-const val TYPE_CONSTANT: Int = 1
-const val TYPE_STYLE: Int = 2
+@PublishedApi internal const val TYPE_CUSTOM: Int = 0
+@PublishedApi internal const val TYPE_CONSTANT: Int = 1
+@PublishedApi internal const val TYPE_STYLE: Int = 2
 
-open class FragmentTransit @PublishedApi internal constructor(val type: Int, vararg val value: Int)
+open class FragmentTransit @PublishedApi internal constructor(
+        @PublishedApi internal val type: Int,
+        @PublishedApi internal vararg val value: Int
+) {
+    operator fun component1(): Int = type
+    operator fun component2(): IntArray = value
+}
 
 open class CustomTransit : FragmentTransit {
     constructor(@AnimatorRes enter: Int, @AnimatorRes exit: Int) : super(TYPE_CUSTOM, enter, exit)
-    constructor(@AnimatorRes enter: Int, @AnimatorRes exit: Int, @AnimatorRes popEnter: Int, @AnimatorRes popExit: Int) : super(TYPE_CUSTOM, enter, exit, popEnter, popExit)
+    constructor(@AnimatorRes enter: Int, @AnimatorRes exit: Int,
+                @AnimatorRes popEnter: Int, @AnimatorRes popExit: Int) : super(TYPE_CUSTOM, enter, exit, popEnter, popExit)
 }
 
 object NoTransit : FragmentTransit(TYPE_CONSTANT, FragmentTransaction.TRANSIT_NONE)
@@ -27,12 +34,13 @@ open class StyleTransit(@StyleRes styleRes: Int) : FragmentTransit(TYPE_STYLE, s
 
 @PublishedApi
 @Suppress("NOTHING_TO_INLINE")
-internal inline fun FragmentTransaction.setTransit(transit: FragmentTransit): FragmentTransaction = when (transit.type) {
-    TYPE_CUSTOM -> {
-        transit as CustomTransit
-        if (transit.value.size == 2) setCustomAnimations(transit.value[0], transit.value[1])
-        else setCustomAnimations(transit.value[0], transit.value[1], transit.value[2], transit.value[3])
+internal inline fun FragmentTransaction.setTransit(transit: FragmentTransit): FragmentTransaction = transit.let { (type, value) ->
+    return when (type) {
+        TYPE_CUSTOM -> {
+            if (value.size == 2) setCustomAnimations(value[0], value[1])
+            else setCustomAnimations(value[0], value[1], value[2], value[3])
+        }
+        TYPE_CONSTANT -> setTransition(value[0])
+        else -> setTransitionStyle(value[0])
     }
-    TYPE_CONSTANT -> setTransition(transit.value[0])
-    else -> setTransitionStyle(transit.value[0])
 }

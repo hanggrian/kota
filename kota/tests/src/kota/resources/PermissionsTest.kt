@@ -1,10 +1,10 @@
-package kota.contents
+package kota.resources
 
 import android.Manifest
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import junit.framework.Assert.assertEquals
-import kota.contents.isSelfPermissionsGranted
+import kota.isSelfPermissionsGranted
 import org.junit.Test
 import org.junit.runner.RunWith
 

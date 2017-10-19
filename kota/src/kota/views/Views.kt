@@ -18,16 +18,19 @@ inline fun <reified T : View> Activity.find(@IdRes id: Int): T = findViewById(id
 inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById(id)!!
 inline fun <reified T : View> Dialog.find(@IdRes id: Int): T = findViewById(id)!!
 
+inline fun <reified T : View> View.findNullable(@IdRes id: Int): T? = findViewById(id)
+inline fun <reified T : View> Activity.findNullable(@IdRes id: Int): T? = findViewById(id)
+inline fun <reified T : View> Fragment.findNullable(@IdRes id: Int): T? = view?.findViewById(id)
+inline fun <reified T : View> Dialog.findNullable(@IdRes id: Int): T? = findViewById(id)
+
 inline fun <V : View> V.setVisibilityThen(
         visibility: Int,
         block: V.() -> Unit,
         fallback: V.() -> Unit
 ) {
     this.visibility = visibility
-    when (visibility) {
-        View.VISIBLE -> block(this)
-        else -> fallback(this)
-    }
+    if (visibility == View.VISIBLE) block(this)
+    else fallback(this)
 }
 
 inline fun <V : View> V.setVisibilityThen(
@@ -35,9 +38,7 @@ inline fun <V : View> V.setVisibilityThen(
         block: V.() -> Unit
 ) {
     this.visibility = visibility
-    if (visibility == View.VISIBLE) {
-        block(this)
-    }
+    if (visibility == View.VISIBLE) block(this)
 }
 
 inline fun <V : View> V.setVisibleThen(

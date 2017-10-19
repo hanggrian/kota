@@ -7,6 +7,11 @@ package kota.collections
 import android.support.v4.util.LongSparseArray
 import java.util.*
 
+/** Transform current map to sparse array. */
+inline fun <E> Map<Long, E>.toSupportLongSparseArray(): LongSparseArray<E> = LongSparseArray<E>().apply {
+    for (key in keys) append(key, get(key))
+}
+
 /** Returns an empty sparse array. */
 inline fun <E> supportLongSparseArrayOf(): LongSparseArray<E> = LongSparseArray()
 

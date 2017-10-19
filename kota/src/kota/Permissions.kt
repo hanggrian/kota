@@ -1,14 +1,12 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.contents
+package kota
 
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Fragment
 import android.content.Context
 import android.content.pm.PackageManager
-import kota.VERSION_M
-import kota.getIfAtLeast
 
 @SuppressLint("NewApi")
 inline fun Context.isSelfPermissionsGranted(vararg permissions: String): Boolean = getIfAtLeast(VERSION_M,

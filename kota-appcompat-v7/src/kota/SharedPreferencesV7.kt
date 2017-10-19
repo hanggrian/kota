@@ -1,11 +1,11 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.contents
+package kota
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatDialog
-import kota.contents.preferences
+import kota.preferences
 
 /** Retrieve a default preferences of this Context. */
 inline val AppCompatDialog.preferences: SharedPreferences get() = context.preferences

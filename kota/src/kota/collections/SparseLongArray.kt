@@ -8,6 +8,11 @@ import android.support.annotation.RequiresApi
 import android.util.SparseLongArray
 import java.util.*
 
+/** Transform current map to sparse array. */
+@RequiresApi(18) inline fun Map<Int, Long>.toSparseLongArray(): SparseLongArray = SparseLongArray().apply {
+    for (key in keys) append(key, get(key))
+}
+
 /** Returns an empty sparse array. */
 @RequiresApi(18) inline fun sparseLongArrayOf(): SparseLongArray = SparseLongArray()
 

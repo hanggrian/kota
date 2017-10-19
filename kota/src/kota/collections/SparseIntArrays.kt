@@ -7,6 +7,11 @@ package kota.collections
 import android.util.SparseIntArray
 import java.util.*
 
+/** Transform current map to sparse array. */
+inline fun Map<Int, Int>.toSparseIntArray(): SparseIntArray = SparseIntArray().apply {
+    for (key in keys) append(key, get(key))
+}
+
 /** Returns an empty sparse array. */
 inline fun sparseIntArrayOf(): SparseIntArray = SparseIntArray()
 

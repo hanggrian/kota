@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.contents
+package kota
 
 import android.content.Context
 import android.content.pm.PackageManager

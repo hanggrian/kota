@@ -7,6 +7,11 @@ package kota.collections
 import android.support.v4.util.SparseArrayCompat
 import java.util.*
 
+/** Transform current map to sparse array. */
+inline fun <E> Map<Int, E>.toSupportSparseArray(): SparseArrayCompat<E> = SparseArrayCompat<E>().apply {
+    for (key in keys) append(key, get(key))
+}
+
 /** Returns an empty sparse array. */
 inline fun <E> supportSparseArrayOf(): SparseArrayCompat<E> = SparseArrayCompat()
 

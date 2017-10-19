@@ -2,7 +2,7 @@
 @file:JvmName("ResourcesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.contents
+package kota.resources
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -24,12 +24,7 @@ inline val Context.displayMetrics: DisplayMetrics get() = resources.displayMetri
 inline val Fragment.displayMetrics: DisplayMetrics get() = activity.displayMetrics
 inline val Dialog.displayMetrics: DisplayMetrics get() = context.displayMetrics
 
-@JvmOverloads
-inline fun Context.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = when {
-    def != null -> resources.getText(id, def)!!
-    else -> resources.getText(id)
-}
-
+@JvmOverloads inline fun Context.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = if (def != null) resources.getText(id, def)!! else resources.getText(id)
 @JvmOverloads inline fun Fragment.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = activity.getText(id, def)
 @JvmOverloads inline fun Dialog.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = context.getText(id, def)
 
@@ -41,12 +36,7 @@ inline fun Context.getTextArray(@ArrayRes id: Int): Array<CharSequence> = resour
 inline fun Fragment.getTextArray(@ArrayRes id: Int): Array<CharSequence> = activity.getTextArray(id)
 inline fun Dialog.getTextArray(@ArrayRes id: Int): Array<CharSequence> = context.getTextArray(id)
 
-@JvmOverloads
-inline fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = when {
-    formatArgs.isNotEmpty() -> resources.getQuantityString(id, quantity, formatArgs)
-    else -> resources.getQuantityString(id, quantity)
-}
-
+@JvmOverloads inline fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = if (formatArgs.isNotEmpty()) resources.getQuantityString(id, quantity, formatArgs) else resources.getQuantityString(id, quantity)
 @JvmOverloads inline fun Fragment.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = activity.getQuantityString(id, quantity, formatArgs)
 @JvmOverloads inline fun Dialog.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = context.getQuantityString(id, quantity, formatArgs)
 
@@ -82,9 +72,8 @@ inline fun Context.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
 inline fun Fragment.getMovie(@RawRes id: Int): Movie = activity.getMovie(id)
 inline fun Dialog.getMovie(@RawRes id: Int): Movie = context.getMovie(id)
 
-@ColorInt
 @SuppressLint("NewApi")
-inline fun Context.getColor2(@ColorRes id: Int): Int = getIfAtLeast(23, { getColor(id) }, { @Suppress("DEPRECATION") resources.getColor(id) })
+@ColorInt inline fun Context.getColor2(@ColorRes id: Int): Int = getIfAtLeast(23, { getColor(id) }, { @Suppress("DEPRECATION") resources.getColor(id) })
 
 @ColorInt inline fun Fragment.getColor2(@ColorRes id: Int): Int = activity.getColor2(id)
 @ColorInt inline fun Dialog.getColor2(@ColorRes id: Int): Int = context.getColor2(id)

@@ -1,4 +1,4 @@
-package kota.contents
+package kota.resources
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

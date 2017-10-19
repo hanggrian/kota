@@ -7,6 +7,11 @@ package kota.collections
 import android.util.SparseBooleanArray
 import java.util.*
 
+/** Transform current map to sparse array. */
+inline fun Map<Int, Boolean>.toSparseBooleanArray(): SparseBooleanArray = SparseBooleanArray().apply {
+    for (key in keys) append(key, get(key))
+}
+
 /** Returns an empty sparse array. */
 inline fun sparseBooleanArrayOf(): SparseBooleanArray = SparseBooleanArray()
 

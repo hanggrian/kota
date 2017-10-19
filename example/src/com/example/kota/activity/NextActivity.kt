@@ -1,9 +1,10 @@
-package com.example.kota
+package com.example.kota.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.example.kota.R
 import kotlinx.android.synthetic.main.activity_next.*
 
 @SuppressLint("Registered")

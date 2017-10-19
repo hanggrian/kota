@@ -1,6 +1,8 @@
+@file:JvmMultifileClass
+@file:JvmName("ResourcesV7Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.contents
+package kota.resources
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable

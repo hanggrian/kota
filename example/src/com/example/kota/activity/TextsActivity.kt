@@ -1,8 +1,9 @@
-package com.example.kota
+package com.example.kota.activity
 
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
+import android.support.v4.util.PatternsCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -16,14 +17,15 @@ import android.text.style.URLSpan
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.kota.R
 import com.example.spannabletext.FontSpan
-import kota.contents.dp
-import kota.contents.getColor2
+import kota.resources.dp
+import kota.resources.getColor2
 import kota.layoutInflater
 import kota.texts.append
-import kota.texts.putSpans
-import kota.texts.setSpans
-import kota.texts.spannableOf
+import kota.texts.span
+import kota.texts.spanAll
+import kota.texts.toSpannable
 import kota.views.find
 import kotlinx.android.synthetic.main.activity_texts.*
 
@@ -40,9 +42,9 @@ class TextsActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportActionBar!!.title = SpannableStringBuilder()
-                .append("Google ", arrayOf(FontSpan(assets, "fonts/ProductSans-Regular.ttf"), StyleSpan(Typeface.BOLD)))
+                .append("Google ", FontSpan(assets, "fonts/ProductSans-Regular.ttf"), StyleSpan(Typeface.BOLD))
                 .append("Fonts", FontSpan(assets, "fonts/ProductSans-Regular.ttf"))
-                .apply { setSpans(ForegroundColorSpan(getColor2(R.color.gray))) }
+                .spanAll(ForegroundColorSpan(getColor2(R.color.gray)))
 
         val total = 818
         //textViewViewing.text = "Viewing %s of %s font families".formatSpannable(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),
@@ -51,33 +53,37 @@ class TextsActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = Adapter(this)
 
-        textViewCopyright.text = spannableOf("© 2017 Google Inc.", AbsoluteSizeSpan(12.dp)).apply { putSpans(Regex("Google"), { ForegroundColorSpan(getColor2(R.color.colorAccent)) }) }
+        textViewCopyright.text = "© 2017 Google Inc.".toSpannable()
+                .spanAll(AbsoluteSizeSpan(12.dp))
+                .span(Regex("Google"), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
 
         val url = "https://fonts.google.com"
-        textViewUrl.text = spannableOf("as seen on " + url, AbsoluteSizeSpan(12.dp)).apply { putSpans("[a-z]+:\\/\\/[^ \\n]*".toRegex(), { URLSpan(url) }) }
+        textViewUrl.text = ("as seen on " + url).toSpannable()
+                .spanAll(AbsoluteSizeSpan(12.dp))
+                .span(PatternsCompat.WEB_URL.toRegex(), { URLSpan(url) })
         textViewUrl.movementMethod = LinkMovementMethod.getInstance()
     }
 
-    internal class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+    internal class Adapter(private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
         private val fonts = Font.values()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(context.layoutInflater.inflate(R.layout.item_texts, parent, false))
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val font = fonts[position]
-            holder.toolbar.title = spannableOf(font.title, ForegroundColorSpan(context.getColor2(R.color.darkGray)), StyleSpan(Typeface.BOLD), AbsoluteSizeSpan(14.dp))
-            holder.toolbar.subtitle = spannableOf("${font.author} ${font.stylesCount} styles)", AbsoluteSizeSpan(12.dp))
+            holder.toolbar.title = font.title.toSpannable().spanAll(ForegroundColorSpan(context.getColor2(R.color.darkGray)), StyleSpan(Typeface.BOLD), AbsoluteSizeSpan(14.dp))
+            holder.toolbar.subtitle = "${font.author} ${font.stylesCount} styles)".toSpannable().spanAll(AbsoluteSizeSpan(12.dp))
             holder.toolbar.menu.clear()
             holder.toolbar.inflateMenu(R.menu.activity_texts)
-            holder.textView.text = spannableOf(font.example, FontSpan(context.assets, font.filename), AbsoluteSizeSpan(24.dp))
+            holder.textView.text = font.example.toSpannable().spanAll(FontSpan(context.assets, font.filename), AbsoluteSizeSpan(24.dp))
         }
 
         override fun getItemCount() = fonts.size
+    }
 
-        internal class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var toolbar: Toolbar = itemView.find(R.id.toolbar)
-            var textView: TextView = itemView.find(R.id.textView)
-        }
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var toolbar: Toolbar = itemView.find(R.id.toolbar)
+        var textView: TextView = itemView.find(R.id.textView)
     }
 
     private enum class Font constructor(
