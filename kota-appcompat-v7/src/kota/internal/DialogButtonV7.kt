@@ -1,4 +1,4 @@
-package kota.dialogs
+package kota.internal
 
 import android.content.DialogInterface.*
 import android.support.v7.app.AlertDialog

@@ -12,6 +12,8 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatDialog
 import android.widget.ListAdapter
+import kota.internal.DialogButton
+import kota.internal.setButtons
 
 @JvmOverloads
 inline fun Context.supportChoiceAlert(

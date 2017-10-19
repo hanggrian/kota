@@ -5,6 +5,8 @@ package kota
 import android.support.annotation.IdRes
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import kota.internal.FragmentTransit
+import kota.internal.setTransit
 
 @JvmOverloads
 inline fun FragmentManager.add(

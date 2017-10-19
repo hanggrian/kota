@@ -1,10 +1,11 @@
 @file:JvmMultifileClass
-@file:JvmName("CollectionsRecyclerViewKt")
+@file:JvmName("CollectionsV7Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.collections
 
 import android.support.v7.widget.RecyclerView
+import kota.internal.SetAdapterWrapper
 
 inline infix fun <E> MutableSet<E>.with(adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>): SetAdapterWrapper<E, MutableSet<E>> = SetAdapterWrapper(this, adapter)
 

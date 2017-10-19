@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.texts
+package kota.text
 
 import android.text.TextUtils
 import android.util.Printer

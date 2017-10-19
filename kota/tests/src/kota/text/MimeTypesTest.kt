@@ -1,4 +1,4 @@
-package kota.texts
+package kota.text
 
 import android.annotation.SuppressLint
 import android.support.test.runner.AndroidJUnit4

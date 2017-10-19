@@ -9,6 +9,8 @@ import android.app.Dialog
 import android.app.Fragment
 import android.content.Context
 import android.support.annotation.StringRes
+import kota.internal.DialogButton
+import kota.internal.setButtons
 
 @JvmOverloads
 inline fun Context.alert(

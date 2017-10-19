@@ -11,6 +11,8 @@ import android.content.Context
 import android.content.DialogInterface
 import android.support.annotation.ArrayRes
 import android.support.annotation.StringRes
+import kota.internal.DialogButton
+import kota.internal.setButtons
 
 @JvmOverloads
 inline fun Context.itemsAlert(

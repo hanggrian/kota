@@ -22,11 +22,11 @@ import com.example.spannabletext.FontSpan
 import kota.resources.dp
 import kota.resources.getColor2
 import kota.layoutInflater
-import kota.texts.append
-import kota.texts.span
-import kota.texts.spanAll
-import kota.texts.toSpannable
-import kota.views.find
+import kota.text.append
+import kota.text.span
+import kota.text.spanAll
+import kota.text.toSpannable
+import kota.find
 import kotlinx.android.synthetic.main.activity_texts.*
 
 /**

@@ -7,8 +7,11 @@ import android.support.design.widget.Snackbar
 import android.support.design.widget.Snackbar.*
 import android.view.View
 
-@PublishedApi internal inline fun View.make(message: CharSequence, duration: Int): Snackbar = Snackbar.make(this, message, duration)
-@PublishedApi internal inline fun View.make(@StringRes message: Int, duration: Int): Snackbar = Snackbar.make(this, message, duration)
+@PublishedApi internal inline fun View.make(message: CharSequence, duration: Int): Snackbar =
+        Snackbar.make(this, message, duration)
+
+@PublishedApi internal inline fun View.make(@StringRes message: Int, duration: Int): Snackbar =
+        Snackbar.make(this, message, duration)
 
 inline fun View.snackbar(message: CharSequence): Snackbar = make(message, LENGTH_SHORT)
         .apply { show() }

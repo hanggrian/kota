@@ -11,6 +11,8 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatDialog
 import android.view.View
+import kota.internal.DialogButton
+import kota.internal.setButtons
 
 @JvmOverloads
 inline fun Context.supportCustomAlert(

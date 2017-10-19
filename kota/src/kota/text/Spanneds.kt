@@ -2,7 +2,7 @@
 @file:JvmName("SpansKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.texts
+package kota.text
 
 import android.text.Spanned
 import android.text.SpannedString

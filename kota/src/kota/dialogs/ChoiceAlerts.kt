@@ -12,6 +12,8 @@ import android.content.DialogInterface
 import android.support.annotation.ArrayRes
 import android.support.annotation.StringRes
 import android.widget.ListAdapter
+import kota.internal.DialogButton
+import kota.internal.setButtons
 
 @JvmOverloads
 inline fun Context.choiceAlert(

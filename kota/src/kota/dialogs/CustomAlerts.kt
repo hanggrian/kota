@@ -12,6 +12,8 @@ import android.support.annotation.LayoutRes
 import android.support.annotation.RequiresApi
 import android.support.annotation.StringRes
 import android.view.View
+import kota.internal.DialogButton
+import kota.internal.setButtons
 
 @JvmOverloads
 inline fun Context.customAlert(

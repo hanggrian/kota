@@ -7,7 +7,7 @@ import android.widget.EditText
 import com.example.kota.R
 import kota.*
 import kota.dialogs.*
-import kota.views.contentView
+import kota.contentView
 
 class DialogsActivity : NextActivity() {
 

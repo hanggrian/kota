@@ -1,8 +1,6 @@
-@file:JvmMultifileClass
-@file:JvmName("CollectionsRecyclerViewKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.collections
+package kota.internal
 
 import android.support.v7.widget.RecyclerView
 

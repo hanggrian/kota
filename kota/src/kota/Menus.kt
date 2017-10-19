@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.views
+package kota
 
 import android.view.Menu
 import android.view.MenuItem
