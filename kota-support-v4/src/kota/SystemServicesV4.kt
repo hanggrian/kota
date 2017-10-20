@@ -44,104 +44,104 @@ import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import android.view.textservice.TextServicesManager
 
-inline val Fragment.accessibilityManager: AccessibilityManager get() = context.accessibilityManager
+inline val Fragment.accessibilityManager: AccessibilityManager? get() = context.accessibilityManager
 
-inline val Fragment.accountManager: AccountManager get() = context.accountManager
+inline val Fragment.accountManager: AccountManager? get() = context.accountManager
 
-inline val Fragment.activityManager: ActivityManager get() = context.activityManager
+inline val Fragment.activityManager: ActivityManager? get() = context.activityManager
 
-inline val Fragment.alarmManager: AlarmManager get() = context.alarmManager
+inline val Fragment.alarmManager: AlarmManager? get() = context.alarmManager
 
-inline val Fragment.appOpsManager: AppOpsManager @RequiresApi(19) get() = context.appOpsManager
+inline val Fragment.appOpsManager: AppOpsManager? @RequiresApi(19) get() = context.appOpsManager
 
-inline val Fragment.appWidgetManager: AppWidgetManager @RequiresApi(21) get() = context.appWidgetManager
+inline val Fragment.appWidgetManager: AppWidgetManager? @RequiresApi(21) get() = context.appWidgetManager
 
-inline val Fragment.audioManager: AudioManager get() = context.audioManager
+inline val Fragment.audioManager: AudioManager? get() = context.audioManager
 
-inline val Fragment.batteryManager: BatteryManager @RequiresApi(21) get() = context.batteryManager
+inline val Fragment.batteryManager: BatteryManager? @RequiresApi(21) get() = context.batteryManager
 
-inline val Fragment.bluetoothManager: BluetoothManager @RequiresApi(18) get() = context.bluetoothManager
+inline val Fragment.bluetoothManager: BluetoothManager? @RequiresApi(18) get() = context.bluetoothManager
 
-inline val Fragment.clipboardManager: ClipboardManager get() = context.clipboardManager
+inline val Fragment.clipboardManager: ClipboardManager? get() = context.clipboardManager
 
-inline val Fragment.connectivityManager: ConnectivityManager get() = context.connectivityManager
+inline val Fragment.connectivityManager: ConnectivityManager? get() = context.connectivityManager
 
-inline val Fragment.consumerIrManager: ConsumerIrManager @RequiresApi(19) get() = context.consumerIrManager
+inline val Fragment.consumerIrManager: ConsumerIrManager? @RequiresApi(19) get() = context.consumerIrManager
 
-inline val Fragment.devicePolicyManager: DevicePolicyManager get() = context.devicePolicyManager
+inline val Fragment.devicePolicyManager: DevicePolicyManager? get() = context.devicePolicyManager
 
-inline val Fragment.displayManager: DisplayManager @RequiresApi(17) get() = context.displayManager
+inline val Fragment.displayManager: DisplayManager? @RequiresApi(17) get() = context.displayManager
 
-inline val Fragment.downloadManager: DownloadManager get() = context.downloadManager
+inline val Fragment.downloadManager: DownloadManager? get() = context.downloadManager
 
-inline val Fragment.dropBoxManager: DropBoxManager get() = context.dropBoxManager
+inline val Fragment.dropBoxManager: DropBoxManager? get() = context.dropBoxManager
 
-inline val Fragment.fingerprintManager: FingerprintManager @RequiresApi(23) get() = context.fingerprintManager
+inline val Fragment.fingerprintManager: FingerprintManager? @RequiresApi(23) get() = context.fingerprintManager
 
-inline val Fragment.inputMethodManager: InputMethodManager get() = context.inputMethodManager
+inline val Fragment.inputMethodManager: InputMethodManager? get() = context.inputMethodManager
 
-inline val Fragment.inputManager: InputManager @RequiresApi(16) get() = context.inputManager
+inline val Fragment.inputManager: InputManager? @RequiresApi(16) get() = context.inputManager
 
-inline val Fragment.jobScheduler: JobScheduler @RequiresApi(21) get() = context.jobScheduler
+inline val Fragment.jobScheduler: JobScheduler? @RequiresApi(21) get() = context.jobScheduler
 
-inline val Fragment.keyguardManager: KeyguardManager get() = context.keyguardManager
+inline val Fragment.keyguardManager: KeyguardManager? get() = context.keyguardManager
 
-inline val Fragment.launcherApps: LauncherApps @RequiresApi(21) get() = context.launcherApps
+inline val Fragment.launcherApps: LauncherApps? @RequiresApi(21) get() = context.launcherApps
 
-inline val Fragment.locationManager: LocationManager get() = context.locationManager
+inline val Fragment.locationManager: LocationManager? get() = context.locationManager
 
-inline val Fragment.mediaProjectionManager: MediaProjectionManager @RequiresApi(21) get() = context.mediaProjectionManager
+inline val Fragment.mediaProjectionManager: MediaProjectionManager? @RequiresApi(21) get() = context.mediaProjectionManager
 
-inline val Fragment.mediaRouter: MediaRouter @RequiresApi(16) get() = context.mediaRouter
+inline val Fragment.mediaRouter: MediaRouter? @RequiresApi(16) get() = context.mediaRouter
 
-inline val Fragment.mediaSessionManager: MediaSessionManager @RequiresApi(21) get() = context.mediaSessionManager
+inline val Fragment.mediaSessionManager: MediaSessionManager? @RequiresApi(21) get() = context.mediaSessionManager
 
-inline val Fragment.midiManager: MidiManager @RequiresApi(23) get() = context.midiManager
+inline val Fragment.midiManager: MidiManager? @RequiresApi(23) get() = context.midiManager
 
-inline val Fragment.networkStatsManager: NetworkStatsManager @RequiresApi(23) get() = context.networkStatsManager
+inline val Fragment.networkStatsManager: NetworkStatsManager? @RequiresApi(23) get() = context.networkStatsManager
 
-inline val Fragment.nfcManager: NfcManager get() = context.nfcManager
+inline val Fragment.nfcManager: NfcManager? get() = context.nfcManager
 
-inline val Fragment.notificationManager: NotificationManager get() = context.notificationManager
+inline val Fragment.notificationManager: NotificationManager? get() = context.notificationManager
 
-inline val Fragment.nsdManager: NsdManager @RequiresApi(16) get() = context.nsdManager
+inline val Fragment.nsdManager: NsdManager? @RequiresApi(16) get() = context.nsdManager
 
-inline val Fragment.powerManager: PowerManager get() = context.powerManager
+inline val Fragment.powerManager: PowerManager? get() = context.powerManager
 
-inline val Fragment.printManager: PrintManager @RequiresApi(19) get() = context.printManager
+inline val Fragment.printManager: PrintManager? @RequiresApi(19) get() = context.printManager
 
-inline val Fragment.restrictionsManager: RestrictionsManager @RequiresApi(21) get() = context.restrictionsManager
+inline val Fragment.restrictionsManager: RestrictionsManager? @RequiresApi(21) get() = context.restrictionsManager
 
-inline val Fragment.searchManager: SearchManager get() = context.searchManager
+inline val Fragment.searchManager: SearchManager? get() = context.searchManager
 
-inline val Fragment.sensorManager: SensorManager get() = context.sensorManager
+inline val Fragment.sensorManager: SensorManager? get() = context.sensorManager
 
-inline val Fragment.storageManager: StorageManager get() = context.storageManager
+inline val Fragment.storageManager: StorageManager? get() = context.storageManager
 
-inline val Fragment.subscriptionManager: SubscriptionManager @RequiresApi(22) get() = context.subscriptionManager
+inline val Fragment.subscriptionManager: SubscriptionManager? @RequiresApi(22) get() = context.subscriptionManager
 
-inline val Fragment.telecomManager: TelecomManager @RequiresApi(21) get() = context.telecomManager
+inline val Fragment.telecomManager: TelecomManager? @RequiresApi(21) get() = context.telecomManager
 
-inline val Fragment.telephonyManager: TelephonyManager get() = context.telephonyManager
+inline val Fragment.telephonyManager: TelephonyManager? get() = context.telephonyManager
 
-inline val Fragment.textServicesManager: TextServicesManager get() = context.textServicesManager
+inline val Fragment.textServicesManager: TextServicesManager? get() = context.textServicesManager
 
-inline val Fragment.tvInputManager: TvInputManager @RequiresApi(21) get() = context.tvInputManager
+inline val Fragment.tvInputManager: TvInputManager? @RequiresApi(21) get() = context.tvInputManager
 
-inline val Fragment.uiModeManager: UiModeManager get() = context.uiModeManager
+inline val Fragment.uiModeManager: UiModeManager? get() = context.uiModeManager
 
-inline val Fragment.usageStatsManager: UsageStatsManager @RequiresApi(22) get() = context.usageStatsManager
+inline val Fragment.usageStatsManager: UsageStatsManager? @RequiresApi(22) get() = context.usageStatsManager
 
-inline val Fragment.usbManager: UsbManager get() = context.usbManager
+inline val Fragment.usbManager: UsbManager? get() = context.usbManager
 
-inline val Fragment.userManager: UserManager @RequiresApi(17) get() = context.userManager
+inline val Fragment.userManager: UserManager? @RequiresApi(17) get() = context.userManager
 
-inline val Fragment.vibrator: Vibrator get() = context.vibrator
+inline val Fragment.vibrator: Vibrator? get() = context.vibrator
 
-inline val Fragment.wallpaperManager: WallpaperManager get() = context.wallpaperManager
+inline val Fragment.wallpaperManager: WallpaperManager? get() = context.wallpaperManager
 
-inline val Fragment.wifiManager: WifiManager get() = context.wifiManager
+inline val Fragment.wifiManager: WifiManager? get() = context.wifiManager
 
-inline val Fragment.wifiP2pManager: WifiP2pManager get() = context.wifiP2pManager
+inline val Fragment.wifiP2pManager: WifiP2pManager? get() = context.wifiP2pManager
 
-inline val Fragment.windowManager: WindowManager get() = context.windowManager
+inline val Fragment.windowManager: WindowManager? get() = context.windowManager

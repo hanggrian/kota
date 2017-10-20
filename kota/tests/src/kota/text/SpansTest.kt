@@ -26,7 +26,7 @@ class SpansTest {
         spannable2.span(Regex("world"), { ForegroundColorSpan(Color.BLUE) })
         assertEquals(spannable2.spans.size, 2)
 
-        spannable2.clearSpans()
+        spannable2.despanAll()
         assertEquals(spannable2.spans.size, 0)
     }
 }

@@ -43,106 +43,105 @@ import android.view.WindowManager
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import android.view.textservice.TextServicesManager
-import kota.*
 
-inline val AppCompatDialog.accessibilityManager: AccessibilityManager get() = context.accessibilityManager
+inline val AppCompatDialog.accessibilityManager: AccessibilityManager? get() = context.accessibilityManager
 
-inline val AppCompatDialog.accountManager: AccountManager get() = context.accountManager
+inline val AppCompatDialog.accountManager: AccountManager? get() = context.accountManager
 
-inline val AppCompatDialog.activityManager: ActivityManager get() = context.activityManager
+inline val AppCompatDialog.activityManager: ActivityManager? get() = context.activityManager
 
-inline val AppCompatDialog.alarmManager: AlarmManager get() = context.alarmManager
+inline val AppCompatDialog.alarmManager: AlarmManager? get() = context.alarmManager
 
-inline val AppCompatDialog.appOpsManager: AppOpsManager @RequiresApi(19) get() = context.appOpsManager
+inline val AppCompatDialog.appOpsManager: AppOpsManager? @RequiresApi(19) get() = context.appOpsManager
 
-inline val AppCompatDialog.appWidgetManager: AppWidgetManager @RequiresApi(21) get() = context.appWidgetManager
+inline val AppCompatDialog.appWidgetManager: AppWidgetManager? @RequiresApi(21) get() = context.appWidgetManager
 
-inline val AppCompatDialog.audioManager: AudioManager get() = context.audioManager
+inline val AppCompatDialog.audioManager: AudioManager? get() = context.audioManager
 
-inline val AppCompatDialog.batteryManager: BatteryManager @RequiresApi(21) get() = context.batteryManager
+inline val AppCompatDialog.batteryManager: BatteryManager? @RequiresApi(21) get() = context.batteryManager
 
-inline val AppCompatDialog.bluetoothManager: BluetoothManager @RequiresApi(18) get() = context.bluetoothManager
+inline val AppCompatDialog.bluetoothManager: BluetoothManager? @RequiresApi(18) get() = context.bluetoothManager
 
-inline val AppCompatDialog.clipboardManager: ClipboardManager get() = context.clipboardManager
+inline val AppCompatDialog.clipboardManager: ClipboardManager? get() = context.clipboardManager
 
-inline val AppCompatDialog.connectivityManager: ConnectivityManager get() = context.connectivityManager
+inline val AppCompatDialog.connectivityManager: ConnectivityManager? get() = context.connectivityManager
 
-inline val AppCompatDialog.consumerIrManager: ConsumerIrManager @RequiresApi(19) get() = context.consumerIrManager
+inline val AppCompatDialog.consumerIrManager: ConsumerIrManager? @RequiresApi(19) get() = context.consumerIrManager
 
-inline val AppCompatDialog.devicePolicyManager: DevicePolicyManager get() = context.devicePolicyManager
+inline val AppCompatDialog.devicePolicyManager: DevicePolicyManager? get() = context.devicePolicyManager
 
-inline val AppCompatDialog.displayManager: DisplayManager @RequiresApi(17) get() = context.displayManager
+inline val AppCompatDialog.displayManager: DisplayManager? @RequiresApi(17) get() = context.displayManager
 
-inline val AppCompatDialog.downloadManager: DownloadManager get() = context.downloadManager
+inline val AppCompatDialog.downloadManager: DownloadManager? get() = context.downloadManager
 
-inline val AppCompatDialog.dropBoxManager: DropBoxManager get() = context.dropBoxManager
+inline val AppCompatDialog.dropBoxManager: DropBoxManager? get() = context.dropBoxManager
 
-inline val AppCompatDialog.fingerprintManager: FingerprintManager @RequiresApi(23) get() = context.fingerprintManager
+inline val AppCompatDialog.fingerprintManager: FingerprintManager? @RequiresApi(23) get() = context.fingerprintManager
 
-inline val AppCompatDialog.inputMethodManager: InputMethodManager get() = context.inputMethodManager
+inline val AppCompatDialog.inputMethodManager: InputMethodManager? get() = context.inputMethodManager
 
-inline val AppCompatDialog.inputManager: InputManager @RequiresApi(16) get() = context.inputManager
+inline val AppCompatDialog.inputManager: InputManager? @RequiresApi(16) get() = context.inputManager
 
-inline val AppCompatDialog.jobScheduler: JobScheduler @RequiresApi(21) get() = context.jobScheduler
+inline val AppCompatDialog.jobScheduler: JobScheduler? @RequiresApi(21) get() = context.jobScheduler
 
-inline val AppCompatDialog.keyguardManager: KeyguardManager get() = context.keyguardManager
+inline val AppCompatDialog.keyguardManager: KeyguardManager? get() = context.keyguardManager
 
-inline val AppCompatDialog.launcherApps: LauncherApps @RequiresApi(21) get() = context.launcherApps
+inline val AppCompatDialog.launcherApps: LauncherApps? @RequiresApi(21) get() = context.launcherApps
 
-inline val AppCompatDialog.locationManager: LocationManager get() = context.locationManager
+inline val AppCompatDialog.locationManager: LocationManager? get() = context.locationManager
 
-inline val AppCompatDialog.mediaProjectionManager: MediaProjectionManager @RequiresApi(21) get() = context.mediaProjectionManager
+inline val AppCompatDialog.mediaProjectionManager: MediaProjectionManager? @RequiresApi(21) get() = context.mediaProjectionManager
 
-inline val AppCompatDialog.mediaRouter: MediaRouter @RequiresApi(16) get() = context.mediaRouter
+inline val AppCompatDialog.mediaRouter: MediaRouter? @RequiresApi(16) get() = context.mediaRouter
 
-inline val AppCompatDialog.mediaSessionManager: MediaSessionManager @RequiresApi(21) get() = context.mediaSessionManager
+inline val AppCompatDialog.mediaSessionManager: MediaSessionManager? @RequiresApi(21) get() = context.mediaSessionManager
 
-inline val AppCompatDialog.midiManager: MidiManager @RequiresApi(23) get() = context.midiManager
+inline val AppCompatDialog.midiManager: MidiManager? @RequiresApi(23) get() = context.midiManager
 
-inline val AppCompatDialog.networkStatsManager: NetworkStatsManager @RequiresApi(23) get() = context.networkStatsManager
+inline val AppCompatDialog.networkStatsManager: NetworkStatsManager? @RequiresApi(23) get() = context.networkStatsManager
 
-inline val AppCompatDialog.nfcManager: NfcManager get() = context.nfcManager
+inline val AppCompatDialog.nfcManager: NfcManager? get() = context.nfcManager
 
-inline val AppCompatDialog.notificationManager: NotificationManager get() = context.notificationManager
+inline val AppCompatDialog.notificationManager: NotificationManager? get() = context.notificationManager
 
-inline val AppCompatDialog.nsdManager: NsdManager @RequiresApi(16) get() = context.nsdManager
+inline val AppCompatDialog.nsdManager: NsdManager? @RequiresApi(16) get() = context.nsdManager
 
-inline val AppCompatDialog.powerManager: PowerManager get() = context.powerManager
+inline val AppCompatDialog.powerManager: PowerManager? get() = context.powerManager
 
-inline val AppCompatDialog.printManager: PrintManager @RequiresApi(19) get() = context.printManager
+inline val AppCompatDialog.printManager: PrintManager? @RequiresApi(19) get() = context.printManager
 
-inline val AppCompatDialog.restrictionsManager: RestrictionsManager @RequiresApi(21) get() = context.restrictionsManager
+inline val AppCompatDialog.restrictionsManager: RestrictionsManager? @RequiresApi(21) get() = context.restrictionsManager
 
-inline val AppCompatDialog.searchManager: SearchManager get() = context.searchManager
+inline val AppCompatDialog.searchManager: SearchManager? get() = context.searchManager
 
-inline val AppCompatDialog.sensorManager: SensorManager get() = context.sensorManager
+inline val AppCompatDialog.sensorManager: SensorManager? get() = context.sensorManager
 
-inline val AppCompatDialog.storageManager: StorageManager get() = context.storageManager
+inline val AppCompatDialog.storageManager: StorageManager? get() = context.storageManager
 
-inline val AppCompatDialog.subscriptionManager: SubscriptionManager @RequiresApi(22) get() = context.subscriptionManager
+inline val AppCompatDialog.subscriptionManager: SubscriptionManager? @RequiresApi(22) get() = context.subscriptionManager
 
-inline val AppCompatDialog.telecomManager: TelecomManager @RequiresApi(21) get() = context.telecomManager
+inline val AppCompatDialog.telecomManager: TelecomManager? @RequiresApi(21) get() = context.telecomManager
 
-inline val AppCompatDialog.telephonyManager: TelephonyManager get() = context.telephonyManager
+inline val AppCompatDialog.telephonyManager: TelephonyManager? get() = context.telephonyManager
 
-inline val AppCompatDialog.textServicesManager: TextServicesManager get() = context.textServicesManager
+inline val AppCompatDialog.textServicesManager: TextServicesManager? get() = context.textServicesManager
 
-inline val AppCompatDialog.tvInputManager: TvInputManager @RequiresApi(21) get() = context.tvInputManager
+inline val AppCompatDialog.tvInputManager: TvInputManager? @RequiresApi(21) get() = context.tvInputManager
 
-inline val AppCompatDialog.uiModeManager: UiModeManager get() = context.uiModeManager
+inline val AppCompatDialog.uiModeManager: UiModeManager? get() = context.uiModeManager
 
-inline val AppCompatDialog.usageStatsManager: UsageStatsManager @RequiresApi(22) get() = context.usageStatsManager
+inline val AppCompatDialog.usageStatsManager: UsageStatsManager? @RequiresApi(22) get() = context.usageStatsManager
 
-inline val AppCompatDialog.usbManager: UsbManager get() = context.usbManager
+inline val AppCompatDialog.usbManager: UsbManager? get() = context.usbManager
 
-inline val AppCompatDialog.userManager: UserManager @RequiresApi(17) get() = context.userManager
+inline val AppCompatDialog.userManager: UserManager? @RequiresApi(17) get() = context.userManager
 
-inline val AppCompatDialog.vibrator: Vibrator get() = context.vibrator
+inline val AppCompatDialog.vibrator: Vibrator? get() = context.vibrator
 
-inline val AppCompatDialog.wallpaperManager: WallpaperManager get() = context.wallpaperManager
+inline val AppCompatDialog.wallpaperManager: WallpaperManager? get() = context.wallpaperManager
 
-inline val AppCompatDialog.wifiManager: WifiManager get() = context.wifiManager
+inline val AppCompatDialog.wifiManager: WifiManager? get() = context.wifiManager
 
-inline val AppCompatDialog.wifiP2pManager: WifiP2pManager get() = context.wifiP2pManager
+inline val AppCompatDialog.wifiP2pManager: WifiP2pManager? get() = context.wifiP2pManager
 
-inline val AppCompatDialog.windowManager: WindowManager get() = context.windowManager
+inline val AppCompatDialog.windowManager: WindowManager? get() = context.windowManager

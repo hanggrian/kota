@@ -7,7 +7,7 @@ import android.view.MenuItem
 
 inline fun Menu.find(id: Int): MenuItem = findItem(id)!!
 
-inline fun Menu.findNullable(id: Int): MenuItem = findItem(id)
+inline fun Menu.findNullable(id: Int): MenuItem? = findItem(id)
 
 inline operator fun Menu.get(index: Int): MenuItem = getItem(index)!!
 inline fun Menu.getOrNull(index: Int): MenuItem? = if (index in 0..lastIndex) this[index] else null

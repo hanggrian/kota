@@ -28,7 +28,7 @@ import java.util.*
 }
 
 @Suppress("EXTENSION_SHADOWED_BY_MEMBER")
-@RequiresApi(16) inline operator fun <E> LongSparseArray<E>.get(index: Long): E = get(index)
+@RequiresApi(16) inline operator fun <E> LongSparseArray<E>.get(index: Long): E = get(index)!!
 
 @RequiresApi(16) inline fun <E> LongSparseArray<E>.containsKey(key: Long): Boolean = indexOfKey(key) > -1
 @RequiresApi(16) inline fun <E> LongSparseArray<E>.containsAllKeys(keys: Collection<Long>): Boolean = keys.all { containsKey(it) }

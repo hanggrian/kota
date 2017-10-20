@@ -7,6 +7,8 @@ import android.app.Dialog
 import android.app.Fragment
 import android.support.annotation.IdRes
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 
 inline fun <reified T : View> View.find(@IdRes id: Int): T = findViewById(id)!!
@@ -42,13 +44,19 @@ inline fun ViewGroup.forEachChildIndexed(action: (Int, View) -> Unit) {
 
 inline val Activity.contentView: View? get() = findViewById<ViewGroup>(android.R.id.content)?.getChildAt(0)
 
+inline var View.isVisible: Boolean
+    get() = visibility == VISIBLE
+    set(visible) {
+        visibility = if (visible) VISIBLE else GONE
+    }
+
 inline fun <V : View> V.setVisibilityThen(
         visibility: Int,
         block: V.() -> Unit,
         fallback: V.() -> Unit
 ) {
     this.visibility = visibility
-    if (visibility == View.VISIBLE) block(this)
+    if (visibility == VISIBLE) block(this)
     else fallback(this)
 }
 
@@ -57,16 +65,23 @@ inline fun <V : View> V.setVisibilityThen(
         block: V.() -> Unit
 ) {
     this.visibility = visibility
-    if (visibility == View.VISIBLE) block(this)
+    if (visibility == VISIBLE) block(this)
 }
 
 inline fun <V : View> V.setVisibleThen(
         visible: Boolean,
         block: V.() -> Unit,
         fallback: V.() -> Unit
-) = setVisibilityThen(if (visible) View.VISIBLE else View.GONE, block, fallback)
+) {
+    this.isVisible = visible
+    if (visibility == VISIBLE) block(this)
+    else fallback(this)
+}
 
 inline fun <V : View> V.setVisibleThen(
         visible: Boolean,
         block: V.() -> Unit
-) = setVisibilityThen(if (visible) View.VISIBLE else View.GONE, block)
+) {
+    this.isVisible = visible
+    if (visibility == VISIBLE) block(this)
+}
