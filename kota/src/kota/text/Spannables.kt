@@ -14,7 +14,7 @@ inline fun CharSequence.toSpannable(): Spannable = SpannableString.valueOf(this)
 inline fun Spannable.span(regex: Regex, flags: Int, vararg spans: () -> Any): Spannable {
     val matcher = regex.toPattern().matcher(this)
     while (matcher.find()) {
-        for (span in spans) setSpan(span, matcher.start(), matcher.end(), flags)
+        for (span in spans) setSpan(span(), matcher.start(), matcher.end(), flags)
     }
     return this
 }
@@ -25,7 +25,7 @@ inline fun Spannable.span(regex: Regex, vararg spans: () -> Any): Spannable =
 inline fun Spannable.spanFirst(regex: Regex, flags: Int, vararg spans: () -> Any): Spannable {
     val matcher = regex.toPattern().matcher(this)
     matcher.find()
-    for (span in spans) setSpan(span, matcher.start(), matcher.end(), flags)
+    for (span in spans) setSpan(span(), matcher.start(), matcher.end(), flags)
     return this
 }
 
@@ -87,9 +87,10 @@ inline fun Spannable.spanAll(vararg spans: Any): Spannable =
         spanAll(SPAN_EXCLUSIVE_EXCLUSIVE, *spans)
 
 /** Remove [spans] from this text. */
-inline fun Spannable.removeSpans(vararg spans: Any) {
+inline fun Spannable.despan(vararg spans: Any): Spannable {
     for (span in spans) removeSpan(span)
+    return this
 }
 
 /** Clear all spans from this text. */
-inline fun Spannable.clearSpans() = removeSpans(spans)
+inline fun Spannable.despanAll(): Spannable = despan(*spans)

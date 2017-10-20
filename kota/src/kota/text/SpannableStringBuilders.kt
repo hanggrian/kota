@@ -24,5 +24,5 @@ inline fun SpannableStringBuilder.append(flags: Int, text: CharSequence, vararg 
 }
 
 /** Append text with [spans] applied using default flags. */
-inline fun SpannableStringBuilder.append(text: CharSequence, vararg spans: Any): SpannableStringBuilder
-        = append(SPAN_EXCLUSIVE_EXCLUSIVE, text, *spans)
+inline fun SpannableStringBuilder.append(text: CharSequence, vararg spans: Any): SpannableStringBuilder =
+        append(SPAN_EXCLUSIVE_EXCLUSIVE, text, *spans)

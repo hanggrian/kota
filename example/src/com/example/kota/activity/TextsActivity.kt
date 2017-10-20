@@ -5,7 +5,6 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.util.PatternsCompat
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.text.SpannableStringBuilder
@@ -17,22 +16,18 @@ import android.text.style.URLSpan
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.kota.FontSpan
 import com.example.kota.R
-import com.example.spannabletext.FontSpan
+import kota.find
+import kota.layoutInflater
 import kota.resources.dp
 import kota.resources.getColor2
-import kota.layoutInflater
-import kota.text.append
-import kota.text.span
-import kota.text.spanAll
-import kota.text.toSpannable
-import kota.find
+import kota.setGridLayoutManager
+import kota.text.*
 import kotlinx.android.synthetic.main.activity_texts.*
 
 /**
  * Example activity that mimics https://fonts.google.com.
- *
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 class TextsActivity : AppCompatActivity() {
 
@@ -47,10 +42,9 @@ class TextsActivity : AppCompatActivity() {
                 .spanAll(ForegroundColorSpan(getColor2(R.color.gray)))
 
         val total = 818
-        //textViewViewing.text = "Viewing %s of %s font families".formatSpannable(Pair(total, arrayOf(ForegroundColorSpan(getColor2(R.color.colorAccent)))),
-        //        Pair(total, emptyArray()))
+        textViewViewing.text = "Viewing $total of $total font families".toSpannable().spanFirst(Regex(total.toString()), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
 
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerView.setGridLayoutManager(2)
         recyclerView.adapter = Adapter(this)
 
         textViewCopyright.text = "© 2017 Google Inc.".toSpannable()

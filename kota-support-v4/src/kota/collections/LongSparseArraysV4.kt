@@ -26,6 +26,9 @@ inline fun <E> supportLongSparseArrayOf(vararg pairs: Pair<Long, E?>): LongSpars
     for ((key, value) in pairs) append(key, value)
 }
 
+@Suppress("EXTENSION_SHADOWED_BY_MEMBER")
+inline operator fun <E> LongSparseArray<E>.get(index: Long): E = get(index)
+
 inline fun <E> LongSparseArray<E>.containsKey(key: Long): Boolean = indexOfKey(key) > -1
 inline fun <E> LongSparseArray<E>.containsAllKeys(keys: Collection<Long>): Boolean = keys.all { containsKey(it) }
 

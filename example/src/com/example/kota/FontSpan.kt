@@ -1,4 +1,4 @@
-package com.example.spannabletext
+package com.example.kota
 
 import android.content.res.AssetManager
 import android.graphics.Paint
@@ -8,9 +8,6 @@ import android.text.TextPaint
 import android.text.style.TypefaceSpan
 import java.io.File
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 class FontSpan(family: String, private val typeface: Typeface) : TypefaceSpan(family) {
 
     constructor(uri: Uri) : this(File(uri.path))

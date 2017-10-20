@@ -27,6 +27,9 @@ import java.util.*
     for ((key, value) in pairs) append(key, value)
 }
 
+@Suppress("EXTENSION_SHADOWED_BY_MEMBER")
+@RequiresApi(18) inline operator fun SparseLongArray.get(index: Int): Long = get(index)
+
 @RequiresApi(18) inline fun SparseLongArray.containsKey(key: Int): Boolean = indexOfKey(key) > -1
 @RequiresApi(18) inline fun SparseLongArray.containsAllKeys(keys: Collection<Int>): Boolean = keys.all { containsKey(it) }
 
