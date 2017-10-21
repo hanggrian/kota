@@ -23,16 +23,15 @@ inline fun Context.supportChoiceAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.supportChoiceAlert(
@@ -70,16 +69,15 @@ inline fun Context.supportChoiceAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.supportChoiceAlert(
@@ -117,16 +115,15 @@ inline fun Context.supportChoiceAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.supportChoiceAlert(
@@ -164,16 +161,15 @@ inline fun Context.supportChoiceAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.supportChoiceAlert(
@@ -211,16 +207,15 @@ inline fun Context.supportChoiceAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.supportChoiceAlert(
@@ -258,16 +253,15 @@ inline fun Context.supportChoiceAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.supportChoiceAlert(

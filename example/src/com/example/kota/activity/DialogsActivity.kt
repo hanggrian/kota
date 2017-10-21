@@ -7,7 +7,6 @@ import android.widget.EditText
 import com.example.kota.R
 import kota.*
 import kota.dialogs.*
-import kota.contentView
 
 class DialogsActivity : NextActivity() {
 
@@ -48,6 +47,14 @@ class DialogsActivity : NextActivity() {
             }
             find<Preference>("customAlert").setOnPreferenceClickListener {
                 supportCustomAlert("Custom alert", EditText(context), CancelButton, OkButton)
+                false
+            }
+            find<Preference>("progressDialog").setOnPreferenceClickListener {
+                progressDialog("Please wait", "Loading...")
+                false
+            }
+            find<Preference>("indeterminateProgressDialog").setOnPreferenceClickListener {
+                indeterminateProgressDialog("Please wait", "Loading...")
                 false
             }
         }

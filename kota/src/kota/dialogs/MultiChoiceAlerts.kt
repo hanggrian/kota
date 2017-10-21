@@ -23,16 +23,15 @@ inline fun Context.multiChoiceAlert(
         noinline action: (DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.multiChoiceAlert(
@@ -70,16 +69,15 @@ inline fun Context.multiChoiceAlert(
         noinline action: (DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.multiChoiceAlert(
@@ -117,16 +115,15 @@ inline fun Context.multiChoiceAlert(
         noinline action: (DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.multiChoiceAlert(
@@ -164,16 +161,15 @@ inline fun Context.multiChoiceAlert(
         noinline action: (DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.multiChoiceAlert(
@@ -212,16 +208,15 @@ inline fun Context.multiChoiceAlert(
         noinline action: (DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMultiChoiceItems(items, isCheckedColumn, labelColumn, DialogInterface.OnMultiChoiceClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMultiChoiceItems(items, isCheckedColumn, labelColumn, DialogInterface.OnMultiChoiceClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.multiChoiceAlert(
@@ -243,16 +238,15 @@ inline fun Context.multiChoiceAlert(
         noinline action: (DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMultiChoiceItems(items, isCheckedColumn, labelColumn, DialogInterface.OnMultiChoiceClickListener(action))
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMultiChoiceItems(items, isCheckedColumn, labelColumn, DialogInterface.OnMultiChoiceClickListener(action))
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.multiChoiceAlert(

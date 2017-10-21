@@ -21,16 +21,15 @@ inline fun Context.customAlert(
         view: View,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setView(view)
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setView(view)
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.customAlert(
@@ -46,16 +45,15 @@ inline fun Context.customAlert(
         view: View,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setView(view)
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setView(view)
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.customAlert(
@@ -72,16 +70,15 @@ inline fun Context.customAlert(
         @LayoutRes view: Int,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setView(view)
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setView(view)
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @RequiresApi(21)
 @JvmOverloads
@@ -99,16 +96,15 @@ inline fun Context.customAlert(
         @LayoutRes view: Int,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setView(view)
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setView(view)
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @RequiresApi(21)
 @JvmOverloads

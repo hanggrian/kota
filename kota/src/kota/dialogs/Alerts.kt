@@ -18,16 +18,15 @@ inline fun Context.alert(
         message: CharSequence,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMessage(message)
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMessage(message)
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.alert(
@@ -43,16 +42,15 @@ inline fun Context.alert(
         message: CharSequence,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMessage(message)
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMessage(message)
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.alert(
@@ -68,16 +66,15 @@ inline fun Context.alert(
         @StringRes message: Int,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
-): AlertDialog {
-    val dialog = AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMessage(message)
-            .setButtons(*buttons)
-            .create()
-    init?.invoke(dialog)
-    dialog.show()
-    return dialog
-}
+): AlertDialog = AlertDialog.Builder(this)
+        .setTitle(title)
+        .setMessage(message)
+        .setButtons(*buttons)
+        .create()
+        .apply {
+            init?.invoke(this)
+            show()
+        }
 
 @JvmOverloads
 inline fun Fragment.alert(

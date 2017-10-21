@@ -28,4 +28,12 @@
         android:key="customAlert"
         android:summary="customAlert() or supportCustomAlert()"
         android:title="Custom alert" />
+    <android.support.v7.preference.Preference
+        android:key="progressDialog"
+        android:summary="progressDialog()"
+        android:title="Progress dialog" />
+    <android.support.v7.preference.Preference
+        android:key="indeterminateProgressDialog"
+        android:summary="indeterminateProgressDialog()"
+        android:title="Indeterminate progress dialog" />
 </android.support.v7.preference.PreferenceScreen>
