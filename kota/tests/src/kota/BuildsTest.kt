@@ -5,9 +5,6 @@ import android.util.Log
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 @RunWith(AndroidJUnit4::class)
 class BuildsTest {
 

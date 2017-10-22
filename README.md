@@ -1,13 +1,9 @@
 kota
 ====
-Kota aims to be an extension of [support-compat], a lightweight library full of static functions for common practices in Android.
+A lightweight library full of static functions for common practices in Android.
 Inspired by [anko-commons], these static methods are based on [Kotlin extension functions].
 
-Consists of several packages:
-* **app**: Activity and Service related operations. [see wiki][app]
-* **content**: Resources, Uri, and others. [see wiki][content]
-* **text**: perform complex text spanning, often done in single line. [see wiki][text]
-* **view**: View, ViewGroup, and InputMethodManager. [see wiki][view]
+more README coming soon...
 
 Download
 --------
@@ -18,22 +14,22 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kota:0.15'
+    compile 'com.hendraanggrian:kota:0.16'
     
     compile 'com.android.support:support-v4:26.1.0'
-    compile 'com.hendraanggrian:kota-support-v4:0.15'
+    compile 'com.hendraanggrian:kota-support-v4:0.16'
     
     compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.hendraanggrian:kota-appcompat-v7:0.15'
+    compile 'com.hendraanggrian:kota-appcompat-v7:0.16'
     
     compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.hendraanggrian:kota-recyclerview-v7:0.15'
+    compile 'com.hendraanggrian:kota-recyclerview-v7:0.16'
     
     compile 'com.android.support:preference-v7:26.1.0'
-    compile 'com.hendraanggrian:kota-preference-v7:0.15'
+    compile 'com.hendraanggrian:kota-preference-v7:0.16'
     
     compile 'com.android.support:design:26.1.0'
-    compile 'com.hendraanggrian:kota-design:0.15'
+    compile 'com.hendraanggrian:kota-design:0.16'
 }
 ```
 
@@ -55,7 +51,3 @@ License
 
 [Kotlin extension functions]: https://kotlinlang.org/docs/reference/extensions.html
 [anko-commons]: https://github.com/Kotlin/anko
-[app]: https://github.com/HendraAnggrian/kota/wiki/PackageApp
-[content]: https://github.com/HendraAnggrian/kota/wiki/PackageContent
-[text]: https://github.com/HendraAnggrian/kota/wiki/PackageText
-[view]: https://github.com/HendraAnggrian/kota/wiki/PackageView

@@ -11,10 +11,10 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 
-inline fun <reified T : View> View.find(@IdRes id: Int): T = findViewById(id)!!
-inline fun <reified T : View> Activity.find(@IdRes id: Int): T = findViewById(id)!!
-inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById(id)!!
-inline fun <reified T : View> Dialog.find(@IdRes id: Int): T = findViewById(id)!!
+inline fun <reified T : View> View.find(@IdRes id: Int): T = findViewById<T>(id) as T
+inline fun <reified T : View> Activity.find(@IdRes id: Int): T = findViewById<T>(id) as T
+inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById<T>(id) as T
+inline fun <reified T : View> Dialog.find(@IdRes id: Int): T = findViewById<T>(id) as T
 
 inline fun <reified T : View> View.findNullable(@IdRes id: Int): T? = findViewById(id)
 inline fun <reified T : View> Activity.findNullable(@IdRes id: Int): T? = findViewById(id)
