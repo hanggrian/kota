@@ -35,24 +35,21 @@ const val VERSION_O: Int = Build.VERSION_CODES.O
 inline fun isAtLeast(version: Int): Boolean = Build.VERSION.SDK_INT >= version
 
 /** Execute [block] if current sdk version is at least [version]. */
-inline fun runIfAtLeast(version: Int, block: () -> Unit) {
-    if (isAtLeast(version)) block()
-}
+inline fun runIfAtLeast(version: Int, block: () -> Unit) =
+        if (isAtLeast(version)) block()
+        else Unit
 
 /** Execute [block] if current sdk version is at least [version], [fallback] otherwise. */
-inline fun runIfAtLeast(version: Int, block: () -> Unit, fallback: () -> Unit) {
-    if (isAtLeast(version)) block()
-    else fallback()
-}
+inline fun runIfAtLeast(version: Int, block: () -> Unit, fallback: () -> Unit) =
+        if (isAtLeast(version)) block()
+        else fallback()
 
 /** Return [block] if current sdk version is at least [version], null otherwise. */
-inline fun <T, R> T.getIfAtLeast(version: Int, block: T.() -> R): R? {
-    return if (isAtLeast(version)) block()
-    else null
-}
+inline fun <T, R> T.getIfAtLeast(version: Int, block: T.() -> R): R? =
+        if (isAtLeast(version)) block()
+        else null
 
 /** Return [block] if current sdk version is at least [version], [fallback] otherwise. */
-inline fun <T, R> T.getIfAtLeast(version: Int, block: T.() -> R, fallback: T.() -> R): R {
-    return if (isAtLeast(version)) block()
-    else fallback(this)
-}
+inline fun <T, R> T.getIfAtLeast(version: Int, block: T.() -> R, fallback: T.() -> R): R =
+        if (isAtLeast(version)) block()
+        else fallback(this)

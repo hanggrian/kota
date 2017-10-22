@@ -20,7 +20,7 @@ inline fun Context.supportMultiChoiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -38,7 +38,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
@@ -47,7 +47,7 @@ inline fun Fragment.supportMultiChoiceAlert(
 inline fun Context.supportMultiChoiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = supportMultiChoiceAlert(title, items, null, action, *buttons, init = init)
@@ -56,7 +56,7 @@ inline fun Context.supportMultiChoiceAlert(
 inline fun Fragment.supportMultiChoiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
@@ -66,7 +66,7 @@ inline fun Context.supportMultiChoiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -84,7 +84,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
@@ -93,7 +93,7 @@ inline fun Fragment.supportMultiChoiceAlert(
 inline fun Context.supportMultiChoiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = supportMultiChoiceAlert(title, items, null, action, *buttons, init = init)
@@ -102,7 +102,7 @@ inline fun Context.supportMultiChoiceAlert(
 inline fun Fragment.supportMultiChoiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
@@ -112,7 +112,7 @@ inline fun Context.supportMultiChoiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -130,7 +130,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
@@ -139,7 +139,7 @@ inline fun Fragment.supportMultiChoiceAlert(
 inline fun Context.supportMultiChoiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = supportMultiChoiceAlert(title, items, null, action, *buttons, init = init)
@@ -148,7 +148,7 @@ inline fun Context.supportMultiChoiceAlert(
 inline fun Fragment.supportMultiChoiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
@@ -158,7 +158,7 @@ inline fun Context.supportMultiChoiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -176,7 +176,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
@@ -185,7 +185,7 @@ inline fun Fragment.supportMultiChoiceAlert(
 inline fun Context.supportMultiChoiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = supportMultiChoiceAlert(title, items, null, action, *buttons, init = init)
@@ -194,7 +194,7 @@ inline fun Context.supportMultiChoiceAlert(
 inline fun Fragment.supportMultiChoiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
@@ -205,7 +205,7 @@ inline fun Context.supportMultiChoiceAlert(
         items: Cursor,
         isCheckedColumn: String,
         labelColumn: String,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -224,7 +224,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         items: Cursor,
         isCheckedColumn: String,
         labelColumn: String,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, isCheckedColumn, labelColumn, action, *buttons, init = init)
@@ -235,7 +235,7 @@ inline fun Context.supportMultiChoiceAlert(
         items: Cursor,
         isCheckedColumn: String,
         labelColumn: String,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -254,7 +254,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         items: Cursor,
         isCheckedColumn: String,
         labelColumn: String,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
 ): AlertDialog = context.supportMultiChoiceAlert(title, items, isCheckedColumn, labelColumn, action, *buttons, init = init)

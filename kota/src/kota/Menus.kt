@@ -6,11 +6,10 @@ import android.view.Menu
 import android.view.MenuItem
 
 inline fun Menu.find(id: Int): MenuItem = findItem(id)!!
-
 inline fun Menu.findNullable(id: Int): MenuItem? = findItem(id)
 
 inline operator fun Menu.get(index: Int): MenuItem = getItem(index)!!
-inline fun Menu.getOrNull(index: Int): MenuItem? = if (index in 0..lastIndex) this[index] else null
+inline fun Menu.getOrNull(index: Int): MenuItem? = if (index in 0..lastIndex) getItem(index) else null
 
 inline val Menu.items: List<MenuItem> get() = (0 until size()).map { getItem(it) }
 inline val Menu.firstItem: MenuItem get() = this[0]
@@ -21,11 +20,5 @@ inline val Menu.lastItemOrNull: MenuItem? get() = if (isEmpty) null else lastIte
 inline val Menu.isEmpty: Boolean get() = size() == 0
 inline val Menu.lastIndex: Int get() = size() - 1
 
-inline fun Menu.forEachItem(action: (MenuItem) -> Unit) {
-    for (item in items) action(item)
-}
-
-inline fun Menu.forEachItemIndexed(action: (Int, MenuItem) -> Unit) {
-    var i = 0
-    for (item in items) action(i++, item)
-}
+inline fun Menu.forEachItem(action: (MenuItem) -> Unit) = items.forEach(action)
+inline fun Menu.forEachItemIndexed(action: (Int, MenuItem) -> Unit) = items.forEachIndexed(action)

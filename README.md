@@ -18,22 +18,22 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kota:0.13'
+    compile 'com.hendraanggrian:kota:0.15'
     
     compile 'com.android.support:support-v4:26.1.0'
-    compile 'com.hendraanggrian:kota-support-v4:0.13'
+    compile 'com.hendraanggrian:kota-support-v4:0.15'
     
     compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.hendraanggrian:kota-appcompat-v7:0.13'
+    compile 'com.hendraanggrian:kota-appcompat-v7:0.15'
     
     compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.hendraanggrian:kota-recyclerview-v7:0.13'
+    compile 'com.hendraanggrian:kota-recyclerview-v7:0.15'
     
     compile 'com.android.support:preference-v7:26.1.0'
-    compile 'com.hendraanggrian:kota-preference-v7:0.13'
+    compile 'com.hendraanggrian:kota-preference-v7:0.15'
     
     compile 'com.android.support:design:26.1.0'
-    compile 'com.hendraanggrian:kota-design:0.13'
+    compile 'com.hendraanggrian:kota-design:0.15'
 }
 ```
 

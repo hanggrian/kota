@@ -22,7 +22,7 @@ inline fun <reified T : View> Fragment.findNullable(@IdRes id: Int): T? = view?.
 inline fun <reified T : View> Dialog.findNullable(@IdRes id: Int): T? = findViewById(id)
 
 inline operator fun ViewGroup.get(index: Int): View = getChildAt(index)!!
-inline fun ViewGroup.getOrNull(index: Int): View? = this[index]
+inline fun ViewGroup.getOrNull(index: Int): View? = if (index in 0..lastIndex) getChildAt(index) else null
 
 inline val ViewGroup.childs: List<View> get() = (0 until childCount).map { getChildAt(it) }
 inline val ViewGroup.firstChild: View get() = this[0]
@@ -33,14 +33,8 @@ inline val ViewGroup.lastChildOrNull: View? get() = if (isEmpty) null else lastC
 inline val ViewGroup.isEmpty: Boolean get() = childCount == 0
 inline val ViewGroup.lastIndex: Int get() = childCount - 1
 
-inline fun ViewGroup.forEachChild(action: (View) -> Unit) {
-    for (child in childs) action(child)
-}
-
-inline fun ViewGroup.forEachChildIndexed(action: (Int, View) -> Unit) {
-    var i = 0
-    for (child in childs) action(i++, child)
-}
+inline fun ViewGroup.forEachChild(action: (View) -> Unit) = childs.forEach(action)
+inline fun ViewGroup.forEachChildIndexed(action: (Int, View) -> Unit) = childs.forEachIndexed(action)
 
 inline val Activity.contentView: View? get() = findViewById<ViewGroup>(android.R.id.content)?.getChildAt(0)
 

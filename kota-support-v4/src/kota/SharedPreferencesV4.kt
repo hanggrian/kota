@@ -2,14 +2,12 @@
 
 package kota
 
-import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.support.v4.app.Fragment
-import kota.preferences
 
-/** Retrieve a default preferences of this Context. */
-inline val Fragment.preferences: SharedPreferences get() = context.preferences
+/** Retrieve a default sharedPreferences of this Context. */
+inline val Fragment.sharedPreferences: SharedPreferences get() = context.sharedPreferences
 
-/** Retrieve a default preferences of Context attached to this Fragment. */
-@JvmOverloads
-inline fun Fragment.getPreferences(name: String, mode: Int = Context.MODE_PRIVATE): SharedPreferences = context.getSharedPreferences(name, mode)
+/** Retrieve a default sharedPreferences of Context attached to this Fragment. */
+inline fun Fragment.getSharedPreferences(name: String): SharedPreferences = context.getSharedPreferences(name, MODE_PRIVATE)

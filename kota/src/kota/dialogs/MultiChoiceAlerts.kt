@@ -20,7 +20,7 @@ inline fun Context.multiChoiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -38,7 +38,7 @@ inline fun Fragment.multiChoiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, checked, action, *buttons, init = init)
@@ -47,7 +47,7 @@ inline fun Fragment.multiChoiceAlert(
 inline fun Context.multiChoiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = multiChoiceAlert(title, items, null, action, *buttons, init = init)
@@ -56,7 +56,7 @@ inline fun Context.multiChoiceAlert(
 inline fun Fragment.multiChoiceAlert(
         title: CharSequence,
         items: Array<out CharSequence>,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, action, *buttons, init = init)
@@ -66,7 +66,7 @@ inline fun Context.multiChoiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -84,7 +84,7 @@ inline fun Fragment.multiChoiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, checked, action, *buttons, init = init)
@@ -93,7 +93,7 @@ inline fun Fragment.multiChoiceAlert(
 inline fun Context.multiChoiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = multiChoiceAlert(title, items, null, action, *buttons, init = init)
@@ -102,7 +102,7 @@ inline fun Context.multiChoiceAlert(
 inline fun Fragment.multiChoiceAlert(
         @StringRes title: Int,
         items: Array<out CharSequence>,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, action, *buttons, init = init)
@@ -112,7 +112,7 @@ inline fun Context.multiChoiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -130,7 +130,7 @@ inline fun Fragment.multiChoiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, checked, action, *buttons, init = init)
@@ -139,7 +139,7 @@ inline fun Fragment.multiChoiceAlert(
 inline fun Context.multiChoiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = multiChoiceAlert(title, items, null, action, *buttons, init = init)
@@ -148,7 +148,7 @@ inline fun Context.multiChoiceAlert(
 inline fun Fragment.multiChoiceAlert(
         title: CharSequence,
         @ArrayRes items: Int,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, action, *buttons, init = init)
@@ -158,7 +158,7 @@ inline fun Context.multiChoiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -176,7 +176,7 @@ inline fun Fragment.multiChoiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
         checked: BooleanArray?,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, checked, action, *buttons, init = init)
@@ -185,7 +185,7 @@ inline fun Fragment.multiChoiceAlert(
 inline fun Context.multiChoiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = multiChoiceAlert(title, items, null, action, *buttons, init = init)
@@ -194,7 +194,7 @@ inline fun Context.multiChoiceAlert(
 inline fun Fragment.multiChoiceAlert(
         @StringRes title: Int,
         @ArrayRes items: Int,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, action, *buttons, init = init)
@@ -205,7 +205,7 @@ inline fun Context.multiChoiceAlert(
         items: Cursor,
         isCheckedColumn: String,
         labelColumn: String,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -224,7 +224,7 @@ inline fun Fragment.multiChoiceAlert(
         items: Cursor,
         isCheckedColumn: String,
         labelColumn: String,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, isCheckedColumn, labelColumn, action, *buttons, init = init)
@@ -235,7 +235,7 @@ inline fun Context.multiChoiceAlert(
         items: Cursor,
         isCheckedColumn: String,
         labelColumn: String,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
@@ -254,7 +254,7 @@ inline fun Fragment.multiChoiceAlert(
         items: Cursor,
         isCheckedColumn: String,
         labelColumn: String,
-        noinline action: (DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (Dialog.() -> Unit)? = null
 ): AlertDialog = activity.multiChoiceAlert(title, items, isCheckedColumn, labelColumn, action, *buttons, init = init)
