@@ -1,12 +1,11 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.text
+package kota
 
 import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import android.webkit.MimeTypeMap
-import kota.isContent
 import java.io.File
 
 inline val String.mimeType: String
