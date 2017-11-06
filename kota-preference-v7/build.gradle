@@ -20,9 +20,9 @@ android {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    provided "com.android.support:preference-v7:$versions.support"
-    compile project(':kota')
+    api "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    compileOnly "com.android.support:preference-v7:$versions.support"
+    api project(':kota-appcompat-v7')
 }
 
 publish {

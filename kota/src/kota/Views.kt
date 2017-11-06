@@ -21,6 +21,7 @@ inline fun <reified T : View> Activity.findNullable(@IdRes id: Int): T? = findVi
 inline fun <reified T : View> Fragment.findNullable(@IdRes id: Int): T? = view?.findViewById(id)
 inline fun <reified T : View> Dialog.findNullable(@IdRes id: Int): T? = findViewById(id)
 
+inline operator fun ViewGroup.contains(child: View) = child.parent == this
 inline operator fun ViewGroup.get(index: Int): View = getChildAt(index)!!
 inline fun ViewGroup.getOrNull(index: Int): View? = if (index in 0..lastIndex) getChildAt(index) else null
 

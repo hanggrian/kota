@@ -24,25 +24,25 @@ class DialogsActivity : NextActivity() {
                 false
             }
             find<Preference>("snackbar").setOnPreferenceClickListener {
-                activity.contentView!!.snackbar("Here's a snackbar.")
+                activity!!.contentView!!.snackbar("Here's a snackbar.")
                 false
             }
             find<Preference>("alert").setOnPreferenceClickListener {
-                supportAlert("Alert", "Easily add buttons with DialogButton", CancelButton, OkButton { activity.contentView!!.snackbar("OK") })
+                supportAlert("Alert", "Easily add buttons with DialogButton", CancelButton, OkButton { activity!!.contentView!!.snackbar("OK") })
                 false
             }
             find<Preference>("itemsAlert").setOnPreferenceClickListener {
-                supportItemsAlert("Items alert", a, { _, i -> activity.contentView!!.snackbar(a[i]) })
+                supportItemsAlert("Items alert", a, { _, i -> activity!!.contentView!!.snackbar(a[i]) })
                 false
             }
             find<Preference>("choiceAlert").setOnPreferenceClickListener {
                 var selected: String? = null
-                supportChoiceAlert("Single choice alert", a, { _, i -> selected = a[i] }, OkButton { activity.contentView!!.snackbar(selected.toString()) })
+                supportChoiceAlert("Single choice alert", a, { _, i -> selected = a[i] }, OkButton { activity!!.contentView!!.snackbar(selected.toString()) })
                 false
             }
             find<Preference>("multiChoiceAlert").setOnPreferenceClickListener {
                 val selected = mutableListOf<String>()
-                supportMultiChoiceAlert("Multi choice alert", a, { _, i, isSelected -> if (isSelected) selected.add(a[i]) else selected.remove(a[i]) }, OkButton { activity.contentView!!.snackbar(selected.toString()) })
+                supportMultiChoiceAlert("Multi choice alert", a, { _, i, isSelected -> if (isSelected) selected.add(a[i]) else selected.remove(a[i]) }, OkButton { activity!!.contentView!!.snackbar(selected.toString()) })
                 false
             }
             find<Preference>("customAlert").setOnPreferenceClickListener {

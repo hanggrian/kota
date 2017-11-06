@@ -5,19 +5,12 @@ package kota
 import android.app.Dialog
 import android.app.Fragment
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import android.preference.PreferenceManager.getDefaultSharedPreferences
 
-@PublishedApi internal const val DEFAULT_VALUE: Int = 0
-
-inline val Context.sharedPreferences: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(this)
+inline val Context.sharedPreferences: SharedPreferences get() = getDefaultSharedPreferences(this)
 inline val Fragment.sharedPreferences: SharedPreferences get() = activity.sharedPreferences
 inline val Dialog.sharedPreferences: SharedPreferences get() = context.sharedPreferences
-
-inline fun Context.getSharedPreferences(name: String): SharedPreferences = getSharedPreferences(name, MODE_PRIVATE)
-inline fun Fragment.getSharedPreferences(name: String): SharedPreferences = activity.getSharedPreferences(name)
-inline fun Dialog.getSharedPreferences(name: String): SharedPreferences = context.getSharedPreferences(name)
 
 /**
  * Retrieve a String value from the sharedPreferences.
@@ -46,7 +39,7 @@ inline fun SharedPreferences.getStringSet(key: String): MutableSet<String> {
  */
 inline fun SharedPreferences.getInt(key: String): Int {
     require(contains(key))
-    return getInt(key, DEFAULT_VALUE)
+    return getInt(key, Int.MIN_VALUE)
 }
 
 /**
@@ -56,7 +49,7 @@ inline fun SharedPreferences.getInt(key: String): Int {
  */
 inline fun SharedPreferences.getLong(key: String): Long {
     require(contains(key))
-    return getLong(key, DEFAULT_VALUE.toLong())
+    return getLong(key, Long.MIN_VALUE)
 }
 
 /**
@@ -66,7 +59,7 @@ inline fun SharedPreferences.getLong(key: String): Long {
  */
 inline fun SharedPreferences.getFloat(key: String): Float {
     require(contains(key))
-    return getFloat(key, DEFAULT_VALUE.toFloat())
+    return getFloat(key, Float.MIN_VALUE)
 }
 
 /**
@@ -76,5 +69,5 @@ inline fun SharedPreferences.getFloat(key: String): Float {
  */
 inline fun SharedPreferences.getBoolean(key: String): Boolean {
     require(contains(key))
-    return getBoolean(key, DEFAULT_VALUE != 0)
+    return getBoolean(key, false)
 }

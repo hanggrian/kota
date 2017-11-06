@@ -10,10 +10,11 @@ import android.app.Fragment
 import android.content.Context
 import android.content.res.*
 import android.graphics.Movie
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.M
 import android.support.annotation.*
 import android.util.DisplayMetrics
 import android.util.TypedValue
-import kota.getIfAtLeast
 import java.io.InputStream
 
 inline val Context.configuration: Configuration get() = resources.configuration
@@ -72,13 +73,11 @@ inline fun Context.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
 inline fun Fragment.getMovie(@RawRes id: Int): Movie = activity.getMovie(id)
 inline fun Dialog.getMovie(@RawRes id: Int): Movie = context.getMovie(id)
 
-@SuppressLint("NewApi")
-@ColorInt inline fun Context.getColor2(@ColorRes id: Int): Int = getIfAtLeast(23, { getColor(id) }, { @Suppress("DEPRECATION") resources.getColor(id) })
-
+@ColorInt inline fun Context.getColor2(@ColorRes id: Int): Int = if (SDK_INT < M) @Suppress("DEPRECATION") resources.getColor(id) else getColor(id)
 @ColorInt inline fun Fragment.getColor2(@ColorRes id: Int): Int = activity.getColor2(id)
 @ColorInt inline fun Dialog.getColor2(@ColorRes id: Int): Int = context.getColor2(id)
 
-@SuppressLint("NewApi") inline fun Context.getColorStateList2(@ColorRes id: Int): ColorStateList = getIfAtLeast(23, { getColorStateList(id) }, { @Suppress("DEPRECATION") resources.getColorStateList(id) })
+inline fun Context.getColorStateList2(@ColorRes id: Int): ColorStateList = if (SDK_INT < M) @Suppress("DEPRECATION") resources.getColorStateList(id) else getColorStateList(id)
 inline fun Fragment.getColorStateList2(@ColorRes id: Int): ColorStateList = activity.getColorStateList2(id)
 inline fun Dialog.getColorStateList2(@ColorRes id: Int): ColorStateList = context.getColorStateList2(id)
 

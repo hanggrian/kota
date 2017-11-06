@@ -14,6 +14,17 @@ inline fun <reified T : Fragment> FragmentManager.find(id: Int): T = findFragmen
 inline fun <reified T : Fragment> FragmentManager.findNullable(tag: String): T? = findFragmentByTag(tag) as? T
 inline fun <reified T : Fragment> FragmentManager.findNullable(id: Int): T? = findFragmentById(id) as? T
 
+
+@JvmOverloads
+inline fun FragmentManager.add(
+        fragment: Fragment,
+        tag: String,
+        transit: FragmentTransit = NoTransit
+) = beginTransaction()
+        .setTransit(transit)
+        .add(fragment, tag)
+        .commit()
+
 @JvmOverloads
 inline fun FragmentManager.add(
         @IdRes containerViewId: Int,
@@ -34,6 +45,16 @@ inline fun FragmentManager.add(
         .setTransit(transit)
         .add(containerViewId, fragment, tag)
         .commit()
+
+@JvmOverloads
+inline fun FragmentManager.addNow(
+        fragment: Fragment,
+        tag: String,
+        transit: FragmentTransit = NoTransit
+) = beginTransaction()
+        .setTransit(transit)
+        .add(fragment, tag)
+        .commitNow()
 
 @JvmOverloads
 inline fun FragmentManager.addNow(

@@ -41,7 +41,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -59,7 +59,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -87,7 +87,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -105,7 +105,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -133,7 +133,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -151,7 +151,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -179,7 +179,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, checked, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -197,7 +197,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -227,7 +227,7 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, isCheckedColumn, labelColumn, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, isCheckedColumn, labelColumn, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportMultiChoiceAlert(
@@ -257,4 +257,4 @@ inline fun Fragment.supportMultiChoiceAlert(
         noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportMultiChoiceAlert(title, items, isCheckedColumn, labelColumn, action, *buttons, init = init)
+): AlertDialog = context!!.supportMultiChoiceAlert(title, items, isCheckedColumn, labelColumn, action, *buttons, init = init)

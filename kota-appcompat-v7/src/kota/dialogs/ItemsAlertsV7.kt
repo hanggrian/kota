@@ -38,7 +38,7 @@ inline fun Fragment.supportItemsAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportItemsAlert(title, items, action, *buttons, init = init)
+): AlertDialog = context!!.supportItemsAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportItemsAlert(
@@ -64,7 +64,7 @@ inline fun Fragment.supportItemsAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportItemsAlert(title, items, action, *buttons, init = init)
+): AlertDialog = context!!.supportItemsAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportItemsAlert(
@@ -90,7 +90,7 @@ inline fun Fragment.supportItemsAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportItemsAlert(title, items, action, *buttons, init = init)
+): AlertDialog = context!!.supportItemsAlert(title, items, action, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportItemsAlert(
@@ -116,4 +116,4 @@ inline fun Fragment.supportItemsAlert(
         noinline action: (DialogInterface, Int) -> Unit,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportItemsAlert(title, items, action, *buttons, init = init)
+): AlertDialog = context!!.supportItemsAlert(title, items, action, *buttons, init = init)

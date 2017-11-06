@@ -12,8 +12,8 @@ inline fun Context.isCallingPermissionsGranted(packageName: String, vararg permi
 
 inline fun android.app.Fragment.isCallingPermissionsGranted(packageName: String, vararg permissions: String): Boolean = activity.isCallingPermissionsGranted(packageName, *permissions)
 
-inline fun Fragment.isCallingPermissionsGranted(packageName: String, vararg permissions: String): Boolean = context.isCallingPermissionsGranted(packageName, *permissions)
+inline fun Fragment.isCallingPermissionsGranted(packageName: String, vararg permissions: String): Boolean = context!!.isCallingPermissionsGranted(packageName, *permissions)
 
-inline fun Fragment.isSelfPermissionsGranted(vararg permissions: String): Boolean = context.isSelfPermissionsGranted(*permissions)
+inline fun Fragment.isSelfPermissionsGranted(vararg permissions: String): Boolean = context!!.isSelfPermissionsGranted(*permissions)
 
 inline fun Fragment.shouldShowRationales(vararg permissions: String): Boolean = permissions.none { shouldShowRequestPermissionRationale(it) }

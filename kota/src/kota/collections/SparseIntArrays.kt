@@ -27,7 +27,9 @@ inline fun sparseIntArrayOf(vararg pairs: Pair<Int, Int>): SparseIntArray = Spar
 }
 
 @Suppress("EXTENSION_SHADOWED_BY_MEMBER")
-inline operator fun SparseIntArray.get(index: Int): Int = get(index)
+inline operator fun SparseIntArray.get(key: Int): Int = get(key)
+
+inline operator fun SparseIntArray.set(key: Int, value: Int) = put(key, value)
 
 inline fun SparseIntArray.containsKey(key: Int): Boolean = indexOfKey(key) > -1
 inline fun SparseIntArray.containsAllKeys(keys: Collection<Int>): Boolean = keys.all { containsKey(it) }

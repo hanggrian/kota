@@ -4,12 +4,12 @@
 
 package kota.resources
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.app.Fragment
 import android.content.Context
 import android.content.res.Configuration.*
-import kota.getIfAtLeast
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.JELLY_BEAN_MR1
 
 inline val Context.screenSize: Int get() = configuration.screenLayout and SCREENLAYOUT_SIZE_MASK
 inline val Fragment.screenSize: Int get() = activity.screenSize
@@ -23,7 +23,7 @@ inline val Context.isScreenLong: Boolean get() = configuration.screenLayout and 
 inline val Fragment.isScreenLong: Boolean get() = activity.isScreenLong
 inline val Dialog.isScreenLong: Boolean get() = context.isScreenLong
 
-inline val Context.isRtl: Boolean @SuppressLint("NewApi") get() = getIfAtLeast(17, { configuration.layoutDirection and SCREENLAYOUT_LAYOUTDIR_MASK == SCREENLAYOUT_LAYOUTDIR_RTL }, { false })
+inline val Context.isRtl: Boolean get() = if (SDK_INT < JELLY_BEAN_MR1) false else configuration.layoutDirection and SCREENLAYOUT_LAYOUTDIR_MASK == SCREENLAYOUT_LAYOUTDIR_RTL
 inline val Fragment.isRtl: Boolean get() = activity.isRtl
 inline val Dialog.isRtl: Boolean get() = context.isRtl
 

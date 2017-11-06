@@ -36,7 +36,7 @@ inline fun Fragment.supportCustomAlert(
         view: View,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportCustomAlert(title, view, *buttons, init = init)
+): AlertDialog = context!!.supportCustomAlert(title, view, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportCustomAlert(
@@ -60,7 +60,7 @@ inline fun Fragment.supportCustomAlert(
         view: View,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportCustomAlert(title, view, *buttons, init = init)
+): AlertDialog = context!!.supportCustomAlert(title, view, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportCustomAlert(
@@ -84,7 +84,7 @@ inline fun Fragment.supportCustomAlert(
         @LayoutRes view: Int,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportCustomAlert(title, view, *buttons, init = init)
+): AlertDialog = context!!.supportCustomAlert(title, view, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportCustomAlert(
@@ -108,4 +108,4 @@ inline fun Fragment.supportCustomAlert(
         @LayoutRes view: Int,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportCustomAlert(title, view, *buttons, init = init)
+): AlertDialog = context!!.supportCustomAlert(title, view, *buttons, init = init)

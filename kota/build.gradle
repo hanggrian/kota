@@ -24,23 +24,30 @@ android {
             resources.srcDir 'tests/src'
         }
     }
+    buildTypes {
+        all {
+            buildConfigField('int', 'TRANSIT_TYPE_CUSTOM', '0')
+            buildConfigField('int', 'TRANSIT_TYPE_CONSTANT', '1')
+            buildConfigField('int', 'TRANSIT_TYPE_STYLE', '2')
+        }
+    }
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    compile "com.android.support:support-annotations:$versions.support"
+    api "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    api "com.android.support:support-annotations:$versions.support"
 
-    androidTestCompile "com.android.support:design:$versions.support"
-    androidTestCompile("com.android.support.test:rules:$versions.rules") {
+    androidTestImplementation "com.android.support:design:$versions.support"
+    androidTestImplementation("com.android.support.test:rules:$versions.rules") {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestCompile("com.android.support.test:runner:$versions.runner") {
+    androidTestImplementation("com.android.support.test:runner:$versions.runner") {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestCompile("com.android.support.test.espresso:espresso-core:$versions.espresso") {
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$versions.espresso") {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    testCompile "junit:junit:$versions.junit"
+    testImplementation "junit:junit:$versions.junit"
 }
 
 publish {

@@ -9,7 +9,7 @@ import android.support.annotation.*
 import android.support.annotation.IntRange
 
 @ColorInt
-inline fun String.toColorInt(): Int = Color.parseColor(this)
+inline fun colorIntOf(colorString: String) = Color.parseColor(colorString)
 
 @ColorInt
 @JvmOverloads
@@ -30,14 +30,9 @@ inline fun colorIntOf(
         @FloatRange(from = 0.0, to = 0.0) a: Float = 0xFF.toFloat()
 ): Int = Color.argb(a, r, g, b)
 
-@RequiresApi(26)
-inline fun @receiver:ColorInt Int.toColor(): Color = Color.valueOf(this)
-
-@RequiresApi(26)
-inline fun Long.toColor(): Color = Color.valueOf(this)
-
-@RequiresApi(26)
-inline fun String.toColor(): Color = Color.valueOf(toColorInt())
+@RequiresApi(26) inline fun colorOf(@ColorInt color: Int): Color = Color.valueOf(color)
+@RequiresApi(26) inline fun colorOf(color: Long): Color = Color.valueOf(color)
+@RequiresApi(26) inline fun colorOf(colorString: String): Color = Color.valueOf(colorIntOf(colorString))
 
 @JvmOverloads
 @RequiresApi(26)
@@ -55,7 +50,8 @@ inline fun colorOf(
         colorSpace: ColorSpace
 ): Color = Color.valueOf(a, colorSpace)
 
-inline fun @receiver:ColorInt Int.toColorStateList(): ColorStateList = ColorStateList.valueOf(this)
+inline fun colorStateListOf(@ColorInt color: Int): ColorStateList = ColorStateList.valueOf(color)
+inline fun colorStateListOf(colorString: String): ColorStateList = colorStateListOf(colorIntOf(colorString))
 
 inline val @receiver:ColorInt Int.red: Int @IntRange(from = 0, to = 255) get() = Color.red(this)
 inline val @receiver:ColorInt Int.green: Int @IntRange(from = 0, to = 255) get() = Color.green(this)

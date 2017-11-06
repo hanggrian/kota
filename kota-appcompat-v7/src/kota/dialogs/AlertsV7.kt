@@ -34,7 +34,7 @@ inline fun Fragment.supportAlert(
         message: CharSequence,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportAlert(title, message, *buttons, init = init)
+): AlertDialog = context!!.supportAlert(title, message, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportAlert(
@@ -58,7 +58,7 @@ inline fun Fragment.supportAlert(
         message: CharSequence,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportAlert(title, message, *buttons, init = init)
+): AlertDialog = context!!.supportAlert(title, message, *buttons, init = init)
 
 @JvmOverloads
 inline fun Context.supportAlert(
@@ -82,4 +82,4 @@ inline fun Fragment.supportAlert(
         @StringRes message: Int,
         vararg buttons: DialogButton,
         noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context.supportAlert(title, message, *buttons, init = init)
+): AlertDialog = context!!.supportAlert(title, message, *buttons, init = init)

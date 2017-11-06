@@ -1,15 +1,15 @@
 buildscript {
     ext.versions = [
-            release   : '0.16',
+            release   : '0.17',
             // android
             sdk       : [
                     'min'   : 14,
-                    'target': 26
+                    'target': 27
             ],
             buildTools: '26.0.2',
             // main
             kotlin    : '1.1.51',
-            support   : '26.1.0',
+            support   : '27.0.0',
             // test
             runner    : '0.5',
             rules     : '0.5',
@@ -32,14 +32,10 @@ allprojects {
         google()
         jcenter()
     }
-    tasks.withType(Javadoc).all {
-        enabled = false
-    }
+    tasks.withType(Javadoc).all { enabled = false }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+task clean(type: Delete) { delete rootProject.buildDir }
 
 /** QUICK LINT CHECK BEFORE UPLOAD
 
