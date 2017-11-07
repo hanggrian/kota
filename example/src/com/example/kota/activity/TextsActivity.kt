@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.util.PatternsCompat
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.text.SpannableStringBuilder
@@ -22,7 +23,6 @@ import kota.find
 import kota.layoutInflater
 import kota.resources.dp
 import kota.resources.getColor2
-import kota.setGridLayoutManager
 import kota.text.*
 import kotlinx.android.synthetic.main.activity_texts.*
 
@@ -44,7 +44,7 @@ class TextsActivity : AppCompatActivity() {
         val total = 818
         textViewViewing.text = "Viewing $total of $total font families".toSpannable().spanFirst(Regex(total.toString()), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
 
-        recyclerView.setGridLayoutManager(2)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = Adapter(this)
 
         textViewCopyright.text = "© 2017 Google Inc.".toSpannable()

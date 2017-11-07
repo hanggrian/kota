@@ -1,12 +1,25 @@
 @file:JvmMultifileClass
-@file:JvmName("CollectionsV7Kt")
+@file:JvmName("CollectionAdaptersKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota.collections
 
 import android.support.v7.widget.RecyclerView
-import kota.internal.SetAdapterWrapper
 
-inline infix fun <E> MutableSet<E>.with(adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>): SetAdapterWrapper<E, MutableSet<E>> = SetAdapterWrapper(this, adapter)
+inline fun <E> MutableSet<E>.add(element: E, adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>): Boolean {
+    val result = add(element)
+    if (result) adapter.notifyItemInserted(indexOf(element) - 1)
+    return result
+}
 
-inline infix fun <E> RecyclerView.Adapter<out RecyclerView.ViewHolder>.with(collection: MutableSet<E>): SetAdapterWrapper<E, MutableSet<E>> = SetAdapterWrapper(collection, this)
+inline fun <E> MutableSet<E>.addAll(elements: Collection<E>, adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>): Boolean {
+    val result = addAll(elements)
+    if (result) adapter.notifyDataSetChanged()
+    return result
+}
+
+inline fun <E> MutableSet<E>.removeAll(elements: Collection<E>, adapter: RecyclerView.Adapter<out RecyclerView.ViewHolder>): Boolean {
+    val result = removeAll(elements)
+    if (result) adapter.notifyDataSetChanged()
+    return result
+}
