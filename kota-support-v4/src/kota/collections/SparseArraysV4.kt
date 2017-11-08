@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("SparseArraysV4Kt")
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED", "EXTENSION_SHADOWED_BY_MEMBER")
 
 package kota.collections
 
@@ -26,16 +26,11 @@ inline fun <E> supportSparseArrayOf(vararg pairs: Pair<Int, E?>): SparseArrayCom
     for ((key, value) in pairs) append(key, value)
 }
 
-@Suppress("EXTENSION_SHADOWED_BY_MEMBER")
 inline operator fun <E> SparseArrayCompat<E>.get(key: Int): E = get(key)!!
-
 inline operator fun <E> SparseArrayCompat<E>.set(key: Int, value: E) = put(key, value)
 
 inline fun <E> SparseArrayCompat<E>.containsKey(key: Int): Boolean = indexOfKey(key) > -1
-inline fun <E> SparseArrayCompat<E>.containsAllKeys(keys: Collection<Int>): Boolean = keys.all { containsKey(it) }
-
 inline fun <E> SparseArrayCompat<E>.containsValue(value: E): Boolean = indexOfValue(value) > -1
-inline fun <E> SparseArrayCompat<E>.containsAllValue(values: Collection<E>): Boolean = values.all { containsValue(it) }
 
 inline fun <E> SparseArrayCompat<E>.forEach(action: (E) -> Unit) {
     val size = size()

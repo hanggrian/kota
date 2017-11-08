@@ -34,26 +34,26 @@ android {
 }
 
 dependencies {
-    api "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    api "com.android.support:support-annotations:$versions.support"
-    androidTestApi "com.android.support:design:$versions.support"
-    androidTestApi("com.android.support.test:rules:$versions.rules") {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    compile "com.android.support:support-annotations:$versions.support"
+    androidTestCompile "com.android.support:design:$versions.support"
+    androidTestCompile("com.android.support.test:rules:$versions.rules") {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestApi("com.android.support.test:runner:$versions.runner") {
+    androidTestCompile("com.android.support.test:runner:$versions.runner") {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestApi("com.android.support.test.espresso:espresso-core:$versions.espresso") {
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$versions.espresso") {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    testApi "junit:junit:$versions.junit"
+    testCompile "junit:junit:$versions.junit"
 }
 
 publish {
-    userOrg = bintray.user
-    groupId = bintray.group
-    artifactId = bintray.artifact.kota.id
-    publishVersion = versions.publish
-    desc = bintray.artifact.kota.desc
-    website = bintray.artifact.kota.website
+    userOrg bintray.user
+    groupId bintray.group
+    artifactId bintray.artifact.kota.id
+    publishVersion versions.publish
+    desc bintray.artifact.kota.desc
+    website bintray.artifact.kota.website
 }

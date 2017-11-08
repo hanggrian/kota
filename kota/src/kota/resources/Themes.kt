@@ -8,217 +8,207 @@ import android.app.Dialog
 import android.app.Fragment
 import android.content.Context
 import android.content.res.ColorStateList
+import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.support.annotation.AnyRes
 import android.support.annotation.AttrRes
 import android.support.annotation.ColorInt
 import android.support.annotation.Px
 
-inline fun Context.getAttrText(@AttrRes attr: Int): CharSequence? =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getText(0)
-            } finally {
-                it.recycle()
-            }
-        }
+@PublishedApi
+internal inline fun Context.obtainAttrs(@AttrRes attr: Int): TypedArray =
+        obtainStyledAttributes(null, intArrayOf(attr))
 
-inline fun Fragment.getAttrText(@AttrRes attr: Int): CharSequence? = activity.getAttrText(attr)
-inline fun Dialog.getAttrText(@AttrRes attr: Int): CharSequence? = context.getAttrText(attr)
+inline fun Context.getTextAttr(@AttrRes attr: Int): CharSequence? = obtainAttrs(attr).let {
+    try {
+        return it.getText(0)
+    } finally {
+        it.recycle()
+    }
+}
 
-inline fun Context.getAttrString(@AttrRes attr: Int): String? =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getString(0)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Fragment.getTextAttr(@AttrRes attr: Int): CharSequence? = activity.getTextAttr(attr)
+inline fun Dialog.getTextAttr(@AttrRes attr: Int): CharSequence? = context.getTextAttr(attr)
 
-inline fun Fragment.getAttrString(@AttrRes attr: Int): String? = activity.getAttrString(attr)
-inline fun Dialog.getAttrString(@AttrRes attr: Int): String? = context.getAttrString(attr)
+inline fun Context.getStringAttr(@AttrRes attr: Int): String? = obtainAttrs(attr).let {
+    try {
+        return it.getString(0)
+    } finally {
+        it.recycle()
+    }
+}
 
-@JvmOverloads
-inline fun Context.getAttrBoolean(@AttrRes attr: Int, defValue: Boolean = false): Boolean =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getBoolean(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
-
-@JvmOverloads inline fun Fragment.getAttrBoolean(@AttrRes attr: Int, defValue: Boolean = false): Boolean = activity.getAttrBoolean(attr, defValue)
-@JvmOverloads inline fun Dialog.getAttrBoolean(@AttrRes attr: Int, defValue: Boolean = false): Boolean = context.getAttrBoolean(attr, defValue)
+inline fun Fragment.getStringAttr(@AttrRes attr: Int): String? = activity.getStringAttr(attr)
+inline fun Dialog.getStringAttr(@AttrRes attr: Int): String? = context.getStringAttr(attr)
 
 @JvmOverloads
-inline fun Context.getAttrInt(@AttrRes attr: Int, defValue: Int = 0): Int =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getInt(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getBooleanAttr(@AttrRes attr: Int, defValue: Boolean = false): Boolean = obtainAttrs(attr).let {
+    try {
+        return it.getBoolean(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
 
-@JvmOverloads inline fun Fragment.getAttrInt(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getAttrInt(attr, defValue)
-@JvmOverloads inline fun Dialog.getAttrInt(@AttrRes attr: Int, defValue: Int = 0): Int = context.getAttrInt(attr, defValue)
+@JvmOverloads inline fun Fragment.getBooleanAttr(@AttrRes attr: Int, defValue: Boolean = false): Boolean = activity.getBooleanAttr(attr, defValue)
+@JvmOverloads inline fun Dialog.getBooleanAttr(@AttrRes attr: Int, defValue: Boolean = false): Boolean = context.getBooleanAttr(attr, defValue)
 
 @JvmOverloads
-inline fun Context.getAttrFloat(@AttrRes attr: Int, defValue: Float = 0F): Float =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getFloat(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getIntAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+    try {
+        return it.getInt(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
 
-@JvmOverloads inline fun Fragment.getAttrFloat(@AttrRes attr: Int, defValue: Float = 0F): Float = activity.getAttrFloat(attr, defValue)
-@JvmOverloads inline fun Dialog.getAttrFloat(@AttrRes attr: Int, defValue: Float = 0F): Float = context.getAttrFloat(attr, defValue)
+@JvmOverloads inline fun Fragment.getIntAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getIntAttr(attr, defValue)
+@JvmOverloads inline fun Dialog.getIntAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getIntAttr(attr, defValue)
+
+@JvmOverloads
+inline fun Context.getFloatAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = obtainAttrs(attr).let {
+    try {
+        return it.getFloat(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
+
+@JvmOverloads inline fun Fragment.getFloatAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = activity.getFloatAttr(attr, defValue)
+@JvmOverloads inline fun Dialog.getFloatAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = context.getFloatAttr(attr, defValue)
 
 @ColorInt
 @JvmOverloads
-inline fun Context.getAttrColor(@AttrRes attr: Int, defValue: Int = 0): Int =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getColor(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getColorAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+    try {
+        return it.getColor(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
 
 @ColorInt
 @JvmOverloads
-inline fun Fragment.getAttrColor(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getAttrColor(attr, defValue)
+inline fun Fragment.getColorAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getColorAttr(attr, defValue)
 
 @ColorInt
 @JvmOverloads
-inline fun Dialog.getAttrColor(@AttrRes attr: Int, defValue: Int = 0): Int = context.getAttrColor(attr, defValue)
+inline fun Dialog.getColorAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getColorAttr(attr, defValue)
 
-inline fun Context.getAttrColorStateList(@AttrRes attr: Int): ColorStateList? =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getColorStateList(0)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getColorStateListAttr(@AttrRes attr: Int): ColorStateList? = obtainAttrs(attr).let {
+    try {
+        return it.getColorStateList(0)
+    } finally {
+        it.recycle()
+    }
+}
 
-inline fun Fragment.getAttrColorStateList(@AttrRes attr: Int): ColorStateList? = activity.getAttrColorStateList(attr)
-inline fun Dialog.getAttrColorStateList(@AttrRes attr: Int): ColorStateList? = context.getAttrColorStateList(attr)
-
-@JvmOverloads
-inline fun Context.getAttrInteger(@AttrRes attr: Int, defValue: Int = 0): Int =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getInteger(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
-
-@JvmOverloads inline fun Fragment.getAttrInteger(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getAttrInteger(attr, defValue)
-@JvmOverloads inline fun Dialog.getAttrInteger(@AttrRes attr: Int, defValue: Int = 0): Int = context.getAttrInteger(attr, defValue)
+inline fun Fragment.getColorStateListAttr(@AttrRes attr: Int): ColorStateList? = activity.getColorStateListAttr(attr)
+inline fun Dialog.getColorStateListAttr(@AttrRes attr: Int): ColorStateList? = context.getColorStateListAttr(attr)
 
 @JvmOverloads
-inline fun Context.getAttrDimension(@AttrRes attr: Int, defValue: Float = 0F): Float =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getDimension(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getIntegerAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+    try {
+        return it.getInteger(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
 
-@JvmOverloads inline fun Fragment.getAttrDimension(@AttrRes attr: Int, defValue: Float = 0F): Float = activity.getAttrDimension(attr, defValue)
-@JvmOverloads inline fun Dialog.getAttrDimension(@AttrRes attr: Int, defValue: Float = 0F): Float = context.getAttrDimension(attr, defValue)
+@JvmOverloads inline fun Fragment.getIntegerAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getIntegerAttr(attr, defValue)
+@JvmOverloads inline fun Dialog.getIntegerAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getIntegerAttr(attr, defValue)
+
+@JvmOverloads
+inline fun Context.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = obtainAttrs(attr).let {
+    try {
+        return it.getDimension(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
+
+@JvmOverloads inline fun Fragment.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = activity.getDimensionAttr(attr, defValue)
+@JvmOverloads inline fun Dialog.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = context.getDimensionAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Context.getAttrDimensionPixelOffset(@AttrRes attr: Int, defValue: Int = 0): Int =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getDimensionPixelOffset(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+    try {
+        return it.getDimensionPixelOffset(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
 
 @Px
 @JvmOverloads
-inline fun Fragment.getAttrDimensionPixelOffset(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getAttrDimensionPixelOffset(attr, defValue)
+inline fun Fragment.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getDimensionPixelOffsetAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Dialog.getAttrDimensionPixelOffset(@AttrRes attr: Int, defValue: Int = 0): Int = context.getAttrDimensionPixelOffset(attr, defValue)
+inline fun Dialog.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getDimensionPixelOffsetAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Context.getAttrDimensionPixelSize(@AttrRes attr: Int, defValue: Int = 0): Int =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getDimensionPixelSize(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+    try {
+        return it.getDimensionPixelSize(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
 
 @Px
 @JvmOverloads
-inline fun Fragment.getAttrDimensionPixelSize(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getAttrDimensionPixelSize(attr, defValue)
+inline fun Fragment.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getDimensionPixelSizeAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Dialog.getAttrDimensionPixelSize(@AttrRes attr: Int, defValue: Int = 0): Int = context.getAttrDimensionPixelSize(attr, defValue)
+inline fun Dialog.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getDimensionPixelSizeAttr(attr, defValue)
 
 @JvmOverloads
-inline fun Context.getAttrFraction(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getFraction(0, base, pbase, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getFractionAttr(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = obtainAttrs(attr).let {
+    try {
+        return it.getFraction(0, base, pbase, defValue)
+    } finally {
+        it.recycle()
+    }
+}
 
-@JvmOverloads inline fun Fragment.getAttrFraction(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = activity.getAttrFraction(attr, base, pbase, defValue)
-@JvmOverloads inline fun Dialog.getAttrFraction(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = context.getAttrFraction(attr, base, pbase, defValue)
+@JvmOverloads inline fun Fragment.getFractionAttr(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = activity.getFractionAttr(attr, base, pbase, defValue)
+@JvmOverloads inline fun Dialog.getFractionAttr(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = context.getFractionAttr(attr, base, pbase, defValue)
 
 @AnyRes
 @JvmOverloads
-inline fun Context.getAttrResourceId(@AttrRes attr: Int, defValue: Int = 0): Int =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getResourceId(0, defValue)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+    try {
+        return it.getResourceId(0, defValue)
+    } finally {
+        it.recycle()
+    }
+}
 
-@JvmOverloads inline fun Fragment.getAttrResourceId(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getAttrResourceId(attr, defValue)
-@JvmOverloads inline fun Dialog.getAttrResourceId(@AttrRes attr: Int, defValue: Int = 0): Int = context.getAttrResourceId(attr, defValue)
+@JvmOverloads inline fun Fragment.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getResourceIdAttr(attr, defValue)
+@JvmOverloads inline fun Dialog.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getResourceIdAttr(attr, defValue)
 
-inline fun Context.getAttrDrawable(@AttrRes attr: Int): Drawable? =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getDrawable(0)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getDrawableAttr(@AttrRes attr: Int): Drawable? = obtainAttrs(attr).let {
+    try {
+        return it.getDrawable(0)
+    } finally {
+        it.recycle()
+    }
+}
 
-inline fun Fragment.getAttrDrawable(@AttrRes attr: Int): Drawable? = activity.getAttrDrawable(attr)
-inline fun Dialog.getAttrDrawable(@AttrRes attr: Int): Drawable? = context.getAttrDrawable(attr)
+inline fun Fragment.getDrawableAttr(@AttrRes attr: Int): Drawable? = activity.getDrawableAttr(attr)
+inline fun Dialog.getDrawableAttr(@AttrRes attr: Int): Drawable? = context.getDrawableAttr(attr)
 
-inline fun Context.getAttrTextArray(@AttrRes attr: Int): Array<CharSequence>? =
-        obtainStyledAttributes(null, IntArray(1) { attr }).let {
-            try {
-                return it.getTextArray(0)
-            } finally {
-                it.recycle()
-            }
-        }
+inline fun Context.getTextArrayAttr(@AttrRes attr: Int): Array<CharSequence>? = obtainAttrs(attr).let {
+    try {
+        return it.getTextArray(0)
+    } finally {
+        it.recycle()
+    }
+}
 
-inline fun Fragment.getAttrTextArray(@AttrRes attr: Int): Array<CharSequence>? = activity.getAttrTextArray(attr)
-inline fun Dialog.getAttrTextArray(@AttrRes attr: Int): Array<CharSequence>? = context.getAttrTextArray(attr)
+inline fun Fragment.getTextArrayAttr(@AttrRes attr: Int): Array<CharSequence>? = activity.getTextArrayAttr(attr)
+inline fun Dialog.getTextArrayAttr(@AttrRes attr: Int): Array<CharSequence>? = context.getTextArrayAttr(attr)

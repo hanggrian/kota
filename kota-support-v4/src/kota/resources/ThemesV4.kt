@@ -11,45 +11,45 @@ import android.support.annotation.ColorInt
 import android.support.annotation.Px
 import android.support.v4.app.Fragment
 
-inline fun Fragment.getAttrText(@AttrRes attr: Int): CharSequence? = context!!.getAttrText(attr)
+inline fun Fragment.getTextAttr(@AttrRes attr: Int): CharSequence? = context!!.getTextAttr(attr)
 
-inline fun Fragment.getAttrString(@AttrRes attr: Int): String? = context!!.getAttrString(attr)
-
-@JvmOverloads
-inline fun Fragment.getAttrBoolean(@AttrRes attr: Int, defValue: Boolean = false): Boolean = context!!.getAttrBoolean(attr, defValue)
+inline fun Fragment.getStringAttr(@AttrRes attr: Int): String? = context!!.getStringAttr(attr)
 
 @JvmOverloads
-inline fun Fragment.getAttrInt(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getAttrInt(attr, defValue)
+inline fun Fragment.getBooleanAttr(@AttrRes attr: Int, defValue: Boolean = false): Boolean = context!!.getBooleanAttr(attr, defValue)
 
 @JvmOverloads
-inline fun Fragment.getAttrFloat(@AttrRes attr: Int, defValue: Float = 0F): Float = context!!.getAttrFloat(attr, defValue)
+inline fun Fragment.getIntAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getIntAttr(attr, defValue)
+
+@JvmOverloads
+inline fun Fragment.getFloatAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = context!!.getFloatAttr(attr, defValue)
 
 @ColorInt
 @JvmOverloads
-inline fun Fragment.getAttrColor(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getAttrColor(attr, defValue)
+inline fun Fragment.getColorAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getColorAttr(attr, defValue)
 
-inline fun Fragment.getAttrColorStateList(@AttrRes attr: Int): ColorStateList? = context!!.getAttrColorStateList(attr)
-
-@JvmOverloads
-inline fun Fragment.getAttrInteger(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getAttrInteger(attr, defValue)
+inline fun Fragment.getColorStateListAttr(@AttrRes attr: Int): ColorStateList? = context!!.getColorStateListAttr(attr)
 
 @JvmOverloads
-inline fun Fragment.getAttrDimension(@AttrRes attr: Int, defValue: Float = 0F): Float = context!!.getAttrDimension(attr, defValue)
+inline fun Fragment.getIntegerAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getIntegerAttr(attr, defValue)
+
+@JvmOverloads
+inline fun Fragment.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = context!!.getDimensionAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Fragment.getAttrDimensionPixelOffset(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getAttrDimensionPixelOffset(attr, defValue)
+inline fun Fragment.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getDimensionPixelOffsetAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Fragment.getAttrDimensionPixelSize(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getAttrDimensionPixelSize(attr, defValue)
+inline fun Fragment.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getDimensionPixelSizeAttr(attr, defValue)
 
 @JvmOverloads
-inline fun Fragment.getAttrFraction(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = context!!.getAttrFraction(attr, base, pbase, defValue)
+inline fun Fragment.getFractionAttr(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = context!!.getFractionAttr(attr, base, pbase, defValue)
 
 @JvmOverloads
-inline fun Fragment.getAttrResourceId(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getAttrResourceId(attr, defValue)
+inline fun Fragment.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getResourceIdAttr(attr, defValue)
 
-inline fun Fragment.getAttrDrawable(@AttrRes attr: Int): Drawable? = context!!.getAttrDrawable(attr)
+inline fun Fragment.getDrawableAttr(@AttrRes attr: Int): Drawable? = context!!.getDrawableAttr(attr)
 
-inline fun Fragment.getAttrTextArray(@AttrRes attr: Int): Array<CharSequence>? = context!!.getAttrTextArray(attr)
+inline fun Fragment.getTextArrayAttr(@AttrRes attr: Int): Array<CharSequence>? = context!!.getTextArrayAttr(attr)

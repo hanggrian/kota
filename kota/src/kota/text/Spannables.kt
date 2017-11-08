@@ -6,10 +6,11 @@ package kota.text
 
 import android.text.Spannable
 import android.text.SpannableString
+import android.text.SpannableString.valueOf
 import android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 
 /** Returns a new [SpannableString] from [source] or the [source] itself if it is already an instance of [SpannableString]. */
-inline fun CharSequence.toSpannable(): Spannable = SpannableString.valueOf(this)
+inline fun CharSequence.toSpannable(): Spannable = valueOf(this)
 
 inline fun Spannable.span(regex: Regex, flags: Int, vararg spans: () -> Any): Spannable {
     val matcher = regex.toPattern().matcher(this)

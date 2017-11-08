@@ -16,6 +16,6 @@ class ThemesTest {
     @Test
     @Throws(Exception::class)
     fun themes() {
-//        assertEquals(context.getAttrColor(R.attr.colorPrimary), "OK")
+//        assertEquals(context.getColorAttr(R.attr.colorPrimary), "OK")
     }
 }

@@ -5,11 +5,12 @@
 package kota.text
 
 import android.text.SpannableStringBuilder
+import android.text.SpannableStringBuilder.valueOf
 import android.text.Spanned
 import android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 
 /** Returns a new [SpannableStringBuilder] from [source] or the [source] itself if it is already an instance of [SpannableStringBuilder]. */
-inline fun CharSequence.toSpannableBuilder(): SpannableStringBuilder = SpannableStringBuilder.valueOf(this)
+inline fun CharSequence.toSpannableBuilder(): SpannableStringBuilder = valueOf(this)
 
 inline operator fun Spanned.plus(other: Char): SpannableStringBuilder = toSpannableBuilder().append(other)
 inline operator fun Spanned.plus(other: CharSequence): SpannableStringBuilder = toSpannableBuilder().append(other)

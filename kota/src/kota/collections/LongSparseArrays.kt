@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("SparseArraysKt")
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED", "EXTENSION_SHADOWED_BY_MEMBER")
 
 package kota.collections
 
@@ -27,16 +27,11 @@ import java.util.*
     for ((key, value) in pairs) append(key, value)
 }
 
-@Suppress("EXTENSION_SHADOWED_BY_MEMBER")
 @RequiresApi(16) inline operator fun <E> LongSparseArray<E>.get(key: Long): E = get(key)!!
-
 @RequiresApi(16) inline operator fun <E> LongSparseArray<E>.set(key: Long, value: E) = put(key, value)
 
 @RequiresApi(16) inline fun <E> LongSparseArray<E>.containsKey(key: Long): Boolean = indexOfKey(key) > -1
-@RequiresApi(16) inline fun <E> LongSparseArray<E>.containsAllKeys(keys: Collection<Long>): Boolean = keys.all { containsKey(it) }
-
 @RequiresApi(16) inline fun <E> LongSparseArray<E>.containsValue(value: E): Boolean = indexOfValue(value) > -1
-@RequiresApi(16) inline fun <E> LongSparseArray<E>.containsAllValues(values: Collection<E>): Boolean = values.all { containsValue(it) }
 
 @RequiresApi(16) inline fun <E> LongSparseArray<E>.forEach(action: (E) -> Unit) {
     val size = size()

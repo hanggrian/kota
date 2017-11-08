@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("SparseArraysKt")
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED", "EXTENSION_SHADOWED_BY_MEMBER")
 
 package kota.collections
 
@@ -26,16 +26,11 @@ inline fun sparseIntArrayOf(vararg pairs: Pair<Int, Int>): SparseIntArray = Spar
     for ((key, value) in pairs) append(key, value)
 }
 
-@Suppress("EXTENSION_SHADOWED_BY_MEMBER")
 inline operator fun SparseIntArray.get(key: Int): Int = get(key)
-
 inline operator fun SparseIntArray.set(key: Int, value: Int) = put(key, value)
 
 inline fun SparseIntArray.containsKey(key: Int): Boolean = indexOfKey(key) > -1
-inline fun SparseIntArray.containsAllKeys(keys: Collection<Int>): Boolean = keys.all { containsKey(it) }
-
 inline fun SparseIntArray.containsValue(value: Int): Boolean = indexOfValue(value) > -1
-inline fun SparseIntArray.containsAllValues(values: Collection<Int>): Boolean = values.all { containsValue(it) }
 
 inline fun SparseIntArray.forEach(action: (Int) -> Unit) {
     val size = size()
