@@ -7,7 +7,13 @@ import android.content.Intent
 import android.support.annotation.MenuRes
 import android.view.Menu
 
-inline fun Activity.inflateMenu(@MenuRes menuRes: Int, menu: Menu) = menuInflater.inflate(menuRes, menu)
+/** Inflates menu using menu inflater, returns true if menu is successfully inflated. */
+@JvmOverloads
+inline fun Activity.inflateMenu(@MenuRes menuRes: Int, menu: Menu?, noinline init: (Menu.() -> Unit)? = null): Boolean {
+    menuInflater.inflate(menuRes, menu)
+    if (init != null && menu != null) init(menu)
+    return menu != null
+}
 
 /** Brings back result of this activity to previous activity that started it. */
 @JvmOverloads
