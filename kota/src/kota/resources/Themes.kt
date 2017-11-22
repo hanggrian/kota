@@ -119,7 +119,7 @@ inline fun Context.getIntegerAttr(@AttrRes attr: Int, defValue: Int = 0): Int = 
 @JvmOverloads inline fun Dialog.getIntegerAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getIntegerAttr(attr, defValue)
 
 @JvmOverloads
-inline fun Context.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = obtainAttrs(attr).let {
+inline fun Context.getDimenAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = obtainAttrs(attr).let {
     try {
         return it.getDimension(0, defValue)
     } finally {
@@ -127,12 +127,12 @@ inline fun Context.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): F
     }
 }
 
-@JvmOverloads inline fun Fragment.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = activity.getDimensionAttr(attr, defValue)
-@JvmOverloads inline fun Dialog.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = context.getDimensionAttr(attr, defValue)
+@JvmOverloads inline fun Fragment.getDimenAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = activity.getDimenAttr(attr, defValue)
+@JvmOverloads inline fun Dialog.getDimenAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = context.getDimenAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Context.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+inline fun Context.getDimenPxOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
     try {
         return it.getDimensionPixelOffset(0, defValue)
     } finally {
@@ -142,15 +142,15 @@ inline fun Context.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int
 
 @Px
 @JvmOverloads
-inline fun Fragment.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getDimensionPixelOffsetAttr(attr, defValue)
+inline fun Fragment.getDimenPxOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getDimenPxOffsetAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Dialog.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getDimensionPixelOffsetAttr(attr, defValue)
+inline fun Dialog.getDimenPxOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getDimenPxOffsetAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Context.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+inline fun Context.getDimenPxSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
     try {
         return it.getDimensionPixelSize(0, defValue)
     } finally {
@@ -160,11 +160,11 @@ inline fun Context.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int =
 
 @Px
 @JvmOverloads
-inline fun Fragment.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getDimensionPixelSizeAttr(attr, defValue)
+inline fun Fragment.getDimenPxSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getDimenPxSizeAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Dialog.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getDimensionPixelSizeAttr(attr, defValue)
+inline fun Dialog.getDimenPxSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getDimenPxSizeAttr(attr, defValue)
 
 @JvmOverloads
 inline fun Context.getFractionAttr(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = obtainAttrs(attr).let {
@@ -180,7 +180,7 @@ inline fun Context.getFractionAttr(@AttrRes attr: Int, base: Int, pbase: Int, de
 
 @AnyRes
 @JvmOverloads
-inline fun Context.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
+inline fun Context.getResIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = obtainAttrs(attr).let {
     try {
         return it.getResourceId(0, defValue)
     } finally {
@@ -188,8 +188,8 @@ inline fun Context.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int
     }
 }
 
-@JvmOverloads inline fun Fragment.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getResourceIdAttr(attr, defValue)
-@JvmOverloads inline fun Dialog.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getResourceIdAttr(attr, defValue)
+@JvmOverloads inline fun Fragment.getResIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = activity.getResIdAttr(attr, defValue)
+@JvmOverloads inline fun Dialog.getResIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context.getResIdAttr(attr, defValue)
 
 inline fun Context.getDrawableAttr(@AttrRes attr: Int): Drawable? = obtainAttrs(attr).let {
     try {

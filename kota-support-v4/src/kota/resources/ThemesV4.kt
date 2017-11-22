@@ -34,21 +34,21 @@ inline fun Fragment.getColorStateListAttr(@AttrRes attr: Int): ColorStateList? =
 inline fun Fragment.getIntegerAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getIntegerAttr(attr, defValue)
 
 @JvmOverloads
-inline fun Fragment.getDimensionAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = context!!.getDimensionAttr(attr, defValue)
+inline fun Fragment.getDimenAttr(@AttrRes attr: Int, defValue: Float = 0F): Float = context!!.getDimenAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Fragment.getDimensionPixelOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getDimensionPixelOffsetAttr(attr, defValue)
+inline fun Fragment.getDimenPxOffsetAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getDimenPxOffsetAttr(attr, defValue)
 
 @Px
 @JvmOverloads
-inline fun Fragment.getDimensionPixelSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getDimensionPixelSizeAttr(attr, defValue)
+inline fun Fragment.getDimenPxSizeAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getDimenPxSizeAttr(attr, defValue)
 
 @JvmOverloads
 inline fun Fragment.getFractionAttr(@AttrRes attr: Int, base: Int, pbase: Int, defValue: Float = 0F): Float = context!!.getFractionAttr(attr, base, pbase, defValue)
 
 @JvmOverloads
-inline fun Fragment.getResourceIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getResourceIdAttr(attr, defValue)
+inline fun Fragment.getResIdAttr(@AttrRes attr: Int, defValue: Int = 0): Int = context!!.getResIdAttr(attr, defValue)
 
 inline fun Fragment.getDrawableAttr(@AttrRes attr: Int): Drawable? = context!!.getDrawableAttr(attr)
 

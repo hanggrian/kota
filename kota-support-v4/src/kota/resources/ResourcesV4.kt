@@ -24,27 +24,27 @@ inline val Fragment.displayMetrics: DisplayMetrics get() = resources.displayMetr
 @JvmOverloads
 inline fun Fragment.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = context!!.getText(id, def)
 
-inline fun Fragment.getQuantityText(@PluralsRes id: Int, quantity: Int): CharSequence = context!!.getQuantityText(id, quantity)
+inline fun Fragment.getQtyText(@PluralsRes id: Int, quantity: Int): CharSequence = context!!.getQtyText(id, quantity)
 
 inline fun Fragment.getTextArray(@ArrayRes id: Int): Array<CharSequence> = context!!.getTextArray(id)
 
 @JvmOverloads
-inline fun Fragment.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = context!!.getQuantityString(id, quantity, formatArgs)
+inline fun Fragment.getQtyString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = context!!.getQtyString(id, quantity, formatArgs)
 
 inline fun Fragment.getStringArray(@ArrayRes id: Int): Array<String> = context!!.getStringArray(id)
 
-inline fun Fragment.getInteger(@IntegerRes id: Int): Int = context!!.getInteger(id)
+inline fun Fragment.getInt(@IntegerRes id: Int): Int = context!!.getInt(id)
 
 inline fun Fragment.getIntArray(@ArrayRes id: Int): IntArray = context!!.getIntArray(id)
 
 @SuppressLint("Recycle")
 inline fun Fragment.obtainTypedArray(@ArrayRes id: Int): TypedArray = context!!.obtainTypedArray(id)
 
-inline fun Fragment.getDimension(@DimenRes id: Int): Float = context!!.getDimension(id)
+inline fun Fragment.getDimen(@DimenRes id: Int): Float = context!!.getDimen(id)
 
-inline fun Fragment.getDimensionPixelOffset(@DimenRes id: Int): Int = context!!.getDimensionPixelOffset(id)
+inline fun Fragment.getDimenPxOffset(@DimenRes id: Int): Int = context!!.getDimenPxOffset(id)
 
-inline fun Fragment.getDimensionPixelSize(@DimenRes id: Int): Int = context!!.getDimensionPixelSize(id)
+inline fun Fragment.getDimenPxSize(@DimenRes id: Int): Int = context!!.getDimenPxSize(id)
 
 inline fun Context.getDrawable2(@DrawableRes id: Int): Drawable = ContextCompat.getDrawable(this, id)!!
 inline fun android.app.Fragment.getDrawable2(@DrawableRes id: Int): Drawable = activity.getDrawable2(id)

@@ -29,25 +29,25 @@ inline val Dialog.displayMetrics: DisplayMetrics get() = context.displayMetrics
 @JvmOverloads inline fun Fragment.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = activity.getText(id, def)
 @JvmOverloads inline fun Dialog.getText(@StringRes id: Int, def: CharSequence? = null): CharSequence = context.getText(id, def)
 
-inline fun Context.getQuantityText(@PluralsRes id: Int, quantity: Int): CharSequence = resources.getQuantityText(id, quantity)
-inline fun Fragment.getQuantityText(@PluralsRes id: Int, quantity: Int): CharSequence = activity.getQuantityText(id, quantity)
-inline fun Dialog.getQuantityText(@PluralsRes id: Int, quantity: Int): CharSequence = context.getQuantityText(id, quantity)
+inline fun Context.getQtyText(@PluralsRes id: Int, quantity: Int): CharSequence = resources.getQuantityText(id, quantity)
+inline fun Fragment.getQtyText(@PluralsRes id: Int, quantity: Int): CharSequence = activity.getQtyText(id, quantity)
+inline fun Dialog.getQtyText(@PluralsRes id: Int, quantity: Int): CharSequence = context.getQtyText(id, quantity)
 
 inline fun Context.getTextArray(@ArrayRes id: Int): Array<CharSequence> = resources.getTextArray(id)
 inline fun Fragment.getTextArray(@ArrayRes id: Int): Array<CharSequence> = activity.getTextArray(id)
 inline fun Dialog.getTextArray(@ArrayRes id: Int): Array<CharSequence> = context.getTextArray(id)
 
-@JvmOverloads inline fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = if (formatArgs.isNotEmpty()) resources.getQuantityString(id, quantity, formatArgs) else resources.getQuantityString(id, quantity)
-@JvmOverloads inline fun Fragment.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = activity.getQuantityString(id, quantity, formatArgs)
-@JvmOverloads inline fun Dialog.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = context.getQuantityString(id, quantity, formatArgs)
+@JvmOverloads inline fun Context.getQtyString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = if (formatArgs.isNotEmpty()) resources.getQuantityString(id, quantity, formatArgs) else resources.getQuantityString(id, quantity)
+@JvmOverloads inline fun Fragment.getQtyString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = activity.getQtyString(id, quantity, formatArgs)
+@JvmOverloads inline fun Dialog.getQtyString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any = emptyArray()): String = context.getQtyString(id, quantity, formatArgs)
 
 inline fun Context.getStringArray(@ArrayRes id: Int): Array<String> = resources.getStringArray(id)
 inline fun Fragment.getStringArray(@ArrayRes id: Int): Array<String> = activity.getStringArray(id)
 inline fun Dialog.getStringArray(@ArrayRes id: Int): Array<String> = context.getStringArray(id)
 
-inline fun Context.getInteger(@IntegerRes id: Int): Int = resources.getInteger(id)
-inline fun Fragment.getInteger(@IntegerRes id: Int): Int = activity.getInteger(id)
-inline fun Dialog.getInteger(@IntegerRes id: Int): Int = context.getInteger(id)
+inline fun Context.getInt(@IntegerRes id: Int): Int = resources.getInteger(id)
+inline fun Fragment.getInt(@IntegerRes id: Int): Int = activity.getInt(id)
+inline fun Dialog.getInt(@IntegerRes id: Int): Int = context.getInt(id)
 
 inline fun Context.getIntArray(@ArrayRes id: Int): IntArray = resources.getIntArray(id)
 inline fun Fragment.getIntArray(@ArrayRes id: Int): IntArray = activity.getIntArray(id)
@@ -57,17 +57,17 @@ inline fun Dialog.getIntArray(@ArrayRes id: Int): IntArray = context.getIntArray
 @SuppressLint("Recycle") inline fun Fragment.obtainTypedArray(@ArrayRes id: Int): TypedArray = activity.obtainTypedArray(id)
 @SuppressLint("Recycle") inline fun Dialog.obtainTypedArray(@ArrayRes id: Int): TypedArray = context.obtainTypedArray(id)
 
-inline fun Context.getDimension(@DimenRes id: Int): Float = resources.getDimension(id)
-inline fun Fragment.getDimension(@DimenRes id: Int): Float = activity.getDimension(id)
-inline fun Dialog.getDimension(@DimenRes id: Int): Float = context.getDimension(id)
+inline fun Context.getDimen(@DimenRes id: Int): Float = resources.getDimension(id)
+inline fun Fragment.getDimen(@DimenRes id: Int): Float = activity.getDimen(id)
+inline fun Dialog.getDimen(@DimenRes id: Int): Float = context.getDimen(id)
 
-inline fun Context.getDimensionPixelOffset(@DimenRes id: Int): Int = resources.getDimensionPixelOffset(id)
-inline fun Fragment.getDimensionPixelOffset(@DimenRes id: Int): Int = activity.getDimensionPixelOffset(id)
-inline fun Dialog.getDimensionPixelOffset(@DimenRes id: Int): Int = context.getDimensionPixelOffset(id)
+inline fun Context.getDimenPxOffset(@DimenRes id: Int): Int = resources.getDimensionPixelOffset(id)
+inline fun Fragment.getDimenPxOffset(@DimenRes id: Int): Int = activity.getDimenPxOffset(id)
+inline fun Dialog.getDimenPxOffset(@DimenRes id: Int): Int = context.getDimenPxOffset(id)
 
-inline fun Context.getDimensionPixelSize(@DimenRes id: Int): Int = resources.getDimensionPixelSize(id)
-inline fun Fragment.getDimensionPixelSize(@DimenRes id: Int): Int = activity.getDimensionPixelSize(id)
-inline fun Dialog.getDimensionPixelSize(@DimenRes id: Int): Int = context.getDimensionPixelSize(id)
+inline fun Context.getDimenPxSize(@DimenRes id: Int): Int = resources.getDimensionPixelSize(id)
+inline fun Fragment.getDimenPxSize(@DimenRes id: Int): Int = activity.getDimenPxSize(id)
+inline fun Dialog.getDimenPxSize(@DimenRes id: Int): Int = context.getDimenPxSize(id)
 
 inline fun Context.getMovie(@RawRes id: Int): Movie = resources.getMovie(id)
 inline fun Fragment.getMovie(@RawRes id: Int): Movie = activity.getMovie(id)

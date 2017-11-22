@@ -1,14 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.novoda.bintray-release'
-apply from: 'https://raw.githubusercontent.com/HendraAnggrian/hendraanggrian.github.io/master/bintray.gradle'
 
 android {
-    compileSdkVersion versions.sdk.target
-    buildToolsVersion versions.buildTools
+    compileSdkVersion sdk_target.toInteger()
+    buildToolsVersion build_tools
     defaultConfig {
-        minSdkVersion versions.sdk.min
-        targetSdkVersion versions.sdk.target
+        minSdkVersion sdk_min.toInteger()
+        targetSdkVersion sdk_target.toInteger()
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     sourceSets {
@@ -20,16 +19,16 @@ android {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    provided "com.android.support:appcompat-v7:$versions.support"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
+    provided "com.android.support:appcompat-v7:$support"
     compile project(':kota-support-v4')
 }
 
 publish {
-    userOrg bintray.user
-    groupId bintray.group
-    artifactId bintray.artifact.kota.id + '-appcompat-v7'
-    publishVersion versions.publish
-    desc bintray.artifact.kota.desc
-    website bintray.artifact.kota.website
+    userOrg bintray_user
+    groupId bintray_group
+    artifactId bintray_artifact + '-appcompat-v7'
+    publishVersion bintray_publish
+    desc bintray_desc
+    website bintray_web
 }

@@ -3,14 +3,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion versions.sdk.target
-    buildToolsVersion versions.buildTools
+    compileSdkVersion sdk_target.toInteger()
+    buildToolsVersion build_tools
     defaultConfig {
         applicationId 'com.example.kota'
         versionCode 1
         versionName '1.0'
-        minSdkVersion versions.sdk.min
-        targetSdkVersion versions.sdk.target
+        minSdkVersion sdk_min.toInteger()
+        targetSdkVersion sdk_target.toInteger()
     }
     sourceSets {
         main {
@@ -34,10 +34,10 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:design:$versions.support"
-    implementation "com.android.support:preference-v14:$versions.support"
+    implementation "com.android.support:design:$support"
+    implementation "com.android.support:preference-v14:$support"
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin"
 
     implementation project(':kota-appcompat-v7')
     implementation project(':kota-recyclerview-v7')
