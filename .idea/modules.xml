@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\android-util.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\android-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/buildSrc/buildSrc.iml" filepath="$PROJECT_DIR$/buildSrc/buildSrc.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons-content\commons-content.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons-content\commons-content.iml" />
       <module fileurl="file://C:\Users\hendr\Documents\GitHub\kota\commons-util\commons-util.iml" filepath="C:\Users\hendr\Documents\GitHub\kota\commons-util\commons-util.iml" />
