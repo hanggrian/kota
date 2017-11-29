@@ -8,10 +8,8 @@ import android.support.annotation.MenuRes
 import android.view.Menu
 
 /** Inflates menu using menu inflater, returns true if menu is successfully inflated. */
-@JvmOverloads
-inline fun Activity.inflateMenu(@MenuRes menuRes: Int, menu: Menu?, noinline init: (Menu.() -> Unit)? = null): Boolean {
+inline fun Activity.inflateMenu(@MenuRes menuRes: Int, menu: Menu?): Boolean {
     menuInflater.inflate(menuRes, menu)
-    if (init != null && menu != null) init(menu)
     return menu != null
 }
 

@@ -39,7 +39,7 @@ class TextsActivity : AppCompatActivity() {
         supportActionBar!!.title = SpannableStringBuilder()
                 .append("Google ", FontSpan(assets, "fonts/ProductSans-Regular.ttf"), StyleSpan(Typeface.BOLD))
                 .append("Fonts", FontSpan(assets, "fonts/ProductSans-Regular.ttf"))
-                .spanAll(ForegroundColorSpan(getColor2(R.color.gray)))
+                .spanAll({ ForegroundColorSpan(getColor2(R.color.gray)) })
 
         val total = 818
         textViewViewing.text = "Viewing $total of $total font families".toSpannable().spanFirst(Regex(total.toString()), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
@@ -48,12 +48,12 @@ class TextsActivity : AppCompatActivity() {
         recyclerView.adapter = Adapter(this)
 
         textViewCopyright.text = "© 2017 Google Inc.".toSpannable()
-                .spanAll(AbsoluteSizeSpan(12.dp))
+                .spanAll({ AbsoluteSizeSpan(12.dp) })
                 .span(Regex("Google"), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
 
         val url = "https://fonts.google.com"
         textViewUrl.text = ("as seen on " + url).toSpannable()
-                .spanAll(AbsoluteSizeSpan(12.dp))
+                .spanAll({ AbsoluteSizeSpan(12.dp) })
                 .span(PatternsCompat.WEB_URL.toRegex(), { URLSpan(url) })
         textViewUrl.movementMethod = LinkMovementMethod.getInstance()
     }
@@ -65,11 +65,11 @@ class TextsActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val font = fonts[position]
-            holder.toolbar.title = font.title.toSpannable().spanAll(ForegroundColorSpan(context.getColor2(R.color.darkGray)), StyleSpan(Typeface.BOLD), AbsoluteSizeSpan(14.dp))
-            holder.toolbar.subtitle = "${font.author} ${font.stylesCount} styles)".toSpannable().spanAll(AbsoluteSizeSpan(12.dp))
+            holder.toolbar.title = font.title.toSpannable().spanAll({ ForegroundColorSpan(context.getColor2(R.color.darkGray)) }, { StyleSpan(Typeface.BOLD) }, { AbsoluteSizeSpan(14.dp) })
+            holder.toolbar.subtitle = "${font.author} ${font.stylesCount} styles)".toSpannable().spanAll({ AbsoluteSizeSpan(12.dp) })
             holder.toolbar.menu.clear()
             holder.toolbar.inflateMenu(R.menu.activity_texts)
-            holder.textView.text = font.example.toSpannable().spanAll(FontSpan(context.assets, font.filename), AbsoluteSizeSpan(24.dp))
+            holder.textView.text = font.example.toSpannable().spanAll({ FontSpan(context.assets, font.filename) }, { AbsoluteSizeSpan(24.dp) })
         }
 
         override fun getItemCount() = fonts.size

@@ -29,14 +29,14 @@ android {
     }
     buildTypes {
         getByName("debug") {
-            buildConfigField("int", "TRANSIT_TYPE_CUSTOM", "0")
-            buildConfigField("int", "TRANSIT_TYPE_CONSTANT", "1")
-            buildConfigField("int", "TRANSIT_TYPE_STYLE", "2")
+            buildConfigField("int", "TRANSIT_TYPE_CUSTOM", 0.toString())
+            buildConfigField("int", "TRANSIT_TYPE_CONSTANT", 1.toString())
+            buildConfigField("int", "TRANSIT_TYPE_STYLE", 2.toString())
         }
         getByName("release") {
-            buildConfigField("int", "TRANSIT_TYPE_CUSTOM", "0")
-            buildConfigField("int", "TRANSIT_TYPE_CONSTANT", "1")
-            buildConfigField("int", "TRANSIT_TYPE_STYLE", "2")
+            buildConfigField("int", "TRANSIT_TYPE_CUSTOM", 0.toString())
+            buildConfigField("int", "TRANSIT_TYPE_CONSTANT", 1.toString())
+            buildConfigField("int", "TRANSIT_TYPE_STYLE", 2.toString())
         }
     }
 }

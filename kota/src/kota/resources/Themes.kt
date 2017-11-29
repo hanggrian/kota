@@ -16,8 +16,7 @@ import android.support.annotation.ColorInt
 import android.support.annotation.Px
 
 @PublishedApi
-internal inline fun Context.obtainAttrs(@AttrRes attr: Int): TypedArray =
-        obtainStyledAttributes(null, intArrayOf(attr))
+internal inline fun Context.obtainAttrs(@AttrRes attr: Int): TypedArray = obtainStyledAttributes(null, intArrayOf(attr))
 
 inline fun Context.getTextAttr(@AttrRes attr: Int): CharSequence? = obtainAttrs(attr).let {
     try {
