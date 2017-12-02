@@ -1,9 +1,9 @@
 package com.example.kota.activity
 
 import android.content.Context
-import android.graphics.Typeface
+import android.graphics.Typeface.BOLD
 import android.os.Bundle
-import android.support.v4.util.PatternsCompat
+import android.support.v4.util.PatternsCompat.WEB_URL
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -26,9 +26,7 @@ import kota.resources.getColor2
 import kota.text.*
 import kotlinx.android.synthetic.main.activity_texts.*
 
-/**
- * Example activity that mimics https://fonts.google.com.
- */
+/** Example activity that mimics https://fonts.google.com. */
 class TextsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,24 +35,26 @@ class TextsActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportActionBar!!.title = SpannableStringBuilder()
-                .append("Google ", FontSpan(assets, "fonts/ProductSans-Regular.ttf"), StyleSpan(Typeface.BOLD))
-                .append("Fonts", FontSpan(assets, "fonts/ProductSans-Regular.ttf"))
+                .append("Google ", { FontSpan(assets, "fonts/ProductSans-Regular.ttf") }, { StyleSpan(BOLD) })
+                .append("Fonts", { FontSpan(assets, "fonts/ProductSans-Regular.ttf") })
                 .spanAll({ ForegroundColorSpan(getColor2(R.color.gray)) })
 
-        val total = 818
-        textViewViewing.text = "Viewing $total of $total font families".toSpannable().spanFirst(Regex(total.toString()), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
+        textViewViewing.text = "Viewing 818 of 818 font families"
+                .toSpannable()
+                .spanFirst("818", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = Adapter(this)
 
-        textViewCopyright.text = "© 2017 Google Inc.".toSpannable()
+        textViewCopyright.text = "© 2017 Google Inc."
+                .toSpannable()
                 .spanAll({ AbsoluteSizeSpan(12.dp) })
-                .span(Regex("Google"), { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
+                .span("Google", { ForegroundColorSpan(getColor2(R.color.colorAccent)) })
 
-        val url = "https://fonts.google.com"
-        textViewUrl.text = ("as seen on " + url).toSpannable()
+        textViewUrl.text = "as seen on https://fonts.google.com"
+                .toSpannable()
                 .spanAll({ AbsoluteSizeSpan(12.dp) })
-                .span(PatternsCompat.WEB_URL.toRegex(), { URLSpan(url) })
+                .span(WEB_URL.toRegex(), { URLSpan(it) })
         textViewUrl.movementMethod = LinkMovementMethod.getInstance()
     }
 
@@ -65,11 +65,17 @@ class TextsActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val font = fonts[position]
-            holder.toolbar.title = font.title.toSpannable().spanAll({ ForegroundColorSpan(context.getColor2(R.color.darkGray)) }, { StyleSpan(Typeface.BOLD) }, { AbsoluteSizeSpan(14.dp) })
-            holder.toolbar.subtitle = "${font.author} ${font.stylesCount} styles)".toSpannable().spanAll({ AbsoluteSizeSpan(12.dp) })
+            holder.toolbar.title = font.title
+                    .toSpannable()
+                    .spanAll({ ForegroundColorSpan(context.getColor2(R.color.darkGray)) }, { StyleSpan(BOLD) }, { AbsoluteSizeSpan(14.dp) })
+            holder.toolbar.subtitle = "${font.author} ${font.stylesCount} styles)"
+                    .toSpannable()
+                    .spanAll({ AbsoluteSizeSpan(12.dp) })
             holder.toolbar.menu.clear()
             holder.toolbar.inflateMenu(R.menu.activity_texts)
-            holder.textView.text = font.example.toSpannable().spanAll({ FontSpan(context.assets, font.filename) }, { AbsoluteSizeSpan(24.dp) })
+            holder.textView.text = font.example
+                    .toSpannable()
+                    .spanAll({ FontSpan(context.assets, font.filename) }, { AbsoluteSizeSpan(24.dp) })
         }
 
         override fun getItemCount() = fonts.size
@@ -80,7 +86,7 @@ class TextsActivity : AppCompatActivity() {
         var textView: TextView = itemView.find(R.id.textView)
     }
 
-    private enum class Font constructor(
+    private enum class Font(
             val title: String,
             val author: String,
             val stylesCount: Int,

@@ -3,7 +3,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 const val bintrayUser = "hendraanggrian"
 const val bintrayGroup = "com.hendraanggrian"
 const val bintrayArtifact = "kota"
-const val bintrayPublish = "0.20"
+const val bintrayPublish = "0.21"
 const val bintrayDesc = "Lightweight library full of Kotlin extension functions for Android"
 const val bintrayWeb = "https://github.com/hendraanggrian/kota"
 

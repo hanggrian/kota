@@ -15,9 +15,7 @@ allprojects {
         google()
         jcenter()
     }
-    tasks.withType(Javadoc::class.java).all {
-        isEnabled = false
-    }
+    tasks.withType(Javadoc::class.java).all { isEnabled = false }
 }
 
 task<Delete>("clean") {

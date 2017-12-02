@@ -8,19 +8,19 @@ import android.text.SpannableStringBuilder
 import android.text.SpannableStringBuilder.valueOf
 import android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 
-/** Returns a new [SpannableStringBuilder] from [source] or the [source] itself if it is already an instance of [SpannableStringBuilder]. */
+/** Returns a new [SpannableStringBuilder] from source or the source itself if it is already an instance of [SpannableStringBuilder]. */
 inline fun CharSequence.toSpannableBuilder(): SpannableStringBuilder = valueOf(this)
 
 /** Append text with [spans] applied. */
 @JvmOverloads
 inline fun SpannableStringBuilder.append(
         text: CharSequence,
-        vararg spans: Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): SpannableStringBuilder {
     append(text)
     val end = length
     val start = end - text.length
-    spans.forEach { setSpan(it, start, end, flags) }
+    spanRange(start, end, *spans, flags = flags)
     return this
 }

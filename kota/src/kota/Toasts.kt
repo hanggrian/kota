@@ -7,16 +7,13 @@ import android.app.Fragment
 import android.content.Context
 import android.support.annotation.StringRes
 import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
-import android.widget.Toast.LENGTH_SHORT
+import android.widget.Toast.*
 
 @PublishedApi
-internal inline fun Context.make(message: CharSequence, duration: Int): Toast =
-        Toast.makeText(this, message, duration)
+internal inline fun Context.make(message: CharSequence, duration: Int): Toast = makeText(this, message, duration)
 
 @PublishedApi
-internal inline fun Context.make(@StringRes message: Int, duration: Int): Toast =
-        Toast.makeText(this, message, duration)
+internal inline fun Context.make(@StringRes message: Int, duration: Int): Toast = makeText(this, message, duration)
 
 inline fun Context.toast(message: CharSequence): Toast = make(message, LENGTH_SHORT).apply { show() }
 inline fun Fragment.toast(message: CharSequence): Toast = activity.toast(message)

@@ -15,37 +15,51 @@ inline fun CharSequence.toSpannable(): Spannable = valueOf(this)
 @JvmOverloads
 inline fun Spannable.span(
         regex: Regex,
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable {
     val matcher = regex.toPattern().matcher(this)
     while (matcher.find()) {
         val start = matcher.start()
         val end = matcher.end()
-        for (span in spans) setSpan(span(substring(start, end)), start, end, flags)
+        spanRange(start, end, *spans, flags = flags)
     }
     return this
 }
 
 @JvmOverloads
+inline fun Spannable.span(
+        regex: String,
+        vararg spans: (s: String) -> Any,
+        flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
+): Spannable = span(regex.toRegex(), *spans, flags = flags)
+
+@JvmOverloads
 inline fun Spannable.spanFirst(
         regex: Regex,
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable {
     val matcher = regex.toPattern().matcher(this)
     matcher.find()
     val start = matcher.start()
     val end = matcher.end()
-    for (span in spans) setSpan(span(substring(start, end)), start, end, flags)
+    spanRange(start, end, *spans, flags = flags)
     return this
 }
+
+@JvmOverloads
+inline fun Spannable.spanFirst(
+        regex: String,
+        vararg spans: (s: String) -> Any,
+        flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
+): Spannable = spanFirst(regex.toRegex(), *spans, flags = flags)
 
 @JvmOverloads
 inline fun Spannable.spanRange(
         start: Int,
         end: Int,
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable {
     for (span in spans) setSpan(span(substring(start, end)), start, end, flags)
@@ -55,7 +69,7 @@ inline fun Spannable.spanRange(
 @JvmOverloads
 inline fun Spannable.spanRange(
         range: IntRange,
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable {
     for (span in spans) setSpan(span(substring(range.start, range.endInclusive + 1)), range.start, range.endInclusive + 1, flags)
@@ -65,7 +79,7 @@ inline fun Spannable.spanRange(
 @JvmOverloads
 inline fun Spannable.spanBefore(
         delimiter: Char,
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable {
     val index = indexOf(delimiter)
@@ -75,7 +89,7 @@ inline fun Spannable.spanBefore(
 @JvmOverloads
 inline fun Spannable.spanBefore(
         delimiter: String,
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable {
     val index = indexOf(delimiter)
@@ -85,7 +99,7 @@ inline fun Spannable.spanBefore(
 @JvmOverloads
 inline fun Spannable.spanAfter(
         delimiter: Char,
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable {
     val index = indexOf(delimiter)
@@ -95,7 +109,7 @@ inline fun Spannable.spanAfter(
 @JvmOverloads
 inline fun Spannable.spanAfter(
         delimiter: String,
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable {
     val index = indexOf(delimiter)
@@ -104,15 +118,14 @@ inline fun Spannable.spanAfter(
 
 @JvmOverloads
 inline fun Spannable.spanAll(
-        vararg spans: (s: CharSequence) -> Any,
+        vararg spans: (s: String) -> Any,
         flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): Spannable = spanRange(0, length, *spans, flags = flags)
 
 /** Remove [spans] from this text. */
-inline fun Spannable.despan(vararg spans: Any): Spannable {
+inline fun Spannable.removeSpans(vararg spans: Any) {
     for (span in spans) removeSpan(span)
-    return this
 }
 
 /** Clear all spans from this text. */
-inline fun Spannable.despanAll(): Spannable = despan(*spans)
+inline fun Spannable.clearSpans() = removeSpans(*spans)

@@ -107,12 +107,12 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kota:0.20'
-    compile 'com.hendraanggrian:kota-support-v4:0.20'
-    compile 'com.hendraanggrian:kota-appcompat-v7:0.20'
-    compile 'com.hendraanggrian:kota-recyclerview-v7:0.20'
-    compile 'com.hendraanggrian:kota-preference-v7:0.20'
-    compile 'com.hendraanggrian:kota-design:0.20'
+    compile 'com.hendraanggrian:kota:0.21'
+    compile 'com.hendraanggrian:kota-support-v4:0.21'
+    compile 'com.hendraanggrian:kota-appcompat-v7:0.21'
+    compile 'com.hendraanggrian:kota-recyclerview-v7:0.21'
+    compile 'com.hendraanggrian:kota-preference-v7:0.21'
+    compile 'com.hendraanggrian:kota-design:0.21'
 }
 ```
 

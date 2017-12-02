@@ -46,8 +46,8 @@ inline fun FragmentManager.add(
         .add(containerViewId, fragment, tag)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.addNow(
         fragment: Fragment,
         tag: String,
@@ -57,8 +57,8 @@ inline fun FragmentManager.addNow(
         .add(fragment, tag)
         .commitNow()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.addNow(
         @IdRes containerViewId: Int,
         fragment: Fragment,
@@ -68,8 +68,8 @@ inline fun FragmentManager.addNow(
         .add(containerViewId, fragment)
         .commitNow()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.addNow(
         @IdRes containerViewId: Int,
         fragment: Fragment,
@@ -101,8 +101,8 @@ inline fun FragmentManager.replace(
         .replace(containerViewId, fragment, tag)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.replaceNow(
         @IdRes containerViewId: Int,
         fragment: Fragment,
@@ -112,8 +112,8 @@ inline fun FragmentManager.replaceNow(
         .replace(containerViewId, fragment)
         .commitNow()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.replaceNow(
         @IdRes containerViewId: Int,
         fragment: Fragment,
@@ -133,8 +133,8 @@ inline fun FragmentManager.remove(
         .remove(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.removeNow(
         fragment: Fragment,
         transit: FragmentTransit = NoTransit
@@ -152,8 +152,8 @@ inline fun FragmentManager.hide(
         .hide(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.hideNow(
         fragment: Fragment,
         transit: FragmentTransit = NoTransit
@@ -171,8 +171,8 @@ inline fun FragmentManager.show(
         .show(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.showNow(
         fragment: Fragment,
         transit: FragmentTransit = NoTransit
@@ -190,8 +190,8 @@ inline fun FragmentManager.detach(
         .detach(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.detachNow(
         fragment: Fragment,
         transit: FragmentTransit = NoTransit
@@ -209,8 +209,8 @@ inline fun FragmentManager.attach(
         .attach(fragment)
         .commit()
 
-@RequiresApi(24)
 @JvmOverloads
+@RequiresApi(24)
 inline fun FragmentManager.attachNow(
         fragment: Fragment,
         transit: FragmentTransit = NoTransit
