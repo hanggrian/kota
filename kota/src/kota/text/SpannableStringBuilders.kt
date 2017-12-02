@@ -12,10 +12,11 @@ import android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
 inline fun CharSequence.toSpannableBuilder(): SpannableStringBuilder = valueOf(this)
 
 /** Append text with [spans] applied. */
+@JvmOverloads
 inline fun SpannableStringBuilder.append(
-        flags: Int,
         text: CharSequence,
-        vararg spans: Any
+        vararg spans: Any,
+        flags: Int = SPAN_EXCLUSIVE_EXCLUSIVE
 ): SpannableStringBuilder {
     append(text)
     val end = length
@@ -23,9 +24,3 @@ inline fun SpannableStringBuilder.append(
     spans.forEach { setSpan(it, start, end, flags) }
     return this
 }
-
-/** Append text with [spans] applied using default flags. */
-inline fun SpannableStringBuilder.append(
-        text: CharSequence,
-        vararg spans: Any
-): SpannableStringBuilder = append(SPAN_EXCLUSIVE_EXCLUSIVE, text, *spans)

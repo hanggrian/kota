@@ -31,7 +31,7 @@ dependencies {
 publish {
     userOrg = bintrayUser
     groupId = bintrayGroup
-    artifactId = bintrayArtifact + "-preference-v7"
+    artifactId = "$bintrayArtifact-preference-v7"
     publishVersion = bintrayPublish
     desc = bintrayDesc
     website = bintrayWeb

@@ -17,5 +17,5 @@ const val runnerVersion = "1.0.1"
 const val espressoVersion = "3.0.1"
 const val junitVersion = "4.12"
 
-fun DependencyHandler.support(module: String, version: String, vararg groupSuffixes: String) = "${StringBuilder("com.android.support").apply { groupSuffixes.forEach { append(".$it") } }}:$module:$version"
+fun DependencyHandler.support(module: String, version: String, vararg suffixes: String) = "${StringBuilder("com.android.support").apply { suffixes.forEach { append(".$it") } }}:$module:$version"
 fun DependencyHandler.junit(version: String) = "junit:junit:$version"

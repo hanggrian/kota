@@ -31,7 +31,7 @@ dependencies {
 publish {
     userOrg = bintrayUser
     groupId = bintrayGroup
-    artifactId = bintrayArtifact + "-recyclerview-v7"
+    artifactId = "$bintrayArtifact-recyclerview-v7"
     publishVersion = bintrayPublish
     desc = bintrayDesc
     website = bintrayWeb
