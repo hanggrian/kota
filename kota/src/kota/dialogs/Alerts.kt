@@ -10,20 +10,6 @@ import android.content.Context
 import android.support.annotation.StringRes
 import kota.internal.DialogDsl
 
-fun asd(context: Context) {
-    context.alert("") {
-        setTitle("")
-        setOKButton {
-
-        }
-    }.show()
-
-    AlertDialog.Builder(context)
-            .setTitle("")
-            .setOKButton()
-            .show()
-}
-
 @JvmOverloads
 inline fun Context.alert(
         message: CharSequence,
