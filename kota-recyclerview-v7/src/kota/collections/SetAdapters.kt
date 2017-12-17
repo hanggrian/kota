@@ -2,7 +2,7 @@
 @file:JvmName("CollectionAdaptersKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.collections
+package kota
 
 import android.support.v7.widget.RecyclerView
 

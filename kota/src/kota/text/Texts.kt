@@ -1,6 +1,8 @@
+@file:JvmMultifileClass
+@file:JvmName("TextsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.text
+package kota
 
 import android.support.annotation.RequiresApi
 import android.text.Html.escapeHtml

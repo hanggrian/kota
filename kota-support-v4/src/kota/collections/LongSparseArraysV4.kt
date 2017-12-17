@@ -2,7 +2,7 @@
 @file:JvmName("SparseArraysV4Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED", "EXTENSION_SHADOWED_BY_MEMBER")
 
-package kota.collections
+package kota
 
 import android.support.v4.util.LongSparseArray
 import java.util.*

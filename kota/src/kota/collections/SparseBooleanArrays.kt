@@ -2,7 +2,7 @@
 @file:JvmName("SparseArraysKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED", "EXTENSION_SHADOWED_BY_MEMBER")
 
-package kota.collections
+package kota
 
 import android.util.SparseBooleanArray
 import java.util.*

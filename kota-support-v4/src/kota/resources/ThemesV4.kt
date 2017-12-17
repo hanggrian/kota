@@ -2,7 +2,7 @@
 @file:JvmName("ResourcesV4Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.resources
+package kota
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable

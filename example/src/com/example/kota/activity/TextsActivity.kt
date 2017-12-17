@@ -19,11 +19,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.kota.FontSpan
 import com.example.kota.R
-import kota.find
-import kota.layoutInflater
-import kota.resources.dp
-import kota.resources.getColor2
-import kota.text.*
+import kota.*
 import kotlinx.android.synthetic.main.activity_texts.*
 
 /** Example activity that mimics https://fonts.google.com. */
