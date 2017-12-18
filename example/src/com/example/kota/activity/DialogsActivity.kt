@@ -5,6 +5,7 @@ import android.support.v7.preference.Preference
 import android.support.v7.preference.PreferenceFragmentCompat
 import com.example.kota.R
 import kota.*
+import kota.layouts.frameLayout
 
 class DialogsActivity : NextActivity() {
 
@@ -26,33 +27,47 @@ class DialogsActivity : NextActivity() {
                 false
             }
             find<Preference>("alert").setOnPreferenceClickListener {
-                // supportAlert("Alert", "Easily add buttons with DialogButton", CancelButton, OkButton { activity!!.contentView!!.snackbar("OK") })
+                supportAlert("Are you sure?", "Confirmation") {
+                    setNoButton()
+                    setYesButton { activity!!.contentView!!.snackbar("OK") }
+                }.show()
                 false
             }
             find<Preference>("itemsAlert").setOnPreferenceClickListener {
-                // supportItemsAlert("Items alert", a, { _, i -> activity!!.contentView!!.snackbar(a[i]) })
+                supportItemsAlert(a, "Items alert", { _, i -> activity!!.contentView!!.snackbar(a[i]) }).show()
                 false
             }
             find<Preference>("choiceAlert").setOnPreferenceClickListener {
                 var selected: String? = null
-                // supportChoiceAlert("Single choice alert", a, { _, i -> selected = a[i] }, OkButton { activity!!.contentView!!.snackbar(selected.toString()) })
+                supportChoiceAlert(a, -1, "Single choice alert", { _, i -> selected = a[i] }) {
+                    setOKButton { activity!!.contentView!!.snackbar(selected.toString()) }
+                }.show()
                 false
             }
             find<Preference>("multiChoiceAlert").setOnPreferenceClickListener {
                 val selected = mutableListOf<String>()
-                // supportMultiChoiceAlert("Multi choice alert", a, { _, i, isSelected -> if (isSelected) selected.add(a[i]) else selected.remove(a[i]) }, OkButton { activity!!.contentView!!.snackbar(selected.toString()) })
+                supportMultiChoiceAlert(a, null, "Multi choice alert", { _, i, isSelected -> if (isSelected) selected.add(a[i]) else selected.remove(a[i]) }) {
+                    setOKButton { activity!!.contentView!!.snackbar(selected.toString()) }
+                }.show()
                 false
             }
             find<Preference>("customAlert").setOnPreferenceClickListener {
-                // supportCustomAlert("Custom alert", EditText(context), CancelButton, OkButton)
+                supportAlert {
+                    setTitle("Custom alert")
+                    setView(frameLayout {
+
+                    })
+                    setCancelButton()
+                    setOKButton()
+                }.show()
                 false
             }
             find<Preference>("progressDialog").setOnPreferenceClickListener {
-                // progressDialog("Please wait", "Loading...")
+                progressDialog("Please wait", "Loading...").show()
                 false
             }
             find<Preference>("indeterminateProgressDialog").setOnPreferenceClickListener {
-                // indeterminateProgressDialog("Please wait", "Loading...")
+                indeterminateProgressDialog("Please wait", "Loading...").show()
                 false
             }
         }

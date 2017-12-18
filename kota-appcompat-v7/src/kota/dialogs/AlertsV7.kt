@@ -1,85 +1,58 @@
 @file:JvmMultifileClass
-@file:JvmName("AlertsV7Kt")
+@file:JvmName("DialogsV7Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.dialogs
+package kota
 
 import android.content.Context
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatDialog
-import kota.internal.DialogButton
-import kota.internal.setButtons
 
 @JvmOverloads
 inline fun Context.supportAlert(
-        title: CharSequence,
-        message: CharSequence,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
+        noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
-        .setMessage(message)
-        .setButtons(*buttons)
         .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
+        .apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun Fragment.supportAlert(
-        title: CharSequence,
-        message: CharSequence,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportAlert(title, message, *buttons, init = init)
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = context!!.supportAlert(init)
 
 @JvmOverloads
 inline fun Context.supportAlert(
-        @StringRes title: Int,
         message: CharSequence,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
+        title: CharSequence? = null,
+        noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
         .setMessage(message)
-        .setButtons(*buttons)
+        .apply { title?.let { setTitle(it) } }
         .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
+        .apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun Fragment.supportAlert(
-        @StringRes title: Int,
         message: CharSequence,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportAlert(title, message, *buttons, init = init)
+        title: CharSequence? = null,
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = context!!.supportAlert(message, title, init)
 
 @JvmOverloads
 inline fun Context.supportAlert(
-        title: CharSequence,
         @StringRes message: Int,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
+        @StringRes title: Int? = null,
+        noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
         .setMessage(message)
-        .setButtons(*buttons)
+        .apply { title?.let { setTitle(it) } }
         .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
+        .apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun Fragment.supportAlert(
-        title: CharSequence,
         @StringRes message: Int,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportAlert(title, message, *buttons, init = init)
+        @StringRes title: Int? = null,
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = context!!.supportAlert(message, title, init)

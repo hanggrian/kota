@@ -6,23 +6,13 @@ import android.app.Activity
 import android.app.Dialog
 import android.app.Fragment
 import android.util.Log
-import java.util.Arrays.toString
-
-@PublishedApi
-internal val Any?.asString: String
-    get() = when (this) {
-        is String -> this
-        is Array<*> -> toString(this)
-        is Collection<*> -> toString(this.toTypedArray())
-        else -> toString()
-    }
 
 @JvmOverloads
 inline fun verbose(
         tag: String,
         msg: Any?,
         tr: Throwable? = null
-): Int = if (tr != null) Log.v(tag, msg.asString, tr) else Log.v(tag, msg.asString)
+): Int = if (tr != null) Log.v(tag, msg.toString(), tr) else Log.v(tag, msg.toString())
 
 @JvmOverloads inline fun Activity.verbose(msg: Any?, tr: Throwable? = null): Int = verbose(javaClass.simpleName, msg, tr)
 @JvmOverloads inline fun Fragment.verbose(msg: Any?, tr: Throwable? = null): Int = verbose(javaClass.simpleName, msg, tr)
@@ -33,7 +23,7 @@ inline fun debug(
         tag: String,
         msg: Any?,
         tr: Throwable? = null
-): Int = if (tr != null) Log.d(tag, msg.asString, tr) else Log.d(tag, msg.asString)
+): Int = if (tr != null) Log.d(tag, msg.toString(), tr) else Log.d(tag, msg.toString())
 
 @JvmOverloads inline fun Activity.debug(msg: Any?, tr: Throwable? = null): Int = debug(javaClass.simpleName, msg, tr)
 @JvmOverloads inline fun Fragment.debug(msg: Any?, tr: Throwable? = null): Int = debug(javaClass.simpleName, msg, tr)
@@ -44,7 +34,7 @@ inline fun info(
         tag: String,
         msg: Any?,
         tr: Throwable? = null
-): Int = if (tr != null) Log.i(tag, msg.asString, tr) else Log.i(tag, msg.asString)
+): Int = if (tr != null) Log.i(tag, msg.toString(), tr) else Log.i(tag, msg.toString())
 
 @JvmOverloads inline fun Activity.info(msg: Any?, tr: Throwable? = null): Int = info(javaClass.simpleName, msg, tr)
 @JvmOverloads inline fun Fragment.info(msg: Any?, tr: Throwable? = null): Int = info(javaClass.simpleName, msg, tr)
@@ -55,7 +45,7 @@ inline fun warn(
         tag: String,
         msg: Any?,
         tr: Throwable? = null
-): Int = if (tr != null) Log.w(tag, msg.asString, tr) else Log.w(tag, msg.asString)
+): Int = if (tr != null) Log.w(tag, msg.toString(), tr) else Log.w(tag, msg.toString())
 
 @JvmOverloads inline fun Activity.warn(msg: Any?, tr: Throwable? = null): Int = warn(javaClass.simpleName, msg, tr)
 @JvmOverloads inline fun Fragment.warn(msg: Any?, tr: Throwable? = null): Int = warn(javaClass.simpleName, msg, tr)
@@ -75,7 +65,7 @@ inline fun error(
         tag: String,
         msg: Any?,
         tr: Throwable? = null
-): Int = if (tr != null) Log.e(tag, msg.asString, tr) else Log.e(tag, msg.asString)
+): Int = if (tr != null) Log.e(tag, msg.toString(), tr) else Log.e(tag, msg.toString())
 
 @JvmOverloads inline fun Activity.error(msg: Any?, tr: Throwable? = null): Int = error(javaClass.simpleName, msg, tr)
 @JvmOverloads inline fun Fragment.error(msg: Any?, tr: Throwable? = null): Int = error(javaClass.simpleName, msg, tr)
@@ -86,7 +76,7 @@ inline fun wtf(
         tag: String,
         msg: Any?,
         tr: Throwable? = null
-): Int = if (tr != null) Log.wtf(tag, msg.asString, tr) else Log.wtf(tag, msg.asString)
+): Int = if (tr != null) Log.wtf(tag, msg.toString(), tr) else Log.wtf(tag, msg.toString())
 
 @JvmOverloads inline fun Activity.wtf(msg: Any?, tr: Throwable? = null): Int = wtf(javaClass.simpleName, msg, tr)
 @JvmOverloads inline fun Fragment.wtf(msg: Any?, tr: Throwable? = null): Int = wtf(javaClass.simpleName, msg, tr)

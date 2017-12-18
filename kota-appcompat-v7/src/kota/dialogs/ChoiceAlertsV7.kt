@@ -1,8 +1,8 @@
 @file:JvmMultifileClass
-@file:JvmName("AlertsV7Kt")
+@file:JvmName("DialogsV7Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kota.dialogs
+package kota
 
 import android.content.Context
 import android.content.DialogInterface
@@ -10,283 +10,47 @@ import android.support.annotation.ArrayRes
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatDialog
-import android.widget.ListAdapter
-import kota.internal.DialogButton
-import kota.internal.setButtons
 
 @JvmOverloads
 inline fun Context.supportChoiceAlert(
-        title: CharSequence,
         items: Array<out CharSequence>,
         checked: Int,
+        title: CharSequence? = null,
         noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
+        noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
         .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-        .setButtons(*buttons)
+        .apply { title?.let { setTitle(it) } }
         .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
+        .apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun Fragment.supportChoiceAlert(
-        title: CharSequence,
         items: Array<out CharSequence>,
         checked: Int,
+        title: CharSequence? = null,
         noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, checked, action, *buttons, init = init)
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = context!!.supportChoiceAlert(items, checked, title, action, init)
 
 @JvmOverloads
 inline fun Context.supportChoiceAlert(
-        title: CharSequence,
-        items: Array<out CharSequence>,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = supportChoiceAlert(title, items, -1, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        title: CharSequence,
-        items: Array<out CharSequence>,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        @StringRes title: Int,
-        items: Array<out CharSequence>,
+        @ArrayRes items: Int,
         checked: Int,
+        @StringRes titleId: CharSequence? = null,
         noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
+        noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
         .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-        .setButtons(*buttons)
+        .apply { titleId?.let { setTitle(it) } }
         .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
+        .apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun Fragment.supportChoiceAlert(
-        @StringRes title: Int,
-        items: Array<out CharSequence>,
-        checked: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, checked, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        @StringRes title: Int,
-        items: Array<out CharSequence>,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = supportChoiceAlert(title, items, -1, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        @StringRes title: Int,
-        items: Array<out CharSequence>,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        title: CharSequence,
         @ArrayRes items: Int,
         checked: Int,
+        @StringRes titleId: CharSequence? = null,
         noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
-        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-        .setButtons(*buttons)
-        .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        title: CharSequence,
-        @ArrayRes items: Int,
-        checked: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, checked, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        title: CharSequence,
-        @ArrayRes items: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = supportChoiceAlert(title, items, -1, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        title: CharSequence,
-        @ArrayRes items: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        @StringRes title: Int,
-        @ArrayRes items: Int,
-        checked: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
-        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-        .setButtons(*buttons)
-        .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        @StringRes title: Int,
-        @ArrayRes items: Int,
-        checked: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, checked, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        @StringRes title: Int,
-        @ArrayRes items: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = supportChoiceAlert(title, items, -1, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        @StringRes title: Int,
-        @ArrayRes items: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        title: CharSequence,
-        items: ListAdapter,
-        checked: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
-        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-        .setButtons(*buttons)
-        .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        title: CharSequence,
-        items: ListAdapter,
-        checked: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, checked, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        title: CharSequence,
-        items: ListAdapter,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = supportChoiceAlert(title, items, -1, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        title: CharSequence,
-        items: ListAdapter,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        @StringRes title: Int,
-        items: ListAdapter,
-        checked: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = AlertDialog.Builder(this)
-        .setTitle(title)
-        .setSingleChoiceItems(items, checked, DialogInterface.OnClickListener(action))
-        .setButtons(*buttons)
-        .create()
-        .apply {
-            init?.invoke(this)
-            show()
-        }
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        @StringRes title: Int,
-        items: ListAdapter,
-        checked: Int,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, checked, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Context.supportChoiceAlert(
-        @StringRes title: Int,
-        items: ListAdapter,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = supportChoiceAlert(title, items, -1, action, *buttons, init = init)
-
-@JvmOverloads
-inline fun Fragment.supportChoiceAlert(
-        @StringRes title: Int,
-        items: ListAdapter,
-        noinline action: (dialog: DialogInterface, Int) -> Unit,
-        vararg buttons: DialogButton,
-        noinline init: (AppCompatDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportChoiceAlert(title, items, action, *buttons, init = init)
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = context!!.supportChoiceAlert(items, checked, titleId, action, init)

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("AlertsKt")
+@file:JvmName("DialogsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota
@@ -8,76 +8,51 @@ import android.app.AlertDialog
 import android.app.Fragment
 import android.content.Context
 import android.support.annotation.StringRes
-import kota.internal.DialogDsl
 
 @JvmOverloads
 inline fun Context.alert(
-        message: CharSequence,
-        title: CharSequence? = null,
-        noinline init: ((@DialogDsl AlertDialog.Builder).() -> Unit)? = null
-): AlertDialog.Builder = AlertDialog.Builder(this)
-        .setMessage(message)
-        .apply {
-            title?.let { setTitle(it) }
-            init?.invoke(this)
-        }
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = AlertDialog.Builder(this)
+        .create()
+        .apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun Fragment.alert(
-        message: CharSequence,
-        title: CharSequence? = null,
-        noinline init: ((@DialogDsl AlertDialog.Builder).() -> Unit)? = null
-): AlertDialog.Builder = activity.alert(message, title, init)
-
-@JvmOverloads
-inline fun Context.alert(
-        @StringRes message: Int,
-        title: CharSequence? = null,
-        noinline init: ((@DialogDsl AlertDialog.Builder).() -> Unit)? = null
-): AlertDialog.Builder = AlertDialog.Builder(this)
-        .setMessage(message)
-        .apply {
-            title?.let { setTitle(it) }
-            init?.invoke(this)
-        }
-
-@JvmOverloads
-inline fun Fragment.alert(
-        @StringRes message: Int,
-        title: CharSequence? = null,
-        noinline init: ((@DialogDsl AlertDialog.Builder).() -> Unit)? = null
-): AlertDialog.Builder = activity.alert(message, title, init)
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = activity.alert(init)
 
 @JvmOverloads
 inline fun Context.alert(
         message: CharSequence,
-        @StringRes title: Int,
-        noinline init: ((@DialogDsl AlertDialog.Builder).() -> Unit)? = null
-): AlertDialog.Builder = AlertDialog.Builder(this)
+        title: CharSequence? = null,
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = AlertDialog.Builder(this)
         .setMessage(message)
-        .setTitle(title)
+        .apply { title?.let { setTitle(it) } }
+        .create()
         .apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun Fragment.alert(
         message: CharSequence,
-        @StringRes title: Int,
-        noinline init: ((@DialogDsl AlertDialog.Builder).() -> Unit)? = null
-): AlertDialog.Builder = activity.alert(message, title, init)
+        title: CharSequence? = null,
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = activity.alert(message, title, init)
 
 @JvmOverloads
 inline fun Context.alert(
         @StringRes message: Int,
-        @StringRes title: Int,
-        noinline init: ((@DialogDsl AlertDialog.Builder).() -> Unit)? = null
-): AlertDialog.Builder = AlertDialog.Builder(this)
+        @StringRes title: Int? = null,
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = AlertDialog.Builder(this)
         .setMessage(message)
-        .setTitle(title)
+        .apply { title?.let { setTitle(it) } }
+        .create()
         .apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun Fragment.alert(
         @StringRes message: Int,
-        @StringRes title: Int,
-        noinline init: ((@DialogDsl AlertDialog.Builder).() -> Unit)? = null
-): AlertDialog.Builder = activity.alert(message, title, init)
+        @StringRes title: Int? = null,
+        noinline init: (AlertDialog.() -> Unit)? = null
+): AlertDialog = activity.alert(message, title, init)

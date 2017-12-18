@@ -1,13 +1,13 @@
 @file:JvmMultifileClass
-@file:JvmName("DialogsKt")
+@file:JvmName("DialogsV7Kt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota
 
-import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.DialogInterface.*
 import android.support.annotation.StringRes
+import android.support.v7.app.AlertDialog
 
 @JvmOverloads
 inline fun AlertDialog.setPositiveButton(
