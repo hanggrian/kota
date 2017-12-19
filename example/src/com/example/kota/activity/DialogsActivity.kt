@@ -33,20 +33,20 @@ class DialogsActivity : NextActivity() {
                 false
             }
             find<Preference>("itemsAlert").setOnPreferenceClickListener {
-                supportItemsAlert(a, "Items alert", { _, i -> activity!!.contentView!!.snackbar(a[i]) }).show()
+                supportItemsAlert(ARRAY, "Items alert", { _, i -> activity!!.contentView!!.snackbar(ARRAY[i]) }).show()
                 false
             }
             find<Preference>("choiceAlert").setOnPreferenceClickListener {
                 var selected: String? = null
-                supportChoiceAlert(a, -1, "Single choice alert", { _, i -> selected = a[i] }) {
+                supportChoiceAlert(ARRAY, -1, "Single choice alert", { _, i -> selected = ARRAY[i] }) {
                     setOKButton { activity!!.contentView!!.snackbar(selected.toString()) }
                 }.show()
                 false
             }
             find<Preference>("multiChoiceAlert").setOnPreferenceClickListener {
-                val selected = mutableListOf<String>()
-                supportMultiChoiceAlert(a, null, "Multi choice alert", { _, i, isSelected -> if (isSelected) selected.add(a[i]) else selected.remove(a[i]) }) {
-                    setOKButton { activity!!.contentView!!.snackbar(selected.toString()) }
+                val selecteds = mutableListOf<String>()
+                supportMultiChoiceAlert(ARRAY, null, "Multi choice alert", { _, i, selected -> if (selected) selecteds.add(ARRAY[i]) else selecteds.remove(ARRAY[i]) }) {
+                    setOKButton { activity!!.contentView!!.snackbar(selecteds.toString()) }
                 }.show()
                 false
             }
@@ -75,6 +75,6 @@ class DialogsActivity : NextActivity() {
     }
 
     companion object {
-        val a = arrayOf("One", "Two", "Three", "Four", "Five")
+        val ARRAY = arrayOf("One", "Two", "Three", "Four", "Five")
     }
 }

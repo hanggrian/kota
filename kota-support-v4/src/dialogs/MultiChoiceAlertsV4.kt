@@ -15,7 +15,7 @@ inline fun Fragment.multiChoiceAlert(
         items: Array<out CharSequence>,
         checked: BooleanArray?,
         title: CharSequence? = null,
-        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, selected: Boolean) -> Unit,
         noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = context!!.multiChoiceAlert(items, checked, title, action, init)
 
@@ -24,6 +24,6 @@ inline fun Fragment.multiChoiceAlert(
         @ArrayRes items: Int,
         checked: BooleanArray?,
         @StringRes title: Int? = null,
-        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, selected: Boolean) -> Unit,
         noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = context!!.multiChoiceAlert(items, checked, title, action, init)

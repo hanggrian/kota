@@ -1,22 +1,22 @@
 @file:JvmMultifileClass
-@file:JvmName("DialogsV7Kt")
+@file:JvmName("DialogsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kota
 
+import android.app.AlertDialog
+import android.app.Fragment
 import android.content.Context
 import android.content.DialogInterface
 import android.support.annotation.ArrayRes
 import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
 
 @JvmOverloads
-inline fun Context.supportMultiChoiceAlert(
+inline fun Context.multiChoiceAlert(
         items: Array<out CharSequence>,
         checked: BooleanArray?,
         title: CharSequence? = null,
-        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, selected: Boolean) -> Unit,
         noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
         .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
@@ -25,20 +25,20 @@ inline fun Context.supportMultiChoiceAlert(
         .apply { init?.invoke(this) }
 
 @JvmOverloads
-inline fun Fragment.supportMultiChoiceAlert(
+inline fun Fragment.multiChoiceAlert(
         items: Array<out CharSequence>,
         checked: BooleanArray?,
         title: CharSequence? = null,
-        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, selected: Boolean) -> Unit,
         noinline init: (AlertDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportMultiChoiceAlert(items, checked, title, action, init)
+): AlertDialog = activity.multiChoiceAlert(items, checked, title, action, init)
 
 @JvmOverloads
-inline fun Context.supportMultiChoiceAlert(
+inline fun Context.multiChoiceAlert(
         @ArrayRes items: Int,
         checked: BooleanArray?,
         @StringRes title: Int? = null,
-        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, selected: Boolean) -> Unit,
         noinline init: (AlertDialog.() -> Unit)? = null
 ): AlertDialog = AlertDialog.Builder(this)
         .setMultiChoiceItems(items, checked, DialogInterface.OnMultiChoiceClickListener(action))
@@ -47,10 +47,10 @@ inline fun Context.supportMultiChoiceAlert(
         .apply { init?.invoke(this) }
 
 @JvmOverloads
-inline fun Fragment.supportMultiChoiceAlert(
+inline fun Fragment.multiChoiceAlert(
         @ArrayRes items: Int,
         checked: BooleanArray?,
         @StringRes title: Int? = null,
-        noinline action: (dialog: DialogInterface, Int, Boolean) -> Unit,
+        noinline action: (dialog: DialogInterface, Int, selected: Boolean) -> Unit,
         noinline init: (AlertDialog.() -> Unit)? = null
-): AlertDialog = context!!.supportMultiChoiceAlert(items, checked, title, action, init)
+): AlertDialog = activity.multiChoiceAlert(items, checked, title, action, init)

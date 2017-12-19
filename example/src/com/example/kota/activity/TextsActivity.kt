@@ -78,8 +78,8 @@ class TextsActivity : AppCompatActivity() {
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var toolbar: Toolbar = itemView.find(R.id.toolbar)
-        var textView: TextView = itemView.find(R.id.textView)
+        var toolbar = itemView.find<Toolbar>(R.id.toolbar)
+        var textView = itemView.find<TextView>(R.id.textView)
     }
 
     private enum class Font(
