@@ -1,4 +1,4 @@
-package kota.internal
+package kota
 
 @DslMarker
 @Target(AnnotationTarget.TYPE)

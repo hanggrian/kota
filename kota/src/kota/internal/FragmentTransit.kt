@@ -1,4 +1,4 @@
-package kota.internal
+package kota
 
 import android.app.FragmentTransaction
 import kota.BuildConfig.TRANSIT_TYPE_CONSTANT

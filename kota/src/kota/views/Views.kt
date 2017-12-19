@@ -13,15 +13,15 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 
-inline fun <reified T : View> View.find(@IdRes id: Int): T = findViewById<T>(id) as T
-inline fun <reified T : View> Activity.find(@IdRes id: Int): T = findViewById<T>(id) as T
-inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById<T>(id) as T
-inline fun <reified T : View> Dialog.find(@IdRes id: Int): T = findViewById<T>(id) as T
+inline fun <reified T : View> View.find(@IdRes id: Int): T = findViewById(id) as T
+inline fun <reified T : View> Activity.find(@IdRes id: Int): T = findViewById(id) as T
+inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById(id) as T
+inline fun <reified T : View> Dialog.find(@IdRes id: Int): T = findViewById(id) as T
 
-inline fun <reified T : View> View.findNullable(@IdRes id: Int): T? = findViewById(id)
-inline fun <reified T : View> Activity.findNullable(@IdRes id: Int): T? = findViewById(id)
-inline fun <reified T : View> Fragment.findNullable(@IdRes id: Int): T? = view?.findViewById(id)
-inline fun <reified T : View> Dialog.findNullable(@IdRes id: Int): T? = findViewById(id)
+inline fun <reified T : View> View.findNullable(@IdRes id: Int): T? = findViewById(id) as? T
+inline fun <reified T : View> Activity.findNullable(@IdRes id: Int): T? = findViewById(id) as? T
+inline fun <reified T : View> Fragment.findNullable(@IdRes id: Int): T? = view?.findViewById(id) as? T
+inline fun <reified T : View> Dialog.findNullable(@IdRes id: Int): T? = findViewById(id) as? T
 
 inline operator fun ViewGroup.contains(child: View) = child.parent == this
 inline operator fun ViewGroup.get(index: Int): View = getChildAt(index)!!
@@ -43,9 +43,7 @@ inline val Activity.contentView: View? get() = findViewById<ViewGroup>(android.R
 
 inline var View.isVisible: Boolean
     get() = visibility == VISIBLE
-    set(visible) {
-        visibility = if (visible) VISIBLE else GONE
-    }
+    set(visible) = setVisibility(if (visible) VISIBLE else GONE)
 
 inline fun <V : View> V.setVisibilityThen(
         visibility: Int,
@@ -70,7 +68,7 @@ inline fun <V : View> V.setVisibleThen(
         block: V.() -> Unit,
         fallback: V.() -> Unit
 ) {
-    this.isVisible = visible
+    isVisible = visible
     if (visibility == VISIBLE) block(this)
     else fallback(this)
 }
@@ -79,6 +77,6 @@ inline fun <V : View> V.setVisibleThen(
         visible: Boolean,
         block: V.() -> Unit
 ) {
-    this.isVisible = visible
+    isVisible = visible
     if (visibility == VISIBLE) block(this)
 }

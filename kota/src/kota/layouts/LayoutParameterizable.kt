@@ -1,9 +1,9 @@
-package kota.layouts
+package kota
 
 import android.view.View
 import android.view.ViewGroup
 
-interface LayoutParamsable<LP : ViewGroup.LayoutParams> {
+interface LayoutParameterizable<LP : ViewGroup.LayoutParams> {
     infix fun <V : View> V.lparams(params: LP): V = apply { layoutParams = params }
 
     infix fun <V : View> V.width(width: Int): V = apply { lparams.width = width }

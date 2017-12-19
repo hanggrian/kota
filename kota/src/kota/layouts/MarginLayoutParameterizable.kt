@@ -1,10 +1,10 @@
-package kota.layouts
+package kota
 
 import android.support.annotation.RequiresApi
 import android.view.View
 import android.view.ViewGroup
 
-interface MarginLayoutParamsable<LP : ViewGroup.MarginLayoutParams> : LayoutParamsable<LP> {
+interface MarginLayoutParameterizable<LP : ViewGroup.MarginLayoutParams> : LayoutParameterizable<LP> {
     fun <V : View> V.margins(left: Int, top: Int, right: Int, bottom: Int): V = apply { lparams.setMargins(left, top, right, bottom) }
     infix fun <V : View> V.marginLeft(left: Int): V = apply { lparams.leftMargin = left }
     infix fun <V : View> V.marginTop(top: Int): V = apply { lparams.topMargin = top }

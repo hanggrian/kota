@@ -1,11 +1,11 @@
-package kota.layouts
+package kota
 
 import android.content.Context
 import android.support.annotation.RequiresApi
 import android.view.View
 import android.widget.RelativeLayout
 
-class _RelativeLayout(context: Context) : RelativeLayout(context), MarginLayoutParamsable<RelativeLayout.LayoutParams> {
+class _RelativeLayout(context: Context) : RelativeLayout(context), MarginLayoutParameterizable<RelativeLayout.LayoutParams> {
     infix fun <V : View> V.alignWithParent(align: Boolean): V = apply { lparams.alignWithParent = align }
     infix fun <V : View> V.addRule(verb: Int): V = apply { lparams.addRule(verb) }
     fun <V : View> V.addRule(verb: Int, subject: Int): V = apply { lparams.addRule(verb, subject) }

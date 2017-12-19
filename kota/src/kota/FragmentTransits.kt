@@ -4,7 +4,6 @@ import android.app.FragmentTransaction.*
 import android.support.annotation.AnimatorRes
 import android.support.annotation.StyleRes
 import kota.BuildConfig.*
-import kota.internal.FragmentTransit
 
 open class CustomTransit : FragmentTransit {
     constructor(@AnimatorRes enter: Int, @AnimatorRes exit: Int) : super(TRANSIT_TYPE_CUSTOM, enter, exit)
