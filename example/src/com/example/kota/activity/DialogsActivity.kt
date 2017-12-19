@@ -5,7 +5,6 @@ import android.support.v7.preference.Preference
 import android.support.v7.preference.PreferenceFragmentCompat
 import com.example.kota.R
 import kota.*
-import kota.layouts.frameLayout
 
 class DialogsActivity : NextActivity() {
 
@@ -55,7 +54,9 @@ class DialogsActivity : NextActivity() {
                 supportAlert {
                     setTitle("Custom alert")
                     setView(frameLayout {
-
+                        editText {
+                            hint = "What's on your mind?"
+                        } marginStart 20.dp marginEnd 20.dp marginTop 10.dp marginBottom 10.dp
                     })
                     setCancelButton()
                     setOKButton()
