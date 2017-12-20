@@ -53,13 +53,41 @@ class DialogsActivity : NextActivity() {
             find<Preference>("customAlert").setOnPreferenceClickListener {
                 supportAlert {
                     setTitle("Custom alert")
-                    setView(frameLayout {
-                        editText {
-                            hint = "What's on your mind?"
-                        } marginStart 20.dp marginEnd 20.dp marginTop 10.dp marginBottom 10.dp
+                    setView(verticalLayout {
+                        horizontalLayout {
+                            button {
+
+                            } weight 1f
+                            button {
+
+                            } weight 1f
+                            button {
+
+                            } weight 1f
+                        } weight 1f
+                        horizontalLayout {
+                            button {
+
+                            } weight 1f
+                            button {
+
+                            } weight 1f
+                            button {
+
+                            } weight 1f
+                        } weight 1f
+                        horizontalLayout {
+                            button {
+
+                            } weight 1f
+                            button {
+
+                            } weight 1f
+                            button {
+
+                            } weight 1f
+                        } weight 1f
                     })
-                    setCancelButton()
-                    setOKButton()
                 }.show()
                 false
             }

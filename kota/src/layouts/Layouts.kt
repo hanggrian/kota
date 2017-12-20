@@ -4,155 +4,125 @@
 
 package kota
 
-import android.app.Dialog
-import android.app.Fragment
+import android.annotation.SuppressLint
 import android.appwidget.AppWidgetHostView
 import android.content.Context
+import android.support.annotation.RequiresApi
+import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import android.widget.LinearLayout.HORIZONTAL
-import android.widget.LinearLayout.VERTICAL
 
-inline fun Context.actionMenuView(init: (@KotaDsl _ActionMenuView).() -> Unit): ActionMenuView = _ActionMenuView(this).apply(init)
-inline fun Fragment.actionMenuView(init: (@KotaDsl _ActionMenuView).() -> Unit): ActionMenuView = _ActionMenuView(activity).apply(init)
-inline fun Dialog.actionMenuView(init: (@KotaDsl _ActionMenuView).() -> Unit): ActionMenuView = _ActionMenuView(context).apply(init)
-inline fun ViewGroup.actionMenuView(init: (@KotaDsl _ActionMenuView).() -> Unit): ActionMenuView = _ActionMenuView(context).apply {
-    init()
-    addView(this)
+interface ViewManager2 {
+    fun getContext(): Context
+
+    fun addView(view: View)
+
+    fun <T : View> T.addView() = apply { addView(this) }
 }
 
-inline fun Context.appWidgetHostView(init: (@KotaDsl _AppWidgetHostView).() -> Unit): AppWidgetHostView = _AppWidgetHostView(this).apply(init)
-inline fun Fragment.appWidgetHostView(init: (@KotaDsl _AppWidgetHostView).() -> Unit): AppWidgetHostView = _AppWidgetHostView(activity).apply(init)
-inline fun Dialog.appWidgetHostView(init: (@KotaDsl _AppWidgetHostView).() -> Unit): AppWidgetHostView = _AppWidgetHostView(context).apply(init)
-inline fun ViewGroup.appWidgetHostView(init: (@KotaDsl _AppWidgetHostView).() -> Unit): AppWidgetHostView = _AppWidgetHostView(context).apply {
-    init()
-    addView(this)
+interface LayoutParameterizable<LP : ViewGroup.LayoutParams> {
+    infix fun <V : View> V.lparams(params: LP): V = apply { layoutParams = params }
+
+    infix fun <V : View> V.width(width: Int): V = apply { lparams.width = width }
+    infix fun <V : View> V.height(height: Int): V = apply { lparams.height = height }
+
+    val View.lparams: LP @Suppress("UNCHECKED_CAST") get() = layoutParams as LP
 }
 
-inline fun Context.frameLayout(init: (@KotaDsl _FrameLayout).() -> Unit): FrameLayout = _FrameLayout(this).apply(init)
-inline fun Fragment.frameLayout(init: (@KotaDsl _FrameLayout).() -> Unit): FrameLayout = _FrameLayout(activity).apply(init)
-inline fun Dialog.frameLayout(init: (@KotaDsl _FrameLayout).() -> Unit): FrameLayout = _FrameLayout(context).apply(init)
-inline fun ViewGroup.frameLayout(init: (@KotaDsl _FrameLayout).() -> Unit): FrameLayout = _FrameLayout(context).apply {
-    init()
-    addView(this)
+interface MarginLayoutParameterizable<LP : ViewGroup.MarginLayoutParams> : LayoutParameterizable<LP> {
+    fun <V : View> V.margins(left: Int, top: Int, right: Int, bottom: Int): V = apply { lparams.setMargins(left, top, right, bottom) }
+    infix fun <V : View> V.marginLeft(left: Int): V = apply { lparams.leftMargin = left }
+    infix fun <V : View> V.marginTop(top: Int): V = apply { lparams.topMargin = top }
+    infix fun <V : View> V.marginRight(right: Int): V = apply { lparams.rightMargin = right }
+    infix fun <V : View> V.marginBottom(bottom: Int): V = apply { lparams.bottomMargin = bottom }
+
+    val View.marginLeft: Int get() = lparams.leftMargin
+    val View.marginTop: Int get() = lparams.topMargin
+    val View.marginRight: Int get() = lparams.rightMargin
+    val View.marginBottom: Int get() = lparams.bottomMargin
+
+    @RequiresApi(17) infix fun <V : View> V.marginStart(start: Int): V = apply { lparams.marginStart = start }
+    @RequiresApi(17) infix fun <V : View> V.marginEnd(end: Int): V = apply { lparams.marginEnd = end }
+
+    val View.isMarginRelative: Boolean @RequiresApi(17) get() = lparams.isMarginRelative
+
+    @RequiresApi(17) infix fun <V : View> V.resolveDirection(direction: Int): V = apply { lparams.resolveLayoutDirection(direction) }
+    @RequiresApi(17) infix fun <V : View> V.direction(direction: Int): V = apply { lparams.setLayoutDirection(direction) }
+    val View.direction: Int @RequiresApi(17) get() = lparams.layoutDirection
 }
 
-inline fun Context.gridLayout(init: (@KotaDsl _GridLayout).() -> Unit): GridLayout = _GridLayout(this).apply(init)
-inline fun Fragment.gridLayout(init: (@KotaDsl _GridLayout).() -> Unit): GridLayout = _GridLayout(activity).apply(init)
-inline fun Dialog.gridLayout(init: (@KotaDsl _GridLayout).() -> Unit): GridLayout = _GridLayout(context).apply(init)
-inline fun ViewGroup.gridLayout(init: (@KotaDsl _GridLayout).() -> Unit): GridLayout = _GridLayout(context).apply {
-    init()
-    addView(this)
+interface LinearLayoutParameterizable<LP : LinearLayout.LayoutParams> : MarginLayoutParameterizable<LP> {
+    infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.gravity = gravity }
+    infix fun <V : View> V.weight(weight: Float): V = apply { lparams.weight = weight }
+
+    val View.gravity: Int get() = lparams.gravity
+    val View.weight: Float get() = lparams.weight
 }
 
-inline fun Context.gridView(init: (@KotaDsl _GridView).() -> Unit): GridView = _GridView(this).apply(init)
-inline fun Fragment.gridView(init: (@KotaDsl _GridView).() -> Unit): GridView = _GridView(activity).apply(init)
-inline fun Dialog.gridView(init: (@KotaDsl _GridView).() -> Unit): GridView = _GridView(context).apply(init)
-inline fun ViewGroup.gridView(init: (@KotaDsl _GridView).() -> Unit): GridView = _GridView(context).apply {
-    init()
-    addView(this)
+interface FrameLayoutParameterizable<LP : FrameLayout.LayoutParams> : MarginLayoutParameterizable<LP> {
+    infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.gravity = gravity }
+
+    val View.gravity: Int get() = lparams.gravity
 }
 
-inline fun Context.horizontalScrollView(init: (@KotaDsl _HorizontalScrollView).() -> Unit): HorizontalScrollView = _HorizontalScrollView(this).apply(init)
-inline fun Fragment.horizontalScrollView(init: (@KotaDsl _HorizontalScrollView).() -> Unit): HorizontalScrollView = _HorizontalScrollView(activity).apply(init)
-inline fun Dialog.horizontalScrollView(init: (@KotaDsl _HorizontalScrollView).() -> Unit): HorizontalScrollView = _HorizontalScrollView(context).apply(init)
-inline fun ViewGroup.horizontalScrollView(init: (@KotaDsl _HorizontalScrollView).() -> Unit): HorizontalScrollView = _HorizontalScrollView(context).apply {
-    init()
-    addView(this)
+class _ActionMenuView(context: Context) : ActionMenuView(context), ViewManager2, LinearLayoutParameterizable<ActionMenuView.LayoutParams>
+
+class _AppWidgetHostView(context: Context) : AppWidgetHostView(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+
+class _FrameLayout(context: Context) : FrameLayout(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+
+class _GridLayout(context: Context) : GridLayout(context), ViewManager2, MarginLayoutParameterizable<GridLayout.LayoutParams> {
+    infix fun <V : View> V.col(spec: GridLayout.Spec) = apply { lparams.columnSpec = spec }
+    infix fun <V : View> V.row(spec: GridLayout.Spec) = apply { lparams.rowSpec = spec }
+    infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.setGravity(gravity) }
+
+    val View.col: GridLayout.Spec get() = lparams.columnSpec
+    val View.row: GridLayout.Spec get() = lparams.rowSpec
 }
 
-inline fun Context.imageSwitcher(init: (@KotaDsl _ImageSwitcher).() -> Unit): ImageSwitcher = _ImageSwitcher(this).apply(init)
-inline fun Fragment.imageSwitcher(init: (@KotaDsl _ImageSwitcher).() -> Unit): ImageSwitcher = _ImageSwitcher(activity).apply(init)
-inline fun Dialog.imageSwitcher(init: (@KotaDsl _ImageSwitcher).() -> Unit): ImageSwitcher = _ImageSwitcher(context).apply(init)
-inline fun ViewGroup.imageSwitcher(init: (@KotaDsl _ImageSwitcher).() -> Unit): ImageSwitcher = _ImageSwitcher(context).apply {
-    init()
-    addView(this)
+class _GridView(context: Context) : GridView(context), ViewManager2, LayoutParameterizable<AbsListView.LayoutParams>
+
+class _HorizontalScrollView(context: Context) : HorizontalScrollView(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+
+class _ImageSwitcher(context: Context) : ImageSwitcher(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+
+@SuppressLint("ViewConstructor")
+class _LinearLayout(context: Context, orientation: Int) : LinearLayout(context), ViewManager2, LinearLayoutParameterizable<LinearLayout.LayoutParams> {
+    init {
+        setOrientation(orientation)
+    }
 }
 
-inline fun Context.verticalLayout(init: (@KotaDsl _LinearLayout).() -> Unit): LinearLayout = _LinearLayout(this, VERTICAL).apply(init)
-inline fun Fragment.verticalLayout(init: (@KotaDsl _LinearLayout).() -> Unit): LinearLayout = _LinearLayout(activity, VERTICAL).apply(init)
-inline fun Dialog.verticalLayout(init: (@KotaDsl _LinearLayout).() -> Unit): LinearLayout = _LinearLayout(context, VERTICAL).apply(init)
-inline fun ViewGroup.verticalLayout(init: (@KotaDsl _LinearLayout).() -> Unit): LinearLayout = _LinearLayout(context, VERTICAL).apply {
-    init()
-    addView(this)
+class _RadioGroup(context: Context) : RadioGroup(context), ViewManager2, LinearLayoutParameterizable<RadioGroup.LayoutParams>
+
+class _RelativeLayout(context: Context) : RelativeLayout(context), ViewManager2, MarginLayoutParameterizable<RelativeLayout.LayoutParams> {
+    infix fun <V : View> V.alignWithParent(align: Boolean): V = apply { lparams.alignWithParent = align }
+    infix fun <V : View> V.addRule(verb: Int): V = apply { lparams.addRule(verb) }
+    fun <V : View> V.addRule(verb: Int, subject: Int): V = apply { lparams.addRule(verb, subject) }
+    @RequiresApi(17) infix fun <V : View> V.removeRule(verb: Int): V = apply { lparams.removeRule(verb) }
+
+    val View.alignWithParent: Boolean get() = lparams.alignWithParent
+    val View.rules: IntArray get() = lparams.rules
+
+    @RequiresApi(17) override fun <V : View> V.resolveDirection(direction: Int): V = apply { lparams.resolveLayoutDirection(direction) }
 }
 
-inline fun Context.horizontalLayout(init: (@KotaDsl _LinearLayout).() -> Unit): LinearLayout = _LinearLayout(this, HORIZONTAL).apply(init)
-inline fun Fragment.horizontalLayout(init: (@KotaDsl _LinearLayout).() -> Unit): LinearLayout = _LinearLayout(activity, HORIZONTAL).apply(init)
-inline fun Dialog.horizontalLayout(init: (@KotaDsl _LinearLayout).() -> Unit): LinearLayout = _LinearLayout(context, HORIZONTAL).apply(init)
-inline fun ViewGroup.horizontalLayout(init: (@KotaDsl _LinearLayout).() -> Unit): LinearLayout = _LinearLayout(context, HORIZONTAL).apply {
-    init()
-    addView(this)
+class _ScrollView(context: Context) : ScrollView(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+
+class _TableLayout(context: Context) : TableLayout(context), ViewManager2, LinearLayoutParameterizable<TableLayout.LayoutParams>
+
+class _TableRow(context: Context) : TableRow(context), ViewManager2, LinearLayoutParameterizable<TableRow.LayoutParams> {
+    infix fun <V : View> V.col(column: Int) = apply { lparams.column = column }
+    infix fun <V : View> V.span(span: Int) = apply { lparams.span = span }
+
+    val View.col: Int get() = lparams.column
+    val View.span: Int get() = lparams.span
 }
 
-inline fun Context.radioGroup(init: (@KotaDsl _RadioGroup).() -> Unit): RadioGroup = _RadioGroup(this).apply(init)
-inline fun Fragment.radioGroup(init: (@KotaDsl _RadioGroup).() -> Unit): RadioGroup = _RadioGroup(activity).apply(init)
-inline fun Dialog.radioGroup(init: (@KotaDsl _RadioGroup).() -> Unit): RadioGroup = _RadioGroup(context).apply(init)
-inline fun ViewGroup.radioGroup(init: (@KotaDsl _RadioGroup).() -> Unit): RadioGroup = _RadioGroup(context).apply {
-    init()
-    addView(this)
-}
+class _TextSwitcher(context: Context) : TextSwitcher(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-inline fun Context.relativeLayout(init: (@KotaDsl _RelativeLayout).() -> Unit): RelativeLayout = _RelativeLayout(this).apply(init)
-inline fun Fragment.relativeLayout(init: (@KotaDsl _RelativeLayout).() -> Unit): RelativeLayout = _RelativeLayout(activity).apply(init)
-inline fun Dialog.relativeLayout(init: (@KotaDsl _RelativeLayout).() -> Unit): RelativeLayout = _RelativeLayout(context).apply(init)
-inline fun ViewGroup.relativeLayout(init: (@KotaDsl _RelativeLayout).() -> Unit): RelativeLayout = _RelativeLayout(context).apply {
-    init()
-    addView(this)
-}
+class _Toolbar(context: Context) : Toolbar(context), ViewManager2, MarginLayoutParameterizable<Toolbar.LayoutParams>
 
-inline fun Context.scrollView(init: (@KotaDsl _ScrollView).() -> Unit): ScrollView = _ScrollView(this).apply(init)
-inline fun Fragment.scrollView(init: (@KotaDsl _ScrollView).() -> Unit): ScrollView = _ScrollView(activity).apply(init)
-inline fun Dialog.scrollView(init: (@KotaDsl _ScrollView).() -> Unit): ScrollView = _ScrollView(context).apply(init)
-inline fun ViewGroup.scrollView(init: (@KotaDsl _ScrollView).() -> Unit): ScrollView = _ScrollView(context).apply {
-    init()
-    addView(this)
-}
+class _ViewAnimator(context: Context) : ViewAnimator(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-inline fun Context.tableLayout(init: (@KotaDsl _TableLayout).() -> Unit): TableLayout = _TableLayout(this).apply(init)
-inline fun Fragment.tableLayout(init: (@KotaDsl _TableLayout).() -> Unit): TableLayout = _TableLayout(activity).apply(init)
-inline fun Dialog.tableLayout(init: (@KotaDsl _TableLayout).() -> Unit): TableLayout = _TableLayout(context).apply(init)
-inline fun ViewGroup.tableLayout(init: (@KotaDsl _TableLayout).() -> Unit): TableLayout = _TableLayout(context).apply {
-    init()
-    addView(this)
-}
-
-inline fun Context.tableRow(init: (@KotaDsl _TableRow).() -> Unit): TableRow = _TableRow(this).apply(init)
-inline fun Fragment.tableRow(init: (@KotaDsl _TableRow).() -> Unit): TableRow = _TableRow(activity).apply(init)
-inline fun Dialog.tableRow(init: (@KotaDsl _TableRow).() -> Unit): TableRow = _TableRow(context).apply(init)
-inline fun ViewGroup.tableRow(init: (@KotaDsl _TableRow).() -> Unit): TableRow = _TableRow(context).apply {
-    init()
-    addView(this)
-}
-
-inline fun Context.textSwitcher(init: (@KotaDsl _TextSwitcher).() -> Unit): TextSwitcher = _TextSwitcher(this).apply(init)
-inline fun Fragment.textSwitcher(init: (@KotaDsl _TextSwitcher).() -> Unit): TextSwitcher = _TextSwitcher(activity).apply(init)
-inline fun Dialog.textSwitcher(init: (@KotaDsl _TextSwitcher).() -> Unit): TextSwitcher = _TextSwitcher(context).apply(init)
-inline fun ViewGroup.textSwitcher(init: (@KotaDsl _TextSwitcher).() -> Unit): TextSwitcher = _TextSwitcher(context).apply {
-    init()
-    addView(this)
-}
-
-inline fun Context.toolbar(init: (@KotaDsl _Toolbar).() -> Unit): Toolbar = _Toolbar(this).apply(init)
-inline fun Fragment.toolbar(init: (@KotaDsl _Toolbar).() -> Unit): Toolbar = _Toolbar(activity).apply(init)
-inline fun Dialog.toolbar(init: (@KotaDsl _Toolbar).() -> Unit): Toolbar = _Toolbar(context).apply(init)
-inline fun ViewGroup.toolbar(init: (@KotaDsl _Toolbar).() -> Unit): Toolbar = _Toolbar(context).apply {
-    init()
-    addView(this)
-}
-
-inline fun Context.viewAnimator(init: (@KotaDsl _ViewAnimator).() -> Unit): ViewAnimator = _ViewAnimator(this).apply(init)
-inline fun Fragment.viewAnimator(init: (@KotaDsl _ViewAnimator).() -> Unit): ViewAnimator = _ViewAnimator(activity).apply(init)
-inline fun Dialog.viewAnimator(init: (@KotaDsl _ViewAnimator).() -> Unit): ViewAnimator = _ViewAnimator(context).apply(init)
-inline fun ViewGroup.viewAnimator(init: (@KotaDsl _ViewAnimator).() -> Unit): ViewAnimator = _ViewAnimator(context).apply {
-    init()
-    addView(this)
-}
-
-inline fun Context.viewSwitcher(init: (@KotaDsl _ViewSwitcher).() -> Unit): ViewSwitcher = _ViewSwitcher(this).apply(init)
-inline fun Fragment.viewSwitcher(init: (@KotaDsl _ViewSwitcher).() -> Unit): ViewSwitcher = _ViewSwitcher(activity).apply(init)
-inline fun Dialog.viewSwitcher(init: (@KotaDsl _ViewSwitcher).() -> Unit): ViewSwitcher = _ViewSwitcher(context).apply(init)
-inline fun ViewGroup.viewSwitcher(init: (@KotaDsl _ViewSwitcher).() -> Unit): ViewSwitcher = _ViewSwitcher(context).apply {
-    init()
-    addView(this)
-}
+class _ViewSwitcher(context: Context) : ViewSwitcher(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
