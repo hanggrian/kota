@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.TableRow
 
-class _TableRow(context: Context) : TableRow(context), MarginLayoutParameterizable<TableRow.LayoutParams> {
+class _TableRow(context: Context) : TableRow(context), LinearLayoutParameterizable<TableRow.LayoutParams> {
     infix fun <V : View> V.col(column: Int) = apply { lparams.column = column }
     infix fun <V : View> V.span(span: Int) = apply { lparams.span = span }
 
