@@ -8,7 +8,7 @@ import android.view.animation.Interpolator
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 
-class _AppBarLayout(context: Context) : AppBarLayout(context), LinearLayoutParameterizable<AppBarLayout.LayoutParams> {
+open class _AppBarLayout(context: Context) : AppBarLayout(context), ViewRoot, LinearLayoutParameterizable<AppBarLayout.LayoutParams> {
     infix fun <V : View> V.scrollFlags(@LayoutParams.ScrollFlags flags: Int): V = apply { lparams.scrollFlags = flags }
     infix fun <V : View> V.scrollInterpolator(interpolator: Interpolator): V = apply { lparams.scrollInterpolator = interpolator }
 
@@ -16,9 +16,9 @@ class _AppBarLayout(context: Context) : AppBarLayout(context), LinearLayoutParam
     val View.scrollInterpolator: Interpolator get() = lparams.scrollInterpolator
 }
 
-class _BottomNavigationView(context: Context) : BottomNavigationView(context), FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _BottomNavigationView(context: Context) : BottomNavigationView(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-class _CollapsingToolbarLayout(context: Context) : CollapsingToolbarLayout(context), FrameLayoutParameterizable<CollapsingToolbarLayout.LayoutParams> {
+open class _CollapsingToolbarLayout(context: Context) : CollapsingToolbarLayout(context), ViewRoot, FrameLayoutParameterizable<CollapsingToolbarLayout.LayoutParams> {
     infix fun <V : View> V.collapseMode(mode: Int): V = apply { lparams.collapseMode = mode }
     infix fun <V : View> V.parallaxMultiplier(multiplier: Float): V = apply { lparams.parallaxMultiplier = multiplier }
 
@@ -26,7 +26,7 @@ class _CollapsingToolbarLayout(context: Context) : CollapsingToolbarLayout(conte
     val View.parallaxMultiplier: Float get() = lparams.parallaxMultiplier
 }
 
-class _CoordinatorLayout(context: Context) : CoordinatorLayout(context), MarginLayoutParameterizable<CoordinatorLayout.LayoutParams> {
+open class _CoordinatorLayout(context: Context) : CoordinatorLayout(context), ViewRoot, MarginLayoutParameterizable<CoordinatorLayout.LayoutParams> {
     infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.gravity = gravity }
     infix fun <V : View> V.anchorGravity(gravity: Int): V = apply { lparams.anchorGravity = gravity }
     infix fun <V : View> V.keyline(keyline: Int): V = apply { lparams.keyline = keyline }
@@ -44,6 +44,6 @@ class _CoordinatorLayout(context: Context) : CoordinatorLayout(context), MarginL
     val View.behavior: Behavior<*>? get() = lparams.behavior
 }
 
-class _TabLayout(context: Context) : TabLayout(context), FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _TabLayout(context: Context) : TabLayout(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-class _TextInputLayout(context: Context) : TextInputLayout(context), LinearLayoutParameterizable<LinearLayout.LayoutParams>
+open class _TextInputLayout(context: Context) : TextInputLayout(context), ViewRoot, LinearLayoutParameterizable<LinearLayout.LayoutParams>

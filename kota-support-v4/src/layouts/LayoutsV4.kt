@@ -9,9 +9,9 @@ import android.support.v4.widget.SlidingPaneLayout
 import android.view.View
 import android.widget.FrameLayout
 
-class _FragmentTabHost(context: Context) : FragmentTabHost(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _FragmentTabHost(context: Context) : FragmentTabHost(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-class _ViewPager(context: Context) : ViewPager(context), ViewManager2, LayoutParameterizable<ViewPager.LayoutParams> {
+open class _ViewPager(context: Context) : ViewPager(context), ViewRoot, LayoutParameterizable<ViewPager.LayoutParams> {
     infix fun <V : View> V.isDecor(decor: Boolean): V = apply { lparams.isDecor = decor }
     infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.gravity = gravity }
 
@@ -19,11 +19,11 @@ class _ViewPager(context: Context) : ViewPager(context), ViewManager2, LayoutPar
     val View.gravity: Int get() = lparams.gravity
 }
 
-class _DrawerLayout(context: Context) : DrawerLayout(context), ViewManager2, MarginLayoutParameterizable<DrawerLayout.LayoutParams>
+open class _DrawerLayout(context: Context) : DrawerLayout(context), ViewRoot, MarginLayoutParameterizable<DrawerLayout.LayoutParams>
 
-class _NestedScrollView(context: Context) : NestedScrollView(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _NestedScrollView(context: Context) : NestedScrollView(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-class _SlidingPaneLayout(context: Context) : SlidingPaneLayout(context), ViewManager2, MarginLayoutParameterizable<SlidingPaneLayout.LayoutParams> {
+open class _SlidingPaneLayout(context: Context) : SlidingPaneLayout(context), ViewRoot, MarginLayoutParameterizable<SlidingPaneLayout.LayoutParams> {
     infix fun <V : View> V.weight(weight: Float): V = apply { lparams.weight = weight }
 
     val View.weight: Float get() = lparams.weight

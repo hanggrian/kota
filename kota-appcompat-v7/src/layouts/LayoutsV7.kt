@@ -18,13 +18,13 @@ interface LinearLayoutCompatParameterizable<LP : LinearLayoutCompat.LayoutParams
     val View.weight: Float get() = lparams.weight
 }
 
-class _ListMenuItemView(context: Context) : ListMenuItemView(context, null), LinearLayoutParameterizable<LinearLayout.LayoutParams>
+open class _ListMenuItemView(context: Context) : ListMenuItemView(context, null), ViewRoot, LinearLayoutParameterizable<LinearLayout.LayoutParams>
 
-class _ActionBarContainer(context: Context) : ActionBarContainer(context), FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _ActionBarContainer(context: Context) : ActionBarContainer(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-class _ActionBarOverlayLayout(context: Context) : ActionBarOverlayLayout(context), LayoutParameterizable<ViewGroup.LayoutParams>
+open class _ActionBarOverlayLayout(context: Context) : ActionBarOverlayLayout(context), ViewRoot, LayoutParameterizable<ViewGroup.LayoutParams>
 
-class _ActionMenuViewV7(context: Context) : ActionMenuView(context), LinearLayoutCompatParameterizable<ActionMenuView.LayoutParams> {
+open class _ActionMenuViewV7(context: Context) : ActionMenuView(context), ViewRoot, LinearLayoutCompatParameterizable<ActionMenuView.LayoutParams> {
     infix fun <V : View> V.overflowButton(overflow: Boolean): V = apply { lparams.isOverflowButton = overflow }
     infix fun <V : View> V.cellsUsed(cells: Int): V = apply { lparams.cellsUsed = cells }
     infix fun <V : View> V.extraPixels(pixels: Int): V = apply { lparams.extraPixels = pixels }
@@ -38,19 +38,19 @@ class _ActionMenuViewV7(context: Context) : ActionMenuView(context), LinearLayou
     val View.preventEdgeOffset: Boolean get() = lparams.preventEdgeOffset
 }
 
-class _AlertDialogLayout(context: Context) : AlertDialogLayout(context), LinearLayoutCompatParameterizable<LinearLayoutCompat.LayoutParams>
+open class _AlertDialogLayout(context: Context) : AlertDialogLayout(context), ViewRoot, LinearLayoutCompatParameterizable<LinearLayoutCompat.LayoutParams>
 
-class _ButtonBarLayout(context: Context) : ButtonBarLayout(context, null), LinearLayoutParameterizable<LinearLayout.LayoutParams>
+open class _ButtonBarLayout(context: Context) : ButtonBarLayout(context, null), ViewRoot, LinearLayoutParameterizable<LinearLayout.LayoutParams>
 
 @SuppressLint("ViewConstructor")
-class _LinearLayoutCompat(context: Context, orientation: Int) : LinearLayoutCompat(context), LinearLayoutCompatParameterizable<LinearLayoutCompat.LayoutParams> {
+open class _LinearLayoutCompat(context: Context, orientation: Int) : LinearLayoutCompat(context), ViewRoot, LinearLayoutCompatParameterizable<LinearLayoutCompat.LayoutParams> {
     init {
         setOrientation(orientation)
     }
 }
 
-class _ListViewCompat(context: Context) : ListViewCompat(context), LayoutParameterizable<AbsListView.LayoutParams>
+open class _ListViewCompat(context: Context) : ListViewCompat(context), ViewRoot, LayoutParameterizable<AbsListView.LayoutParams>
 
-class _ScrollingTabContainerView(context: Context) : ScrollingTabContainerView(context), FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _ScrollingTabContainerView(context: Context) : ScrollingTabContainerView(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-class _ToolbarV7(context: Context) : Toolbar(context), MarginLayoutParameterizable<Toolbar.LayoutParams>
+open class _ToolbarV7(context: Context) : Toolbar(context), ViewRoot, MarginLayoutParameterizable<Toolbar.LayoutParams>
