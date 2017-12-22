@@ -1,7 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("ViewsV7Kt")
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
-
 package kota
 
 import android.annotation.SuppressLint
@@ -10,6 +6,7 @@ import android.support.v7.view.menu.ListMenuItemView
 import android.support.v7.widget.*
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 
@@ -20,6 +17,8 @@ interface LinearLayoutCompatParameterizable<LP : LinearLayoutCompat.LayoutParams
     val View.gravity: Int get() = lparams.gravity
     val View.weight: Float get() = lparams.weight
 }
+
+class _ListMenuItemView(context: Context) : ListMenuItemView(context, null), LinearLayoutParameterizable<LinearLayout.LayoutParams>
 
 class _ActionBarContainer(context: Context) : ActionBarContainer(context), FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
@@ -50,6 +49,8 @@ class _LinearLayoutCompat(context: Context, orientation: Int) : LinearLayoutComp
     }
 }
 
-class _ListMenuItemView(context: Context) : ListMenuItemView(context, null), LinearLayoutParameterizable<LinearLayout.LayoutParams>
+class _ListViewCompat(context: Context) : ListViewCompat(context), LayoutParameterizable<AbsListView.LayoutParams>
 
-class _ListViewCompatV7(context: Context) : ListViewCompat(context), LinearLayoutCompatParameterizable<LinearLayoutCompat.LayoutParams>
+class _ScrollingTabContainerView(context: Context) : ScrollingTabContainerView(context), FrameLayoutParameterizable<FrameLayout.LayoutParams>
+
+class _ToolbarV7(context: Context) : Toolbar(context), MarginLayoutParameterizable<Toolbar.LayoutParams>

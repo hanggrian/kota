@@ -1,7 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("ViewsKt")
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
-
 package kota
 
 import android.annotation.SuppressLint
@@ -17,7 +13,7 @@ interface ViewManager2 {
 
     fun addView(view: View)
 
-    fun <T : View> T.addView() = apply { addView(this) }
+    fun <T : View> T.add() = apply { addView(this) }
 }
 
 interface LayoutParameterizable<LP : ViewGroup.LayoutParams> {
@@ -65,9 +61,9 @@ interface FrameLayoutParameterizable<LP : FrameLayout.LayoutParams> : MarginLayo
     val View.gravity: Int get() = lparams.gravity
 }
 
-class _ActionMenuView(context: Context) : ActionMenuView(context), ViewManager2, LinearLayoutParameterizable<ActionMenuView.LayoutParams>
-
 class _AppWidgetHostView(context: Context) : AppWidgetHostView(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+
+class _ActionMenuView(context: Context) : ActionMenuView(context), ViewManager2, LinearLayoutParameterizable<ActionMenuView.LayoutParams>
 
 class _FrameLayout(context: Context) : FrameLayout(context), ViewManager2, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
