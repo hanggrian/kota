@@ -54,39 +54,11 @@ class DialogsActivity : NextActivity() {
                 supportAlert {
                     setTitle("Custom alert")
                     setView(verticalLayout {
-                        horizontalLayout {
-                            button {
-
-                            } weight 1f
-                            button {
-
-                            } weight 1f
-                            button {
-
-                            } weight 1f
-                        } weight 1f
-                        horizontalLayout {
-                            button {
-
-                            } weight 1f
-                            button {
-
-                            } weight 1f
-                            button {
-
-                            } weight 1f
-                        } weight 1f
-                        horizontalLayout {
-                            button {
-
-                            } weight 1f
-                            button {
-
-                            } weight 1f
-                            button {
-
-                            } weight 1f
-                        } weight 1f
+                        val name = editText { hint = "What's on your mind?" }
+                        button {
+                            text = "Post"
+                            setOnClickListener { toast(name.text) }
+                        }
                     })
                 }.show()
                 false

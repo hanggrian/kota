@@ -2,13 +2,10 @@ package kota
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v7.view.menu.ListMenuItemView
-import android.support.v7.widget.*
+import android.support.v7.widget.ActionMenuView
+import android.support.v7.widget.LinearLayoutCompat
+import android.support.v7.widget.Toolbar
 import android.view.View
-import android.view.ViewGroup
-import android.widget.AbsListView
-import android.widget.FrameLayout
-import android.widget.LinearLayout
 
 interface LinearLayoutCompatParameterizable<LP : LinearLayoutCompat.LayoutParams> : MarginLayoutParameterizable<LP> {
     infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.gravity = gravity }
@@ -17,12 +14,6 @@ interface LinearLayoutCompatParameterizable<LP : LinearLayoutCompat.LayoutParams
     val View.gravity: Int get() = lparams.gravity
     val View.weight: Float get() = lparams.weight
 }
-
-open class _ListMenuItemView(context: Context) : ListMenuItemView(context, null), ViewRoot, LinearLayoutParameterizable<LinearLayout.LayoutParams>
-
-open class _ActionBarContainer(context: Context) : ActionBarContainer(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
-
-open class _ActionBarOverlayLayout(context: Context) : ActionBarOverlayLayout(context), ViewRoot, LayoutParameterizable<ViewGroup.LayoutParams>
 
 open class _ActionMenuViewV7(context: Context) : ActionMenuView(context), ViewRoot, LinearLayoutCompatParameterizable<ActionMenuView.LayoutParams> {
     infix fun <V : View> V.overflowButton(overflow: Boolean): V = apply { lparams.isOverflowButton = overflow }
@@ -38,10 +29,6 @@ open class _ActionMenuViewV7(context: Context) : ActionMenuView(context), ViewRo
     val View.preventEdgeOffset: Boolean get() = lparams.preventEdgeOffset
 }
 
-open class _AlertDialogLayout(context: Context) : AlertDialogLayout(context), ViewRoot, LinearLayoutCompatParameterizable<LinearLayoutCompat.LayoutParams>
-
-open class _ButtonBarLayout(context: Context) : ButtonBarLayout(context, null), ViewRoot, LinearLayoutParameterizable<LinearLayout.LayoutParams>
-
 @SuppressLint("ViewConstructor")
 open class _LinearLayoutCompat(context: Context, orientation: Int) : LinearLayoutCompat(context), ViewRoot, LinearLayoutCompatParameterizable<LinearLayoutCompat.LayoutParams> {
     init {
@@ -49,8 +36,8 @@ open class _LinearLayoutCompat(context: Context, orientation: Int) : LinearLayou
     }
 }
 
-open class _ListViewCompat(context: Context) : ListViewCompat(context), ViewRoot, LayoutParameterizable<AbsListView.LayoutParams>
+open class _ToolbarV7(context: Context) : Toolbar(context), ViewRoot, MarginLayoutParameterizable<Toolbar.LayoutParams> {
+    infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.gravity = gravity }
 
-open class _ScrollingTabContainerView(context: Context) : ScrollingTabContainerView(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
-
-open class _ToolbarV7(context: Context) : Toolbar(context), ViewRoot, MarginLayoutParameterizable<Toolbar.LayoutParams>
+    val View.gravity: Int get() = lparams.gravity
+}

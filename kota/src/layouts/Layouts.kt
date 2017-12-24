@@ -13,7 +13,7 @@ interface ViewRoot {
 
     fun addView(view: View)
 
-    fun <T : View> T.add() = apply { addView(this) }
+    fun <V : View> V.add() = apply { addView(this) }
 }
 
 interface LayoutParameterizable<LP : ViewGroup.LayoutParams> {
@@ -23,6 +23,8 @@ interface LayoutParameterizable<LP : ViewGroup.LayoutParams> {
     infix fun <V : View> V.height(height: Int): V = apply { lparams.height = height }
 
     val View.lparams: LP @Suppress("UNCHECKED_CAST") get() = layoutParams as LP
+
+    @RequiresApi(17) infix fun <V : View> V.resolveDirection(direction: Int): V = apply { lparams.resolveLayoutDirection(direction) }
 }
 
 interface MarginLayoutParameterizable<LP : ViewGroup.MarginLayoutParams> : LayoutParameterizable<LP> {
@@ -42,7 +44,6 @@ interface MarginLayoutParameterizable<LP : ViewGroup.MarginLayoutParams> : Layou
 
     val View.isMarginRelative: Boolean @RequiresApi(17) get() = lparams.isMarginRelative
 
-    @RequiresApi(17) infix fun <V : View> V.resolveDirection(direction: Int): V = apply { lparams.resolveLayoutDirection(direction) }
     @RequiresApi(17) infix fun <V : View> V.direction(direction: Int): V = apply { lparams.setLayoutDirection(direction) }
     val View.direction: Int @RequiresApi(17) get() = lparams.layoutDirection
 }
@@ -117,7 +118,11 @@ open class _TableRow(context: Context) : TableRow(context), ViewRoot, LinearLayo
 
 open class _TextSwitcher(context: Context) : TextSwitcher(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-open class _Toolbar(context: Context) : Toolbar(context), ViewRoot, MarginLayoutParameterizable<Toolbar.LayoutParams>
+open class _Toolbar(context: Context) : Toolbar(context), ViewRoot, MarginLayoutParameterizable<Toolbar.LayoutParams> {
+    infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.gravity = gravity }
+
+    val View.gravity: Int get() = lparams.gravity
+}
 
 open class _ViewAnimator(context: Context) : ViewAnimator(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 

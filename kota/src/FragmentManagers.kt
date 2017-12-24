@@ -10,8 +10,8 @@ import android.support.annotation.RequiresApi
 inline fun <reified T : Fragment> FragmentManager.find(tag: String): T = findFragmentByTag(tag) as T
 inline fun <reified T : Fragment> FragmentManager.find(id: Int): T = findFragmentById(id) as T
 
-inline fun <reified T : Fragment> FragmentManager.findNullable(tag: String): T? = findFragmentByTag(tag) as? T
-inline fun <reified T : Fragment> FragmentManager.findNullable(id: Int): T? = findFragmentById(id) as? T
+inline fun <reified T : Fragment> FragmentManager.findOrNull(tag: String): T? = findFragmentByTag(tag) as? T
+inline fun <reified T : Fragment> FragmentManager.findOrNull(id: Int): T? = findFragmentById(id) as? T
 
 @JvmOverloads
 inline fun FragmentManager.add(

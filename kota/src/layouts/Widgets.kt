@@ -176,10 +176,15 @@ inline fun ViewRoot.viewSwitcher(init: (@KotaDsl _ViewSwitcher).() -> Unit): Vie
 @JvmOverloads inline fun Dialog.autoCompleteTextView(noinline init: ((@KotaDsl AutoCompleteTextView).() -> Unit)? = null): AutoCompleteTextView = AutoCompleteTextView(context).apply { init?.invoke(this) }
 @JvmOverloads inline fun ViewRoot.autoCompleteTextView(noinline init: ((@KotaDsl AutoCompleteTextView).() -> Unit)? = null): AutoCompleteTextView = AutoCompleteTextView(getContext()).apply { init?.invoke(this) }.add()
 
-@JvmOverloads inline fun Context.button(noinline init: ((@KotaDsl Button).() -> Unit)? = null): Button = Button(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.button(noinline init: ((@KotaDsl Button).() -> Unit)? = null): Button = Button(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.button(noinline init: ((@KotaDsl Button).() -> Unit)? = null): Button = Button(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.button(noinline init: ((@KotaDsl Button).() -> Unit)? = null): Button = Button(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.button(noinline init: (@KotaDsl Button).() -> Unit): Button = Button(this).apply(init)
+inline fun Fragment.button(noinline init: (@KotaDsl Button).() -> Unit): Button = Button(activity).apply(init)
+inline fun Dialog.button(noinline init: (@KotaDsl Button).() -> Unit): Button = Button(context).apply(init)
+inline fun ViewRoot.button(noinline init: (@KotaDsl Button).() -> Unit): Button = Button(getContext()).apply(init).add()
+
+@RequiresApi(21) inline fun Context.button(style: Int, noinline init: (@KotaDsl Button).() -> Unit): Button = Button(this, null, android.R.attr.buttonStyle, style).apply(init)
+@RequiresApi(21) inline fun Fragment.button(style: Int, noinline init: (@KotaDsl Button).() -> Unit): Button = Button(activity, null, android.R.attr.buttonStyle, style).apply(init)
+@RequiresApi(21) inline fun Dialog.button(style: Int, noinline init: (@KotaDsl Button).() -> Unit): Button = Button(context, null, android.R.attr.buttonStyle, style).apply(init)
+@RequiresApi(21) inline fun ViewRoot.button(style: Int, noinline init: (@KotaDsl Button).() -> Unit): Button = Button(getContext(), null, android.R.attr.buttonStyle, style).apply(init).add()
 
 @JvmOverloads inline fun Context.calendarView(noinline init: ((@KotaDsl CalendarView).() -> Unit)? = null): CalendarView = CalendarView(this).apply { init?.invoke(this) }
 @JvmOverloads inline fun Fragment.calendarView(noinline init: ((@KotaDsl CalendarView).() -> Unit)? = null): CalendarView = CalendarView(activity).apply { init?.invoke(this) }

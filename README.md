@@ -5,12 +5,22 @@ Kotlin DSL and extension functions for minimalist Android development.
 Showcase
 --------
 
-#### Layout DSL
-
+#### Layouts
+Generate Android layouts and controls with Kotlin DSL, no XML required.
+```kotlin
+verticalLayout {
+    val name = editText { hint = "What's on your mind?" }
+    button {
+        text = "Post"
+        setOnClickListener { toast(name.text) }
+    }
+}
+```
+![Layouts demo][demo_layouts]
 
 #### Collections
 `SparseArray` are considered more memory-efficient `Map` for Android.
-`kota.collections` provides familiar APIs to make `SparseArray` Kotlin-friendly.
+`SparseArraysKt` provides familiar APIs to make `SparseArray` Kotlin-friendly.
 
 ```kotlin
 // create new mutable sparse array
@@ -26,7 +36,7 @@ array.forEachIndexed { i, element ->
 ```
 
 #### Dialogs
-`kota.dialogs` lets you create and show alerts and dialogs, often in one line.
+`DialogsKt` lets you create and show alerts and dialogs, often in one line.
 
 ```kotlin
 // show a confirmation alert
@@ -46,7 +56,7 @@ indeterminateProgressDialog("Loading", "Please wait...")
 ```
 
 #### Resources
-`kota.resources` have consistent APIs in Activity, Fragment, and support Fragment.
+`ResourcesKt` have consistent APIs in Activity, Fragment, and support Fragment.
 Easily obtain any resources with the same syntax across your app.
 
 ```kotlin
@@ -64,7 +74,7 @@ val textSize = 18.sp
 ```
 
 #### Text
-`kota.text` is focused on text spanning and string utilities.
+`TextsKt` is focused on text spanning and string utilities.
 
 ```kotlin
 // create new spannable
@@ -85,7 +95,7 @@ val isEmpty = spannable.isEmpty
 toast("I'm a little piggy")
 
 // or snackbar
-snackbar("Are you a little piggy", android.R.string.yes, { view ->
+snackbar(R.string.are_you_sure, android.R.string.yes, { view ->
     // do some shit
 })
 
@@ -132,3 +142,6 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+    
+[demo_layouts]: /art/demo_layouts.png
