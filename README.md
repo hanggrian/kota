@@ -1,11 +1,12 @@
 kota
 ====
-A lightweight library full of static functions for common practices in Android.
-Inspired by [anko-commons], these static methods are based on [Kotlin extension functions].
+Kotlin DSL and extension functions for minimalist Android development.
 
 Showcase
 --------
-Below are some usages of this library, head to wiki for full information (not yet available).
+
+#### Layout DSL
+
 
 #### Collections
 `SparseArray` are considered more memory-efficient `Map` for Android.
@@ -131,6 +132,3 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-[Kotlin extension functions]: https://kotlinlang.org/docs/reference/extensions.html
-[anko-commons]: https://github.com/Kotlin/anko
