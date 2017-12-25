@@ -26,7 +26,7 @@ android {
 dependencies {
     compile(kotlin("stdlib", kotlinVersion))
     provided(support("appcompat-v7", supportVersion))
-    compile(project(":kota-support-v4"))
+    compile(project(":kota"))
 }
 
 publish {

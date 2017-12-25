@@ -69,8 +69,8 @@ open class _ActionMenuView(context: Context) : ActionMenuView(context), ViewRoot
 open class _FrameLayout(context: Context, @StyleRes defStyleRes: Int) : FrameLayout(context, null, 0, defStyleRes), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
 open class _GridLayout(context: Context, @StyleRes style: Int) : GridLayout(context, null, 0, style), ViewRoot, MarginLayoutParameterizable<GridLayout.LayoutParams> {
-    infix fun <V : View> V.col(spec: GridLayout.Spec) = apply { lparams.columnSpec = spec }
     infix fun <V : View> V.row(spec: GridLayout.Spec) = apply { lparams.rowSpec = spec }
+    infix fun <V : View> V.col(spec: GridLayout.Spec) = apply { lparams.columnSpec = spec }
     infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.setGravity(gravity) }
 
     val View.col: GridLayout.Spec get() = lparams.columnSpec

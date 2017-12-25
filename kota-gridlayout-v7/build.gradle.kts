@@ -25,7 +25,7 @@ android {
 
 dependencies {
     compile(kotlin("stdlib", kotlinVersion))
-    provided(support("recyclerview-v7", supportVersion))
+    provided(support("gridlayout-v7", supportVersion))
     provided(support("support-fragment", supportVersion))
     compile(project(":kota"))
 }
@@ -33,7 +33,7 @@ dependencies {
 publish {
     userOrg = bintrayUser
     groupId = bintrayGroup
-    artifactId = "$bintrayArtifact-recyclerview-v7"
+    artifactId = "$bintrayArtifact-gridlayout-v7"
     publishVersion = bintrayPublish
     desc = bintrayDesc
     website = bintrayWeb
