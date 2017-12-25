@@ -42,23 +42,23 @@ inline fun ViewRoot.textInputLayout(init: (@KotaDsl _TextInputLayout).() -> Unit
 
 //region Views
 
-@JvmOverloads inline fun Context.floatingActionButton(noinline init: ((@KotaDsl FloatingActionButton).() -> Unit)? = null): FloatingActionButton = FloatingActionButton(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.floatingActionButton(noinline init: ((@KotaDsl FloatingActionButton).() -> Unit)? = null): FloatingActionButton = FloatingActionButton(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.floatingActionButton(noinline init: ((@KotaDsl FloatingActionButton).() -> Unit)? = null): FloatingActionButton = FloatingActionButton(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.floatingActionButton(noinline init: ((@KotaDsl FloatingActionButton).() -> Unit)? = null): FloatingActionButton = FloatingActionButton(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.floatingActionButton(init: (@KotaDsl FloatingActionButton).() -> Unit): FloatingActionButton = FloatingActionButton(this).apply(init)
+inline fun Fragment.floatingActionButton(init: (@KotaDsl FloatingActionButton).() -> Unit): FloatingActionButton = FloatingActionButton(activity).apply(init)
+inline fun Dialog.floatingActionButton(init: (@KotaDsl FloatingActionButton).() -> Unit): FloatingActionButton = FloatingActionButton(context).apply(init)
+inline fun ViewRoot.floatingActionButton(init: (@KotaDsl FloatingActionButton).() -> Unit): FloatingActionButton = FloatingActionButton(getContext()).apply(init).add()
 
-@JvmOverloads inline fun Context.navigationView(noinline init: ((@KotaDsl NavigationView).() -> Unit)? = null): NavigationView = NavigationView(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.navigationView(noinline init: ((@KotaDsl NavigationView).() -> Unit)? = null): NavigationView = NavigationView(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.navigationView(noinline init: ((@KotaDsl NavigationView).() -> Unit)? = null): NavigationView = NavigationView(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.navigationView(noinline init: ((@KotaDsl NavigationView).() -> Unit)? = null): NavigationView = NavigationView(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.navigationView(init: (@KotaDsl NavigationView).() -> Unit): NavigationView = NavigationView(this).apply(init)
+inline fun Fragment.navigationView(init: (@KotaDsl NavigationView).() -> Unit): NavigationView = NavigationView(activity).apply(init)
+inline fun Dialog.navigationView(init: (@KotaDsl NavigationView).() -> Unit): NavigationView = NavigationView(context).apply(init)
+inline fun ViewRoot.navigationView(init: (@KotaDsl NavigationView).() -> Unit): NavigationView = NavigationView(getContext()).apply(init).add()
 
-@JvmOverloads inline fun Context.tabItem(noinline init: ((@KotaDsl TabItem).() -> Unit)? = null): TabItem = TabItem(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.tabItem(noinline init: ((@KotaDsl TabItem).() -> Unit)? = null): TabItem = TabItem(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.tabItem(noinline init: ((@KotaDsl TabItem).() -> Unit)? = null): TabItem = TabItem(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.tabItem(noinline init: ((@KotaDsl TabItem).() -> Unit)? = null): TabItem = TabItem(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.tabItem(init: (@KotaDsl TabItem).() -> Unit): TabItem = TabItem(this).apply(init)
+inline fun Fragment.tabItem(init: (@KotaDsl TabItem).() -> Unit): TabItem = TabItem(activity).apply(init)
+inline fun Dialog.tabItem(init: (@KotaDsl TabItem).() -> Unit): TabItem = TabItem(context).apply(init)
+inline fun ViewRoot.tabItem(init: (@KotaDsl TabItem).() -> Unit): TabItem = TabItem(getContext()).apply(init)
 
-@JvmOverloads inline fun Context.textInputEditText(noinline init: ((@KotaDsl TextInputEditText).() -> Unit)? = null): TextInputEditText = TextInputEditText(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.textInputEditText(noinline init: ((@KotaDsl TextInputEditText).() -> Unit)? = null): TextInputEditText = TextInputEditText(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.textInputEditText(noinline init: ((@KotaDsl TextInputEditText).() -> Unit)? = null): TextInputEditText = TextInputEditText(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.textInputEditText(noinline init: ((@KotaDsl TextInputEditText).() -> Unit)? = null): TextInputEditText = TextInputEditText(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.textInputEditText(init: (@KotaDsl TextInputEditText).() -> Unit): TextInputEditText = TextInputEditText(this).apply(init)
+inline fun Fragment.textInputEditText(init: (@KotaDsl TextInputEditText).() -> Unit): TextInputEditText = TextInputEditText(activity).apply(init)
+inline fun Dialog.textInputEditText(init: (@KotaDsl TextInputEditText).() -> Unit): TextInputEditText = TextInputEditText(context).apply(init)
+inline fun ViewRoot.textInputEditText(init: (@KotaDsl TextInputEditText).() -> Unit): TextInputEditText = TextInputEditText(getContext()).apply(init).add()
 //endregion

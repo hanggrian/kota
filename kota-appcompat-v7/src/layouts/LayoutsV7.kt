@@ -1,6 +1,5 @@
 package kota
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v7.widget.ActionMenuView
 import android.support.v7.widget.LinearLayoutCompat
@@ -29,7 +28,6 @@ open class _ActionMenuViewV7(context: Context) : ActionMenuView(context), ViewRo
     val View.preventEdgeOffset: Boolean get() = lparams.preventEdgeOffset
 }
 
-@SuppressLint("ViewConstructor")
 open class _LinearLayoutCompat(context: Context, orientation: Int) : LinearLayoutCompat(context), ViewRoot, LinearLayoutCompatParameterizable<LinearLayoutCompat.LayoutParams> {
     init {
         setOrientation(orientation)

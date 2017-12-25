@@ -34,18 +34,18 @@ inline fun ViewRoot.supportToolbar(init: (@KotaDsl _ToolbarV7).() -> Unit): Tool
 
 //region Views
 
-@JvmOverloads inline fun Context.contentFrameLayout(noinline init: ((@KotaDsl ContentFrameLayout).() -> Unit)? = null): ContentFrameLayout = ContentFrameLayout(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.contentFrameLayout(noinline init: ((@KotaDsl ContentFrameLayout).() -> Unit)? = null): ContentFrameLayout = ContentFrameLayout(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.contentFrameLayout(noinline init: ((@KotaDsl ContentFrameLayout).() -> Unit)? = null): ContentFrameLayout = ContentFrameLayout(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.contentFrameLayout(noinline init: ((@KotaDsl ContentFrameLayout).() -> Unit)? = null): ContentFrameLayout = ContentFrameLayout(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.contentFrameLayout(init: (@KotaDsl ContentFrameLayout).() -> Unit): ContentFrameLayout = ContentFrameLayout(this).apply(init)
+inline fun Fragment.contentFrameLayout(init: (@KotaDsl ContentFrameLayout).() -> Unit): ContentFrameLayout = ContentFrameLayout(activity).apply(init)
+inline fun Dialog.contentFrameLayout(init: (@KotaDsl ContentFrameLayout).() -> Unit): ContentFrameLayout = ContentFrameLayout(context).apply(init)
+inline fun ViewRoot.contentFrameLayout(init: (@KotaDsl ContentFrameLayout).() -> Unit): ContentFrameLayout = ContentFrameLayout(getContext()).apply(init).add()
 
-@JvmOverloads inline fun Context.supportSearchView(noinline init: ((@KotaDsl SearchView).() -> Unit)? = null): SearchView = SearchView(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.supportSearchView(noinline init: ((@KotaDsl SearchView).() -> Unit)? = null): SearchView = SearchView(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.supportSearchView(noinline init: ((@KotaDsl SearchView).() -> Unit)? = null): SearchView = SearchView(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.supportSearchView(noinline init: ((@KotaDsl SearchView).() -> Unit)? = null): SearchView = SearchView(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.supportSearchView(init: (@KotaDsl SearchView).() -> Unit): SearchView = SearchView(this).apply(init)
+inline fun Fragment.supportSearchView(init: (@KotaDsl SearchView).() -> Unit): SearchView = SearchView(activity).apply(init)
+inline fun Dialog.supportSearchView(init: (@KotaDsl SearchView).() -> Unit): SearchView = SearchView(context).apply(init)
+inline fun ViewRoot.supportSearchView(init: (@KotaDsl SearchView).() -> Unit): SearchView = SearchView(getContext()).apply(init).add()
 
-@JvmOverloads inline fun Context.switchCompat(noinline init: ((@KotaDsl SwitchCompat).() -> Unit)? = null): SwitchCompat = SwitchCompat(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.switchCompat(noinline init: ((@KotaDsl SwitchCompat).() -> Unit)? = null): SwitchCompat = SwitchCompat(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.switchCompat(noinline init: ((@KotaDsl SwitchCompat).() -> Unit)? = null): SwitchCompat = SwitchCompat(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.switchCompat(noinline init: ((@KotaDsl SwitchCompat).() -> Unit)? = null): SwitchCompat = SwitchCompat(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.switchCompat(init: (@KotaDsl SwitchCompat).() -> Unit): SwitchCompat = SwitchCompat(this).apply(init)
+inline fun Fragment.switchCompat(init: (@KotaDsl SwitchCompat).() -> Unit): SwitchCompat = SwitchCompat(activity).apply(init)
+inline fun Dialog.switchCompat(init: (@KotaDsl SwitchCompat).() -> Unit): SwitchCompat = SwitchCompat(context).apply(init)
+inline fun ViewRoot.switchCompat(init: (@KotaDsl SwitchCompat).() -> Unit): SwitchCompat = SwitchCompat(getContext()).apply(init).add()
 //endregion

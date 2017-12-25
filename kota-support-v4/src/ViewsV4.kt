@@ -8,4 +8,4 @@ import android.view.View
 
 inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById(id) as T
 
-inline fun <reified T : View> Fragment.findNullable(@IdRes id: Int): T? = view?.findViewById(id) as? T
+inline fun <reified T : View> Fragment.findOrNull(@IdRes id: Int): T? = view?.findViewById(id) as? T

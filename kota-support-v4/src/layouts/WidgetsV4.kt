@@ -41,28 +41,28 @@ inline fun ViewRoot.slidingPaneLayout(init: (@KotaDsl _SlidingPaneLayout).() -> 
 
 //region Views
 
-@JvmOverloads inline fun Context.pagerTabStrip(noinline init: ((@KotaDsl PagerTabStrip).() -> Unit)? = null): PagerTabStrip = PagerTabStrip(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.pagerTabStrip(noinline init: ((@KotaDsl PagerTabStrip).() -> Unit)? = null): PagerTabStrip = PagerTabStrip(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.pagerTabStrip(noinline init: ((@KotaDsl PagerTabStrip).() -> Unit)? = null): PagerTabStrip = PagerTabStrip(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.pagerTabStrip(noinline init: ((@KotaDsl PagerTabStrip).() -> Unit)? = null): PagerTabStrip = PagerTabStrip(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.pagerTabStrip(init: (@KotaDsl PagerTabStrip).() -> Unit): PagerTabStrip = PagerTabStrip(this).apply(init)
+inline fun Fragment.pagerTabStrip(init: (@KotaDsl PagerTabStrip).() -> Unit): PagerTabStrip = PagerTabStrip(activity).apply(init)
+inline fun Dialog.pagerTabStrip(init: (@KotaDsl PagerTabStrip).() -> Unit): PagerTabStrip = PagerTabStrip(context).apply(init)
+inline fun ViewRoot.pagerTabStrip(init: (@KotaDsl PagerTabStrip).() -> Unit): PagerTabStrip = PagerTabStrip(getContext()).apply(init).add()
 
-@JvmOverloads inline fun Context.pagerTitleStrip(noinline init: ((@KotaDsl PagerTitleStrip).() -> Unit)? = null): PagerTitleStrip = PagerTitleStrip(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.pagerTitleStrip(noinline init: ((@KotaDsl PagerTitleStrip).() -> Unit)? = null): PagerTitleStrip = PagerTitleStrip(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.pagerTitleStrip(noinline init: ((@KotaDsl PagerTitleStrip).() -> Unit)? = null): PagerTitleStrip = PagerTitleStrip(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.pagerTitleStrip(noinline init: ((@KotaDsl PagerTitleStrip).() -> Unit)? = null): PagerTitleStrip = PagerTitleStrip(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.pagerTitleStrip(init: (@KotaDsl PagerTitleStrip).() -> Unit): PagerTitleStrip = PagerTitleStrip(this).apply(init)
+inline fun Fragment.pagerTitleStrip(init: (@KotaDsl PagerTitleStrip).() -> Unit): PagerTitleStrip = PagerTitleStrip(activity).apply(init)
+inline fun Dialog.pagerTitleStrip(init: (@KotaDsl PagerTitleStrip).() -> Unit): PagerTitleStrip = PagerTitleStrip(context).apply(init)
+inline fun ViewRoot.pagerTitleStrip(init: (@KotaDsl PagerTitleStrip).() -> Unit): PagerTitleStrip = PagerTitleStrip(getContext()).apply(init).add()
 
-@JvmOverloads inline fun Context.contentLoadingProgressBar(noinline init: ((@KotaDsl ContentLoadingProgressBar).() -> Unit)? = null): ContentLoadingProgressBar = ContentLoadingProgressBar(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.contentLoadingProgressBar(noinline init: ((@KotaDsl ContentLoadingProgressBar).() -> Unit)? = null): ContentLoadingProgressBar = ContentLoadingProgressBar(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.contentLoadingProgressBar(noinline init: ((@KotaDsl ContentLoadingProgressBar).() -> Unit)? = null): ContentLoadingProgressBar = ContentLoadingProgressBar(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.contentLoadingProgressBar(noinline init: ((@KotaDsl ContentLoadingProgressBar).() -> Unit)? = null): ContentLoadingProgressBar = ContentLoadingProgressBar(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.contentLoadingProgressBar(init: (@KotaDsl ContentLoadingProgressBar).() -> Unit): ContentLoadingProgressBar = ContentLoadingProgressBar(this).apply(init)
+inline fun Fragment.contentLoadingProgressBar(init: (@KotaDsl ContentLoadingProgressBar).() -> Unit): ContentLoadingProgressBar = ContentLoadingProgressBar(activity).apply(init)
+inline fun Dialog.contentLoadingProgressBar(init: (@KotaDsl ContentLoadingProgressBar).() -> Unit): ContentLoadingProgressBar = ContentLoadingProgressBar(context).apply(init)
+inline fun ViewRoot.contentLoadingProgressBar(init: (@KotaDsl ContentLoadingProgressBar).() -> Unit): ContentLoadingProgressBar = ContentLoadingProgressBar(getContext()).apply(init).add()
 
-@JvmOverloads inline fun Context.supportSpace(noinline init: ((@KotaDsl Space).() -> Unit)? = null): Space = Space(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.supportSpace(noinline init: ((@KotaDsl Space).() -> Unit)? = null): Space = Space(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.supportSpace(noinline init: ((@KotaDsl Space).() -> Unit)? = null): Space = Space(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.supportSpace(noinline init: ((@KotaDsl Space).() -> Unit)? = null): Space = Space(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.supportSpace(init: (@KotaDsl Space).() -> Unit): Space = Space(this).apply(init)
+inline fun Fragment.supportSpace(init: (@KotaDsl Space).() -> Unit): Space = Space(activity).apply(init)
+inline fun Dialog.supportSpace(init: (@KotaDsl Space).() -> Unit): Space = Space(context).apply(init)
+inline fun ViewRoot.supportSpace(init: (@KotaDsl Space).() -> Unit): Space = Space(getContext()).apply(init).add()
 
-@JvmOverloads inline fun Context.swipeRefreshLayout(noinline init: ((@KotaDsl SwipeRefreshLayout).() -> Unit)? = null): SwipeRefreshLayout = SwipeRefreshLayout(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.swipeRefreshLayout(noinline init: ((@KotaDsl SwipeRefreshLayout).() -> Unit)? = null): SwipeRefreshLayout = SwipeRefreshLayout(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.swipeRefreshLayout(noinline init: ((@KotaDsl SwipeRefreshLayout).() -> Unit)? = null): SwipeRefreshLayout = SwipeRefreshLayout(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.swipeRefreshLayout(noinline init: ((@KotaDsl SwipeRefreshLayout).() -> Unit)? = null): SwipeRefreshLayout = SwipeRefreshLayout(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.swipeRefreshLayout(init: (@KotaDsl SwipeRefreshLayout).() -> Unit): SwipeRefreshLayout = SwipeRefreshLayout(this).apply(init)
+inline fun Fragment.swipeRefreshLayout(init: (@KotaDsl SwipeRefreshLayout).() -> Unit): SwipeRefreshLayout = SwipeRefreshLayout(activity).apply(init)
+inline fun Dialog.swipeRefreshLayout(init: (@KotaDsl SwipeRefreshLayout).() -> Unit): SwipeRefreshLayout = SwipeRefreshLayout(context).apply(init)
+inline fun ViewRoot.swipeRefreshLayout(init: (@KotaDsl SwipeRefreshLayout).() -> Unit): SwipeRefreshLayout = SwipeRefreshLayout(getContext()).apply(init).add()
 //endregion

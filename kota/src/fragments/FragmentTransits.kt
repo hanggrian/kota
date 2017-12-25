@@ -6,9 +6,17 @@ import android.support.annotation.StyleRes
 import kota.BuildConfig.*
 
 open class CustomTransit : FragmentTransit {
-    constructor(@AnimatorRes enter: Int, @AnimatorRes exit: Int) : super(TRANSIT_TYPE_CUSTOM, enter, exit)
-    constructor(@AnimatorRes enter: Int, @AnimatorRes exit: Int,
-                @AnimatorRes popEnter: Int, @AnimatorRes popExit: Int) : super(TRANSIT_TYPE_CUSTOM, enter, exit, popEnter, popExit)
+    constructor(
+            @AnimatorRes enter: Int,
+            @AnimatorRes exit: Int
+    ) : super(TRANSIT_TYPE_CUSTOM, enter, exit)
+
+    constructor(
+            @AnimatorRes enter: Int,
+            @AnimatorRes exit: Int,
+            @AnimatorRes popEnter: Int,
+            @AnimatorRes popExit: Int
+    ) : super(TRANSIT_TYPE_CUSTOM, enter, exit, popEnter, popExit)
 }
 
 object NoTransit : FragmentTransit(TRANSIT_TYPE_CONSTANT, TRANSIT_NONE)

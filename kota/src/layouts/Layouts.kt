@@ -1,9 +1,9 @@
 package kota
 
-import android.annotation.SuppressLint
 import android.appwidget.AppWidgetHostView
 import android.content.Context
 import android.support.annotation.RequiresApi
+import android.support.annotation.StyleRes
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -66,9 +66,9 @@ open class _AppWidgetHostView(context: Context) : AppWidgetHostView(context), Vi
 
 open class _ActionMenuView(context: Context) : ActionMenuView(context), ViewRoot, LinearLayoutParameterizable<ActionMenuView.LayoutParams>
 
-open class _FrameLayout(context: Context) : FrameLayout(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _FrameLayout(context: Context, @StyleRes defStyleRes: Int) : FrameLayout(context, null, 0, defStyleRes), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-open class _GridLayout(context: Context) : GridLayout(context), ViewRoot, MarginLayoutParameterizable<GridLayout.LayoutParams> {
+open class _GridLayout(context: Context, @StyleRes style: Int) : GridLayout(context, null, 0, style), ViewRoot, MarginLayoutParameterizable<GridLayout.LayoutParams> {
     infix fun <V : View> V.col(spec: GridLayout.Spec) = apply { lparams.columnSpec = spec }
     infix fun <V : View> V.row(spec: GridLayout.Spec) = apply { lparams.rowSpec = spec }
     infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.setGravity(gravity) }
@@ -77,14 +77,13 @@ open class _GridLayout(context: Context) : GridLayout(context), ViewRoot, Margin
     val View.row: GridLayout.Spec get() = lparams.rowSpec
 }
 
-open class _GridView(context: Context) : GridView(context), ViewRoot, LayoutParameterizable<AbsListView.LayoutParams>
+open class _GridView(context: Context, @StyleRes style: Int) : GridView(context, null, 0, style), ViewRoot, LayoutParameterizable<AbsListView.LayoutParams>
 
-open class _HorizontalScrollView(context: Context) : HorizontalScrollView(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _HorizontalScrollView(context: Context, @StyleRes style: Int) : HorizontalScrollView(context, null, 0, style), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
 open class _ImageSwitcher(context: Context) : ImageSwitcher(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-@SuppressLint("ViewConstructor")
-open class _LinearLayout(context: Context, orientation: Int) : LinearLayout(context), ViewRoot, LinearLayoutParameterizable<LinearLayout.LayoutParams> {
+open class _LinearLayout(context: Context, @StyleRes style: Int, orientation: Int) : LinearLayout(context, null, 0, style), ViewRoot, LinearLayoutParameterizable<LinearLayout.LayoutParams> {
     init {
         setOrientation(orientation)
     }
@@ -92,7 +91,7 @@ open class _LinearLayout(context: Context, orientation: Int) : LinearLayout(cont
 
 open class _RadioGroup(context: Context) : RadioGroup(context), ViewRoot, LinearLayoutParameterizable<RadioGroup.LayoutParams>
 
-open class _RelativeLayout(context: Context) : RelativeLayout(context), ViewRoot, MarginLayoutParameterizable<RelativeLayout.LayoutParams> {
+open class _RelativeLayout(context: Context, @StyleRes style: Int) : RelativeLayout(context, null, 0, style), ViewRoot, MarginLayoutParameterizable<RelativeLayout.LayoutParams> {
     infix fun <V : View> V.alignWithParent(align: Boolean): V = apply { lparams.alignWithParent = align }
     infix fun <V : View> V.addRule(verb: Int): V = apply { lparams.addRule(verb) }
     fun <V : View> V.addRule(verb: Int, subject: Int): V = apply { lparams.addRule(verb, subject) }
@@ -104,7 +103,7 @@ open class _RelativeLayout(context: Context) : RelativeLayout(context), ViewRoot
     @RequiresApi(17) override fun <V : View> V.resolveDirection(direction: Int): V = apply { lparams.resolveLayoutDirection(direction) }
 }
 
-open class _ScrollView(context: Context) : ScrollView(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
+open class _ScrollView(context: Context, @StyleRes style: Int) : ScrollView(context, null, 0, style), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
 open class _TableLayout(context: Context) : TableLayout(context), ViewRoot, LinearLayoutParameterizable<TableLayout.LayoutParams>
 
@@ -118,7 +117,7 @@ open class _TableRow(context: Context) : TableRow(context), ViewRoot, LinearLayo
 
 open class _TextSwitcher(context: Context) : TextSwitcher(context), ViewRoot, FrameLayoutParameterizable<FrameLayout.LayoutParams>
 
-open class _Toolbar(context: Context) : Toolbar(context), ViewRoot, MarginLayoutParameterizable<Toolbar.LayoutParams> {
+open class _Toolbar(context: Context, @StyleRes style: Int) : Toolbar(context, null, 0, style), ViewRoot, MarginLayoutParameterizable<Toolbar.LayoutParams> {
     infix fun <V : View> V.gravity(gravity: Int): V = apply { lparams.gravity = gravity }
 
     val View.gravity: Int get() = lparams.gravity

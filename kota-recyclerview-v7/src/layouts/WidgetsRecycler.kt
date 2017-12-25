@@ -7,7 +7,7 @@ import android.app.Fragment
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 
-@JvmOverloads inline fun Context.recyclerView(noinline init: ((@KotaDsl RecyclerView).() -> Unit)? = null): RecyclerView = RecyclerView(this).apply { init?.invoke(this) }
-@JvmOverloads inline fun Fragment.recyclerView(noinline init: ((@KotaDsl RecyclerView).() -> Unit)? = null): RecyclerView = RecyclerView(activity).apply { init?.invoke(this) }
-@JvmOverloads inline fun Dialog.recyclerView(noinline init: ((@KotaDsl RecyclerView).() -> Unit)? = null): RecyclerView = RecyclerView(context).apply { init?.invoke(this) }
-@JvmOverloads inline fun ViewRoot.recyclerView(noinline init: ((@KotaDsl RecyclerView).() -> Unit)? = null): RecyclerView = RecyclerView(getContext()).apply { init?.invoke(this) }.add()
+inline fun Context.recyclerView(init: (@KotaDsl RecyclerView).() -> Unit): RecyclerView = RecyclerView(this).apply(init)
+inline fun Fragment.recyclerView(init: (@KotaDsl RecyclerView).() -> Unit): RecyclerView = RecyclerView(activity).apply(init)
+inline fun Dialog.recyclerView(init: (@KotaDsl RecyclerView).() -> Unit): RecyclerView = RecyclerView(context).apply(init)
+inline fun ViewRoot.recyclerView(init: (@KotaDsl RecyclerView).() -> Unit): RecyclerView = RecyclerView(getContext()).apply(init).add()

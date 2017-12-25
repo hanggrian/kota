@@ -4,8 +4,4 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
-
-    <style name="TestTheme" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">@color/colorAccent</item>
-    </style>
 </resources>
