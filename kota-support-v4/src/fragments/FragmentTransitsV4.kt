@@ -1,8 +1,8 @@
 package kota
 
 import android.support.v4.app.FragmentTransaction
-import kota.BuildConfig.TRANSIT_TYPE_CONSTANT
-import kota.BuildConfig.TRANSIT_TYPE_CUSTOM
+import kota.FragmentTransit.Companion.TRANSIT_TYPE_CONSTANT
+import kota.FragmentTransit.Companion.TRANSIT_TYPE_CUSTOM
 
 @PublishedApi
 @Suppress("NOTHING_TO_INLINE")

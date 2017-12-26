@@ -1,9 +1,9 @@
 import org.gradle.kotlin.dsl.kotlin
 
 plugins {
-    id("com.android.library")
+    android("library")
     kotlin("android")
-    id("com.novoda.bintray-release")
+    bintrayRelease()
 }
 
 android {

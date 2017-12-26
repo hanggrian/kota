@@ -1,9 +1,9 @@
 import org.gradle.kotlin.dsl.kotlin
 
 plugins {
-    id("com.android.application")
+    android("application")
     kotlin("android")
-    id("kotlin-android-extensions")
+    kotlin("android.extensions")
 }
 
 android {
@@ -43,6 +43,7 @@ dependencies {
 
     implementation(kotlin("stdlib", kotlinVersion))
 
+    implementation(project(":kota-support-v4"))
     implementation(project(":kota-appcompat-v7"))
     implementation(project(":kota-recyclerview-v7"))
     implementation(project(":kota-preference-v7"))

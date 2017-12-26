@@ -1,9 +1,10 @@
 import org.gradle.kotlin.dsl.kotlin
 
 plugins {
-    id("com.android.library")
+    android("library")
     kotlin("android")
-    id("com.novoda.bintray-release")
+    dokka("android")
+    bintrayRelease()
 }
 
 android {
@@ -26,18 +27,6 @@ android {
             java.srcDir("tests/src")
             res.srcDir("tests/res")
             resources.srcDir("tests/src")
-        }
-    }
-    buildTypes {
-        getByName("debug") {
-            buildConfigField("int", "TRANSIT_TYPE_CUSTOM", "0")
-            buildConfigField("int", "TRANSIT_TYPE_CONSTANT", "1")
-            buildConfigField("int", "TRANSIT_TYPE_STYLE", "2")
-        }
-        getByName("release") {
-            buildConfigField("int", "TRANSIT_TYPE_CUSTOM", "0")
-            buildConfigField("int", "TRANSIT_TYPE_CONSTANT", "1")
-            buildConfigField("int", "TRANSIT_TYPE_STYLE", "2")
         }
     }
 }
