@@ -21,16 +21,6 @@ open class FragmentTransit @PublishedApi internal constructor(
     }
 }
 
-@PublishedApi
-@Suppress("NOTHING_TO_INLINE")
-internal inline fun FragmentTransaction.setTransit(transit: FragmentTransit): FragmentTransaction = transit.let { (type, value) ->
-    return when (type) {
-        TRANSIT_TYPE_CUSTOM -> if (value.size == 2) setCustomAnimations(value[0], value[1]) else setCustomAnimations(value[0], value[1], value[2], value[3])
-        TRANSIT_TYPE_CONSTANT -> setTransition(value[0])
-        else -> setTransitionStyle(value[0])
-    }
-}
-
 open class CustomTransit : FragmentTransit {
     constructor(
             @AnimatorRes enter: Int,
@@ -54,3 +44,13 @@ open class FadeTransit : FragmentTransit(TRANSIT_TYPE_CONSTANT, TRANSIT_FRAGMENT
 }
 
 open class StyleTransit(@StyleRes styleRes: Int) : FragmentTransit(TRANSIT_TYPE_STYLE, styleRes)
+
+@PublishedApi
+@Suppress("NOTHING_TO_INLINE")
+internal inline fun FragmentTransaction.setTransit(transit: FragmentTransit): FragmentTransaction = transit.let { (type, value) ->
+    return when (type) {
+        TRANSIT_TYPE_CUSTOM -> if (value.size == 2) setCustomAnimations(value[0], value[1]) else setCustomAnimations(value[0], value[1], value[2], value[3])
+        TRANSIT_TYPE_CONSTANT -> setTransition(value[0])
+        else -> setTransitionStyle(value[0])
+    }
+}

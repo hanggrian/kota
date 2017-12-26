@@ -3,6 +3,7 @@ import org.gradle.kotlin.dsl.kotlin
 plugins {
     android("library")
     kotlin("android")
+    dokka("android")
     bintrayRelease()
 }
 

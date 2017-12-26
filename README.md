@@ -121,20 +121,20 @@ repositories {
 
 dependencies {
     // core module
-    compile 'com.hendraanggrian:kota:0.21'
+    compile 'com.hendraanggrian:kota:0.22'
     
     // kota implementation on support fragment
-    compile 'com.hendraanggrian:kota-support-v4:0.21'
+    compile 'com.hendraanggrian:kota-support-v4:0.22'
     
     // individual v7 package
-    compile 'com.hendraanggrian:kota-appcompat-v7:0.21'
-    compile 'com.hendraanggrian:kota-cardview-v7:0.21'
-    compile 'com.hendraanggrian:kota-gridlayout-v7:0.21'
-    compile 'com.hendraanggrian:kota-preference-v7:0.21'
-    compile 'com.hendraanggrian:kota-recyclerview-v7:0.21'
+    compile 'com.hendraanggrian:kota-appcompat-v7:0.22'
+    compile 'com.hendraanggrian:kota-cardview-v7:0.22'
+    compile 'com.hendraanggrian:kota-gridlayout-v7:0.22'
+    compile 'com.hendraanggrian:kota-preference-v7:0.22'
+    compile 'com.hendraanggrian:kota-recyclerview-v7:0.22'
     
     // material design DSL
-    compile 'com.hendraanggrian:kota-design:0.21'
+    compile 'com.hendraanggrian:kota-design:0.22'
 }
 ```
 
