@@ -2,6 +2,11 @@ kota
 ====
 Kotlin DSL and extension functions for minimalist Android development.
 
+Deprecated
+----------
+[anko](https://github.com/Kotlin/anko) and [android-ktx](https://github.com/android/android-ktx) do exactly the same thing,
+and are still maintained.
+
 Showcase
 --------
 
